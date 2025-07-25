@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+ECHO is on.
+# Environment
+kjv-sources-env/
+ECHO is on.
+# Data 
+raw_data.csv
+pentateuch.jsonl
