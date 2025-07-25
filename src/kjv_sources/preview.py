@@ -1,4 +1,5 @@
 from pathlib import Path
+import argparse
 import sys
 
 import pandas as pd
@@ -7,6 +8,7 @@ from rich.table import Table
 
 console = Console()
 
+# style map for the single-letter tags
 SOURCE_STYLES = {
     "J": "bold yellow",
     "E": "bold blue",
@@ -16,23 +18,25 @@ SOURCE_STYLES = {
     "—": "dim"
 }
 
-def format_source_tag(tag: str) -> str:
-    """
-    Format a source tag like 'J+E' with individual colors.
-    """
-    if not tag or tag.strip() == "":
-        return "[dim]—[/]"
-    parts = tag.split("+")
-    styled_parts = []
-    for part in parts:
-        style = SOURCE_STYLES.get(part.strip(), "dim")
-        styled_parts.append(f"[{style}]{part.strip()}[/]")
-    return " + ".join(styled_parts)
+# full-name map (without the word “source”)
+SOURCE_FULL_NAMES = {
+    "J": "yahwist",
+    "E": "elohist",
+    "P": "priestly",
+    "D": "deuteronomist",
+    "R": "redactor",
+    "—": "none"
+}
 
-def preview_verses(csv_path: Path, count: int = 5):
-    """
-    Preview a few verses from the annotated CSV file.
-    """
+def print_legend():
+    console.print("\n[bold underline]Source Legend[/]")
+    for tag, style in SOURCE_STYLES.items():
+        if tag == "—":
+            continue
+        full = SOURCE_FULL_NAMES[tag]
+        console.print(f"[{style}]{tag}[/] = [{style}]{full}[/]")
+
+def preview_verses(csv_path: Path, count: int = 5, filter_sources=None):
     if not csv_path.exists():
         console.print(f"[red]File not found:[/] {csv_path}")
         sys.exit(1)
@@ -40,38 +44,56 @@ def preview_verses(csv_path: Path, count: int = 5):
     df = pd.read_csv(csv_path)
     required = {"book", "chapter", "verse", "text", "source"}
     if not required.issubset(df.columns):
-        console.print(
-            "[red]CSV missing one of the required columns:[/]"
-            f" {', '.join(required)}"
-        )
+        console.print("[red]CSV missing required columns:[/] " + ", ".join(required))
         sys.exit(1)
 
-    table = Table(show_header=True, header_style="bold cyan")
+    # apply --filter if given
+    if filter_sources:
+        df = df[df["source"].apply(
+            lambda s: any(tag in s.split("+") for tag in filter_sources)
+        )]
+
+    table = Table(show_header=True, header_style="bold cyan", box=None)
     table.add_column("Book", style="dim", width=12)
     table.add_column("Chapter", justify="right", width=8)
     table.add_column("Verse", justify="right", width=8)
     table.add_column("Text", style="white", width=60)
-    table.add_column("Source", style="white", width=20)
+    table.add_column("Source", style="white", width=30)
 
     for _, row in df.head(count).iterrows():
-        source_tag = format_source_tag(row["source"])
+        raw = row["source"] or "—"
+        parts = [p.strip() for p in raw.split("+")]
+
+        # combine letter+name for each source
+        styled_pairs = []
+        for p in parts:
+            style = SOURCE_STYLES.get(p, "dim")
+            full  = SOURCE_FULL_NAMES.get(p, p)
+            styled_pairs.append(f"[{style}]{p} {full}[/]")
+
+        cell = ", ".join(styled_pairs)
+
         table.add_row(
             str(row["book"]),
             str(row["chapter"]),
             str(row["verse"]),
             str(row["text"]),
-            source_tag
+            cell
         )
 
     console.print(table)
+    print_legend()
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        console.print(
-            "[yellow]Usage:[/] python preview.py [path_to_csv] [optional:count]"
-        )
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Preview annotated scripture verses.")
+    parser.add_argument("csv_path", type=Path, help="Path to CSV file")
+    parser.add_argument("--count", type=int, default=5, help="Number of verses to preview")
+    parser.add_argument(
+        "--filter",
+        dest="filter_sources",
+        type=lambda s: s.split(","),
+        help="Comma-separated source tags to include (e.g. J,P)"
+    )
 
-    path_arg = Path(sys.argv[1])
-    num = int(sys.argv[2]) if len(sys.argv) > 2 else 5
-    preview_verses(path_arg, num)
+    args = parser.parse_args()
+    preview_verses(args.csv_path, args.count, args.filter_sources)
