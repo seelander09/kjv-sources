@@ -1,6 +1,10 @@
 setup.py
+src/kjv_sources/__init__.py
+src/kjv_sources/scraper.py
 src/kjv_sources.egg-info/PKG-INFO
 src/kjv_sources.egg-info/SOURCES.txt
 src/kjv_sources.egg-info/dependency_links.txt
 src/kjv_sources.egg-info/entry_points.txt
 src/kjv_sources.egg-info/top_level.txt
+src/kjv_sources/data/__init__.py
+src/kjv_sources/parsers/__init__.py
