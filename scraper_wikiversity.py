@@ -1,193 +1,226 @@
 #!/usr/bin/env python3
+
+import os
+import sys
+import shutil
 import re
-import csv
+import json
+import time
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
-import os
-import shutil
-import platform
-import subprocess
+import csv
 import argparse
+from collections import Counter
 
-COLOR_SOURCE_MAP = {
-    "#0000ff": "J",
-    "#000088": "J",
-    "#008080": "E",
-    "#008888": "E",
-    "#888800": "P",
-    "#800000": "R",
-    "#006400": "D",
+BOOK_URLS = {
+    "Genesis":     "https://en.wikiversity.org/wiki/Bible/King_James/Documentary_Hypothesis/Genesis",
+    "Exodus":      "https://en.wikiversity.org/wiki/Bible/King_James/Documentary_Hypothesis/Exodus",
+    "Leviticus":   "https://en.wikiversity.org/wiki/Bible/King_James/Documentary_Hypothesis/Leviticus",
+    "Numbers":     "https://en.wikiversity.org/wiki/Bible/King_James/Documentary_Hypothesis/Numbers",
+    "Deuteronomy": "https://en.wikiversity.org/wiki/Bible/King_James/Documentary_Hypothesis/Deuteronomy",
 }
 
-def open_file(path: str):
-    """Cross-platform file opener."""
-    try:
-        if platform.system() == "Windows":
-            os.startfile(path)
-        elif platform.system() == "Darwin":  # macOS
-            subprocess.run(["open", path], check=False)
-        else:  # Linux
-            subprocess.run(["xdg-open", path], check=False)
-    except Exception as e:
-        print(f"⚠️ Could not auto-open {path}: {e}")
+HEX_RE = re.compile(r"#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})")
 
-def scrape_genesis_wikiversity(output_dir: str,
-                               no_open: bool,
-                               dry_run: bool):
-    url = (
-        "https://en.wikiversity.org/wiki/"
-        "Bible/King_James/Documentary_Hypothesis/Genesis"
-    )
+def normalize_hex(h: str) -> str:
+    h = h.strip().lower()
+    if len(h) == 4:
+        return "#" + "".join(ch*2 for ch in h[1:])
+    return h
+
+HARD_CODED_LEGEND = {
+    "#888800": "E", "#880": "E",
+    "#880000": "J", "#800": "J",
+    "#008888": "P", "#088": "P",
+    "#ff0000": "R", "#f00": "R",
+    "#00ff00": "D", "#0f0": "D",
+    "#000088": "E",
+    "#888888": "P",
+}
+
+def parse_legend(soup: BeautifulSoup) -> dict:
+    for tbl in soup.find_all("table"):
+        headers = [th.get_text(strip=True).lower() for th in tbl.find_all("th")]
+        if any("color" in h for h in headers):
+            legend = {}
+            for tr in tbl.find_all("tr")[1:]:
+                tds = tr.find_all("td")
+                if len(tds) < 2:
+                    continue
+                m = HEX_RE.search(tds[0].get("style", ""))
+                hex_code = normalize_hex(m.group(0)) if m else None
+                src = tds[1].get_text(strip=True)
+                if hex_code and src:
+                    legend[hex_code] = src
+            return legend
+    return {}
+
+def write_markdown_preview(book: str, rows: list):
+    out_dir = os.path.join("output", book)
+    md_path = os.path.join(out_dir, f"{book}.md")
+    with open(md_path, "w", encoding="utf-8") as f:
+        f.write(f"# {book} Source Preview\n\n")
+        last_chap = None
+        for chap, verse, color, source, text in rows:
+            if chap != last_chap:
+                f.write(f"\n## Chapter {chap}\n")
+                last_chap = chap
+            swatch = (
+                f"`{source}` "
+                f"![{color}](https://via.placeholder.com/12/{color[1:]}/000000?text=+) "
+            )
+            f.write(f"- {chap}:{verse} {swatch} {text}\n")
+    print(f"[✅] Markdown preview written: {md_path}")
+
+def print_terminal_preview(book: str, rows: list, limit: int = 20):
+    print(f"\n📘 Terminal Preview for {book} (first {limit} rows):\n")
+    print(f"{'Chap':<6} {'Verse':<6} {'Source':<6} {'Color':<10} Text")
+    print("-" * 80)
+    for chap, verse, color, source, text in rows[:limit]:
+        try:
+            r, g, b = int(color[1:3], 16), int(color[3:5], 16), int(color[5:7], 16)
+            ansi = f"\033[38;2;{r};{g};{b}m"
+        except:
+            ansi = ""
+        reset = "\033[0m"
+        short_text = (text[:60] + "…") if len(text) > 60 else text
+        print(f"{chap:<6} {verse:<6} {ansi}{source:<6}{reset} {color:<10} {short_text}")
+    print("-" * 80)
+
+def scrape_full_book_page_structured(book: str, args) -> dict:
+    url = BOOK_URLS[book]
     resp = requests.get(url)
     resp.raise_for_status()
-
     soup = BeautifulSoup(resp.text, "html.parser")
-    content = soup.find("div", id="mw-content-text")
-    if not content:
-        print("❌ Could not find main content div (#mw-content-text).")
-        return
 
+    legend = parse_legend(soup)
+    if not legend:
+        print("[WARN] Legend parse failed; using hard-coded map")
+        legend = HARD_CODED_LEGEND.copy()
+    print(f"[DEBUG] {book} legend: {legend}")
+
+    spans = soup.find_all("span", style=lambda s: s and "#" in s)
+    print(f"[DEBUG] {book}: found {len(spans)} total styled spans")
+
+    skips = Counter()
     rows = []
-    unknown_colors = {}
-    chapter = ""
+    seen = set()
+    source_counts = Counter()
 
-    # Walk through chapter headings (h2/h3/h4) and paragraphs in order
-    for tag in content.find_all(["h2", "h3", "h4", "p"]):
-        # Capture chapter number from any header
-        if tag.name in ("h2", "h3", "h4"):
-            heading = tag.get_text(strip=True)
-            # Try several patterns
-            m = re.search(r"Genesis\s+(\d+)", heading)
-            if not m:
-                m = re.search(r"Chapter\s+(\d+)", heading)
-            if m:
-                chapter = m.group(1)
+    for span in spans:
+        style = span.get("style", "")
+        m = HEX_RE.search(style)
+        if not m:
+            skips["no_hex"] += 1
             continue
-
-        # Paragraph → look for verse spans
-        spans = tag.find_all("span", style=True)
-        if len(spans) < 2:
+        hex_code = normalize_hex(m.group(0))
+        if hex_code in ("#0000ff", "#ffffff", "#transparent", "#000000"):
+            skips["blue_or_white"] += 1
             continue
-
-        verse_label = spans[0].get_text(strip=True)
-        if not re.match(r"^\d+$", verse_label):
+        if hex_code not in legend:
+            skips["not_legend"] += 1
             continue
+        source = legend[hex_code]
+        if args.exclude_source and source == args.exclude_source:
+            skips["excluded"] += 1
+            continue
+        if args.only_source and source != args.only_source:
+            skips["filtered"] += 1
+            continue
+        text = span.get_text(strip=True)
+        if not text:
+            skips["empty_text"] += 1
+            continue
+        sup = span.find_previous(
+            lambda t: t.name == "sup" or (t.name == "a" and t.find("sup"))
+        )
+        if not sup:
+            skips["no_sup"] += 1
+            continue
+        verse = sup.get_text(strip=True).strip("[]")
+        chap_tag = span.find_previous(
+            lambda t: t.name in ("h2", "h3", "h4") and "Chapter" in t.get_text()
+        )
+        if not chap_tag:
+            skips["no_chap"] += 1
+            continue
+        cm = re.search(r"Chapter\s+(\d+)", chap_tag.get_text())
+        chap = cm.group(1) if cm else ""
+        if not chap:
+            skips["no_chap"] += 1
+            continue
+        key = (chap, verse, source, text)
+        if key in seen:
+            skips["duplicate"] += 1
+            continue
+        seen.add(key)
+        rows.append([chap, verse, hex_code, source, text])
+        source_counts[source] += 1
 
-        for seg in spans[1:]:
-            text = seg.get_text(" ", strip=True)
-            if not text:
-                continue
+    print(f"[DEBUG] skips: {dict(skips)}")
+    print(f"[DEBUG] source counts: {dict(source_counts)}")
+    print(f"[DEBUG] kept rows: {len(rows)} / {len(spans)} spans")
 
-            m = re.search(r"color\s*:\s*(#[0-9A-Fa-f]{6})", seg["style"])
-            if not m:
-                continue
-            hex_color = m.group(1).lower()
-
-            source = COLOR_SOURCE_MAP.get(hex_color)
-            if not source:
-                unknown_colors[hex_color] = unknown_colors.get(hex_color, 0) + 1
-                continue
-
-            rows.append({
-                "book":    "Genesis",
-                "chapter": chapter,
-                "verse":   verse_label,
-                "text":    text,
-                "source":  source
-            })
-
-    print(f"🔍 Parsed {len(rows)} segments with chapter tracking.")
-    print("\n🧪 Sample:")
-    for row in rows[:5]:
-        print(f"  {row['chapter']}:{row['verse']} [{row['source']}] → {row['text'][:60]}...")
-
-    # Prepare filenames
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    os.makedirs(output_dir, exist_ok=True)
-    output_csv = os.path.join(
-        output_dir, f"genesis_hypothesis_{timestamp}.csv"
-    )
-    latest_link = os.path.join(
-        output_dir, "genesis_hypothesis_latest.csv"
-    )
-    manifest_log = os.path.join(
-        output_dir, "genesis_manifest.log"
-    )
-
-    if dry_run:
-        print("\n--- DRY RUN ---")
-        print(f"Would write CSV:        {output_csv}")
-        print(f"Would update latest:    {latest_link}")
-        print(f"Would append manifest:  {manifest_log}")
-        return
-
-    # Write the CSV
-    with open(output_csv, "w", newline="", encoding="utf-8") as fp:
-        writer = csv.DictWriter(fp, fieldnames=[
-            "book", "chapter", "verse", "text", "source"
-        ])
-        writer.writeheader()
+    out_dir = os.path.join("output", book)
+    os.makedirs(out_dir, exist_ok=True)
+    csv_path = os.path.join(out_dir, f"{book}.csv")
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["chapter", "verse", "color", "source", "text"])
         writer.writerows(rows)
-    print(f"\n✅ Wrote {len(rows)} segments to {output_csv}")
+    print(f"[✅] CSV written: {csv_path} ({len(rows)} rows)")
 
-    # Create/update symlink (or fallback copy on Windows)
+    link = os.path.join(out_dir, f"latest-{book}.csv")
+    if os.path.exists(link):
+        os.remove(link)
     try:
-        if os.path.islink(latest_link) or os.path.exists(latest_link):
-            os.remove(latest_link)
-        os.symlink(output_csv, latest_link)
-        print(f"🔗 Symlinked latest → {latest_link}")
-    except OSError:
-        shutil.copy2(output_csv, latest_link)
-        print(f"📎 Copied latest file → {latest_link}")
-
-    # Append to manifest
-    with open(manifest_log, "a", encoding="utf-8") as log:
-        log.write(f"\n[{timestamp}]\n")
-        log.write(f"  File: {os.path.basename(output_csv)}\n")
-        log.write(f"  Segments: {len(rows)}\n")
-        if unknown_colors:
-            log.write("  Unmapped colors:\n")
-            for c, cnt in unknown_colors.items():
-                log.write(f"    {c} → {cnt}\n")
+        if sys.platform.startswith("win"):
+            shutil.copy(csv_path, link)
         else:
-            log.write("  Unmapped colors: None\n")
-    print(f"🗂️ Logged version info → {manifest_log}")
+            os.symlink(os.path.abspath(csv_path), link)
+        print(f"[✅] latest pointer updated: {link}")
+    except Exception as e:
+        print(f"[WARN] Could not update latest pointer: {e}")
 
-    # Auto-open unless suppressed
-    if not no_open:
-        open_file(output_csv)
-        open_file(manifest_log)
+    write_markdown_preview(book, rows)
+    print_terminal_preview(book, rows)
+
+    return {"spans": len(spans), "rows": len(rows), "sources": dict(source_counts)}
 
 def main():
+    print("[INFO] Starting scraper...")
     parser = argparse.ArgumentParser(
-        description=(
-            "Scrape Genesis KJV Documentary-Hypothesis with chapter tracking, "
-            "versioning, manifest & optional auto-open."
-        )
+        description="Scrape Documentary-Hypothesis source-tagged text for Pentateuch books."
     )
     parser.add_argument(
-        "--output-dir",
-        default="data",
-        help="Directory for CSVs, symlink & manifest"
+        "book",
+        choices=list(BOOK_URLS.keys()) + ["All"],
+        help="Which book to scrape (or All for every Pentateuch book)"
     )
     parser.add_argument(
-        "--no-open",
-        action="store_true",
-        help="Suppress auto-opening of output files"
+        "--exclude-source",
+        help="Skip spans with this source label (e.g. U)"
     )
     parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Preview actions without writing or opening files"
+        "--only-source",
+        help="Include only spans with this source label (e.g. P)"
     )
     args = parser.parse_args()
 
-    scrape_genesis_wikiversity(
-        output_dir=args.output_dir,
-        no_open=args.no_open,
-        dry_run=args.dry_run
-    )
+    books = BOOK_URLS.keys() if args.book == "All" else [args.book]
+
+    manifest = {
+        "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "books": {}
+    }
+
+    for b in books:
+        manifest["books"][b] = scrape_full_book_page_structured(b, args)
+
+    man_path = os.path.join("output", "manifest.json")
+    with open(man_path, "w", encoding="utf-8") as mf:
+        json.dump(manifest, mf, indent=2)
+    print(f"[✅] Manifest written: {man_path}")
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,13 @@
+{
+  "generated_at": "2025-07-26T12:46:50Z",
+  "books": {
+    "Genesis": {
+      "spans": 3209,
+      "rows": 736,
+      "sources": {
+        "P": 342,
+        "E": 394
+      }
+    }
+  }
+}
