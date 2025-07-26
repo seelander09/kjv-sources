@@ -7,11 +7,14 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     install_requires=[
-        # e.g. "requests>=2.25.1", "beautifulsoup4"
+        # Add dependencies here if needed
+        "click>=8.0",
+        "rich>=13.0"
     ],
     entry_points={
         "console_scripts": [
             "kjv-scrape = scraper:main",
+            "kjv-sources = kjv_sources.cli:cli",
         ],
     },
 )
