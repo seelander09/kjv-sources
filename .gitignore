@@ -6,3 +6,33 @@ __pycache__/
 data/
 kjv-sources-env/
 .env
+
+# Additional cache and temporary files
+.pytest_cache/
+*.pyo
+*.pyd
+.Python
+*.so
+.coverage
+htmlcov/
+.tox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
