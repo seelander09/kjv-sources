@@ -70,6 +70,7 @@ def parse_wikitext_file(file_path):
                 full_text = ""
                 sources = []
                 colors = []
+                source_texts = {}  # Dictionary to store text for each source
                 
                 for color, text in color_segments:
                     text = text.strip()
@@ -78,45 +79,255 @@ def parse_wikitext_file(file_path):
                         sources.append(source)
                         colors.append(color)
                         full_text += text + " "
+                        
+                        # Store text for each source
+                        if source not in source_texts:
+                            source_texts[source] = []
+                        source_texts[source].append(text)
                 
                 if full_text.strip():
+                    # Create source-specific text columns
+                    source_text_columns = {}
+                    for source in ["J", "E", "P", "R", "UNKNOWN"]:
+                        if source in source_texts:
+                            source_text_columns[source] = " ".join(source_texts[source])
+                        else:
+                            source_text_columns[source] = ""
+                    
                     verses.append({
                         'chapter': current_chapter,
                         'verse': verse_num,
                         'source': sources,  # Now a list of sources
                         'text': full_text.strip(),
                         'color': colors,  # Now a list of colors
-                        'segments': len(sources)  # Number of source segments
+                        'segments': len(sources),  # Number of source segments
+                        'text_J': source_text_columns.get("J", ""),
+                        'text_E': source_text_columns.get("E", ""),
+                        'text_P': source_text_columns.get("P", ""),
+                        'text_R': source_text_columns.get("R", ""),
+                        'text_UNKNOWN': source_text_columns.get("UNKNOWN", "")
                     })
     
     return verses
 
 def write_csv_output(verses, book_name, output_dir):
-    """Write verses to CSV file"""
+    """Write verses to enhanced CSV file optimized for LLM training"""
     
     os.makedirs(output_dir, exist_ok=True)
     csv_path = os.path.join(output_dir, f"{book_name}.csv")
     
     with open(csv_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow(['chapter', 'verse', 'sources', 'text', 'colors', 'segments'])
+        writer.writerow([
+            'book', 'chapter', 'verse', 'verse_id', 'canonical_reference',
+            'full_text', 'text_clean', 'word_count',
+            'sources', 'source_count', 'primary_source', 'source_sequence',
+            'text_J', 'text_E', 'text_P', 'text_R', 'text_UNKNOWN',
+            'source_percentages', 'source_confidence',
+            'narrative_context', 'theological_themes', 'literary_features',
+            'cross_references', 'redaction_indicators', 'source_boundaries',
+            'translation_notes', 'scholarly_notes', 'metadata'
+        ])
         
         for verse in verses:
             # Convert lists to strings for CSV
-            sources_str = ';'.join(verse['source']) if isinstance(verse['source'], list) else verse['source']
-            colors_str = ';'.join(verse['color']) if isinstance(verse['color'], list) else verse['color']
+            sources = verse['source'] if isinstance(verse['source'], list) else [verse['source']]
+            sources_str = ';'.join(sources)
+            source_count = len(sources)
+            primary_source = sources[0] if sources else "UNKNOWN"
+            
+            # Create verse ID and canonical reference
+            verse_id = f"{book_name}_{verse['chapter']}_{verse['verse']}"
+            canonical_ref = f"{book_name} {verse['chapter']}:{verse['verse']}"
+            
+            # Clean text (remove extra spaces, normalize)
+            text_clean = ' '.join(verse['text'].split())
+            word_count = len(text_clean.split())
+            
+            # Source sequence (order of sources in verse)
+            source_sequence = '->'.join(sources)
+            
+            # Calculate source percentages
+            source_percentages = {}
+            total_chars = len(verse['text'])
+            for source in ['J', 'E', 'P', 'R', 'UNKNOWN']:
+                source_text = verse.get(f'text_{source}', '')
+                if source_text and total_chars > 0:
+                    percentage = round((len(source_text) / total_chars) * 100, 1)
+                    source_percentages[source] = percentage
+                else:
+                    source_percentages[source] = 0.0
+            
+            source_percentages_str = ';'.join([f"{k}:{v}" for k, v in source_percentages.items()])
+            
+            # Redaction indicators
+            redaction_indicators = []
+            if source_count > 1:
+                redaction_indicators.append("multi_source")
+            if 'R' in sources:
+                redaction_indicators.append("redactor_present")
+            if len(sources) > 2:
+                redaction_indicators.append("complex_redaction")
+            
+            redaction_str = ';'.join(redaction_indicators) if redaction_indicators else "none"
+            
+            # Source boundaries (positions where sources change)
+            source_boundaries = []
+            if source_count > 1:
+                # This would need more sophisticated parsing to identify exact boundaries
+                source_boundaries = [f"boundary_{i+1}" for i in range(source_count-1)]
+            
+            boundaries_str = ';'.join(source_boundaries) if source_boundaries else "none"
+            
+            # Metadata as JSON
+            metadata = {
+                "parsing_version": "2.0",
+                "source_colors": verse.get('color', []),
+                "segments": verse.get('segments', 1),
+                "has_redaction": 'R' in sources,
+                "is_multi_source": source_count > 1,
+                "source_complexity": "high" if source_count > 2 else "medium" if source_count > 1 else "low"
+            }
             
             writer.writerow([
+                book_name,
                 verse['chapter'],
                 verse['verse'],
-                sources_str,
+                verse_id,
+                canonical_ref,
                 verse['text'],
-                colors_str,
-                verse.get('segments', 1)
+                text_clean,
+                word_count,
+                sources_str,
+                source_count,
+                primary_source,
+                source_sequence,
+                verse.get('text_J', ''),
+                verse.get('text_E', ''),
+                verse.get('text_P', ''),
+                verse.get('text_R', ''),
+                verse.get('text_UNKNOWN', ''),
+                source_percentages_str,
+                "high" if source_count == 1 else "medium" if source_count == 2 else "low",
+                "",  # narrative_context - could be filled with AI analysis
+                "",  # theological_themes - could be filled with AI analysis
+                "",  # literary_features - could be filled with AI analysis
+                "",  # cross_references - could be filled with AI analysis
+                redaction_str,
+                boundaries_str,
+                "",  # translation_notes
+                "",  # scholarly_notes
+                json.dumps(metadata)
             ])
     
-    print(f"[✅] CSV written: {csv_path} ({len(verses)} verses)")
+    print(f"[✅] Enhanced CSV written: {csv_path} ({len(verses)} verses)")
     return csv_path
+
+def write_training_formats(verses, book_name, output_dir):
+    """Write multiple formats optimized for different LLM training approaches"""
+    
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # 1. JSONL format for fine-tuning
+    jsonl_path = os.path.join(output_dir, f"{book_name}_training.jsonl")
+    with open(jsonl_path, 'w', encoding='utf-8') as f:
+        for verse in verses:
+            sources = verse['source'] if isinstance(verse['source'], list) else [verse['source']]
+            
+            # Create training examples
+            training_example = {
+                "instruction": "Analyze the source composition of this biblical verse.",
+                "input": f"Verse: {verse['text']}\nReference: {book_name} {verse['chapter']}:{verse['verse']}",
+                "output": f"This verse contains {len(sources)} source(s): {', '.join(sources)}. " + 
+                         f"Primary source: {sources[0] if sources else 'UNKNOWN'}.",
+                "metadata": {
+                    "book": book_name,
+                    "chapter": verse['chapter'],
+                    "verse": verse['verse'],
+                    "sources": sources,
+                    "is_multi_source": len(sources) > 1
+                }
+            }
+            f.write(json.dumps(training_example, ensure_ascii=False) + '\n')
+    
+    # 2. Source classification format
+    classification_path = os.path.join(output_dir, f"{book_name}_classification.jsonl")
+    with open(classification_path, 'w', encoding='utf-8') as f:
+        for verse in verses:
+            sources = verse['source'] if isinstance(verse['source'], list) else [verse['source']]
+            
+            # Create classification examples
+            for source in ['J', 'E', 'P', 'R']:
+                classification_example = {
+                    "text": verse['text'],
+                    "label": 1 if source in sources else 0,
+                    "source": source,
+                    "metadata": {
+                        "book": book_name,
+                        "chapter": verse['chapter'],
+                        "verse": verse['verse'],
+                        "all_sources": sources
+                    }
+                }
+                f.write(json.dumps(classification_example, ensure_ascii=False) + '\n')
+    
+    # 3. Sequence labeling format (for identifying source boundaries)
+    sequence_path = os.path.join(output_dir, f"{book_name}_sequence.jsonl")
+    with open(sequence_path, 'w', encoding='utf-8') as f:
+        for verse in verses:
+            if len(verse['source']) > 1:  # Only multi-source verses
+                # This would require more sophisticated tokenization
+                # For now, create a simplified version
+                sequence_example = {
+                    "text": verse['text'],
+                    "labels": verse['source'],  # Simplified - would need token-level labels
+                    "metadata": {
+                        "book": book_name,
+                        "chapter": verse['chapter'],
+                        "verse": verse['verse'],
+                        "source_sequence": '->'.join(verse['source'])
+                    }
+                }
+                f.write(json.dumps(sequence_example, ensure_ascii=False) + '\n')
+    
+    print(f"[✅] Training formats written: {jsonl_path}, {classification_path}, {sequence_path}")
+
+def write_analysis_dataset(verses, book_name, output_dir):
+    """Create dataset for complex source analysis tasks"""
+    
+    os.makedirs(output_dir, exist_ok=True)
+    analysis_path = os.path.join(output_dir, f"{book_name}_analysis.jsonl")
+    
+    with open(analysis_path, 'w', encoding='utf-8') as f:
+        for verse in verses:
+            sources = verse['source'] if isinstance(verse['source'], list) else [verse['source']]
+            
+            # Create analysis prompts
+            analysis_examples = [
+                {
+                    "task": "source_identification",
+                    "prompt": f"Identify the documentary sources in this verse: {verse['text']}",
+                    "answer": f"Sources: {', '.join(sources)}",
+                    "metadata": {"verse_id": f"{book_name}_{verse['chapter']}_{verse['verse']}"}
+                },
+                {
+                    "task": "redaction_analysis", 
+                    "prompt": f"Analyze the redaction process in: {verse['text']}",
+                    "answer": f"Redaction indicators: {'Complex redaction' if len(sources) > 2 else 'Simple redaction' if len(sources) > 1 else 'No redaction'}",
+                    "metadata": {"verse_id": f"{book_name}_{verse['chapter']}_{verse['verse']}"}
+                },
+                {
+                    "task": "source_characteristics",
+                    "prompt": f"What are the characteristics of each source in: {verse['text']}?",
+                    "answer": f"Source breakdown: {json.dumps({s: verse.get(f'text_{s}', '') for s in sources})}",
+                    "metadata": {"verse_id": f"{book_name}_{verse['chapter']}_{verse['verse']}"}
+                }
+            ]
+            
+            for example in analysis_examples:
+                f.write(json.dumps(example, ensure_ascii=False) + '\n')
+    
+    print(f"[✅] Analysis dataset written: {analysis_path}")
 
 def write_html_preview(verses, book_name, output_dir):
     """Write HTML preview with color-coded sources"""
@@ -476,21 +687,31 @@ def process_single_book(book_name):
             print(f"  Chapter {verse['chapter']}, Verse {verse['verse']} ({sources_str}): {verse['text'][:80]}...")
     
     # Ask if user wants to generate files
-    response = input(f"\n[QUESTION] Generate CSV and HTML files for {book_name.title()}? (y/n): ").lower().strip()
+    response = input(f"\n[QUESTION] Generate enhanced CSV and training datasets for {book_name.title()}? (y/n): ").lower().strip()
     if response in ['y', 'yes']:
         # Create book-specific output directory
         book_output_dir = os.path.join("output", book_name.title())
         os.makedirs(book_output_dir, exist_ok=True)
         
-        # Generate files
+        # Generate enhanced files
         csv_path = write_csv_output(verses, book_name.title(), book_output_dir)
         write_html_preview(verses, book_name.title(), book_output_dir)
+        
+        # Generate LLM training datasets
+        write_training_formats(verses, book_name.title(), book_output_dir)
+        write_analysis_dataset(verses, book_name.title(), book_output_dir)
         
         # Create latest files
         create_latest_files(book_name.title(), book_output_dir)
         
-        print(f"\n[✅] Files generated in {book_output_dir}/ directory")
+        print(f"\n[✅] Enhanced files generated in {book_output_dir}/ directory")
         print(f"[📁] Book folder: {book_output_dir}")
+        print(f"[📄] Enhanced CSV: {book_name.title()}.csv")
+        print(f"[��] Training datasets:")
+        print(f"  - {book_name.title()}_training.jsonl (instruction fine-tuning)")
+        print(f"  - {book_name.title()}_classification.jsonl (source classification)")
+        print(f"  - {book_name.title()}_sequence.jsonl (sequence labeling)")
+        print(f"  - {book_name.title()}_analysis.jsonl (complex analysis tasks)")
         print(f"[📄] Latest files: {book_name.title()}_latest.csv and {book_name.title()}_latest.html")
     else:
         print("[INFO] Files not generated")
@@ -510,7 +731,7 @@ def process_all_books():
     
     pipeline_manifest = {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "pipeline_version": "1.0",
+        "pipeline_version": "2.0",
         "books": {}
     }
     
@@ -549,11 +770,15 @@ def process_all_books():
         book_output_dir = os.path.join("output", book_name)
         os.makedirs(book_output_dir, exist_ok=True)
         
-        # Write CSV output
+        # Write enhanced CSV output
         csv_path = write_csv_output(verses, book_name, book_output_dir)
         
         # Write HTML preview
         write_html_preview(verses, book_name, book_output_dir)
+        
+        # Generate LLM training datasets
+        write_training_formats(verses, book_name, book_output_dir)
+        write_analysis_dataset(verses, book_name, book_output_dir)
         
         # Create latest files
         create_latest_files(book_name, book_output_dir)
@@ -568,6 +793,10 @@ def process_all_books():
             "files": {
                 "csv": f"{book_name}.csv",
                 "html": f"{book_name}.html",
+                "training": f"{book_name}_training.jsonl",
+                "classification": f"{book_name}_classification.jsonl",
+                "sequence": f"{book_name}_sequence.jsonl",
+                "analysis": f"{book_name}_analysis.jsonl",
                 "latest_csv": f"{book_name}_latest.csv",
                 "latest_html": f"{book_name}_latest.html"
             }
@@ -584,9 +813,13 @@ def process_all_books():
     with open(latest_manifest_path, "w", encoding="utf-8") as f:
         json.dump(pipeline_manifest, f, indent=2)
     print(f"[✅] Latest manifest written: {latest_manifest_path}")
+    
+    print(f"\n[🎯] LLM Training datasets ready!")
+    print(f"[📊] Enhanced CSV files with source analysis")
+    print(f"[��] Multiple training formats for different LLM tasks")
 
 def main():
-    print("[INFO] Starting wikitext parser...")
+    print("[INFO] Starting enhanced wikitext parser (v2.0)...")
     
     # Check command line arguments
     if len(sys.argv) > 1:
@@ -602,6 +835,11 @@ def main():
     print("  python parse_wikitext.py <book_name>  - Process single book")
     print("  python parse_wikitext.py pipeline     - Process all books")
     print("  Available books: genesis, exodus, leviticus, numbers, deuteronomy")
+    print("\n[��] Enhanced features:")
+    print("  - LLM-optimized CSV with source analysis")
+    print("  - Training datasets for fine-tuning")
+    print("  - Source classification data")
+    print("  - Complex analysis prompts")
 
 if __name__ == "__main__":
     main()
