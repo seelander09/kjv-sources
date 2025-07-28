@@ -1,0 +1,29 @@
+<[[Bible, English, King James, According to the documentary hypothesis]] | [[Bible, English, King James, Documentary Hypothesis, Deuteronomist source|Deuteronomist source]] | [[Bible, English, King James, Documentary Hypothesis, Deuteronomist source, First Deuteronomist Version|First Edition (Dtr1)]]
+
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:Torah|Torah]] is composed from a number of originally independant sources joined by a [[w:redaction|redactor]]. One of these supposed sources is named the [[w:Deuteronomist|"Deuteronomist"]], due to it composing the vast majority of the text of [[w:Deuteronomy|Deuteronomy]]. Under the usual form of the hypothesis, the deuteronomist text is believed to have come in two editions, the earlier one, known as "Dtr1", being written around the time of king [[w:Josiah|Josiah]] by someone from the same circle as [[w:Jeremiah|Jeremiah]].
+
+Though considered to have been written as a coherent work by a single author, the text can be broken down into a number of components, including a set of curses (deuteronomy 28:16-19) and a symetrical set of blessings (deuteronomy 28:3-6). These may be the set of curses referred to nearby in the text to be shouted by one half of the tribes from Mount [[w:Ebal|Ebal]], and the set of blessings to be simultaneously shouted from Mount [[w:Gerizim|Gerizim]]. They may originate in an oral tradition, or a separate document.
+
+''The numbering does not necessarily reflect that in the original in any way, but is simply present for ease of reference for the modern reader''
+
+==Blessings ==
+
+{{font|size=smaller|color=$0000FF|1}} Blessed shalt thou be in the city, and blessed shalt thou be in the field.
+
+{{font|size=smaller|color=$0000FF|2}} Blessed shall be the fruit of thy body, and the fruit of thy ground, and the fruit of thy cattle, the increase of thy kine, and the flocks of thy sheep.
+
+{{font|size=smaller|color=$0000FF|3}} Blessed shall be thy basket and thy store.
+
+{{font|size=smaller|color=$0000FF|4}} Blessed shalt thou be when thou comest in, and blessed shalt thou be when thou goest out.
+
+==Curses ==
+
+{{font|size=smaller|color=$0000FF|1}} Cursed shalt thou be in the city, and cursed shalt thou be in the field.
+
+{{font|size=smaller|color=$0000FF|2}} Cursed shall be thy basket and thy store.
+
+{{font|size=smaller|color=$0000FF|3}} Cursed shall be the fruit of thy body, and the fruit of thy land, the increase of thy kine, and the flocks of thy sheep.
+
+{{font|size=smaller|color=$0000FF|4}} Cursed shalt thou be when thou comest in, and cursed shalt thou be when thou goest out.
+
+[[Category:Documentary hypothesis]]

@@ -1,0 +1,50 @@
+<[[Bible, English, King James, According to the documentary hypothesis]] | [[Bible, English, King James, Documentary Hypothesis, Priestly source|Priestly source]]
+
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:torah|torah]] was redacted together from a number of earlier source texts. The largest of these is referred to as the "[[w:Priestly source|Priestly source]]", due to its concentration on details which would be of interest to the [[w:Aaron|Aaron]]id priesthood. 
+
+The reconstructed text of this source contains several elements which are separable from the narrative, including several laws, and descriptions of how rituals should be carried out. It is sometimes believed that these were originally separate documents held as priestly records. One of these seperable elements is the genealogy of nations (expressed at [[w:Genesis|Genesis]] 10:1b-7, 10:20, 10:22-23, and 10:31-32):
+
+''The following is based on the relevant passages in genesis, but does not reproduce it, instead presenting a simplified version containing the same information''
+
+== The Genealogy of Nations ==
+
+Noah
+*Shem
+**Elam
+**Asshur
+**Arphaxad
+**Lud
+**Aram
+***Uz
+***Hul
+***Gether
+***Mash
+*Ham
+**Cush
+***Seba
+***Haviah
+***Sabtah
+***Raamah
+****Sheba
+****Dedan
+***Sabtechah
+**Mizraim
+**Phut
+**Canaan
+*Japheth
+**Gomer
+***Ashkenaz
+***Riphath
+***Togarmah
+**Magog
+**Madai
+**Javan
+***Elishah
+***Tarshish
+***Kittim
+***Dodanim
+**Tubal
+**Meshech
+**Tiras
+
+[[Category:Documentary hypothesis]]

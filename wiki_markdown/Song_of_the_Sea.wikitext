@@ -1,0 +1,43 @@
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:Torah|Torah]] is composed from a number of originally independent sources joined by a [[w:redaction|redactor]]. One of these supposed sources is named the [[w:Jahwist|"Jahwist source"]], due to its preference of referring to God as [[w:Jahweh|Jahweh]] (usually translated as "The LORD"). This source contains within it two poems which are believed to have originally been separate documents. One of these poems (at Exodus 15:1b-18) is known as the [[w:Song of the Sea|Song of the Sea]]. The first two lines of the poem also appear in the text ascribed to the [[w:Elohist|Elohist source]] (at Exodus 15:1b), and it may be the case that the Elohist source originally contained the full poem, it being truncated by the redactor.
+
+''Although the text is ordered as it appears in the bible, the numbering does not reflect, in any way, the original numbering of the text, and simply exists for the ease of modern readership''
+
+==The song of the Sea==
+
+{{font|1|size=smaller|color=#0000FF}}{{font|I will sing unto the LORD, for he hath triumphed gloriously: the horse and his rider hath he thrown into the sea.|color=#000000}}
+
+{{font|2|size=smaller|color=#0000FF}}{{font|The LORD is my strength and song, and he is become my salvation: he is my God, and I will prepare him an habitation; my father's God, and I will exalt him.|color=#000000}}
+
+{{font|3|size=smaller|color=#0000FF}}{{font|The LORD is a man of war: the LORD is his name.|color=#000000}}
+
+{{font|4|size=smaller|color=#0000FF}}{{font|Pharaoh's chariots and his host hath he cast into the sea: his chosen captains also are drowned in the Red sea.|color=#000000}}
+
+{{font|5|size=smaller|color=#0000FF}}{{font|The depths have covered them: they sank into the bottom as a stone.|color=#000000}}
+
+{{font|6|size=smaller|color=#0000FF}}{{font|Thy right hand, O LORD, is become glorious in power: thy right hand, O LORD, hath dashed in pieces the enemy.|color=#000000}}
+
+{{font|7|size=smaller|color=#0000FF}}{{font|And in the greatness of thine excellency thou hast overthrown them that rose up against thee: thou sentest forth thy wrath, which consumed them as stubble.|color=#000000}}
+
+{{font|8|size=smaller|color=#0000FF}}{{font|And with the blast of thy nostrils the waters were gathered together, the floods stood upright as an heap, and the depths were congealed in the heart of the sea.|color=#000000}}
+
+{{font|9|size=smaller|color=#0000FF}}{{font|The enemy said, I will pursue, I will overtake, I will divide the spoil; my lust shall be satisfied upon them; I will draw my sword, my hand shall destroy them.|color=#000000}}
+
+{{font|10|size=smaller|color=#0000FF}}{{font|Thou didst blow with thy wind, the sea covered them: they sank as lead in the mighty waters.|color=#000000}}
+
+{{font|11|size=smaller|color=#0000FF}}{{font|Who is like unto thee, O LORD, among the gods? who is like thee, glorious in holiness, fearful in praises, doing wonders?|color=#000000}}
+
+{{font|12|size=smaller|color=#0000FF}}{{font|Thou stretchedst out thy right hand, the earth swallowed them.|color=#000000}}
+
+{{font|13|size=smaller|color=#0000FF}}{{font|Thou in thy mercy hast led forth the people which thou hast redeemed: thou hast guided them in thy strength unto thy holy habitation.|color=#000000}}
+
+{{font|14|size=smaller|color=#0000FF}}{{font|The people shall hear, and be afraid: sorrow shall take hold on the inhabitants of Palestina.|color=#000000}}
+
+{{font|15|size=smaller|color=#0000FF}}{{font|Then the dukes of Edom shall be amazed; the mighty men of Moab, trembling shall take hold upon them; all the inhabitants of Canaan shall melt away.|color=#000000}}
+
+{{font|16|size=smaller|color=#0000FF}}{{font|Fear and dread shall fall upon them; by the greatness of thine arm they shall be as still as a stone; till thy people pass over, O LORD, till the people pass over, which thou hast purchased.|color=#000000}}
+
+{{font|17|size=smaller|color=#0000FF}}{{font|Thou shalt bring them in, and plant them in the mountain of thine inheritance, in the place, O LORD, which thou hast made for thee to dwell in, in the Sanctuary, O LORD, which thy hands have established.|color=#000000}}
+
+{{font|18|size=smaller|color=#0000FF}}{{font|The LORD shall reign for ever and ever.|color=#000000}}
+
+[[Category:Documentary hypothesis]]

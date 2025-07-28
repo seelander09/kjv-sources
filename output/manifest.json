@@ -1,12 +1,32 @@
 {
-  "generated_at": "2025-07-26T12:46:50Z",
+  "generated_at": "2025-07-27T20:34:16Z",
   "books": {
-    "Genesis": {
-      "spans": 3209,
-      "rows": 736,
+    "Exodus": {
+      "verses": 1213,
+      "chapters": 40,
       "sources": {
-        "P": 342,
-        "E": 394
+        "P": 640,
+        "J": 280,
+        "E": 224,
+        "R": 69
+      }
+    },
+    "Leviticus": {
+      "verses": 859,
+      "chapters": 27,
+      "sources": {
+        "P": 858,
+        "R": 1
+      }
+    },
+    "Numbers": {
+      "verses": 1288,
+      "chapters": 36,
+      "sources": {
+        "P": 867,
+        "J": 153,
+        "R": 181,
+        "E": 87
       }
     }
   }

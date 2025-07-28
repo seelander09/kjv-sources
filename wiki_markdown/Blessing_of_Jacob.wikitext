@@ -1,0 +1,58 @@
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:Torah|Torah]] is composed from a number of originally independent sources joined by a [[w:redaction|redactor]]. One of these supposed sources is named the [[w:Jahwist|"Jahwist source"]], due to its preference of referring to God as [[w:Jahweh|Jahweh]] (usually translated as "The LORD"). This source contains within it two poems which are believed to have originally been separate documents. One of these poems (at Genesis 49:1-27) is known as the [[w:Blessing of Jacob|Blessing of Jacob]], and can be compared with a similar poem known as the [[w:Blessing of Moses|Blessing of Moses]].
+
+''Although the text is ordered as it appears in the bible, the numbering does not reflect, in any way, the original numbering of the text, and simply exists for the ease of modern readership''
+
+==The blessing of Jacob==
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| Gather yourselves together, and hear, ye sons of Jacob; and hearken unto Israel your father.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| Reuben, thou art my firstborn, my might, and the beginning of my strength, the excellency of dignity, and the excellency of power:}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| Unstable as water, thou shalt not excel; because thou wentest up to thy father's bed; then defiledst thou it: he went up to my couch.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| Simeon and Levi are brethren; instruments of cruelty are in their habitations.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| O my soul, come not thou into their secret; unto their assembly, mine honour, be not thou united: for in their anger they slew a man, and in their selfwill they digged down a wall.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| Cursed be their anger, for it was fierce; and their wrath, for it was cruel: I will divide them in Jacob, and scatter them in Israel.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| Judah, thou art he whom thy brethren shall praise: thy hand shall be in the neck of thine enemies; thy father's children shall bow down before thee.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| Judah is a lion's whelp: from the prey, my son, thou art gone up: he stooped down, he couched as a lion, and as an old lion; who shall rouse him up?}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| The sceptre shall not depart from Judah, nor a lawgiver from between his feet, until Shiloh come; and unto him shall the gathering of the people be.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| Binding his foal unto the vine, and his ass's colt unto the choice vine; he washed his garments in wine, and his clothes in the blood of grapes:}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| His eyes shall be red with wine, and his teeth white with milk.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| Zebulun shall dwell at the haven of the sea; and he shall be for an haven of ships; and his border shall be unto Zidon.}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| Issachar is a strong ass couching down between two burdens:}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And he saw that rest was good, and the land that it was pleasant; and bowed his shoulder to bear, and became a servant unto tribute.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| Dan shall judge his people, as one of the tribes of Israel.}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| Dan shall be a serpent by the way, an adder in the path, that biteth the horse heels, so that his rider shall fall backward.}}
+
+{{font|size=smaller|color=#0000FF|17}}{{font|color=#000000| I have waited for thy salvation, O LORD.}}
+
+{{font|size=smaller|color=#0000FF|18}}{{font|color=#000000| Gad, a troop shall overcome him: but he shall overcome at the last.}}
+
+{{font|size=smaller|color=#0000FF|19}}{{font|color=#000000| Out of Asher his bread shall be fat, and he shall yield royal dainties.}}
+
+{{font|size=smaller|color=#0000FF|20}}{{font|color=#000000| Naphtali is a hind let loose: he giveth goodly words.}}
+
+{{font|size=smaller|color=#0000FF|21}}{{font|color=#000000| Joseph is a fruitful bough, even a fruitful bough by a well; whose branches run over the wall:}}
+
+{{font|size=smaller|color=#0000FF|22}}{{font|color=#000000| The archers have sorely grieved him, and shot at him, and hated him:}}
+
+{{font|size=smaller|color=#0000FF|23}}{{font|color=#000000| But his bow abode in strength, and the arms of his hands were made strong by the hands of the mighty God of Jacob; (from thence is the shepherd, the stone of Israel:)}}
+
+{{font|size=smaller|color=#0000FF|24}}{{font|color=#000000| Even by the God of thy father, who shall help thee; and by the Almighty, who shall bless thee with blessings of heaven above, blessings of the deep that lieth under, blessings of the breasts, and of the womb:}}
+
+{{font|size=smaller|color=#0000FF|25}}{{font|color=#000000| The blessings of thy father have prevailed above the blessings of my progenitors unto the utmost bound of the everlasting hills: they shall be on the head of Joseph, and on the crown of the head of him that was separate from his brethren.}}
+
+{{font|size=smaller|color=#0000FF|26}}{{font|color=#000000| Benjamin shall ravin as a wolf: in the morning he shall devour the prey, and at night he shall divide the spoil.}}
+
+[[Category:Documentary hypothesis]]

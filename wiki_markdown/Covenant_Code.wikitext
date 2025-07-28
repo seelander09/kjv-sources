@@ -1,0 +1,205 @@
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:Torah|Torah]] is composed from a number of originally independant sources joined by a [[w:redaction|redactor]]. One of these supposed sources is named the [[w:Elohist|"Elohist source"]], due to its preference of referring to God as [[w:El (god)|El]] or as Elohim (both usually translated as "God"). Rather than the [[w:Ten commandments|Ten commandments]] present in the [[w:Jahwist|Jahwist source]], the Elohist text contains a law code (at Exodus 21:2 - 23:33), which is believed to have been an originally separate document, known as the [[w:Covenant Code|Covenant Code]].
+
+''Although the text is ordered as it appears in the bible, the numbering does not reflect, in any way, the original numbering of the text, and simply exists for the ease of modern readership''
+
+==The Covenant Code==
+
+<small>{{font|1|color=#0000FF}}</small>{{font|If thou buy an Hebrew servant, six years he shall serve: and in the seventh he shall go out free for nothing.|color=#000000}}
+
+<small>{{font|2|color=#0000FF}}</small>{{font|If he came in by himself, he shall go out by himself: if he were married, then his wife shall go out with him.|color=#000000}}
+
+<small>{{font|3|color=#0000FF}}</small>{{font|If his master have given him a wife, and she have born him sons or daughters; the wife and her children shall be her master's, and he shall go out by himself.|color=#000000}}
+
+<small>{{font|4|color=#0000FF}}</small>{{font|And if the servant shall plainly say, I love my master, my wife, and my children; I will not go out free:|color=#000000}}
+
+<small>{{font|5|color=#0000FF}}</small>{{font|Then his master shall bring him unto the judges; he shall also bring him to the door, or unto the door post; and his master shall bore his ear through with an aul; and he shall serve him for ever.|color=#000000}}
+
+<small>{{font|6|color=#0000FF}}</small>{{font|And if a man sell his daughter to be a maidservant, she shall not go out as the menservants do.|color=#000000}}
+
+<small>{{font|7|color=#0000FF}}</small>{{font|If she please not her master, who hath betrothed her to himself, then shall he let her be redeemed: to sell her unto a strange nation he shall have no power, seeing he hath dealt deceitfully with her.|color=#000000}}
+
+<small>{{font|8|color=#0000FF}}</small>{{font|And if he have betrothed her unto his son, he shall deal with her after the manner of daughters.|color=#000000}}
+
+<small>{{font|9|color=#0000FF}}</small>{{font|If he take him another wife; her food, her raiment, and her duty of marriage, shall he not diminish.|color=#000000}}
+
+<small>{{font|10|color=#0000FF}}</small>{{font|And if he do not these three unto her, then shall she go out free without money.|color=#000000}}
+
+<small>{{font|11|color=#0000FF}}</small>{{font|He that smiteth a man, so that he die, shall be surely put to death.|color=#000000}}
+
+<small>{{font|12|color=#0000FF}}</small>{{font|And if a man lie not in wait, but God deliver him into his hand; then I will appoint thee a place whither he shall flee.|color=#000000}}
+
+<small>{{font|13|color=#0000FF}}</small>{{font|But if a man come presumptuously upon his neighbour, to slay him with guile; thou shalt take him from mine altar, that he may die.|color=#000000}}
+
+<small>{{font|14|color=#0000FF}}</small>{{font|And he that smiteth his father, or his mother, shall be surely put to death.|color=#000000}}
+
+<small>{{font|15|color=#0000FF}}</small>{{font|And he that stealeth a man, and selleth him, or if he be found in his hand, he shall surely be put to death.|color=#000000}}
+
+<small>{{font|16|color=#0000FF}}</small>{{font|And he that curseth his father, or his mother, shall surely be put to death.|color=#000000}}
+
+<small>{{font|17|color=#0000FF}}</small>{{font|And if men strive together, and one smite another with a stone, or with his fist, and he die not, but keepeth his bed:|color=#000000}}
+
+<small>{{font|18|color=#0000FF}}</small>{{font|If he rise again, and walk abroad upon his staff, then shall he that smote him be quit: only he shall pay for the loss of his time, and shall cause him to be thoroughly healed.|color=#000000}}
+
+<small>{{font|19|color=#0000FF}}</small>{{font|And if a man smite his servant, or his maid, with a rod, and he die under his hand; he shall be surely punished.|color=#000000}}
+
+<small>{{font|20|color=#0000FF}}</small>{{font|Notwithstanding, if he continue a day or two, he shall not be punished: for he is his money.|color=#000000}}
+
+<small>{{font|21|color=#0000FF}}</small>{{font|If men strive, and hurt a woman with child, so that her fruit depart from her, and yet no mischief follow: he shall be surely punished, according as the woman's husband will lay upon him; and he shall pay as the judges determine.|color=#000000}}
+
+<small>{{font|22|color=#0000FF}}</small>{{font|And if any mischief follow, then thou shalt give life for life,|color=#000000}}
+
+<small>{{font|23|color=#0000FF}}</small>{{font|Eye for eye, tooth for tooth, hand for hand, foot for foot,|color=#000000}}
+
+<small>{{font|24|color=#0000FF}}</small>{{font|Burning for burning, wound for wound, stripe for stripe.|color=#000000}}
+
+<small>{{font|25|color=#0000FF}}</small>{{font|And if a man smite the eye of his servant, or the eye of his maid, that it perish; he shall let him go free for his eye's sake.|color=#000000}}
+
+<small>{{font|26|color=#0000FF}}</small>{{font|And if he smite out his manservant's tooth, or his maidservant's tooth; he shall let him go free for his tooth's sake.|color=#000000}}
+
+<small>{{font|27|color=#0000FF}}</small>{{font|If an ox gore a man or a woman, that they die: then the ox shall be surely stoned, and his flesh shall not be eaten; but the owner of the ox shall be quit.|color=#000000}}
+
+<small>{{font|28|color=#0000FF}}</small>{{font|But if the ox were wont to push with his horn in time past, and it hath been testified to his owner, and he hath not kept him in, but that he hath killed a man or a woman; the ox shall be stoned, and his owner also shall be put to death.|color=#000000}}
+
+<small>{{font|29|color=#0000FF}}</small>{{font|If there be laid on him a sum of money, then he shall give for the ransom of his life whatsoever is laid upon him.|color=#000000}}
+
+<small>{{font|30|color=#0000FF}}</small>{{font|Whether he have gored a son, or have gored a daughter, according to this judgment shall it be done unto him.|color=#000000}}
+
+<small>{{font|31|color=#0000FF}}</small>{{font|If the ox shall push a manservant or a maidservant; he shall give unto their master thirty shekels of silver, and the ox shall be stoned.|color=#000000}}
+
+<small>{{font|32|color=#0000FF}}</small>{{font|And if a man shall open a pit, or if a man shall dig a pit, and not cover it, and an ox or an ass fall therein;|color=#000000}}
+
+<small>{{font|33|color=#0000FF}}</small>{{font|The owner of the pit shall make it good, and give money unto the owner of them; and the dead beast shall be his.|color=#000000}}
+
+<small>{{font|34|color=#0000FF}}</small>{{font|And if one man's ox hurt another's, that he die; then they shall sell the live ox, and divide the money of it; and the dead ox also they shall divide.|color=#000000}}
+
+<small>{{font|35|color=#0000FF}}</small>{{font|Or if it be known that the ox hath used to push in time past, and his owner hath not kept him in; he shall surely pay ox for ox; and the dead shall be his own.|color=#000000}}
+
+<small>{{font|36|color=#0000FF}}</small>{{font|If a man shall steal an ox, or a sheep, and kill it, or sell it; he shall restore five oxen for an ox, and four sheep for a sheep.|color=#000000}}
+
+<small>{{font|37|color=#0000FF}}</small>{{font|If a thief be found breaking up, and be smitten that he die, there shall no blood be shed for him.|color=#000000}}
+
+<small>{{font|38|color=#0000FF}}</small>{{font|If the sun be risen upon him, there shall be blood shed for him; for he should make full restitution; if he have nothing, then he shall be sold for his theft.|color=#000000}}
+
+<small>{{font|39|color=#0000FF}}</small>{{font|If the theft be certainly found in his hand alive, whether it be ox, or ass, or sheep; he shall restore double.|color=#000000}}
+
+<small>{{font|40|color=#0000FF}}</small>{{font|If a man shall cause a field or vineyard to be eaten, and shall put in his beast, and shall feed in another man's field; of the best of his own field, and of the best of his own vineyard, shall he make restitution.|color=#000000}}
+
+<small>{{font|41|color=#0000FF}}</small>{{font|If fire break out, and catch in thorns, so that the stacks of corn, or the standing corn, or the field, be consumed therewith; he that kindled the fire shall surely make restitution.|color=#000000}}
+
+<small>{{font|42|color=#0000FF}}</small>{{font|If a man shall deliver unto his neighbour money or stuff to keep, and it be stolen out of the man's house; if the thief be found, let him pay double.|color=#000000}}
+
+<small>{{font|43|color=#0000FF}}</small>{{font|If the thief be not found, then the master of the house shall be brought unto the judges, to see whether he have put his hand unto his neighbour's goods.|color=#000000}}
+
+<small>{{font|44|color=#0000FF}}</small>{{font|For all manner of trespass, whether it be for ox, for ass, for sheep, for raiment, or for any manner of lost thing which another challengeth to be his, the cause of both parties shall come before the judges; and whom the judges shall condemn, he shall pay double unto his neighbour.|color=#000000}}
+
+<small>{{font|45|color=#0000FF}}</small>{{font|If a man deliver unto his neighbour an ass, or an ox, or a sheep, or any beast, to keep; and it die, or be hurt, or driven away, no man seeing it:|color=#000000}}
+
+<small>{{font|46|color=#0000FF}}</small>{{font|Then shall an oath of the LORD be between them both, that he hath not put his hand unto his neighbour's goods; and the owner of it shall accept thereof, and he shall not make it good.|color=#000000}}
+
+<small>{{font|47|color=#0000FF}}</small>{{font|And if it be stolen from him, he shall make restitution unto the owner thereof.|color=#000000}}
+
+<small>{{font|48|color=#0000FF}}</small>{{font|If it be torn in pieces, then let him bring it for witness, and he shall not make good that which was torn.|color=#000000}}
+
+<small>{{font|49|color=#0000FF}}</small>{{font|And if a man borrow ought of his neighbour, and it be hurt, or die, the owner thereof being not with it, he shall surely make it good.|color=#000000}}
+
+<small>{{font|50|color=#0000FF}}</small>{{font|But if the owner thereof be with it, he shall not make it good: if it be an hired thing, it came for his hire.|color=#000000}}
+
+<small>{{font|51|color=#0000FF}}</small>{{font|And if a man entice a maid that is not betrothed, and lie with her, he shall surely endow her to be his wife.|color=#000000}}
+
+<small>{{font|52|color=#0000FF}}</small>{{font|If her father utterly refuse to give her unto him, he shall pay money according to the dowry of virgins.|color=#000000}}
+
+<small>{{font|53|color=#0000FF}}</small>{{font|Thou shalt not suffer a witch to live.|color=#000000}}
+
+<small>{{font|54|color=#0000FF}}</small>{{font|Whosoever lieth with a beast shall surely be put to death.|color=#000000}}
+
+<small>{{font|55|color=#0000FF}}</small>{{font|He that sacrificeth unto any god, save unto the LORD only, he shall be utterly destroyed.|color=#000000}}
+
+<small>{{font|56|color=#0000FF}}</small>{{font|Thou shalt neither vex a stranger, nor oppress him: for ye were strangers in the land of Egypt.|color=#000000}}
+
+<small>{{font|57|color=#0000FF}}</small>{{font|Ye shall not afflict any widow, or fatherless child.|color=#000000}}
+
+<small>{{font|58|color=#0000FF}}</small>{{font|If thou afflict them in any wise, and they cry at all unto me, I will surely hear their cry;|color=#000000}}
+
+<small>{{font|59|color=#0000FF}}</small>{{font|And my wrath shall wax hot, and I will kill you with the sword; and your wives shall be widows, and your children fatherless.|color=#000000}}
+
+<small>{{font|60|color=#0000FF}}</small>{{font|If thou lend money to any of my people that is poor by thee,  thou shalt not be to him as an usurer, neither shalt thou lay upon him usury.|color=#000000}}
+
+<small>{{font|61|color=#0000FF}}</small>{{font|If thou at all take thy neighbour's raiment to pledge, thou shalt deliver it unto him by that the sun goeth down:|color=#000000}}
+
+<small>{{font|62|color=#0000FF}}</small>{{font|For that is his covering only, it is his raiment for his skin: wherein shall he sleep? and it shall come to pass, when he crieth unto me, that I will hear; for I am gracious.|color=#000000}}
+
+<small>{{font|63|color=#0000FF}}</small>{{font|Thou shalt not revile the gods, nor curse the ruler of thy people.|color=#000000}}
+
+<small>{{font|64|color=#0000FF}}</small>{{font|Thou shalt not delay to offer the first of thy ripe fruits, and of thy liquors: the firstborn of thy sons shalt thou give unto me.|color=#000000}}
+
+<small>{{font|65|color=#0000FF}}</small>{{font|Likewise shalt thou do with thine oxen, and with thy sheep: seven days it shall be with his dam; on the eighth day thou shalt give it me.|color=#000000}}
+
+<small>{{font|66|color=#0000FF}}</small>{{font|And ye shall be holy men unto me: neither shall ye eat any flesh that is torn of beasts in the field; ye shall cast it to the dogs.|color=#000000}}
+
+<small>{{font|67|color=#0000FF}}</small>{{font|Thou shalt not raise a false report: put not thine hand with the wicked to be an unrighteous witness.|color=#000000}}
+
+<small>{{font|68|color=#0000FF}}</small>{{font|Thou shalt not follow a multitude to do evil; neither shalt thou speak in a cause to decline after many to wrest judgment:|color=#000000}}
+
+<small>{{font|69|color=#0000FF}}</small>{{font|Neither shalt thou countenance a poor man in his cause.|color=#000000}}
+
+<small>{{font|70|color=#0000FF}}</small>{{font|If thou meet thine enemy's ox or his ass going astray, thou shalt surely bring it back to him again.|color=#000000}}
+
+<small>{{font|71|color=#0000FF}}</small>{{font|If thou see the ass of him that hateth thee lying under his burden, and wouldest forbear to help him, thou shalt surely help with him.|color=#000000}}
+
+<small>{{font|72|color=#0000FF}}</small>{{font|Thou shalt not wrest the judgment of thy poor in his cause.|color=#000000}}
+
+<small>{{font|73|color=#0000FF}}</small>{{font|Keep thee far from a false matter; and the innocent and righteous slay thou not: for I will not justify the wicked.|color=#000000}}
+
+<small>{{font|74|color=#0000FF}}</small>{{font|And thou shalt take no gift: for the gift blindeth the wise, and perverteth the words of the righteous.|color=#000000}}
+
+<small>{{font|75|color=#0000FF}}</small>{{font|Also thou shalt not oppress a stranger: for ye know the heart of a stranger, seeing ye were strangers in the land of Egypt.|color=#000000}}
+
+<small>{{font|76|color=#0000FF}}</small>{{font|And six years thou shalt sow thy land, and shalt gather in the fruits thereof:|color=#000000}}
+
+<small>{{font|77|color=#0000FF}}</small>{{font|But the seventh year thou shalt let it rest and lie still; that the poor of thy people may eat: and what they leave the beasts of the field shall eat. In like manner thou shalt deal with thy vineyard, and with thy oliveyard.|color=#000000}}
+
+<small>{{font|78|color=#0000FF}}</small>{{font|Six days thou shalt do thy work, and on the seventh day thou shalt rest: that thine ox and thine ass may rest, and the son of thy handmaid, and the stranger, may be refreshed.|color=#000000}}
+
+<small>{{font|79|color=#0000FF}}</small>{{font|And in all things that I have said unto you be circumspect: and make no mention of the name of other gods, neither let it be heard out of thy mouth.|color=#000000}}
+
+<small>{{font|80|color=#0000FF}}</small>{{font|Three times thou shalt keep a feast unto me in the year.|color=#000000}}
+
+<small>{{font|81|color=#0000FF}}</small>{{font|Thou shalt keep the feast of unleavened bread.|color=#000000}}
+
+<small>{{font|82|color=#0000FF}}</small>{{font|And the feast of harvest, the firstfruits of thy labours, which thou hast sown in the field: and the feast of ingathering, which is in the end of the year, when thou hast gathered in thy labours out of the field.|color=#000000}}
+
+<small>{{font|83|color=#0000FF}}</small>{{font|Three times in the year all thy males shall [see the face of ] the LORD God.|color=#000000}}
+
+<small>{{font|84|color=#0000FF}}</small>{{font|Thou shalt not offer the blood of my sacrifice with leavened bread; neither shall the fat of my sacrifice remain until the morning.|color=#000000}}
+
+<small>{{font|85|color=#0000FF}}</small>{{font|The first of the firstfruits of thy land thou shalt bring into the house of the LORD thy God. Thou shalt not seethe a kid in his mother's milk.|color=#000000}}
+
+<small>{{font|86|color=#0000FF}}</small>{{font|Behold, I send an Angel before thee, to keep thee in the way, and to bring thee into the place which I have prepared.|color=#000000}}
+
+<small>{{font|87|color=#0000FF}}</small>{{font|Beware of him, and obey his voice, provoke him not; for he will not pardon your transgressions: for my name is in him.|color=#000000}}
+
+<small>{{font|88|color=#0000FF}}</small>{{font|But if thou shalt indeed obey his voice, and do all that I speak; then I will be an enemy unto thine enemies, and an adversary unto thine adversaries.|color=#000000}}
+
+<small>{{font|89|color=#0000FF}}</small>{{font|For mine Angel shall go before thee, and bring thee in unto the Amorites, and the Hittites, and the Perizzites, and the Canaanites, the Hivites, and the Jebusites: and I will cut them off.|color=#000000}}
+
+<small>{{font|90|color=#0000FF}}</small>{{font|Thou shalt not bow down to their gods, nor serve them, nor do after their works: but thou shalt utterly overthrow them, and quite break down their images.|color=#000000}}
+
+<small>{{font|91|color=#0000FF}}</small>{{font|And ye shall serve the LORD your God, and he shall bless thy bread, and thy water; and I will take sickness away from the midst of thee.|color=#000000}}
+
+<small>{{font|92|color=#0000FF}}</small>{{font|There shall nothing cast their young, nor be barren, in thy land: the number of thy days I will fulfil.|color=#000000}}
+
+<small>{{font|93|color=#0000FF}}</small>{{font|I will send my fear before thee, and will destroy all the people to whom thou shalt come, and I will make all thine enemies turn their backs unto thee.|color=#000000}}
+
+<small>{{font|94|color=#0000FF}}</small>{{font|And I will send hornets before thee, which shall drive out the Hivite, the Canaanite, and the Hittite, from before thee.|color=#000000}}
+
+<small>{{font|95|color=#0000FF}}</small>{{font|I will not drive them out from before thee in one year; lest the land become desolate, and the beast of the field multiply against thee.|color=#000000}}
+
+<small>{{font|96|color=#0000FF}}</small>{{font|By little and little I will drive them out from before thee, until thou be increased, and inherit the land.|color=#000000}}
+
+<small>{{font|97|color=#0000FF}}</small>{{font|And I will set thy bounds from the Red sea even unto the sea of the Philistines, and from the desert unto the river: for I will deliver the inhabitants of the land into your hand; and thou shalt drive them out before thee.|color=#000000}}
+
+<small>{{font|98|color=#0000FF}}</small>{{font|Thou shalt make no covenant with them, nor with their gods.|color=#000000}}
+
+<small>{{font|99|color=#0000FF}}</small>{{font|They shall not dwell in thy land, lest they make thee sin against me: for if thou serve their gods, it will surely be a snare unto thee.|color=#000000}}
+
+[[Category:Documentary hypothesis]]

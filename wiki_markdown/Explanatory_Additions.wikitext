@@ -1,0 +1,181 @@
+<[[Bible, English, King James, According to the documentary hypothesis]]
+
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:torah|torah]] was formed when a [[w:Torah redactor|certain redactor]] interwove a set of separate source texts. Some stories may have remained in some ways obscure, as the redactor chose to add certain explanatory texts to clarify certain points and expand on others.
+
+==Substitution of a Ram for Isaac==
+
+The [[w:Elohist|Elohist source]] abruptly goes from "And Abraham stretched forth his hand, and took the knife to slay his son" (Genesis 22:10) to "because thou hast done this thing, and hast not withheld thy son, thine only son" (Genesis 22:16b), with no further mention of Isaac being alive. This appears to imply human sacrifice, although the text in the Elohist source describing what Abraham did with the dagger after raising it is no longer present. In the Jahwist source, Isaac is mentioned several times, which in the combined JE text occur after this event, and consequently the redactor took out whatever the detail was, and replaced it with Isaac being rescued from sacrifice (Genesis 22:11-16a):
+
+:<small>{{font|color=#0000FF|1}}</small> And the angel of the LORD called unto him out of heaven, and said, Abraham, Abraham: and he said, Here am I.
+
+:<small>{{font|color=#0000FF|2}}</small> And he said, Lay not thine hand upon the lad, neither do thou any thing unto him: for now I know that thou fearest God, seeing thou hast not withheld thy son, thine only son from me.
+
+:<small>{{font|color=#0000FF|3}}</small> And Abraham lifted up his eyes, and looked, and behold behind him a ram caught in a thicket by his horns: and Abraham went and took the ram, and offered him up for a burnt offering in the stead of his son.
+
+:<small>{{font|color=#0000FF|4}}</small> And Abraham called the name of that place Jehovahjireh: as it is said to this day, In the mount of the LORD it shall be seen.
+
+:<small>{{font|color=#0000FF|5}}</small> And the angel of the LORD called unto Abraham out of heaven the second time,
+
+:<small>{{font|color=#0000FF|6}}</small> And said, By myself have I sworn, saith the LORD, for 
+
+==Esau moving from Canaan to Seir==
+
+The redactor used the opportunity created by the [[w:priestly source|priestly source]] mentioning Esau's children (Genesis 36:2-5) to try and put in the corresponding genealogy from the [[w:Book of generations|Book of generations]]. However, this refers to Esau being at Seir, wheras the priestly source's genealogy describes him in Canaan. The Redactor added extra lines (Genesis 36:6-8) describing Esau moving from Canaan to Seir:
+
+:<small>{{font|color=#0000FF|1}}</small> Now these are the generations of Esau, who is Edom.
+
+:<small>{{font|color=#0000FF|.................................................................................THE GENEALOGY FROM THE PRIESTLY SOURCE....................................................................................}}</small> 
+
+:<small>{{font|color=#0000FF|A}}</small> And Esau took his wives, and his sons, and his daughters, and all the persons of his house, and his cattle, and all his beasts, and all his substance, which he had got in the land of Canaan; and went into the country from the face of his brother Jacob.
+
+:<small>{{font|color=#0000FF|B}}</small> For their riches were more than that they might dwell together; and the land wherein they were strangers could not bear them because of their cattle.
+
+:<small>{{font|color=#0000FF|C}}</small> Thus dwelt Esau in mount Seir: Esau is Edom.
+
+:<small>{{font|color=#0000FF|.............................................................................THE GENEALOGY FROM THE BOOK OF GENERATIONS................................................................................}}</small>
+
+==The genealogy of Israel's grandchildren==
+
+There isn't really anywhere convenient for listing the genealogies of Israel's grandchildren. The redactor chooses one of the least awkward - when Moses is initially put in charge of the tribes of Israel - to insert the genealogy from the book of generations (Exodus 6:13-30), adding a brief extra piece of text, which ends by repeating the immediately preceeding verse (Exodus  6:12), to return to the main story:
+
+:<small>{{font|color=#0000FF|1}}</small> And the LORD spake unto Moses and unto Aaron, and gave them a charge unto the children of Israel, and unto Pharaoh king of Egypt, to bring the children of Israel out of the land of Egypt.
+
+:<small>{{font|color=#0000FF|.............................................................................GENEALOGY FROM THE BOOK OF GENERATIONS................................................................................}}</small> 
+
+:<small>{{font|color=#0000FF|A}}</small> These are that Aaron and Moses, to whom the LORD said, Bring out the children of Israel from the land of Egypt according to their armies.
+
+:<small>{{font|color=#0000FF|B}}</small> These are they which spake to Pharaoh king of Egypt, to bring out the children of Israel from Egypt: these are that Moses and Aaron.
+
+:<small>{{font|color=#0000FF|C}}</small> And it came to pass on the day when the LORD spake unto Moses in the land of Egypt,
+
+:<small>{{font|color=#0000FF|D}}</small> That the LORD spake unto Moses, saying, I am the LORD: speak thou unto Pharaoh king of Egypt all that I say unto thee.
+
+:<small>{{font|color=#0000FF|E}}</small> And Moses said before the LORD, Behold, I am of uncircumcised lips, and how shall Pharaoh hearken unto me?
+
+==Ending the plague of frogs==
+
+The redactor chose to clarify that the end of the plague of frogs in the Elohist source (Exodus 8:11a) did not imply that frogs would no longer exist in Egypt, which had clearly not occurred:
+
+:<small>{{font|color=#0000FF|Exodus 8:11b}}</small> they shall remain in the river only.
+
+==God's promise to be merciful if he destroys Israel as punishment and they repent ==
+
+The Priestly source describes a large law code, and then threatens that if it was not followed sufficiently, god might destroy Israel in wrath, (Leviticus 26:1-38), but offers no hope of any subsequent future after such destruction. In the documentary hypothesis, the redaction is thought to have occurred during/after the [[w:Babylonian captivity|Babylonian captivity]], and so the bleak threat appears to have already been carried out. The redactor added a section in which god promises to be merciful should the people subsequently repent (Leviticus 26:39-46):
+
+:<small>{{font|color=#0000FF|1}}</small> And they that are left of you shall pine away in their iniquity in your enemies' lands; 
+
+:<small>{{font|color=#0000FF|2}}</small> And also in the iniquities of their fathers shall they pine away with them.
+
+:<small>{{font|color=#0000FF|3}}</small> If they shall confess their iniquity, and the iniquity of their fathers, 
+
+:<small>{{font|color=#0000FF|4}}</small> With their trespass which they trespassed against me, and that also they have walked contrary unto me;
+
+:<small>{{font|color=#0000FF|5}}</small> And that I also have walked contrary unto them, and have brought them into the land of their enemies; 
+
+:<small>{{font|color=#0000FF|6}}</small> If then their uncircumcised hearts be humbled, and they then accept of the punishment of their iniquity:
+
+:<small>{{font|color=#0000FF|7}}</small> Then will I remember my covenant with Jacob, and also my covenant with Isaac, 
+
+:<small>{{font|color=#0000FF|8}}</small> And also my covenant with Abraham will I remember; and I will remember the land.
+
+:<small>{{font|color=#0000FF|9}}</small> The land also shall be left of them, and shall enjoy her sabbaths, while she lieth desolate without them: 
+
+:<small>{{font|color=#0000FF|10}}</small> And they shall accept of the punishment of their iniquity: 
+
+:<small>{{font|color=#0000FF|11}}</small> Because, even because they despised my judgments, and because their soul abhorred my statutes.
+
+:<small>{{font|color=#0000FF|12}}</small> And yet for all that, when they be in the land of their enemies, I will not cast them away, 
+
+:<small>{{font|color=#0000FF|13}}</small> Neither will I abhor them, to destroy them utterly, and to break my covenant with them: for I am the LORD their God.
+
+:<small>{{font|color=#0000FF|14}}</small> But I will for their sakes remember the covenant of their ancestors, 
+
+:<small>{{font|color=#0000FF|15}}</small> Whom I brought forth out of the land of Egypt in the sight of the heathen, 
+
+:<small>{{font|color=#0000FF|16}}</small> That I might be their God: I am the LORD.
+
+:<small>{{font|color=#0000FF|17}}</small> These are the statutes and judgments and laws, 
+
+:<small>{{font|color=#0000FF|18}}</small> Which the LORD made between him and the children of Israel in mount Sinai by the hand of Moses.
+
+==Cloud of the Tabernacle==
+
+The priestly source describes an invisible and distant god, and the redactor chose to provide (at Numbers 9:15-23) an explanation of exactly how the people knew where it was that god wished to lead them. It repeats the explanation numerous times, as if to completely ensure that it is understood:
+
+:<small>{{font|color=#0000FF|1}}</small> And on the day that the tabernacle was reared up the cloud covered the tabernacle, namely, the tent of the testimony: 
+
+:<small>{{font|color=#0000FF|2}}</small> And at even there was upon the tabernacle as it were the appearance of fire, until the morning.
+
+:<small>{{font|color=#0000FF|3}}</small> So it was alway: the cloud covered it by day, and the appearance of fire by night.
+
+:<small>{{font|color=#0000FF|4}}</small> And when the cloud was taken up from the tabernacle, then after that the children of Israel journeyed: 
+
+:<small>{{font|color=#0000FF|5}}</small> And in the place where the cloud abode, there the children of Israel pitched their tents.
+
+:<small>{{font|color=#0000FF|6}}</small> At the commandment of the LORD the children of Israel journeyed, and at the commandment of the LORD they pitched: 
+
+:<small>{{font|color=#0000FF|7}}</small> As long as the cloud abode upon the tabernacle they rested in their tents.
+
+:<small>{{font|color=#0000FF|8}}</small> And when the cloud tarried long upon the tabernacle many days, then the children of Israel kept the charge of the LORD, and journeyed not.
+
+:<small>{{font|color=#0000FF|9}}</small> And so it was, when the cloud was a few days upon the tabernacle; 
+
+:<small>{{font|color=#0000FF|10}}</small> According to the commandment of the LORD they abode in their tents, and according to the commandment of the LORD they journeyed.
+
+:<small>{{font|color=#0000FF|11}}</small> And so it was, when the cloud abode from even unto the morning, 
+
+:<small>{{font|color=#0000FF|12}}</small> And that the cloud was taken up in the morning, then they journeyed: 
+
+:<small>{{font|color=#0000FF|13}}</small> Whether it was by day or by night that the cloud was taken up, they journeyed.
+
+:<small>{{font|color=#0000FF|14}}</small> Or whether it were two days, or a month, or a year, that the cloud tarried upon the tabernacle, remaining thereon, the children of Israel abode in their tents, and journeyed not: 
+
+:<small>{{font|color=#0000FF|15}}</small> But when it was taken up, they journeyed.
+
+:<small>{{font|color=#0000FF|16}}</small> At the commandment of the LORD they rested in the tents, and at the commandment of the LORD they journeyed: 
+
+:<small>{{font|color=#0000FF|17}}</small> They kept the charge of the LORD, at the commandment of the LORD by the hand of Moses.
+
+==Narrative in the Stations List==
+
+The stations list is a particularly dry text. This is alleviated by additions inserted into it by the redactor, although one school of thought considers that the stations list did originally contain these narrative segments rather than the redactor adding them.
+
+In part of the scattered version of the stations list (Numbers 21:10-20), the redactor references a now lost book (the [[w:Book of the wars of the Lord|Book of the wars of the lord]]), and describes the digging of a well:
+ 
+:<small>{{font|color=#0000FF|.....................................................STATIONS LIST TO THE OTHER SIDE OF ARNON.....................................................}}</small>
+
+:<small>{{font|color=#0000FF|1}}</small> Wherefore it is said in the book of the wars of the LORD, What he did in the Red sea, and in the brooks of Arnon,
+
+:<small>{{font|color=#0000FF|2}}</small> And at the stream of the brooks that goeth down to the dwelling of Ar, and lieth upon the border of Moab.
+
+:<small>{{font|color=#0000FF|...............................................................STATIONS LIST FROM AR TO BEER..............................................................}}</small>
+
+:<small>{{font|color=#0000FF|i}}</small> Whereof the LORD spake unto Moses, Gather the people together, and I will give them water.
+
+:<small>{{font|color=#0000FF|ii}}</small> Then Israel sang this song, Spring up, O well; sing ye unto it:
+
+:<small>{{font|color=#0000FF|iii}}</small> The princes digged the well, the nobles of the people digged it, by the direction of the lawgiver, with their staves. 
+
+:<small>{{font|color=#0000FF|....................................................................STATIONS LIST FROM BEER....................................................................}}</small>
+
+Within the full version of the stations list (Numbers 33:1-49), the redactor summarises the passover, Aaron's death, and king Arad's awareness of the people's approach:
+
+:<small>{{font|color=#0000FF|..............................................................................INTRODUCTION..............................................................................}}</small>
+
+:<small>{{font|color=#0000FF|1}}</small> And they departed from Rameses in the first month, on the fifteenth day of the first month; on the morrow after the passover the children of Israel went out with an high hand in the sight of all the Egyptians.
+
+:<small>{{font|color=#0000FF|2}}</small> For the Egyptians buried all their firstborn, which the LORD had smitten among them: upon their gods also the LORD executed judgements
+
+:<small>{{font|color=#0000FF|...................................................STATIONS LIST FROM RAMESES TO MOUNT HOR...................................................}}</small>
+
+:<small>{{font|color=#0000FF|i}}</small> And Aaron the priest went up into mount Hor at the commandment of the LORD, and died there, in the fortieth year after the children of Israel were come out of the land of Egypt, in the first day of the fifth month.
+
+:<small>{{font|color=#0000FF|.................................................AARON'S AGE FROM THE BOOK OF GENERATIONS.................................................}}</small>
+
+:<small>{{font|color=#0000FF|4}}</small> And king Arad the Canaanite, which dwelt in the south in the land of Canaan, heard of the coming of the children of Israel.
+
+:<small>{{font|color=#0000FF|..............................................................STATIONS LIST FROM MOUNT HOR..............................................................}}</small>
+
+[[Category:Documentary hypothesis]]
+
+{{CourseCat}}

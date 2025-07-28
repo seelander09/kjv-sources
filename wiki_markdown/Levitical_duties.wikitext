@@ -1,0 +1,92 @@
+<[[Bible, English, King James, According to the documentary hypothesis]] | [[Bible, English, King James, Documentary Hypothesis, Priestly source|Priestly source]]
+
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:torah|torah]] was redacted together from a number of earlier source texts. The largest of these is referred to as the "[[w:Priestly source|Priestly source]]", due to its concentration on details which would be of interest to the [[w:Aaron|Aaron]]id priesthood. 
+
+The reconstructed text of this source contains several elements which are separable from the narrative, including several laws, and descriptions of how rituals should be carried out. It is sometimes believed that these were originally separate documents held as priestly records, or simple observations. One of these separable elements is the list of duties for the three groups of [[w:Levites|Levites]] who were not [[w:Kohanim|Kohanim]].
+
+This is spliced between some of the census data concerning the levites, and the description of how to pack the tabernacle. Consequently it appears at Numbers 3:7-13, 3:25-26, 3:31-32, 3:36-37, 4:4, 4:15b-21, 4:24-28, 4:31-33, and 8:23-26. A basic description of some of this being carried out appears at Numbers 10:17, and 10:21.
+
+==Duties of the Levite families==
+{{font|size=smaller|color=#0000FF|1}} The tribe of Levi shall keep charge of the whole congregation before the tabernacle of the congregation, to do the service of the tabernacle.
+
+{{font|size=smaller|color=#0000FF|2}} And they shall keep all the instruments of the tabernacle of the congregation, 
+
+{{font|size=smaller|color=#0000FF|3}} And the charge of the children of Israel, to do the service of the tabernacle.
+
+{{font|size=smaller|color=#0000FF|4}} Behold, the LORD hath taken the Levites from among the children of Israel 
+
+{{font|size=smaller|color=#0000FF|A}} Instead of all the firstborn that openeth the matrix among the children of Israel: 
+
+{{font|size=smaller|color=#0000FF|B}} Because all the firstborn are the LORDs; for on the day that he smote all the firstborn in the land of Egypt
+
+{{font|size=smaller|color=#0000FF|C}} All the firstborn in Israel were hallowed unto him, both man and beast: 
+
+{{font|size=smaller|color=#0000FF|5}} And the charge of the sons of Gershon in the tabernacle of the congregation 
+
+:{{font|size=smaller|color=#0000FF|A}} They shall bear the curtains of the tabernacle, 
+
+:{{font|size=smaller|color=#0000FF|B}} And the tabernacle, and the tent, the covering thereof, 
+
+:{{font|size=smaller|color=#0000FF|C}} And the covering of the badgers' skins that is above upon it, 
+
+:{{font|size=smaller|color=#0000FF|D}} And the hanging for the door of the tabernacle of the congregation,
+
+:{{font|size=smaller|color=#0000FF|E}} And the hangings of the court, and the hanging for the door of the gate of the court, which is by the tabernacle,
+
+:{{font|size=smaller|color=#0000FF|F}} And by the altar round about, and the cords of it for all the service thereof.
+
+:{{font|size=smaller|color=#0000FF|G}} And their cords, and all the instruments of their service, and all that is made for them: so shall they serve.
+
+:{{font|size=smaller|color=#0000FF|H}} This is the service of the families of the sons of Gershon in the tabernacle of the congregation: 
+
+:{{font|size=smaller|color=#0000FF|I}} And their charge shall be under the hand of Ithamar the son of Aaron the priest.
+
+{{font|size=smaller|color=#0000FF|6}} And the charge of the sons of Kohath shall be 
+
+:{{font|size=smaller|color=#0000FF|A}} The ark, and the table, and the candlestick, and the altars, 
+
+:{{font|size=smaller|color=#0000FF|B}} And the vessels of the sanctuary wherewith they minister, and the hanging, and all the service thereof.
+
+:{{font|size=smaller|color=#0000FF|C}} But shall not touch any holy thing, lest they die. 
+
+:{{font|size=smaller|color=#0000FF|D}} These things are the burden of the sons of Kohath in the tabernacle of the congregation.
+
+:{{font|size=smaller|color=#0000FF|E}} Cut ye not off the tribe of the families of the Kohathites from among the Levites:
+
+{{font|size=smaller|color=#0000FF|7}} And under the custody and charge of the sons of Merari 
+
+:{{font|size=smaller|color=#0000FF|A}} Shall be the boards of the tabernacle, 
+
+:{{font|size=smaller|color=#0000FF|B}} And the bars thereof, and the pillars thereof, and the sockets thereof, 
+
+:{{font|size=smaller|color=#0000FF|C}} And all the vessels thereof, and all that serveth thereto,
+
+:{{font|size=smaller|color=#0000FF|D}} And the pillars of the court round about, and their sockets, and their pins, and their cords.
+
+:{{font|size=smaller|color=#0000FF|E}} With all their instruments, and with all their service: 
+
+:{{font|size=smaller|color=#0000FF|F}} And by name ye shall reckon the instruments of the charge of their burden.
+
+:{{font|size=smaller|color=#0000FF|G}} This is the service of the families of the sons of Merari, according to all their service, in the tabernacle of the congregation, 
+
+:{{font|size=smaller|color=#0000FF|H}} Under the hand of Ithamar the son of Aaron the priest.
+
+{{font|size=smaller|color=#0000FF|8}} And to the office of Eleazar the son of Aaron the priest 
+
+:{{font|size=smaller|color=#0000FF|A}} Pertaineth the oil for the light, and the sweet incense, and the daily meat offering, 
+
+:{{font|size=smaller|color=#0000FF|B}} And the anointing oil, and the oversight of all the tabernacle, 
+
+:{{font|size=smaller|color=#0000FF|C}} And of all that therein is, in the sanctuary, and in the vessels thereof.
+
+{{font|size=smaller|color=#0000FF|9}} This is it that belongeth unto the Levites: 
+
+:{{font|size=smaller|color=#0000FF|A}} From twenty and five years old and upward they shall go in to wait upon the service of the tabernacle of the congregation:
+
+:{{font|size=smaller|color=#0000FF|B}} And from the age of fifty years they shall cease waiting upon the service thereof, and shall serve no more:
+
+:{{font|size=smaller|color=#0000FF|C}} But shall minister with their brethren in the tabernacle of the congregation, to keep the charge, and shall do no service. 
+
+:{{font|size=smaller|color=#0000FF|D}} Thus shalt thou do unto the Levites touching their charge.
+
+[[Category:Documentary hypothesis]]

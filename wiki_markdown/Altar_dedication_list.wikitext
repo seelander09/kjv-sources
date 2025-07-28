@@ -1,0 +1,92 @@
+<[[Bible, English, King James, According to the documentary hypothesis]] | [[Bible, English, King James, Documentary Hypothesis, Priestly source|Priestly source]]
+
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:torah|torah]] was redacted together from a number of earlier source texts. The largest of these is referred to as the "[[w:Priestly source|Priestly source]]", due to its concentration on details which would be of interest to the [[w:Aaron|Aaron]]id priesthood. 
+
+The reconstructed text of this source contains several elements which are separable from the narrative, including several laws, and descriptions of how rituals should be carried out. It is sometimes believed that these were originally separate documents held as priestly records. One of these separable elements is the list of altar dedications (expressed somewhat repetitively at [[w:Book of Numbers|Numbers]] 7):
+
+''The text is based on numbers 7, but does not reproduce it, instead presenting a simplified version containing the same information''
+== List of Altar Dedications ==
+
+{{font|size=smaller|color=#0000FF|1}} The princes of Israel, heads of the house of their fathers, 
+
+{{font|size=smaller|color=#0000FF|2}} Who were the princes of the tribes, and were over them that were numbered, offered:
+
+{{font|size=smaller|color=#0000FF|3}} And they brought their offering before the tabernacle: six covered wagons, and twelve oxen; 
+
+:{{font|size=smaller|color=#0000FF|A}} A wagon for two of the princes, and for each one an ox: 
+
+{{font|size=smaller|color=#0000FF|4}} And Moses took the wagons and the oxen, and gave them unto the Levites.
+
+{{font|size=smaller|color=#0000FF|A}} Two wagons and four oxen he gave unto the sons of Gershon, according to their service, under the hand of Ithamar the son of Aaron the priest.
+
+{{font|size=smaller|color=#0000FF|B}} And four wagons and eight oxen he gave unto the sons of Merari, according unto their service, under the hand of Ithamar the son of Aaron the priest.
+
+{{font|size=smaller|color=#0000FF|C}} But unto the sons of Kohath he gave none: because the service of the sanctuary belonging unto them was that they should bear upon their shoulders.
+
+{{font|size=smaller|color=#0000FF|5}} And the princes offered for dedicating of the altar in the day that it was anointed, even the princes offered their offering before the altar.
+
+{{font|size=smaller|color=#0000FF|6}} Each prince on his day, offered their offering, for the dedicating of the altar.
+
+:{{font|size=smaller|color=#0000FF|A}} And he that offered his offering the first day was Nahshon the son of Amminadab, of the tribe of Judah:
+
+:{{font|size=smaller|color=#0000FF|B}} On the second day Nethaneel the son of Zuar, prince of Issachar, did offer:
+
+:{{font|size=smaller|color=#0000FF|C}} On the third day Eliab the son of Helon, prince of the children of Zebulun, did offer:
+
+:{{font|size=smaller|color=#0000FF|D}} On the fourth day Elizur the son of Shedeur, prince of the children of Reuben, did offer:
+
+:{{font|size=smaller|color=#0000FF|E}} On the fifth day Shelumiel the son of Zurishaddai, prince of the children of Simeon, did offer:
+
+:{{font|size=smaller|color=#0000FF|F}} On the sixth day Eliasaph the son of Deuel, prince of the children of Gad, offered:
+
+:{{font|size=smaller|color=#0000FF|G}} On the seventh day Elishama the son of Ammihud, prince of the children of Ephraim, offered:
+
+:{{font|size=smaller|color=#0000FF|H}} On the eighth day offered Gamaliel the son of Pedahzur, prince of the children of Manasseh:
+
+:{{font|size=smaller|color=#0000FF|I}} On the ninth day Abidan the son of Gideoni, prince of the children of Benjamin, offered:
+
+:{{font|size=smaller|color=#0000FF|J}} On the tenth day Ahiezer the son of Ammishaddai, prince of the children of Dan, offered:
+
+:{{font|size=smaller|color=#0000FF|K}} On the eleventh day Pagiel the son of Ocran, prince of the children of Asher, offered:
+
+:{{font|size=smaller|color=#0000FF|L}} On the twelfth day Ahira the son of Enan, prince of the children of Naphtali, offered:
+
+{{font|size=smaller|color=#0000FF|7}} And on their day, each prince offered:
+
+:{{font|size=smaller|color=#0000FF|A}} One silver charger, the weight thereof was an hundred and thirty shekels, 
+
+:{{font|size=smaller|color=#0000FF|B}} One silver bowl of seventy shekels, after the shekel of the sanctuary; 
+
+:{{font|size=smaller|color=#0000FF|C}} Both of them full of fine flour mingled with oil for a meat offering:
+
+:{{font|size=smaller|color=#0000FF|D}} One spoon of gold of ten shekels, full of incense:
+
+:{{font|size=smaller|color=#0000FF|E}} One young bullock, one ram, one lamb of the first year, for a burnt offering:
+
+:{{font|size=smaller|color=#0000FF|F}} One kid of the goats for a sin offering:
+
+:{{font|size=smaller|color=#0000FF|G}} And for a sacrifice of peace offerings, two oxen, five rams, five he goats, five lambs of the first year: .
+
+:{{font|size=smaller|color=#0000FF|H}} This was the offering of each prince: like unto the same.
+
+{{font|size=smaller|color=#0000FF|8}} This was the dedication of the altar, in the day when it was anointed, by the princes of Israel: 
+
+:{{font|size=smaller|color=#0000FF|A}} Twelve chargers of silver, twelve silver bowls, twelve spoons of gold:
+
+:{{font|size=smaller|color=#0000FF|B}} Each charger of silver weighing an hundred and thirty shekels, each bowl seventy: 
+
+:{{font|size=smaller|color=#0000FF|C}} All the silver vessels weighed two thousand and four hundred shekels, after the shekel of the sanctuary:
+
+:{{font|size=smaller|color=#0000FF|D}} The golden spoons were twelve, full of incense, weighing ten shekels apiece, after the shekel of the sanctuary: 
+
+:{{font|size=smaller|color=#0000FF|E}} All the gold of the spoons was an hundred and twenty shekels.
+
+:{{font|size=smaller|color=#0000FF|F}} All the oxen for the burnt offering were twelve bullocks, the rams twelve, the lambs of the first year twelve, with their meat offering: 
+
+:{{font|size=smaller|color=#0000FF|G}} And the kids of the goats for sin offering twelve.
+
+:{{font|size=smaller|color=#0000FF|H}} And all the oxen for the sacrifice of the peace offerings were twenty and four bullocks, the rams sixty, the he goats sixty, the lambs of the first year sixty. 
+
+:{{font|size=smaller|color=#0000FF|I}} This was the dedication of the altar, after that it was anointed.
+
+[[Category:Documentary hypothesis]]

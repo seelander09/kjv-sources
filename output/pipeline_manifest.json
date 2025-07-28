@@ -1,0 +1,95 @@
+{
+  "generated_at": "2025-07-27T21:10:21Z",
+  "pipeline_version": "1.0",
+  "books": {
+    "Genesis": {
+      "verses": 1533,
+      "chapters": 50,
+      "sources": {
+        "P": 343,
+        "J": 917,
+        "R": 101,
+        "E": 307
+      },
+      "multi_source_verses": 89,
+      "output_dir": "output\\Genesis",
+      "files": {
+        "csv": "Genesis.csv",
+        "html": "Genesis.html",
+        "latest_csv": "Genesis_latest.csv",
+        "latest_html": "Genesis_latest.html"
+      }
+    },
+    "Exodus": {
+      "verses": 1213,
+      "chapters": 40,
+      "sources": {
+        "P": 650,
+        "J": 297,
+        "E": 241,
+        "R": 83
+      },
+      "multi_source_verses": 45,
+      "output_dir": "output\\Exodus",
+      "files": {
+        "csv": "Exodus.csv",
+        "html": "Exodus.html",
+        "latest_csv": "Exodus_latest.csv",
+        "latest_html": "Exodus_latest.html"
+      }
+    },
+    "Leviticus": {
+      "verses": 859,
+      "chapters": 27,
+      "sources": {
+        "P": 858,
+        "R": 1
+      },
+      "multi_source_verses": 0,
+      "output_dir": "output\\Leviticus",
+      "files": {
+        "csv": "Leviticus.csv",
+        "html": "Leviticus.html",
+        "latest_csv": "Leviticus_latest.csv",
+        "latest_html": "Leviticus_latest.html"
+      }
+    },
+    "Numbers": {
+      "verses": 1288,
+      "chapters": 36,
+      "sources": {
+        "P": 878,
+        "J": 161,
+        "R": 201,
+        "E": 100
+      },
+      "multi_source_verses": 33,
+      "output_dir": "output\\Numbers",
+      "files": {
+        "csv": "Numbers.csv",
+        "html": "Numbers.html",
+        "latest_csv": "Numbers_latest.csv",
+        "latest_html": "Numbers_latest.html"
+      }
+    },
+    "Deuteronomy": {
+      "verses": 959,
+      "chapters": 34,
+      "sources": {
+        "UNKNOWN": 830,
+        "P": 12,
+        "R": 84,
+        "E": 6,
+        "J": 34
+      },
+      "multi_source_verses": 4,
+      "output_dir": "output\\Deuteronomy",
+      "files": {
+        "csv": "Deuteronomy.csv",
+        "html": "Deuteronomy.html",
+        "latest_csv": "Deuteronomy_latest.csv",
+        "latest_html": "Deuteronomy_latest.html"
+      }
+    }
+  }
+}

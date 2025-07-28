@@ -1,0 +1,2033 @@
+<[[Bible, English, King James, According to the documentary hypothesis]] | [[Bible, English, King James, Documentary Hypothesis, Deuteronomist source|Deuteronomist source]] | [[Bible, English, King James, Documentary Hypothesis, Deuteronomist source, First Deuteronomist Version|First Edition (Dtr1)]]
+
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:Torah|Torah]] is composed from a number of originally independant sources joined by a [[w:redaction|redactor]]. One of these supposed sources is named the [[w:Deuteronomist|"Deuteronomist"]], due to it composing the vast majority of the text of [[w:Deuteronomy|Deuteronomy]]. Under the usual form of the hypothesis, the deuteronomist text is believed to have come in two editions, the earlier one, known as "Dtr1", being written around the time of king [[w:Josiah|Josiah]] by someone from the same circle as [[w:Jeremiah|Jeremiah]].
+
+Though considered to have been written as a coherent work by a single author, the text can be broken down into a number of components. By far the largest component is the law code, the presentation of which seems to be the main purpose of the text. According to the documentary hypothesis, the law code stands in opposition to the [[w:Priestly source|Priestly source]], and although several laws are similar, the deuteronomist code does not favour the Aaronid priesthood, referring instead to the importance of the Levites in general, and is also much harsher about practices relating to other religions.
+
+There follows the reconstructed legal elements of "dtr1", using the [[w:King James Version|King James Translation]], re-ordered as a law code. 
+
+''The numbering and partitions do not necessarily reflect that in the original in any way, but are simply present for ease of reference for the modern reader''
+
+==Prologue==
+===Preface===
+:''(from Deuteronomy 4:44-49)''
+
+{{font|size=smaller|color=#0000FF|1}} This is the law which Moses set before the children of Israel:
+
+{{font|size=smaller|color=#0000FF|2}} These are the testimonies, and the statutes, and the judgments, which Moses spake unto the children of Israel, after they came forth out of Egypt.
+
+{{font|size=smaller|color=#0000FF|3}} On this side Jordan, in the valley over against Bethpeor, in the land of Sihon king of the Amorites, who dwelt at Heshbon,  
+
+{{font|size=smaller|color=#0000FF|4}} Whom Moses and the children of Israel smote, after they were come forth out of Egypt:
+
+{{font|size=smaller|color=#0000FF|5}} And they possessed his land, and the land of Og king of Bashan, two kings of the Amorites,
+
+{{font|size=smaller|color=#0000FF|6}} Which were on this side Jordan toward the sunrising;
+
+{{font|size=smaller|color=#0000FF|7}} From Aroer, which is by the bank of the river Arnon, even unto mount Sion, which is Hermon,
+
+{{font|size=smaller|color=#0000FF|8}} And all the plain on this side Jordan eastward, even unto the sea of the plain, under the springs of Pisgah.
+
+===Historical introduction===
+:''(from Deuteronomy 5:23-33, Deuteronomy 10:22, and Deuteronomy 11:1-32)''
+
+{{font|size=smaller|color=#0000FF|1}} And it came to pass, when ye heard the voice out of the midst of the darkness, (for the mountain did burn with fire,) 
+
+{{font|size=smaller|color=#0000FF|2}} That ye came near unto me, even all the heads of your tribes, and your elders;
+
+{{font|size=smaller|color=#0000FF|3}} And ye said, Behold, the LORD our God hath shewed us his glory and his greatness,
+
+{{font|size=smaller|color=#0000FF|4}} And we have heard his voice out of the midst of the fire: we have seen this day that God doth talk with man, and he liveth.
+
+{{font|size=smaller|color=#0000FF|5}} Now therefore why should we die? for this great fire will consume us: if we hear the voice of the LORD our God any more, then we shall die.
+
+{{font|size=smaller|color=#0000FF|6}} For who is there of all flesh, that hath heard the voice of the living God speaking out of the midst of the fire, as we have, and lived?
+
+{{font|size=smaller|color=#0000FF|7}} Go thou near, and hear all that the LORD our God shall say:
+
+{{font|size=smaller|color=#0000FF|8}} And speak thou unto us all that the LORD our God shall speak unto thee; and we will hear it, and do it.
+
+{{font|size=smaller|color=#0000FF|9}} And the LORD heard the voice of your words, when ye spake unto me; and the LORD said unto me,
+
+:{{font|size=smaller|color=#0000FF|A}} I have heard the voice of the words of this people, which they have spoken unto thee: they have well said all that they have spoken.
+
+:{{font|size=smaller|color=#0000FF|B}} O that there were such an heart in them, that they would fear me,
+
+:{{font|size=smaller|color=#0000FF|C}} And keep all my commandments always, that it might be well with them, and with their children for ever!
+
+:{{font|size=smaller|color=#0000FF|D}} Go say to them, Get you into your tents again.
+
+:{{font|size=smaller|color=#0000FF|E}} But as for thee, stand thou here by me, and I will speak unto thee all the commandments, and the statutes, and the judgments,
+
+:{{font|size=smaller|color=#0000FF|F}} Which thou shalt teach them, that they may do them in the land which I give them to possess it.
+
+:{{font|size=smaller|color=#0000FF|G}} Ye shall observe to do therefore as the LORD your God hath commanded you: ye shall not turn aside to the right hand or to the left.
+
+:{{font|size=smaller|color=#0000FF|H}} Ye shall walk in all the ways which the LORD your God hath commanded you,
+
+:{{font|size=smaller|color=#0000FF|I}} That ye may live, and that it may be well with you, and that ye may prolong your days in the land which ye shall possess.
+
+{{font|size=smaller|color=#0000FF|10}} Thy fathers went down into Egypt with threescore and ten persons;
+
+{{font|size=smaller|color=#0000FF|11}} And now the LORD thy God hath made thee as the stars of heaven for multitude.
+
+{{font|size=smaller|color=#0000FF|12}} Therefore thou shalt love the LORD thy God, and keep his charge, and his statutes, and his judgments, and his commandments, alway.
+
+{{font|size=smaller|color=#0000FF|13}} And know ye this day:
+
+{{font|size=smaller|color=#0000FF|14}} For I speak not with your children which have not known, and which have not seen the chastisement of the LORD your God,
+
+{{font|size=smaller|color=#0000FF|15}} His greatness, his mighty hand, and his stretched out arm, and his miracles, and his acts,
+
+{{font|size=smaller|color=#0000FF|16}} Which he did in the midst of Egypt unto Pharaoh the king of Egypt, and unto all his land;
+
+{{font|size=smaller|color=#0000FF|17}} And what he did unto the army of Egypt, unto their horses, and to their chariots;
+
+{{font|size=smaller|color=#0000FF|18}} How he made the water of the Red sea to overflow them as they pursued after you, and how the LORD hath destroyed them unto this day;
+
+{{font|size=smaller|color=#0000FF|19}} And what he did unto you in the wilderness, until ye came into this place;
+
+{{font|size=smaller|color=#0000FF|20}} And what he did unto Dathan and Abiram, the sons of Eliab, the son of Reuben:
+
+{{font|size=smaller|color=#0000FF|21}} How the earth opened her mouth, and swallowed them up, and their households, and their tents,
+
+{{font|size=smaller|color=#0000FF|22}} And all the substance that was in their possession, in the midst of all Israel:
+
+{{font|size=smaller|color=#0000FF|23}} But your eyes have seen all the great acts of the LORD which he did.
+
+{{font|size=smaller|color=#0000FF|24}} Therefore shall ye keep all the commandments which I command you this day,
+
+{{font|size=smaller|color=#0000FF|25}} That ye may be strong, and go in and possess the land, whither ye go to possess it;
+
+{{font|size=smaller|color=#0000FF|26}} And that ye may prolong your days in the land, which the LORD sware unto your fathers to give unto them and to their seed,
+
+{{font|size=smaller|color=#0000FF|27}} A land that floweth with milk and honey.
+
+{{font|size=smaller|color=#0000FF|28}} For the land, whither thou goest in to possess it, is not as the land of Egypt,
+
+{{font|size=smaller|color=#0000FF|29}} From whence ye came out, where thou sowedst thy seed, and wateredst it with thy foot, as a garden of herbs:
+
+{{font|size=smaller|color=#0000FF|30}} But the land, whither ye go to possess it, is a land of hills and valleys, and drinketh water of the rain of heaven:
+
+{{font|size=smaller|color=#0000FF|31}} A land which the LORD thy God careth for: the eyes of the LORD thy God are always upon it,
+
+{{font|size=smaller|color=#0000FF|32}} From the beginning of the year even unto the end of the year.
+
+{{font|size=smaller|color=#0000FF|33}} And it shall come to pass, if ye shall hearken diligently unto my commandments which I command you this day,
+
+{{font|size=smaller|color=#0000FF|34}} To love the LORD your God, and to serve him with all your heart and with all your soul,
+
+{{font|size=smaller|color=#0000FF|35}} That I will give you the rain of your land in his due season, the first rain and the latter rain,
+
+{{font|size=smaller|color=#0000FF|36}} That thou mayest gather in thy corn, and thy wine, and thine oil.
+
+{{font|size=smaller|color=#0000FF|37}} And I will send grass in thy fields for thy cattle, that thou mayest eat and be full.
+
+{{font|size=smaller|color=#0000FF|38}} Take heed to yourselves, that your heart be not deceived, and ye turn aside, and serve other gods, and worship them;
+
+{{font|size=smaller|color=#0000FF|39}} And then the LORD's wrath be kindled against you, and he shut up the heaven, that there be no rain, and that the land yield not her fruit;
+
+{{font|size=smaller|color=#0000FF|40}} And lest ye perish quickly from off the good land which the LORD giveth you.
+
+{{font|size=smaller|color=#0000FF|41}} Therefore shall ye lay up these my words in your heart and in your soul,
+
+{{font|size=smaller|color=#0000FF|42}} And bind them for a sign upon your hand, that they may be as frontlets between your eyes.
+
+{{font|size=smaller|color=#0000FF|43}} And ye shall teach them your children, speaking of them when thou sittest in thine house,
+
+{{font|size=smaller|color=#0000FF|44}} And when thou walkest by the way, when thou liest down, and when thou risest up.
+
+{{font|size=smaller|color=#0000FF|45}} And thou shalt write them upon the door posts of thine house, and upon thy gates:
+
+{{font|size=smaller|color=#0000FF|46}} That your days may be multiplied, and the days of your children,
+
+{{font|size=smaller|color=#0000FF|47}} In the land which the LORD sware unto your fathers to give them, as the days of heaven upon the earth.
+
+{{font|size=smaller|color=#0000FF|48}} For if ye shall diligently keep all these commandments which I command you, to do them,
+
+{{font|size=smaller|color=#0000FF|49}} To love the LORD your God, to walk in all his ways, and to cleave unto him;
+
+{{font|size=smaller|color=#0000FF|50}} Then will the LORD drive out all these nations from before you, and ye shall possess greater nations and mightier than yourselves.
+
+{{font|size=smaller|color=#0000FF|51}} Every place whereon the soles of your feet shall tread shall be yours:
+
+{{font|size=smaller|color=#0000FF|52}} From the wilderness and Lebanon, from the river, the river Euphrates, even unto the uttermost sea shall your coast be.
+
+{{font|size=smaller|color=#0000FF|53}} There shall no man be able to stand before you:
+
+{{font|size=smaller|color=#0000FF|54}} For the LORD your God shall lay the fear of you and the dread of you upon all the land that ye shall tread upon, as he hath said unto you.
+
+{{font|size=smaller|color=#0000FF|55}} Behold, I set before you this day a blessing and a curse;
+
+{{font|size=smaller|color=#0000FF|56}} A blessing, if ye obey the commandments of the LORD your God, which I command you this day:
+
+{{font|size=smaller|color=#0000FF|57}} And a curse, if ye will not obey the commandments of the LORD your God, but turn aside out of the way which I command you this day,
+
+{{font|size=smaller|color=#0000FF|58}} To go after other gods, which ye have not known.
+
+{{font|size=smaller|color=#0000FF|59}} And it shall come to pass, when the LORD thy God hath brought thee in unto the land whither thou goest to possess it,
+
+{{font|size=smaller|color=#0000FF|60}} That thou shalt put the blessing upon mount Gerizim, and the curse upon mount Ebal.
+
+{{font|size=smaller|color=#0000FF|61}} Are they not on the other side Jordan, by the way where the sun goeth down,
+
+{{font|size=smaller|color=#0000FF|62}} In the land of the Canaanites, which dwell in the champaign over against Gilgal, beside the plains of Moreh?
+
+{{font|size=smaller|color=#0000FF|63}} For ye shall pass over Jordan to go in to possess the land which the LORD your God giveth you, and ye shall possess it, and dwell therein.
+
+{{font|size=smaller|color=#0000FF|64}} And ye shall observe to do all the statutes and judgments which I set before you this day.
+
+===Preamble===
+:''(from Deuteronomy 4:1-10, Deuteronomy 4:14, and Deuteronomy 4:32-40)''
+
+{{font|size=smaller|color=#0000FF|1}} Now therefore hearken, O Israel, unto the statutes and unto the judgments, which I teach you,
+
+{{font|size=smaller|color=#0000FF|2}} For to do them, that ye may live, and go in and possess the land which the LORD God of your fathers giveth you.
+
+{{font|size=smaller|color=#0000FF|3}} Ye shall not add unto the word which I command you, neither shall ye diminish ought from it,
+
+{{font|size=smaller|color=#0000FF|4}} That ye may keep the commandments of the LORD your God which I command you.
+
+{{font|size=smaller|color=#0000FF|5}} Your eyes have seen what the LORD did because of Baalpeor:
+
+{{font|size=smaller|color=#0000FF|6}} For all the men that followed Baalpeor, the LORD thy God hath destroyed them from among you.
+
+{{font|size=smaller|color=#0000FF|7}} But ye that did cleave unto the LORD your God are alive every one of you this day.
+
+{{font|size=smaller|color=#0000FF|8}} Behold, I have taught you statutes and judgments, even as the LORD my God commanded me,
+
+{{font|size=smaller|color=#0000FF|9}} That ye should do so in the land whither ye go to possess it.
+
+{{font|size=smaller|color=#0000FF|10}} Keep therefore and do them;
+
+{{font|size=smaller|color=#0000FF|11}} For this is your wisdom and your understanding in the sight of the nations, which shall hear all these statutes, and say,
+
+:{{font|size=smaller|color=#0000FF|A}} Surely this great nation is a wise and understanding people.
+
+:{{font|size=smaller|color=#0000FF|B}} For what nation is there so great, who hath God so nigh unto them, as the LORD our God is in all things that we call upon him for?
+
+:{{font|size=smaller|color=#0000FF|C}} And what nation is there so great, that hath statutes and judgments so righteous as all this law, which I set before you this day?
+
+{{font|size=smaller|color=#0000FF|12}} Only take heed to thyself, and keep thy soul diligently,
+
+{{font|size=smaller|color=#0000FF|13}} Lest thou forget the things which thine eyes have seen, and lest they depart from thy heart all the days of thy life:
+
+{{font|size=smaller|color=#0000FF|14}} But teach them thy sons, and thy sons' sons;
+
+{{font|size=smaller|color=#0000FF|15}} Specially the day that thou stoodest before the LORD thy God in Horeb, when the LORD said unto me,
+
+:{{font|size=smaller|color=#0000FF|A}} Gather me the people together, and I will make them hear my words,
+
+:{{font|size=smaller|color=#0000FF|B}} That they may learn to fear me all the days that they shall live upon the earth, and that they may teach their children.
+
+{{font|size=smaller|color=#0000FF|16}} And the LORD commanded me at that time to teach you statutes and judgments,
+
+{{font|size=smaller|color=#0000FF|17}} That ye might do them in the land whither ye go over to possess it.
+
+{{font|size=smaller|color=#0000FF|18}} For ask now of the days that are past, which were before thee, since the day that God created man upon the earth,
+
+{{font|size=smaller|color=#0000FF|19}} And ask from the one side of heaven unto the other, whether there hath been any such thing as this great thing is, or hath been heard like it?
+
+{{font|size=smaller|color=#0000FF|20}} Did ever people hear the voice of God speaking out of the midst of the fire, as thou hast heard, and live?
+
+{{font|size=smaller|color=#0000FF|21}} Or hath God assayed to go and take him a nation from the midst of another nation,
+
+{{font|size=smaller|color=#0000FF|22}} By temptations, by signs, and by wonders, and by war, and by a mighty hand, and by a stretched out arm, and by great terrors,
+
+{{font|size=smaller|color=#0000FF|23}} According to all that the LORD your God did for you in Egypt before your eyes?
+
+{{font|size=smaller|color=#0000FF|24}} Unto thee it was shewed, that thou mightest know that the LORD he is God; there is none else beside him.
+
+{{font|size=smaller|color=#0000FF|25}} Out of heaven he made thee to hear his voice, that he might instruct thee:
+
+{{font|size=smaller|color=#0000FF|26}} And upon earth he shewed thee his great fire; and thou heardest his words out of the midst of the fire.
+
+{{font|size=smaller|color=#0000FF|27}} And because he loved thy fathers, therefore he chose their seed after them, and brought thee out in his sight with his mighty power out of Egypt;
+
+{{font|size=smaller|color=#0000FF|28}} To drive out nations from before thee greater and mightier than thou art, to bring thee in, to give thee their land for an inheritance, as it is this day.
+
+{{font|size=smaller|color=#0000FF|29}} Know therefore this day, and consider it in thine heart, that the LORD he is God in heaven above, and upon the earth beneath: there is none else.
+
+{{font|size=smaller|color=#0000FF|30}} Thou shalt keep therefore his statutes, and his commandments, which I command thee this day,
+
+{{font|size=smaller|color=#0000FF|31}} That it may go well with thee, and with thy children after thee,
+
+{{font|size=smaller|color=#0000FF|32}} And that thou mayest prolong thy days upon the earth, which the LORD thy God giveth thee, for ever.
+
+===Warning===
+:''(from Deuteronomy 6:1-25, and Deuteronomy 8:1-20)''
+
+{{font|size=smaller|color=#0000FF|1}} Now these are the commandments, the statutes, and the judgments,
+
+{{font|size=smaller|color=#0000FF|2}} Which the LORD your God commanded to teach you, that ye might do them in the land whither ye go to possess it:
+
+{{font|size=smaller|color=#0000FF|3}} That thou mightest fear the LORD thy God, to keep all his statutes and his commandments, which I command thee,
+
+{{font|size=smaller|color=#0000FF|4}} Thou, and thy son, and thy son's son, all the days of thy life; and that thy days may be prolonged.
+
+{{font|size=smaller|color=#0000FF|5}} Hear therefore, O Israel, and observe to do it; that it may be well with thee, and that ye may increase mightily,
+
+{{font|size=smaller|color=#0000FF|6}} As the LORD God of thy fathers hath promised thee, in the land that floweth with milk and honey.
+
+{{font|size=smaller|color=#0000FF|7}} Hear, O Israel: The LORD our God is one LORD:
+
+{{font|size=smaller|color=#0000FF|8}} And thou shalt love the LORD thy God with all thine heart, and with all thy soul, and with all thy might.
+
+{{font|size=smaller|color=#0000FF|9}} And these words, which I command thee this day, shall be in thine heart:
+
+{{font|size=smaller|color=#0000FF|10}} And thou shalt teach them diligently unto thy children,
+
+{{font|size=smaller|color=#0000FF|11}} And shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.
+
+{{font|size=smaller|color=#0000FF|12}} And thou shalt bind them for a sign upon thine hand, and they shall be as frontlets between thine eyes.
+
+{{font|size=smaller|color=#0000FF|13}} And thou shalt write them upon the posts of thy house, and on thy gates.
+
+{{font|size=smaller|color=#0000FF|14}} And it shall be, when the LORD thy God shall have brought thee into the land which he sware unto thy fathers, to Abraham, to Isaac, and to Jacob,
+
+{{font|size=smaller|color=#0000FF|15}} To give thee great and goodly cities, which thou buildedst not, and houses full of all good things, which thou filledst not,
+
+{{font|size=smaller|color=#0000FF|16}} And wells digged, which thou diggedst not, vineyards and olive trees, which thou plantedst not; when thou shalt have eaten and be full;
+
+{{font|size=smaller|color=#0000FF|17}} Then beware lest thou forget the LORD, which brought thee forth out of the land of Egypt, from the house of bondage.
+
+{{font|size=smaller|color=#0000FF|18}} Thou shalt fear the LORD thy God, and serve him, and shalt swear by his name.
+
+{{font|size=smaller|color=#0000FF|19}} Ye shall not go after other gods, of the gods of the people which are round about you;
+
+{{font|size=smaller|color=#0000FF|20}} (For the LORD thy God is a jealous God among you) 
+
+{{font|size=smaller|color=#0000FF|21}} Lest the anger of the LORD thy God be kindled against thee, and destroy thee from off the face of the earth.
+
+{{font|size=smaller|color=#0000FF|22}} Ye shall not tempt the LORD your God, as ye tempted him in Massah.
+
+{{font|size=smaller|color=#0000FF|23}} Ye shall diligently keep the commandments of the LORD your God, and his testimonies, and his statutes, which he hath commanded thee.
+
+{{font|size=smaller|color=#0000FF|24}} And thou shalt do that which is right and good in the sight of the LORD:
+
+{{font|size=smaller|color=#0000FF|25}} That it may be well with thee, and that thou mayest go in and possess the good land which the LORD sware unto thy fathers.
+
+{{font|size=smaller|color=#0000FF|26}} To cast out all thine enemies from before thee, as the LORD hath spoken.
+
+{{font|size=smaller|color=#0000FF|27}} And when thy son asketh thee in time to come, saying,
+
+:{{font|size=smaller|color=#0000FF|A}} What mean the testimonies, and the statutes, and the judgments, which the LORD our God hath commanded you?
+
+{{font|size=smaller|color=#0000FF|28}} Then thou shalt say unto thy son,
+
+:{{font|size=smaller|color=#0000FF|A}} We were Pharaoh's bondmen in Egypt; and the LORD brought us out of Egypt with a mighty hand:
+
+:{{font|size=smaller|color=#0000FF|B}} And the LORD shewed signs and wonders, great and sore, upon Egypt, upon Pharaoh, and upon all his household, before our eyes:
+
+:{{font|size=smaller|color=#0000FF|C}} And he brought us out from thence, that he might bring us in, to give us the land which he sware unto our fathers.
+
+:{{font|size=smaller|color=#0000FF|D}} And the LORD commanded us to do all these statutes, to fear the LORD our God, for our good always,
+
+:{{font|size=smaller|color=#0000FF|E}} That he might preserve us alive, as it is at this day.
+
+:{{font|size=smaller|color=#0000FF|F}} And it shall be our righteousness, if we observe to do all these commandments before the LORD our God, as he hath commanded us.
+
+{{font|size=smaller|color=#0000FF|29}} All the commandments which I command thee this day shall ye observe to do,
+
+{{font|size=smaller|color=#0000FF|30}} That ye may live, and multiply, and go in and possess the land which the LORD sware unto your fathers.
+
+{{font|size=smaller|color=#0000FF|31}} And thou shalt remember all the way which the LORD thy God led thee these forty years in the wilderness,
+
+{{font|size=smaller|color=#0000FF|32}} To humble thee, and to prove thee, to know what was in thine heart, whether thou wouldest keep his commandments, or no.
+
+{{font|size=smaller|color=#0000FF|33}} And he humbled thee, and suffered thee to hunger, and fed thee with manna, which thou knewest not, neither did thy fathers know;$
+
+{{font|size=smaller|color=#0000FF|34}} That he might make thee know that man doth not live by bread only, but by every word that proceedeth out of the mouth of the LORD doth man live.
+
+{{font|size=smaller|color=#0000FF|35}} Thy raiment waxed not old upon thee, neither did thy foot swell, these forty years.
+
+{{font|size=smaller|color=#0000FF|36}} Thou shalt also consider in thine heart, that, as a man chasteneth his son, so the LORD thy God chasteneth thee.
+
+{{font|size=smaller|color=#0000FF|37}} Therefore thou shalt keep the commandments of the LORD thy God, to walk in his ways, and to fear him.
+
+{{font|size=smaller|color=#0000FF|38}} For the LORD thy God bringeth thee into a good land, a land of brooks of water, of fountains and depths that spring out of valleys and hills;
+
+{{font|size=smaller|color=#0000FF|39}} A land of wheat, and barley, and vines, and fig trees, and pomegranates; a land of oil olive, and honey;
+
+{{font|size=smaller|color=#0000FF|40}} A land wherein thou shalt eat bread without scarceness, thou shalt not lack any thing in it;
+
+{{font|size=smaller|color=#0000FF|41}} A land whose stones are iron, and out of whose hills thou mayest dig brass.
+
+{{font|size=smaller|color=#0000FF|42}} When thou hast eaten and art full, then thou shalt bless the LORD thy God for the good land which he hath given thee.
+
+{{font|size=smaller|color=#0000FF|43}} Beware that thou forget not the LORD thy God, in not keeping his commandments, and his judgments, and his statutes,
+
+{{font|size=smaller|color=#0000FF|44}} Which I command thee this day:
+
+{{font|size=smaller|color=#0000FF|45}} Lest when thou hast eaten and art full, and hast built goodly houses, and dwelt therein;
+
+{{font|size=smaller|color=#0000FF|46}} And when thy herds and thy flocks multiply, and thy silver and thy gold is multiplied, and all that thou hast is multiplied;
+
+{{font|size=smaller|color=#0000FF|47}} Then thine heart be lifted up, and thou forget the LORD thy God, which brought thee forth out of the land of Egypt, from the house of bondage;
+
+{{font|size=smaller|color=#0000FF|48}} Who led thee through that great and terrible wilderness, wherein were fiery serpents, and scorpions,
+
+{{font|size=smaller|color=#0000FF|49}} And drought, where there was no water; who brought thee forth water out of the rock of flint;
+
+{{font|size=smaller|color=#0000FF|50}} Who fed thee in the wilderness with manna, which thy fathers knew not,
+
+{{font|size=smaller|color=#0000FF|51}} That he might humble thee, and that he might prove thee, to do thee good at thy latter end;
+
+{{font|size=smaller|color=#0000FF|52}} And thou say in thine heart, My power and the might of mine hand hath gotten me this wealth.
+
+{{font|size=smaller|color=#0000FF|53}} But thou shalt remember the LORD thy God:
+
+{{font|size=smaller|color=#0000FF|54}} For it is he that giveth thee power to get wealth, that he may establish his covenant which he sware unto thy fathers, as it is this day.
+
+==Carrying out justice==
+===Judges===
+
+:''(from Deuteronomy 16:18-20, Deuteronomy 1:16-18, and Deuteronomy 17:8-13)''
+
+{{font|size=smaller|color=#0000FF|1}} Judges and officers shalt thou make thee in all thy gates, which the LORD thy God giveth thee, throughout thy tribes:
+
+{{font|size=smaller|color=#0000FF|2}} And they shall judge the people with just judgment.
+
+{{font|size=smaller|color=#0000FF|3}} Thou shalt not wrest judgment; thou shalt not respect persons, neither take a gift:
+
+{{font|size=smaller|color=#0000FF|4}} For a gift doth blind the eyes of the wise, and pervert the words of the righteous.
+
+{{font|size=smaller|color=#0000FF|5}} That which is altogether just shalt thou follow, that thou mayest live, and inherit the land which the LORD thy God giveth thee.
+
+{{font|size=smaller|color=#0000FF|6}} If thou art a judge, 
+
+:{{font|size=smaller|color=#0000FF|A}} Hear the causes between your brethren, and judge righteously between every man and his brother, and the stranger that is with him.
+
+:{{font|size=smaller|color=#0000FF|B}} Ye shall not respect persons in judgment; but ye shall hear the small as well as the great;
+
+:{{font|size=smaller|color=#0000FF|C}} Ye shall not be afraid of the face of man; for the judgment is God's:
+
+:{{font|size=smaller|color=#0000FF|D}} And the cause that is too hard for you, bring it unto the LORD, and he will hear it.
+
+{{font|size=smaller|color=#0000FF|7}} If there arise a matter too hard for thee in judgment,
+
+{{font|size=smaller|color=#0000FF|8}} Between blood and blood, between plea and plea, and between stroke and stroke, being matters of controversy within thy gates:
+
+{{font|size=smaller|color=#0000FF|9}} Then shalt thou arise, and get thee up into the place which the LORD thy God shall choose;
+
+{{font|size=smaller|color=#0000FF|10}} And thou shalt come unto the priests the Levites, and unto the judge that shall be in those days, and enquire;
+
+{{font|size=smaller|color=#0000FF|11}} And they shall shew thee the sentence of judgment:
+
+{{font|size=smaller|color=#0000FF|12}} And thou shalt do according to the sentence, which they of that place which the LORD shall choose shall shew thee;
+
+{{font|size=smaller|color=#0000FF|13}} And thou shalt observe to do according to all that they inform thee:
+
+{{font|size=smaller|color=#0000FF|14}} According to the sentence of the law which they shall teach thee, and according to the judgment which they shall tell thee, thou shalt do:
+
+{{font|size=smaller|color=#0000FF|15}} Thou shalt not decline from the sentence which they shall shew thee, to the right hand, nor to the left.
+
+{{font|size=smaller|color=#0000FF|16}} And the man that will do presumptuously,
+
+{{font|size=smaller|color=#0000FF|17}} And will not hearken unto the priest that standeth to minister there before the LORD thy God, or unto the judge, even that man shall die:
+
+{{font|size=smaller|color=#0000FF|18}} And thou shalt put away the evil from Israel.
+
+{{font|size=smaller|color=#0000FF|19}} And all the people shall hear, and fear, and do no more presumptuously.
+
+===Witnesses===
+:''(from Deuteronomy 19:15-21, and Deuteronomy 24:17-18)''
+
+{{font|size=smaller|color=#0000FF|1}} One witness shall not rise up against a man for any iniquity, or for any sin, in any sin that he sinneth:
+
+{{font|size=smaller|color=#0000FF|2}} At the mouth of two witnesses, or at the mouth of three witnesses, shall the matter be established.
+
+{{font|size=smaller|color=#0000FF|3}} If a false witness rise up against any man to testify against him that which is wrong;
+
+{{font|size=smaller|color=#0000FF|4}} Then both the men, between whom the controversy is, shall stand before the LORD,
+
+{{font|size=smaller|color=#0000FF|5}} Before the priests and the judges, which shall be in those days; and the judges shall make diligent inquisition:
+
+{{font|size=smaller|color=#0000FF|6}} And, behold, if the witness be a false witness, and hath testified falsely against his brother;
+
+{{font|size=smaller|color=#0000FF|7}} Then shall ye do unto him, as he had thought to have done unto his brother: so shalt thou put the evil away from among you.
+
+{{font|size=smaller|color=#0000FF|8}} And those which remain shall hear, and fear, and shall henceforth commit no more any such evil among you.
+
+{{font|size=smaller|color=#0000FF|9}} And thine eye shall not pity; but life shall go for life, eye for eye, tooth for tooth, hand for hand, foot for foot.
+
+{{font|size=smaller|color=#0000FF|10}} Thou shalt not pervert the judgment of the stranger, nor of the fatherless; nor take a widow's raiment to pledge:
+
+{{font|size=smaller|color=#0000FF|11}} But thou shalt remember that thou wast a bondman in Egypt,
+
+{{font|size=smaller|color=#0000FF|12}} And the LORD thy God redeemed thee thence: therefore I command thee to do this thing.
+
+===Punishment===
+====Flogging====
+:''(from Deuteronomy 25:1-3)''
+
+{{font|size=smaller|color=#0000FF|1}} If there be a controversy between men, and they come unto judgment, that the judges may judge them;
+
+{{font|size=smaller|color=#0000FF|2}} Then they shall justify the righteous, and condemn the wicked.
+
+{{font|size=smaller|color=#0000FF|3}} And it shall be, if the wicked man be worthy to be beaten, that the judge shall cause him to lie down,
+
+{{font|size=smaller|color=#0000FF|4}} And to be beaten before his face, according to his fault, by a certain number.
+
+{{font|size=smaller|color=#0000FF|5}} Forty stripes he may give him, and not exceed:
+
+{{font|size=smaller|color=#0000FF|6}} Lest, if he should exceed, and beat him above these with many stripes, then thy brother should seem vile unto thee.
+
+====Death====
+:''(from Deuteronomy 24:16)''
+
+{{font|size=smaller|color=#0000FF|1}} The fathers shall not be put to death for the children,
+
+{{font|size=smaller|color=#0000FF|2}} Neither shall the children be put to death for the fathers:
+
+{{font|size=smaller|color=#0000FF|3}} Every man shall be put to death for his own sin.
+
+====Hanging====
+:''(from Deuteronomy 21:22-23)''
+
+{{font|size=smaller|color=#0000FF|1}} And if a man have committed a sin worthy of death, and he be to be put to death, and thou hang him on a tree:
+
+{{font|size=smaller|color=#0000FF|2}} His body shall not remain all night upon the tree, but thou shalt in any wise bury him that day;
+
+{{font|size=smaller|color=#0000FF|3}} (For he that is hanged is accursed of God;) 
+
+{{font|size=smaller|color=#0000FF|4}} That thy land be not defiled, which the LORD thy God giveth thee for an inheritance.
+
+==Religion==
+===Observance===
+====Love God====
+:''(from Deuteronomy 10:12-21)''
+
+{{font|size=smaller|color=#0000FF|1}} And now, Israel, what doth the LORD thy God require of thee,
+
+{{font|size=smaller|color=#0000FF|2}} But to fear the LORD thy God, to walk in all his ways, and to love him, and to serve the LORD thy God with all thy heart and with all thy soul,
+
+{{font|size=smaller|color=#0000FF|3}} To keep the commandments of the LORD, and his statutes, which I command thee this day for thy good?
+
+{{font|size=smaller|color=#0000FF|4}} Behold, the heaven and the heaven of heavens is the LORD's thy God, the earth also, with all that therein is.
+
+{{font|size=smaller|color=#0000FF|5}} Only the LORD had a delight in thy fathers to love them, and he chose their seed after them, even you above all people, as it is this day.
+
+{{font|size=smaller|color=#0000FF|6}} Circumcise therefore the foreskin of your heart, and be no more stiffnecked.
+
+{{font|size=smaller|color=#0000FF|7}} For the LORD your God is God of gods, and Lord of lords,
+
+{{font|size=smaller|color=#0000FF|8}} A great God, a mighty, and a terrible, which regardeth not persons, nor taketh reward:
+
+{{font|size=smaller|color=#0000FF|9}} He doth execute the judgment of the fatherless and widow, and loveth the stranger, in giving him food and raiment.
+
+{{font|size=smaller|color=#0000FF|10}} Love ye therefore the stranger: for ye were strangers in the land of Egypt.
+
+{{font|size=smaller|color=#0000FF|11}} Thou shalt fear the LORD thy God; him shalt thou serve, and to him shalt thou cleave, and swear by his name.
+
+{{font|size=smaller|color=#0000FF|12}} He is thy praise, and he is thy God, that hath done for thee these great and terrible things, which thine eyes have seen.
+
+====Places of worship====
+:''(from Deuteronomy 12:1-32)''
+
+{{font|size=smaller|color=#0000FF|1}} These are the statutes and judgments, which ye shall observe to do in the land,
+
+{{font|size=smaller|color=#0000FF|2}} Which the LORD God of thy fathers giveth thee to possess it, all the days that ye live upon the earth.
+
+{{font|size=smaller|color=#0000FF|3}} Ye shall utterly destroy all the places, wherein the nations which ye shall possess served their gods,
+
+{{font|size=smaller|color=#0000FF|4}} Upon the high mountains, and upon the hills, and under every green tree:
+
+{{font|size=smaller|color=#0000FF|5}} And ye shall overthrow their altars, and break their pillars, and burn their groves with fire;
+
+{{font|size=smaller|color=#0000FF|6}} And ye shall hew down the graven images of their gods, and destroy the names of them out of that place.
+
+{{font|size=smaller|color=#0000FF|7}} Ye shall not do so unto the LORD your God.
+
+{{font|size=smaller|color=#0000FF|8}} But unto the place which the LORD your God shall choose out of all your tribes to put his name there,
+
+{{font|size=smaller|color=#0000FF|9}} Even unto his habitation shall ye seek, and thither thou shalt come:
+
+{{font|size=smaller|color=#0000FF|10}} And thither ye shall bring your burnt offerings, and your sacrifices, and your tithes, and heave offerings of your hand,
+
+{{font|size=smaller|color=#0000FF|11}} And your vows, and your freewill offerings, and the firstlings of your herds and of your flocks:
+
+{{font|size=smaller|color=#0000FF|12}} And there ye shall eat before the LORD your God, and ye shall rejoice in all that ye put your hand unto,
+
+{{font|size=smaller|color=#0000FF|13}} Ye and your households, wherein the LORD thy God hath blessed thee.
+
+{{font|size=smaller|color=#0000FF|14}} Ye shall not do after all the things that we do here this day, every man whatsoever is right in his own eyes.
+
+{{font|size=smaller|color=#0000FF|15}} For ye are not as yet come to the rest and to the inheritance, which the LORD your God giveth you.
+
+{{font|size=smaller|color=#0000FF|16}} But when ye go over Jordan, and dwell in the land which the LORD your God giveth you to inherit,
+
+{{font|size=smaller|color=#0000FF|17}} And when he giveth you rest from all your enemies round about, so that ye dwell in safety;
+
+{{font|size=smaller|color=#0000FF|18}} Then there shall be a place which the LORD your God shall choose to cause his name to dwell there;
+
+{{font|size=smaller|color=#0000FF|19}} Thither shall ye bring all that I command you;
+
+{{font|size=smaller|color=#0000FF|20}} Your burnt offerings, and your sacrifices, your tithes, and the heave offering of your hand, and all your choice vows which ye vow unto the LORD:
+
+{{font|size=smaller|color=#0000FF|21}} And ye shall rejoice before the LORD your God,
+
+{{font|size=smaller|color=#0000FF|22}} Ye, and your sons, and your daughters, and your menservants, and your maidservants, and the Levite that is within your gates;
+
+{{font|size=smaller|color=#0000FF|23}} Forasmuch as he hath no part nor inheritance with you.
+
+{{font|size=smaller|color=#0000FF|24}} Take heed to thyself that thou offer not thy burnt offerings in every place that thou seest:
+
+{{font|size=smaller|color=#0000FF|25}} But in the place which the LORD shall choose in one of thy tribes,
+
+{{font|size=smaller|color=#0000FF|26}} There thou shalt offer thy burnt offerings, and there thou shalt do all that I command thee.
+
+{{font|size=smaller|color=#0000FF|27}} Notwithstanding thou mayest kill and eat flesh in all thy gates, whatsoever thy soul lusteth after,
+
+{{font|size=smaller|color=#0000FF|28}} According to the blessing of the LORD thy God which he hath given thee:
+
+{{font|size=smaller|color=#0000FF|29}} The unclean and the clean may eat thereof, as of the roebuck, and as of the hart.
+
+{{font|size=smaller|color=#0000FF|30}} Only ye shall not eat the blood; ye shall pour it upon the earth as water.
+
+{{font|size=smaller|color=#0000FF|31}} Thou mayest not eat within thy gates the tithe of thy corn, or of thy wine, or of thy oil, or the firstlings of thy herds or of thy flock,
+
+{{font|size=smaller|color=#0000FF|32}} Nor any of thy vows which thou vowest, nor thy freewill offerings, or heave offering of thine hand:
+
+{{font|size=smaller|color=#0000FF|33}} But thou must eat them before the LORD thy God in the place which the LORD thy God shall choose,
+
+{{font|size=smaller|color=#0000FF|34}} Thou, and thy son, and thy daughter, and thy manservant, and thy maidservant, and the Levite that is within thy gates: and thou shalt rejoice before the LORD thy God in all that thou puttest thine hands unto.
+
+{{font|size=smaller|color=#0000FF|35}} Take heed to thyself that thou forsake not the Levite as long as thou livest upon the earth.
+
+{{font|size=smaller|color=#0000FF|36}} When the LORD thy God shall enlarge thy border, as he hath promised thee, and thou shalt say,
+
+{{font|size=smaller|color=#0000FF|A}} I will eat flesh, because thy soul longeth to eat flesh; thou mayest eat flesh, whatsoever thy soul lusteth after.
+
+{{font|size=smaller|color=#0000FF|37}} If the place which the LORD thy God hath chosen to put his name there be too far from thee,
+
+{{font|size=smaller|color=#0000FF|38}} Then thou shalt kill of thy herd and of thy flock, which the LORD hath given thee, as I have commanded thee,
+
+{{font|size=smaller|color=#0000FF|39}} And thou shalt eat in thy gates whatsoever thy soul lusteth after.
+
+{{font|size=smaller|color=#0000FF|40}} Even as the roebuck and the hart is eaten, so thou shalt eat them: the unclean and the clean shall eat of them alike.
+
+{{font|size=smaller|color=#0000FF|41}} Only be sure that thou eat not the blood: for the blood is the life; and thou mayest not eat the life with the flesh.
+
+{{font|size=smaller|color=#0000FF|42}} Thou shalt not eat it; thou shalt pour it upon the earth as water.
+
+{{font|size=smaller|color=#0000FF|43}} Thou shalt not eat it; that it may go well with thee, and with thy children after thee,
+
+{{font|size=smaller|color=#0000FF|44}} When thou shalt do that which is right in the sight of the LORD.
+
+{{font|size=smaller|color=#0000FF|45}} Only thy holy things which thou hast, and thy vows, thou shalt take, and go unto the place which the LORD shall choose:
+
+{{font|size=smaller|color=#0000FF|46}} And thou shalt offer thy burnt offerings, the flesh and the blood, upon the altar of the LORD thy God:
+
+{{font|size=smaller|color=#0000FF|47}} And the blood of thy sacrifices shall be poured out upon the altar of the LORD thy God, and thou shalt eat the flesh.
+
+{{font|size=smaller|color=#0000FF|48}} Observe and hear all these words which I command thee, that it may go well with thee, and with thy children after thee for ever,
+
+{{font|size=smaller|color=#0000FF|49}} When thou doest that which is good and right in the sight of the LORD thy God.
+
+{{font|size=smaller|color=#0000FF|50}} When the LORD thy God shall cut off the nations from before thee, whither thou goest to possess them,
+
+{{font|size=smaller|color=#0000FF|51}} And thou succeedest them, and dwellest in their land;
+
+{{font|size=smaller|color=#0000FF|52}} Take heed to thyself that thou be not snared by following them, after that they be destroyed from before thee;
+
+{{font|size=smaller|color=#0000FF|53}} And that thou enquire not after their gods, saying, How did these nations serve their gods? even so will I do likewise.
+
+{{font|size=smaller|color=#0000FF|54}} Thou shalt not do so unto the LORD thy God: for every abomination to the LORD, which he hateth, have they done unto their gods;
+
+{{font|size=smaller|color=#0000FF|55}} For even their sons and their daughters they have burnt in the fire to their gods.
+
+{{font|size=smaller|color=#0000FF|56}} What thing soever I command you, observe to do it: thou shalt not add thereto, nor diminish from it.
+
+====Firstborn animals ====
+:''(from Deuteronomy 15:19-23)''
+
+{{font|size=smaller|color=#0000FF|1}} All the firstling males that come of thy herd and of thy flock thou shalt sanctify unto the LORD thy God:
+
+{{font|size=smaller|color=#0000FF|2}} Thou shalt do no work with the firstling of thy bullock, nor shear the firstling of thy sheep.
+
+{{font|size=smaller|color=#0000FF|3}} Thou shalt eat it before the LORD thy God year by year in the place which the LORD shall choose, thou and thy household.
+
+{{font|size=smaller|color=#0000FF|4}} And if there be any blemish therein, as if it be lame, or blind, or have any ill blemish, thou shalt not sacrifice it unto the LORD thy God.
+
+{{font|size=smaller|color=#0000FF|5}} Thou shalt eat it within thy gates: the unclean and the clean person shall eat it alike, as the roebuck, and as the hart.
+
+{{font|size=smaller|color=#0000FF|6}} Only thou shalt not eat the blood thereof; thou shalt pour it upon the ground as water.
+
+====Forbidden Offerings====
+:''(from Deuteronomy 17:1, and Deuteronomy 14:21b)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not sacrifice unto the LORD thy God any bullock, or sheep, wherein is blemish, or any evilfavouredness:
+
+{{font|size=smaller|color=#0000FF|2}} For that is an abomination unto the LORD thy God.
+
+{{font|size=smaller|color=#0000FF|3}} Thou shalt not seethe a kid in his mother's milk.
+
+====Feast days====
+:''(from Deuteronomy 16:1-17)''
+
+{{font|size=smaller|color=#0000FF|1}} Observe the month of Abib, and keep the passover unto the LORD thy God:
+
+{{font|size=smaller|color=#0000FF|2}} For in the month of Abib the LORD thy God brought thee forth out of Egypt by night.
+
+{{font|size=smaller|color=#0000FF|3}} Thou shalt therefore sacrifice the passover unto the LORD thy God, of the flock and the herd,
+
+{{font|size=smaller|color=#0000FF|4}} In the place which the LORD shall choose to place his name there.
+
+{{font|size=smaller|color=#0000FF|5}} Thou shalt eat no leavened bread with it; seven days shalt thou eat unleavened bread therewith, even the bread of affliction;
+
+{{font|size=smaller|color=#0000FF|6}} For thou camest forth out of the land of Egypt in haste:
+
+{{font|size=smaller|color=#0000FF|7}} That thou mayest remember the day when thou camest forth out of the land of Egypt all the days of thy life.
+
+{{font|size=smaller|color=#0000FF|8}} And there shall be no leavened bread seen with thee in all thy coast seven days;
+
+{{font|size=smaller|color=#0000FF|9}} Neither shall there any thing of the flesh, which thou sacrificedst the first day at even, remain all night until the morning.
+
+{{font|size=smaller|color=#0000FF|10}} Thou mayest not sacrifice the passover within any of thy gates, which the LORD thy God giveth thee:
+
+{{font|size=smaller|color=#0000FF|11}} But at the place which the LORD thy God shall choose to place his name in, there thou shalt sacrifice the passover at even,
+
+{{font|size=smaller|color=#0000FF|12}} At the going down of the sun, at the season that thou camest forth out of Egypt.
+
+{{font|size=smaller|color=#0000FF|13}} And thou shalt roast and eat it in the place which the LORD thy God shall choose: and thou shalt turn in the morning, and go unto thy tents.
+
+{{font|size=smaller|color=#0000FF|14}} Six days thou shalt eat unleavened bread:
+
+{{font|size=smaller|color=#0000FF|15}} And on the seventh day shall be a solemn assembly to the LORD thy God: thou shalt do no work therein.
+
+{{font|size=smaller|color=#0000FF|16}} Seven weeks shalt thou number unto thee: begin to number the seven weeks from such time as thou beginnest to put the sickle to the corn.
+
+{{font|size=smaller|color=#0000FF|17}} And thou shalt keep the feast of weeks unto the LORD thy God with a tribute of a freewill offering of thine hand,
+
+{{font|size=smaller|color=#0000FF|18}} Which thou shalt give unto the LORD thy God, according as the LORD thy God hath blessed thee:
+
+{{font|size=smaller|color=#0000FF|19}} And thou shalt rejoice before the LORD thy God, thou, and thy son, and thy daughter, and thy manservant, and thy maidservant,
+
+{{font|size=smaller|color=#0000FF|20}} And the Levite that is within thy gates, and the stranger, and the fatherless, and the widow, that are among you,
+
+{{font|size=smaller|color=#0000FF|21}} In the place which the LORD thy God hath chosen to place his name there.
+
+{{font|size=smaller|color=#0000FF|22}} And thou shalt remember that thou wast a bondman in Egypt: and thou shalt observe and do these statutes.
+
+{{font|size=smaller|color=#0000FF|23}} Thou shalt observe the feast of tabernacles seven days, after that thou hast gathered in thy corn and thy wine:
+
+{{font|size=smaller|color=#0000FF|24}} And thou shalt rejoice in thy feast, thou, and thy son, and thy daughter, and thy manservant, and thy maidservant,
+
+{{font|size=smaller|color=#0000FF|25}} And the Levite, the stranger, and the fatherless, and the widow, that are within thy gates.
+
+{{font|size=smaller|color=#0000FF|26}} Seven days shalt thou keep a solemn feast unto the LORD thy God in the place which the LORD shall choose:
+
+{{font|size=smaller|color=#0000FF|27}} Because the LORD thy God shall bless thee in all thine increase, and in all the works of thine hands, therefore thou shalt surely rejoice.
+
+{{font|size=smaller|color=#0000FF|28}} Three times in a year shall all thy males appear before the LORD thy God in the place which he shall choose;
+
+{{font|size=smaller|color=#0000FF|29}} In the feast of unleavened bread, and in the feast of weeks, and in the feast of tabernacles:
+
+{{font|size=smaller|color=#0000FF|30}} And they shall not appear before the LORD empty: every man shall give as he is able,
+
+{{font|size=smaller|color=#0000FF|31}} According to the blessing of the LORD thy God which he hath given thee.
+
+===Foreign religions===
+====Idolatry====
+:''(from Deuteronomy 16:21-22, Deuteronomy 4:15-20, and Deuteronomy 4:23-24)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not plant thee a grove of any trees near unto the altar of the LORD thy God, which thou shalt make thee.
+
+{{font|size=smaller|color=#0000FF|2}} Neither shalt thou set thee up any image; which the LORD thy God hateth.
+
+{{font|size=smaller|color=#0000FF|3}} Thou shalt not make you a graven image, the similitude of any figure, the likeness of male or female,
+
+{{font|size=smaller|color=#0000FF|4}} The likeness of any beast that is on the earth, the likeness of any winged fowl that flieth in the air,
+
+{{font|size=smaller|color=#0000FF|5}} The likeness of any thing that creepeth on the ground, the likeness of any fish that is in the waters beneath the earth:
+
+{{font|size=smaller|color=#0000FF|6}} And lest thou lift up thine eyes unto heaven, and when thou seest the sun, and the moon, and the stars, even all the host of heaven,
+
+{{font|size=smaller|color=#0000FF|7}} Shouldest be driven to worship them, and serve them, which the LORD thy God hath divided unto all nations under the whole heaven.
+
+{{font|size=smaller|color=#0000FF|8}} But the LORD hath taken you, and brought you forth out of the iron furnace, even out of Egypt,
+
+{{font|size=smaller|color=#0000FF|9}} To be unto him a people of inheritance, as ye are this day.
+
+{{font|size=smaller|color=#0000FF|10}} Take heed unto yourselves, lest ye forget the covenant of the LORD your God, which he made with you,
+
+{{font|size=smaller|color=#0000FF|11}} And make you a graven image, or the likeness of any thing, which the LORD thy God hath forbidden thee.
+
+{{font|size=smaller|color=#0000FF|12}} For the LORD thy God is a consuming fire, even a jealous God.
+
+====Apostasy====
+:''(from Deuteronomy 13:1-18)''
+
+{{font|size=smaller|color=#0000FF|1}} If there arise among you a prophet, or a dreamer of dreams, and giveth thee a sign or a wonder,
+
+{{font|size=smaller|color=#0000FF|2}} And the sign or the wonder come to pass, whereof he spake unto thee, saying,
+
+:{{font|size=smaller|color=#0000FF|A}} Let us go after other gods, which thou hast not known, and let us serve them;
+
+{{font|size=smaller|color=#0000FF|3}} Thou shalt not hearken unto the words of that prophet, or that dreamer of dreams:
+
+{{font|size=smaller|color=#0000FF|4}} For the LORD your God proveth you, to know whether ye love the LORD your God with all your heart and with all your soul.
+
+{{font|size=smaller|color=#0000FF|5}} Ye shall walk after the LORD your God, and fear him, and keep his commandments, and obey his voice, and ye shall serve him, and cleave unto him.
+
+{{font|size=smaller|color=#0000FF|6}} And that prophet, or that dreamer of dreams, shall be put to death;
+
+{{font|size=smaller|color=#0000FF|7}} Because he hath spoken to turn you away from the LORD your God, which brought you out of the land of Egypt, and redeemed you out of the house of bondage,
+
+{{font|size=smaller|color=#0000FF|8}} To thrust thee out of the way which the LORD thy God commanded thee to walk in. So shalt thou put the evil away from the midst of thee.
+
+{{font|size=smaller|color=#0000FF|9}} If thy brother, the son of thy mother, or thy son, or thy daughter, or the wife of thy bosom, or thy friend, which is as thine own soul, entice thee secretly, saying,
+
+:{{font|size=smaller|color=#0000FF|A}} Let us go and serve other gods, which thou hast not known, thou, nor thy fathers;
+
+{{font|size=smaller|color=#0000FF|10}} Namely, of the gods of the people which are round about you, nigh unto thee, or far off from thee,
+
+{{font|size=smaller|color=#0000FF|11}} From the one end of the earth even unto the other end of the earth;
+
+{{font|size=smaller|color=#0000FF|12}} Thou shalt not consent unto him, nor hearken unto him;
+
+{{font|size=smaller|color=#0000FF|13}} Neither shall thine eye pity him, neither shalt thou spare, neither shalt thou conceal him:
+
+{{font|size=smaller|color=#0000FF|14}} But thou shalt surely kill him; thine hand shall be first upon him to put him to death, and afterwards the hand of all the people.
+
+{{font|size=smaller|color=#0000FF|15}} And thou shalt stone him with stones, that he die;
+
+{{font|size=smaller|color=#0000FF|16}} Because he hath sought to thrust thee away from the LORD thy God, which brought thee out of the land of Egypt, from the house of bondage.
+
+{{font|size=smaller|color=#0000FF|17}} And all Israel shall hear, and fear, and shall do no more any such wickedness as this is among you.
+
+{{font|size=smaller|color=#0000FF|18}} If thou shalt hear say in one of thy cities, which the LORD thy God hath given thee to dwell there, saying,
+
+{{font|size=smaller|color=#0000FF|19}} Certain men, the children of Belial, are gone out from among you, and have withdrawn the inhabitants of their city, saying,
+
+:{{font|size=smaller|color=#0000FF|A}} Let us go and serve other gods, which ye have not known;
+
+{{font|size=smaller|color=#0000FF|20}} Then shalt thou enquire, and make search, and ask diligently;
+
+{{font|size=smaller|color=#0000FF|21}} And, behold, if it be truth, and the thing certain, that such abomination is wrought among you;
+
+{{font|size=smaller|color=#0000FF|22}} Thou shalt surely smite the inhabitants of that city with the edge of the sword, destroying it utterly,
+
+{{font|size=smaller|color=#0000FF|23}} And all that is therein, and the cattle thereof, with the edge of the sword.
+
+{{font|size=smaller|color=#0000FF|24}} And thou shalt gather all the spoil of it into the midst of the street thereof, and shalt burn with fire the city,
+
+{{font|size=smaller|color=#0000FF|25}} And all the spoil thereof every whit, for the LORD thy God: and it shall be an heap for ever; it shall not be built again.
+
+{{font|size=smaller|color=#0000FF|26}} And there shall cleave nought of the cursed thing to thine hand:
+
+{{font|size=smaller|color=#0000FF|27}} That the LORD may turn from the fierceness of his anger, and shew thee mercy, and have compassion upon thee, and multiply thee, as he hath sworn unto thy fathers;
+
+{{font|size=smaller|color=#0000FF|28}} When thou shalt hearken to the voice of the LORD thy God, to keep all his commandments which I command thee this day,
+
+{{font|size=smaller|color=#0000FF|29}} To do that which is right in the eyes of the LORD thy God.
+
+====Occult practices ====
+:''(based on Deuteronomy 18:9-14, Deuteronomy 23:17-18, Deuteronomy 22:5, and Deuteronomy 14:1-2)''
+
+{{font|size=smaller|color=#0000FF|1}} When thou art come into the land which the LORD thy God giveth thee, thou shalt not learn to do after the abominations of those nations.
+
+{{font|size=smaller|color=#0000FF|2}} There shall not be found among you any one that maketh his son or his daughter to pass through the fire,
+
+{{font|size=smaller|color=#0000FF|3}} Or that useth divination, or an observer of times, or an enchanter, or a witch.
+ 
+{{font|size=smaller|color=#0000FF|4}} Or a charmer, or a consulter with familiar spirits, or a wizard, or a necromancer.
+
+{{font|size=smaller|color=#0000FF|5}} For all that do these things are an abomination unto the LORD:
+
+{{font|size=smaller|color=#0000FF|6}} The woman shall not wear that which pertaineth unto a man, neither shall a man put on a woman's garment:
+
+{{font|size=smaller|color=#0000FF|7}} For all that do so are abomination unto the LORD thy God.
+
+{{font|size=smaller|color=#0000FF|8}} There shall be no whore of the daughters of Israel, nor a sodomite of the sons of Israel.
+
+{{font|size=smaller|color=#0000FF|9}} Thou shalt not bring the hire of a whore, or the price of a dog, into the house of the LORD thy God for any vow:
+
+{{font|size=smaller|color=#0000FF|10}} For even both these are abomination unto the LORD thy God.
+
+{{font|size=smaller|color=#0000FF|11}} And because of these abominations the LORD thy God doth drive them out from before thee.
+
+{{font|size=smaller|color=#0000FF|12}} Ye are the children of the LORD your God: ye shall not cut yourselves, nor make any baldness between your eyes for the dead.
+
+{{font|size=smaller|color=#0000FF|13}} Thou shalt be perfect with the LORD thy God.
+
+{{font|size=smaller|color=#0000FF|14}} For these nations, which thou shalt possess, hearkened unto observers of times, and unto diviners:
+
+{{font|size=smaller|color=#0000FF|15}} But as for thee, the LORD thy God hath not suffered thee so to do.
+
+{{font|size=smaller|color=#0000FF|16}} For thou art an holy people unto the LORD thy God, and the LORD hath chosen thee to be a peculiar people unto himself,
+
+{{font|size=smaller|color=#0000FF|17}} Above all the nations that are upon the earth.
+
+====Converts====
+:''(from Deuteronomy 17:2-7)''
+
+{{font|size=smaller|color=#0000FF|1}} If there be found among you, within any of thy gates which the LORD thy God giveth thee, man or woman,
+
+{{font|size=smaller|color=#0000FF|2}} That hath wrought wickedness in the sight of the LORD thy God, in transgressing his covenant,
+
+{{font|size=smaller|color=#0000FF|3}} And hath gone and served other gods, and worshipped them,
+
+{{font|size=smaller|color=#0000FF|4}} Either the sun, or moon, or any of the host of heaven, which I have not commanded;
+
+{{font|size=smaller|color=#0000FF|5}} And it be told thee, and thou hast heard of it, and enquired diligently,
+
+{{font|size=smaller|color=#0000FF|6}} And, behold, it be true, and the thing certain, that such abomination is wrought in Israel:
+
+{{font|size=smaller|color=#0000FF|7}} Then shalt thou bring forth that man or that woman, which have committed that wicked thing, unto thy gates,
+
+{{font|size=smaller|color=#0000FF|8}} Even that man or that woman, and shalt stone them with stones, till they die.
+
+{{font|size=smaller|color=#0000FF|9}} At the mouth of two witnesses, or three witnesses, shall he that is worthy of death be put to death;
+
+{{font|size=smaller|color=#0000FF|10}} But at the mouth of one witness he shall not be put to death.
+
+{{font|size=smaller|color=#0000FF|11}} The hands of the witnesses shall be first upon him to put him to death, and afterward the hands of all the people.
+
+{{font|size=smaller|color=#0000FF|12}} So thou shalt put the evil away from among you.
+
+====Indigenous religion====
+:''(from Deuteronomy 7:1-26)''
+
+{{font|size=smaller|color=#0000FF|1}} When the LORD thy God shall bring thee into the land whither thou goest to possess it, and hath cast out many nations before thee,
+
+{{font|size=smaller|color=#0000FF|2}} The Hittites, and the Girgashites, and the Amorites, and the Canaanites, and the Perizzites, and the Hivites, and the Jebusites,
+
+{{font|size=smaller|color=#0000FF|3}} Seven nations greater and mightier than thou;
+
+{{font|size=smaller|color=#0000FF|4}} And when the LORD thy God shall deliver them before thee; thou shalt smite them, and utterly destroy them;
+
+{{font|size=smaller|color=#0000FF|5}} Thou shalt make no covenant with them, nor shew mercy unto them:
+
+{{font|size=smaller|color=#0000FF|6}} Neither shalt thou make marriages with them; thy daughter thou shalt not give unto his son, nor his daughter shalt thou take unto thy son.
+
+{{font|size=smaller|color=#0000FF|7}} For they will turn away thy son from following me, that they may serve other gods:
+
+{{font|size=smaller|color=#0000FF|8}} So will the anger of the LORD be kindled against you, and destroy thee suddenly.
+
+{{font|size=smaller|color=#0000FF|9}} But thus shall ye deal with them;
+
+{{font|size=smaller|color=#0000FF|10}} Ye shall destroy their altars, and break down their images, and cut down their groves, and burn their graven images with fire.
+
+{{font|size=smaller|color=#0000FF|11}} For thou art an holy people unto the LORD thy God:
+
+{{font|size=smaller|color=#0000FF|12}} The LORD thy God hath chosen thee to be a special people unto himself, above all people that are upon the face of the earth.
+
+{{font|size=smaller|color=#0000FF|13}} The LORD did not set his love upon you, nor choose you, because ye were more in number than any people; for ye were the fewest of all people:
+
+{{font|size=smaller|color=#0000FF|14}} But because the LORD loved you, and because he would keep the oath which he had sworn unto your fathers,
+
+{{font|size=smaller|color=#0000FF|15}} Hath the LORD brought you out with a mighty hand, and redeemed you out of the house of bondmen, from the hand of Pharaoh king of Egypt.
+
+{{font|size=smaller|color=#0000FF|16}} Know therefore that the LORD thy God, he is God, the faithful God,
+
+{{font|size=smaller|color=#0000FF|17}} Which keepeth covenant and mercy with them that love him and keep his commandments to a thousand generations;
+
+{{font|size=smaller|color=#0000FF|18}} And repayeth them that hate him to their face, to destroy them: he will not be slack to him that hateth him, he will repay him to his face.
+
+{{font|size=smaller|color=#0000FF|19}} Thou shalt therefore keep the commandments, and the statutes, and the judgments, which I command thee this day, to do them.
+
+{{font|size=smaller|color=#0000FF|20}} Wherefore it shall come to pass, if ye hearken to these judgments, and keep, and do them,
+
+{{font|size=smaller|color=#0000FF|21}} That the LORD thy God shall keep unto thee the covenant and the mercy which he sware unto thy fathers:
+
+{{font|size=smaller|color=#0000FF|22}} And he will love thee, and bless thee, and multiply thee: he will also bless the fruit of thy womb, and the fruit of thy land,
+
+{{font|size=smaller|color=#0000FF|23}} Thy corn, and thy wine, and thine oil, the increase of thy kine, and the flocks of thy sheep,
+
+{{font|size=smaller|color=#0000FF|24}} In the land which he sware unto thy fathers to give thee.
+
+{{font|size=smaller|color=#0000FF|25}} Thou shalt be blessed above all people: there shall not be male or female barren among you, or among your cattle.
+
+{{font|size=smaller|color=#0000FF|26}} And the LORD will take away from thee all sickness, and will put none of the evil diseases of Egypt, which thou knowest, upon thee;
+
+{{font|size=smaller|color=#0000FF|27}} But will lay them upon all them that hate thee.
+
+{{font|size=smaller|color=#0000FF|28}} And thou shalt consume all the people which the LORD thy God shall deliver thee;
+
+{{font|size=smaller|color=#0000FF|29}} Thine eye shall have no pity upon them: neither shalt thou serve their gods; for that will be a snare unto thee.
+
+{{font|size=smaller|color=#0000FF|30}} If thou shalt say in thine heart, These nations are more than I; how can I dispossess them?
+
+{{font|size=smaller|color=#0000FF|31}} Thou shalt not be afraid of them: but shalt well remember what the LORD thy God did unto Pharaoh, and unto all Egypt;
+
+{{font|size=smaller|color=#0000FF|32}} The great temptations which thine eyes saw, and the signs, and the wonders, and the mighty hand, and the stretched out arm,
+
+{{font|size=smaller|color=#0000FF|33}} Whereby the LORD thy God brought thee out: so shall the LORD thy God do unto all the people of whom thou art afraid.
+
+{{font|size=smaller|color=#0000FF|34}} Moreover the LORD thy God will send the hornet among them, until they that are left, and hide themselves from thee, be destroyed.
+
+{{font|size=smaller|color=#0000FF|35}} Thou shalt not be affrighted at them: for the LORD thy God is among you, a mighty God and terrible.
+
+{{font|size=smaller|color=#0000FF|36}} And the LORD thy God will put out those nations before thee by little and little:
+
+{{font|size=smaller|color=#0000FF|37}} Thou mayest not consume them at once, lest the beasts of the field increase upon thee.
+
+{{font|size=smaller|color=#0000FF|38}} But the LORD thy God shall deliver them unto thee, and shall destroy them with a mighty destruction, until they be destroyed.
+
+{{font|size=smaller|color=#0000FF|39}} And he shall deliver their kings into thine hand, and thou shalt destroy their name from under heaven:
+
+{{font|size=smaller|color=#0000FF|40}} There shall no man be able to stand before thee, until thou have destroyed them.
+
+{{font|size=smaller|color=#0000FF|41}} The graven images of their gods shall ye burn with fire:
+
+{{font|size=smaller|color=#0000FF|42}} Thou shalt not desire the silver or gold that is on them, nor take it unto thee, lest thou be snared therin: for it is an abomination to the LORD thy God.
+
+{{font|size=smaller|color=#0000FF|43}} Neither shalt thou bring an abomination into thine house, lest thou be a cursed thing like it:
+
+{{font|size=smaller|color=#0000FF|44}} But thou shalt utterly detest it, and thou shalt utterly abhor it; for it is a cursed thing.
+
+
+==Society==
+===Criteria for permanent social exclusion===
+:''(from Deuteronomy 23:1-8)''
+
+{{font|size=smaller|color=#0000FF|1}} He that is wounded in the stones, or hath his privy member cut off, shall not enter into the congregation of the LORD.
+
+{{font|size=smaller|color=#0000FF|2}} A bastard shall not enter into the congregation of the LORD;
+
+{{font|size=smaller|color=#0000FF|3}} Even to his tenth generation shall he not enter into the congregation of the LORD.
+
+{{font|size=smaller|color=#0000FF|4}} An Ammonite or Moabite shall not enter into the congregation of the LORD;
+
+{{font|size=smaller|color=#0000FF|5}} Even to their tenth generation shall they not enter into the congregation of the LORD for ever:
+
+{{font|size=smaller|color=#0000FF|6}} Because they met you not with bread and with water in the way, when ye came forth out of Egypt;
+
+{{font|size=smaller|color=#0000FF|7}} And because they hired against thee Balaam the son of Beor of Pethor of Mesopotamia, to curse thee.
+
+{{font|size=smaller|color=#0000FF|8}} Nevertheless the LORD thy God would not hearken unto Balaam;
+
+{{font|size=smaller|color=#0000FF|9}} But the LORD thy God turned the curse into a blessing unto thee, because the LORD thy God loved thee.
+
+{{font|size=smaller|color=#0000FF|10}} Thou shalt not seek their peace nor their prosperity all thy days for ever.
+
+{{font|size=smaller|color=#0000FF|11}} Thou shalt not abhor an Edomite; for he is thy brother: thou shalt not abhor an Egyptian; because thou wast a stranger in his land.
+
+{{font|size=smaller|color=#0000FF|12}} The children that are begotten of them shall enter into the congregation of the LORD in their third generation.
+
+===Plagues===
+:''(from Deuteronomy 24:8-9)''
+
+{{font|size=smaller|color=#0000FF|1}} Take heed in the plague of leprosy, that thou observe diligently, and do according to all that the priests the Levites shall teach you:
+
+{{font|size=smaller|color=#0000FF|2}} As I commanded them, so ye shall observe to do.
+
+{{font|size=smaller|color=#0000FF|3}} Remember what the LORD thy God did unto Miriam by the way, after that ye were come forth out of Egypt.
+
+===Rebellious sons===
+:''(from Deuteronomy 21:18-21)''
+
+{{font|size=smaller|color=#0000FF|1}} If a man have a stubborn and rebellious son, which will not obey the voice of his father, or the voice of his mother,
+
+{{font|size=smaller|color=#0000FF|2}} And that, when they have chastened him, will not hearken unto them:
+
+{{font|size=smaller|color=#0000FF|3}} Then shall his father and his mother lay hold on him, and bring him out unto the elders of his city, and unto the gate of his place;
+
+{{font|size=smaller|color=#0000FF|4}} And they shall say unto the elders of his city,
+
+:{{font|size=smaller|color=#0000FF|A}} This our son is stubborn and rebellious, he will not obey our voice; he is a glutton, and a drunkard.
+
+{{font|size=smaller|color=#0000FF|5}} And all the men of his city shall stone him with stones, that he die:
+
+{{font|size=smaller|color=#0000FF|6}} So shalt thou put evil away from among you; and all Israel shall hear, and fear.
+
+===Defending against an attacker===
+:''(from Deuteronomy 25:11-12)''
+
+{{font|size=smaller|color=#0000FF|1}} When men strive together one with another,
+
+{{font|size=smaller|color=#0000FF|2}} And the wife of the one draweth near for to deliver her husband out of the hand of him that smiteth him,
+
+{{font|size=smaller|color=#0000FF|3}} And putteth forth her hand, and taketh him by the secrets:
+
+{{font|size=smaller|color=#0000FF|4}} Then thou shalt cut off her hand, thine eye shall not pity her.
+
+===Kings ===
+:''(from Deuteronomy 17:14-20)''
+
+{{font|size=smaller|color=#0000FF|1}} When thou art come unto the land which the LORD thy God giveth thee, and shalt possess it, and shalt dwell therein, and shalt say,
+
+:{{font|size=smaller|color=#0000FF|A}} I will set a king over me, like as all the nations that are about me;
+
+{{font|size=smaller|color=#0000FF|2}} Thou shalt in any wise set him king over thee, whom the LORD thy God shall choose:
+
+{{font|size=smaller|color=#0000FF|3}} One from among thy brethren shalt thou set king over thee: thou mayest not set a stranger over thee, which is not thy brother.
+
+{{font|size=smaller|color=#0000FF|4}} But he shall not multiply horses to himself, nor cause the people to return to Egypt, to the end that he should multiply horses:
+
+{{font|size=smaller|color=#0000FF|5}} Forasmuch as the LORD hath said unto you, Ye shall henceforth return no more that way.
+
+{{font|size=smaller|color=#0000FF|6}} Neither shall he multiply wives to himself, that his heart turn not away:
+
+{{font|size=smaller|color=#0000FF|7}} Neither shall he greatly multiply to himself silver and gold.
+
+{{font|size=smaller|color=#0000FF|8}} And it shall be, when he sitteth upon the throne of his kingdom,
+
+{{font|size=smaller|color=#0000FF|9}} That he shall write him a copy of this law in a book out of that which is before the priests the Levites:
+
+{{font|size=smaller|color=#0000FF|10}} And it shall be with him, and he shall read therein all the days of his life:
+
+{{font|size=smaller|color=#0000FF|11}} That he may learn to fear the LORD his God, to keep all the words of this law and these statutes, to do them:
+
+{{font|size=smaller|color=#0000FF|12}} That his heart be not lifted up above his brethren, and that he turn not aside from the commandment, to the right hand, or to the left:
+
+{{font|size=smaller|color=#0000FF|13}} To the end that he may prolong his days in his kingdom, he, and his children, in the midst of Israel.
+
+
+==War==
+===Gathering an army===
+:''(from Deuteronomy 20:1-9)''
+
+{{font|size=smaller|color=#0000FF|1}} When thou goest out to battle against thine enemies, and seest horses, and chariots, and a people more than thou, be not afraid of them:
+
+{{font|size=smaller|color=#0000FF|2}} For the LORD thy God is with thee, which brought thee up out of the land of Egypt.
+
+{{font|size=smaller|color=#0000FF|3}} And it shall be, when ye are come nigh unto the battle, that the priest shall approach and speak unto the people,
+
+{{font|size=smaller|color=#0000FF|4}} And shall say unto them, Hear, O Israel, ye approach this day unto battle against your enemies:
+
+{{font|size=smaller|color=#0000FF|5}} Let not your hearts faint, fear not, and do not tremble, neither be ye terrified because of them;
+
+{{font|size=smaller|color=#0000FF|6}} For the LORD your God is he that goeth with you, to fight for you against your enemies, to save you.
+
+{{font|size=smaller|color=#0000FF|7}} And the officers shall speak unto the people, saying, What man is there that hath built a new house, and hath not dedicated it? 
+
+{{font|size=smaller|color=#0000FF|8}} Let him go and return to his house, lest he die in the battle, and another man dedicate it.
+
+{{font|size=smaller|color=#0000FF|9}} And what man is he that hath planted a vineyard, and hath not yet eaten of it? 
+
+{{font|size=smaller|color=#0000FF|10}} Let him also go and return unto his house, lest he die in the battle, and another man eat of it.
+
+{{font|size=smaller|color=#0000FF|11}} And what man is there that hath betrothed a wife, and hath not taken her? 
+
+{{font|size=smaller|color=#0000FF|12}} Let him go and return unto his house, lest he die in the battle, and another man take her.
+
+{{font|size=smaller|color=#0000FF|13}} And the officers shall speak further unto the people, and they shall say, What man is there that is fearful and fainthearted? 
+
+{{font|size=smaller|color=#0000FF|14}} Let him go and return unto his house, lest his brethren's heart faint as well as his heart.
+
+{{font|size=smaller|color=#0000FF|15}} And it shall be, when the officers have made an end of speaking unto the people that they shall make captains of the armies to lead the people.
+
+===Offers of Peace===
+:''(from Deuteronomy 20:10-11)''
+
+{{font|size=smaller|color=#0000FF|16}} When thou comest nigh unto a city to fight against it, then proclaim peace unto it.
+
+{{font|size=smaller|color=#0000FF|17}} And it shall be, if it make thee answer of peace, and open unto thee,
+
+{{font|size=smaller|color=#0000FF|18}} Then it shall be, that all the people that is found therein shall be tributaries unto thee, and they shall serve thee.
+
+===Pillage===
+:''(from Deuteronomy 20:11-18)''
+
+{{font|size=smaller|color=#0000FF|19}} And if it will make no peace with thee, but will make war against thee, then thou shalt besiege it:
+
+{{font|size=smaller|color=#0000FF|20}} And when the LORD thy God hath delivered it into thine hands, thou shalt smite every male thereof with the edge of the sword:
+
+{{font|size=smaller|color=#0000FF|21}} But the women, and the little ones, and the cattle, and all that is in the city, even all the spoil thereof, shalt thou take unto thyself;
+
+{{font|size=smaller|color=#0000FF|22}} And thou shalt eat the spoil of thine enemies, which the LORD thy God hath given thee.
+
+{{font|size=smaller|color=#0000FF|23}} Thus shalt thou do unto all the cities which are very far off from thee, which are not of the cities of these nations.
+
+{{font|size=smaller|color=#0000FF|24}} But of the cities of these people, which the LORD thy God doth give thee for an inheritance,
+
+{{font|size=smaller|color=#0000FF|25}} Thou shalt save alive nothing that breatheth: but thou shalt utterly destroy them;
+
+{{font|size=smaller|color=#0000FF|26}} Namely, the Hittites, and the Amorites, the Canaanites, and the Perizzites, the Hivites, and the Jebusites;
+
+{{font|size=smaller|color=#0000FF|27}} As the LORD thy God hath commanded thee:
+
+{{font|size=smaller|color=#0000FF|28}} That they teach you not to do after all their abominations, which they have done unto their gods;
+
+{{font|size=smaller|color=#0000FF|29}} So should ye sin against the LORD your God.
+
+===Trees===
+:''(from Deuteronomy 20:19-20)''
+
+{{font|size=smaller|color=#0000FF|30}} When thou shalt besiege a city a long time, in making war against it to take it,
+
+{{font|size=smaller|color=#0000FF|31}} Thou shalt not destroy the trees thereof by forcing an axe against them:
+
+{{font|size=smaller|color=#0000FF|32}} For thou mayest eat of them, and thou shalt not cut them down (for the tree of the field is man's life) to employ them in the siege:
+
+{{font|size=smaller|color=#0000FF|33}} Only the trees which thou knowest that they be not trees for meat, thou shalt destroy and cut them down;
+
+{{font|size=smaller|color=#0000FF|34}} And thou shalt build bulwarks against the city that maketh war with thee, until it be subdued.
+
+===Sanitation===
+:''(from Deuteronomy 23:9-14)''
+
+{{font|size=smaller|color=#0000FF|1}} When the host goeth forth against thine enemies, then keep thee from every wicked thing.
+
+{{font|size=smaller|color=#0000FF|2}} If there be among you any man, that is not clean by reason of uncleanness that chanceth him by night,
+
+{{font|size=smaller|color=#0000FF|3}} Then shall he go abroad out of the camp, he shall not come within the camp:
+
+{{font|size=smaller|color=#0000FF|4}} But it shall be, when evening cometh on, he shall wash himself with water:
+
+{{font|size=smaller|color=#0000FF|5}} And when the sun is down, he shall come into the camp again.
+
+{{font|size=smaller|color=#0000FF|6}} Thou shalt have a place also without the camp, whither thou shalt go forth abroad:
+
+{{font|size=smaller|color=#0000FF|7}} And thou shalt have a paddle upon thy weapon;
+
+{{font|size=smaller|color=#0000FF|8}} And it shall be, when thou wilt ease thyself abroad, thou shalt dig therewith, and shalt turn back and cover that which cometh from thee:
+
+{{font|size=smaller|color=#0000FF|9}} For the LORD thy God walketh in the midst of thy camp, to deliver thee, and to give up thine enemies before thee;
+
+{{font|size=smaller|color=#0000FF|10}} Therefore shall thy camp be holy: that he see no unclean thing in thee, and turn away from thee.
+
+==Murder==
+===Manslaughter===
+:''(from Deuteronomy 19:1-13)''
+
+{{font|size=smaller|color=#0000FF|1}} When the LORD thy God hath cut off the nations, whose land the LORD thy God giveth thee,
+
+{{font|size=smaller|color=#0000FF|2}} And thou succeedest them, and dwellest in their cities, and in their houses;
+
+{{font|size=smaller|color=#0000FF|3}} Thou shalt separate three cities for thee in the midst of thy land, which the LORD thy God giveth thee to possess it.
+
+{{font|size=smaller|color=#0000FF|4}} Thou shalt prepare thee a way, and divide the coasts of thy land, which the LORD thy God giveth thee to inherit,
+
+{{font|size=smaller|color=#0000FF|5}} Into three parts, that every slayer may flee thither.
+
+{{font|size=smaller|color=#0000FF|6}} And this is the case of the slayer, which shall flee thither, that he may live:
+
+{{font|size=smaller|color=#0000FF|7}} Whoso killeth his neighbour ignorantly, whom he hated not in time past;
+
+{{font|size=smaller|color=#0000FF|8}} As when a man goeth into the wood with his neighbour to hew wood, and his hand fetcheth a stroke with the axe to cut down the tree,
+
+{{font|size=smaller|color=#0000FF|9}} And the head slippeth from the helve, and lighteth upon his neighbour, that he die; he shall flee unto one of those cities, and live:
+
+{{font|size=smaller|color=#0000FF|10}} Lest the avenger of the blood pursue the slayer, while his heart is hot, and overtake him, because the way is long, and slay him;
+
+{{font|size=smaller|color=#0000FF|11}} Whereas he was not worthy of death, inasmuch as he hated him not in time past.
+
+{{font|size=smaller|color=#0000FF|12}} Wherefore I command thee, saying, Thou shalt separate three cities for thee.
+
+{{font|size=smaller|color=#0000FF|13}} And if the LORD thy God enlarge thy coast, as he hath sworn unto thy fathers,
+
+{{font|size=smaller|color=#0000FF|14}} And give thee all the land which he promised to give unto thy fathers;
+
+{{font|size=smaller|color=#0000FF|15}} If thou shalt keep all these commandments to do them, which I command thee this day, to love the LORD thy God, and to walk ever in his ways;
+
+{{font|size=smaller|color=#0000FF|16}} Then shalt thou add three cities more for thee, beside these three:
+
+{{font|size=smaller|color=#0000FF|17}} That innocent blood be not shed in thy land, which the LORD thy God giveth thee for an inheritance, and so blood be upon thee.
+
+{{font|size=smaller|color=#0000FF|18}} But if any man hate his neighbour, and lie in wait for him, and rise up against him,
+
+{{font|size=smaller|color=#0000FF|19}} And smite him mortally that he die, and fleeth into one of these cities:
+
+{{font|size=smaller|color=#0000FF|20}} Then the elders of his city shall send and fetch him thence, and deliver him into the hand of the avenger of blood, that he may die.
+
+{{font|size=smaller|color=#0000FF|21}} Thine eye shall not pity him, but thou shalt put away the guilt of innocent blood from Israel, that it may go well with thee.
+
+===Unsolved murder===
+:''(from Deuteronomy 21:1-9)''
+
+{{font|size=smaller|color=#0000FF|1}} If one be found slain in the land which the LORD thy God giveth thee to possess it,
+
+{{font|size=smaller|color=#0000FF|2}} Lying in the field, and it be not known who hath slain him:
+
+{{font|size=smaller|color=#0000FF|3}} Then thy elders and thy judges shall come forth, and they shall measure unto the cities which are round about him that is slain:
+
+{{font|size=smaller|color=#0000FF|4}} And it shall be, that the city which is next unto the slain man, even the elders of that city,
+
+{{font|size=smaller|color=#0000FF|5}} Shall take an heifer, which hath not been wrought with, and which hath not drawn in the yoke;
+
+{{font|size=smaller|color=#0000FF|6}} And the elders of that city shall bring down the heifer unto a rough valley, which is neither eared nor sown,
+
+{{font|size=smaller|color=#0000FF|7}} And shall strike off the heifer's neck there in the valley: and the priests the sons of Levi shall come near;
+
+{{font|size=smaller|color=#0000FF|8}} For them the LORD thy God hath chosen to minister unto him, and to bless in the name of the LORD;
+
+{{font|size=smaller|color=#0000FF|9}} And by their word shall every controversy and every stroke be tried:
+
+{{font|size=smaller|color=#0000FF|10}} And all the elders of that city, that are next unto the slain man,
+
+{{font|size=smaller|color=#0000FF|11}} Shall wash their hands over the heifer that is beheaded in the valley: and they shall answer and say
+
+:{{font|size=smaller|color=#0000FF|A}} Our hands have not shed this blood, neither have our eyes seen it.
+
+:{{font|size=smaller|color=#0000FF|B}} Be merciful, O LORD, unto thy people Israel, whom thou hast redeemed,
+
+:{{font|size=smaller|color=#0000FF|C}} And lay not innocent blood unto thy people of Israel's charge.
+
+{{font|size=smaller|color=#0000FF|12}} And the blood shall be forgiven them.
+
+{{font|size=smaller|color=#0000FF|13}} So shalt thou put away the guilt of innocent blood from among you, when thou shalt do that which is right in the sight of the LORD.
+
+==Marriage==
+===Captured women===
+:''(from Deuteronomy 21:10-14)''
+
+{{font|size=smaller|color=#0000FF|1}} When thou goest forth to war against thine enemies, and the LORD thy God hath delivered them into thine hands,
+
+{{font|size=smaller|color=#0000FF|2}} And thou hast taken them captive, and seest among the captives a beautiful woman,
+
+{{font|size=smaller|color=#0000FF|3}} And hast a desire unto her, that thou wouldest have her to thy wife;
+
+{{font|size=smaller|color=#0000FF|4}} Then thou shalt bring her home to thine house, and she shall shave her head, and pare her nails;
+
+{{font|size=smaller|color=#0000FF|5}} And she shall put the raiment of her captivity from off her, and shall remain in thine house, and bewail her father and her mother a full month:
+
+{{font|size=smaller|color=#0000FF|6}} And after that thou shalt go in unto her, and be her husband, and she shall be thy wife.
+
+{{font|size=smaller|color=#0000FF|7}} And it shall be, if thou have no delight in her, then thou shalt let her go whither she will;
+
+{{font|size=smaller|color=#0000FF|8}} But thou shalt not sell her at all for money, thou shalt not make merchandise of her, because thou hast humbled her.
+
+===Levirite Marriage===
+:''(from Deuteronomy 25:5-10)''
+
+{{font|size=smaller|color=#0000FF|1}} If brethren dwell together, and one of them die, and have no child, the wife of the dead shall not marry without unto a stranger:
+
+{{font|size=smaller|color=#0000FF|2}} Her husband's brother shall go in unto her, and take her to him to wife, and perform the duty of an husband's brother unto her.
+
+{{font|size=smaller|color=#0000FF|3}} And it shall be, that the firstborn which she beareth shall succeed in the name of his brother which is dead,
+
+{{font|size=smaller|color=#0000FF|4}} That his name be not put out of Israel.
+
+{{font|size=smaller|color=#0000FF|5}} And if the man like not to take his brother's wife, then let his brother's wife go up to the gate unto the elders, and say,
+
+:{{font|size=smaller|color=#0000FF|A}} My husband's brother refuseth to raise up unto his brother a name in Israel, he will not perform the duty of my husband's brother.
+
+{{font|size=smaller|color=#0000FF|6}} Then the elders of his city shall call him, and speak unto him: and if he stand to it, and say, I like not to take her;
+
+{{font|size=smaller|color=#0000FF|7}} Then shall his brother's wife come unto him in the presence of the elders,
+
+{{font|size=smaller|color=#0000FF|8}} And loose his shoe from off his foot, and spit in his face, and shall answer and say,
+
+:{{font|size=smaller|color=#0000FF|A}} So shall it be done unto that man that will not build up his brother's house.
+
+:{{font|size=smaller|color=#0000FF|B}} And his name shall be called in Israel,
+
+::{{font|size=smaller|color=#0000FF|i}} The house of him that hath his shoe loosed.
+	
+===Virgin Wives===
+:''(from Deuteronomy 22:13-21)''
+
+{{font|size=smaller|color=#0000FF|1}} If any man take a wife, and go in unto her, and hate her,
+
+{{font|size=smaller|color=#0000FF|2}} And give occasions of speech against her, and bring up an evil name upon her, and say,
+
+:{{font|size=smaller|color=#0000FF|A}} I took this woman, and when I came to her, I found her not a maid:
+
+{{font|size=smaller|color=#0000FF|3}} Then shall the father of the damsel, and her mother,
+
+{{font|size=smaller|color=#0000FF|4}} Take and bring forth the tokens of the damsel's virginity unto the elders of the city in the gate:
+
+{{font|size=smaller|color=#0000FF|5}} And the damsel's father shall say unto the elders,
+
+:{{font|size=smaller|color=#0000FF|A}} I gave my daughter unto this man to wife, and he hateth her;
+
+:{{font|size=smaller|color=#0000FF|B}} And, lo, he hath given occasions of speech against her, saying,
+
+::{{font|size=smaller|color=#0000FF|i}} I found not thy daughter a maid;
+
+:{{font|size=smaller|color=#0000FF|C}} And yet these are the tokens of my daughter's virginity.
+
+{{font|size=smaller|color=#0000FF|6}} And they shall spread the cloth before the elders of the city.
+
+{{font|size=smaller|color=#0000FF|7}} And the elders of that city shall take that man and chastise him;
+
+{{font|size=smaller|color=#0000FF|8}} And they shall amerce him in an hundred shekels of silver, and give them unto the father of the damsel,
+
+{{font|size=smaller|color=#0000FF|9}} Because he hath brought up an evil name upon a virgin of Israel: and she shall be his wife; he may not put her away all his days.
+
+{{font|size=smaller|color=#0000FF|10}} But if this thing be true, and the tokens of virginity be not found for the damsel:
+
+{{font|size=smaller|color=#0000FF|11}} Then they shall bring out the damsel to the door of her father's house, and the men of her city shall stone her with stones that she die:
+
+{{font|size=smaller|color=#0000FF|12}} Because she hath wrought folly in Israel, to play the whore in her father's house: so shalt thou put evil away from among you.
+
+===Adultery===
+:''(from Deuteronomy 22:22)''
+
+{{font|size=smaller|color=#0000FF|1}} If a man be found lying with a woman married to an husband, then they shall both of them die,
+
+{{font|size=smaller|color=#0000FF|2}} Both the man that lay with the woman, and the woman: so shalt thou put away evil from Israel.
+
+===Betrothal===
+:''(from Deuteronomy 22:23-27)''
+
+{{font|size=smaller|color=#0000FF|1}} If a damsel that is a virgin be betrothed unto an husband, and a man find her in the city, and lie with her;
+
+{{font|size=smaller|color=#0000FF|2}} Then ye shall bring them both out unto the gate of that city, and ye shall stone them with stones that they die;
+
+{{font|size=smaller|color=#0000FF|3}} The damsel, because she cried not, being in the city; and the man, because he hath humbled his neighbour's wife:
+
+{{font|size=smaller|color=#0000FF|4}} So thou shalt put away evil from among you.
+
+{{font|size=smaller|color=#0000FF|5}} But if a man find a betrothed damsel in the field, and the man force her, and lie with her: then the man only that lay with her shall die.
+
+{{font|size=smaller|color=#0000FF|6}} But unto the damsel thou shalt do nothing; there is in the damsel no sin worthy of death:
+
+{{font|size=smaller|color=#0000FF|7}} For as when a man riseth against his neighbour, and slayeth him, even so is this matter:
+
+{{font|size=smaller|color=#0000FF|8}} For he found her in the field, and the betrothed damsel cried, and there was none to save her.
+
+===Fornication===
+:''(from Deuteronomy 22:28-29)''
+
+{{font|size=smaller|color=#0000FF|1}} If a man find a damsel that is a virgin, which is not betrothed, and lay hold on her, and lie with her, and they be found;
+
+{{font|size=smaller|color=#0000FF|2}} Then the man that lay with her shall give unto the damsel's father fifty shekels of silver, and she shall be his wife;
+
+{{font|size=smaller|color=#0000FF|3}} Because he hath humbled her, he may not put her away all his days.
+
+===Incest===
+:''(from Deuteronomy 22:28-30)''
+
+{{font|size=smaller|color=#0000FF|1}} A man shall not take his father's wife, nor discover his father's skirt.
+
+===Divorce===
+:''(from Deuteronomy 24:1-5)''
+
+{{font|size=smaller|color=#0000FF|1}} When a man hath taken a wife, and married her,
+
+{{font|size=smaller|color=#0000FF|2}} And it come to pass that she find no favour in his eyes, because he hath found some uncleanness in her:
+
+{{font|size=smaller|color=#0000FF|3}} Then let him write her a bill of divorcement, and give it in her hand, and send her out of his house.
+
+{{font|size=smaller|color=#0000FF|4}} And when she is departed out of his house, she may go and be another man's wife.
+
+{{font|size=smaller|color=#0000FF|5}} And if the latter husband hate her, and write her a bill of divorcement, and giveth it in her hand, and sendeth her out of his house;
+
+{{font|size=smaller|color=#0000FF|6}} Or if the latter husband die, which took her to be his wife;
+
+{{font|size=smaller|color=#0000FF|7}} Her former husband, which sent her away, may not take her again to be his wife, after that she is defiled;
+
+{{font|size=smaller|color=#0000FF|8}} For that is abomination before the LORD: and thou shalt not cause the land to sin, which the LORD thy God giveth thee for an inheritance.
+
+{{font|size=smaller|color=#0000FF|9}} When a man hath taken a new wife, he shall not go out to war, neither shall he be charged with any business:
+
+{{font|size=smaller|color=#0000FF|10}} But he shall be free at home one year, and shall cheer up his wife which he hath taken.
+
+==Promises==
+===Vows===
+:''(from Deuteronomy 23:21-23)''
+
+{{font|size=smaller|color=#0000FF|1}} When thou shalt vow a vow unto the LORD thy God, thou shalt not slack to pay it:
+
+{{font|size=smaller|color=#0000FF|2}} For the LORD thy God will surely require it of thee; and it would be sin in thee.
+
+{{font|size=smaller|color=#0000FF|3}} But if thou shalt forbear to vow, it shall be no sin in thee.
+ 
+{{font|size=smaller|color=#0000FF|4}} That which is gone out of thy lips thou shalt keep and perform;
+
+{{font|size=smaller|color=#0000FF|5}} Even a freewill offering, according as thou hast vowed unto the LORD thy God, which thou hast promised with thy mouth.
+===Pledges of security===
+:''(from Deuteronomy 24:10-13 and Deuteronomy 24:6)''
+
+{{font|size=smaller|color=#0000FF|1}} When thou dost lend thy brother any thing, thou shalt not go into his house to fetch his pledge.
+
+{{font|size=smaller|color=#0000FF|2}} Thou shalt stand abroad, and the man to whom thou dost lend shall bring out the pledge abroad unto thee.
+
+{{font|size=smaller|color=#0000FF|3}} And if the man be poor, thou shalt not sleep with his pledge:
+
+{{font|size=smaller|color=#0000FF|4}} In any case thou shalt deliver him the pledge again when the sun goeth down, that he may sleep in his own raiment, and bless thee:
+
+{{font|size=smaller|color=#0000FF|5}} And it shall be righteousness unto thee before the LORD thy God.
+
+{{font|size=smaller|color=#0000FF|6}} No man shall take the nether or the upper millstone to pledge: for he taketh a man's life to pledge.
+
+===Usury===
+:''(from Deuteronomy 23:19-20)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not lend upon usury to thy brother; usury of money, usury of victuals, usury of any thing that is lent upon usury:
+
+{{font|size=smaller|color=#0000FF|2}} Unto a stranger thou mayest lend upon usury; but unto thy brother thou shalt not lend upon usury:
+
+{{font|size=smaller|color=#0000FF|3}} That the LORD thy God may bless thee in all that thou settest thine hand to in the land whither thou goest to possess it.
+
+==Ownership==
+===The year of debt cancellation ===
+:''(from Deuteronomy 15:1-18)''
+
+{{font|size=smaller|color=#0000FF|1}} At the end of every seven years thou shalt make a release.
+
+{{font|size=smaller|color=#0000FF|2}} And this is the manner of the release: Every creditor that lendeth ought unto his neighbour shall release it;
+
+{{font|size=smaller|color=#0000FF|3}} He shall not exact it of his neighbour, or of his brother; because it is called the LORD's release.
+
+{{font|size=smaller|color=#0000FF|4}} Of a foreigner thou mayest exact it again: but that which is thine with thy brother thine hand shall release;
+
+{{font|size=smaller|color=#0000FF|5}} Save when there shall be no poor among you;
+
+{{font|size=smaller|color=#0000FF|6}} For the LORD shall greatly bless thee in the land which the LORD thy God giveth thee for an inheritance to possess it:
+
+{{font|size=smaller|color=#0000FF|7}} Only if thou carefully hearken unto the voice of the LORD thy God, to observe to do all these commandments which I command thee this day.
+
+{{font|size=smaller|color=#0000FF|A}} For the LORD thy God blesseth thee, as he promised thee:
+
+{{font|size=smaller|color=#0000FF|B}} And thou shalt lend unto many nations, but thou shalt not borrow;
+
+{{font|size=smaller|color=#0000FF|C}} And thou shalt reign over many nations, but they shall not reign over thee.
+
+{{font|size=smaller|color=#0000FF|8}} If there be among you a poor man of one of thy brethren within any of thy gates in thy land which the LORD thy God giveth thee,
+
+{{font|size=smaller|color=#0000FF|A}} Thou shalt not harden thine heart, nor shut thine hand from thy poor brother:
+
+{{font|size=smaller|color=#0000FF|B}} But thou shalt open thine hand wide unto him, and shalt surely lend him sufficient for his need, in that which he wanteth.
+
+{{font|size=smaller|color=#0000FF|9}} Beware that there be not a thought in thy wicked heart, saying,
+
+{{font|size=smaller|color=#0000FF|A}} The seventh year, the year of release, is at hand;
+
+{{font|size=smaller|color=#0000FF|B}} And thine eye be evil against thy poor brother, and thou givest him nought;
+
+{{font|size=smaller|color=#0000FF|C}} And he cry unto the LORD against thee, and it be sin unto thee.
+
+{{font|size=smaller|color=#0000FF|D}} Thou shalt surely give him, and thine heart shall not be grieved when thou givest unto him:
+
+{{font|size=smaller|color=#0000FF|E}} Because that for this thing the LORD thy God shall bless thee in all thy works, and in all that thou puttest thine hand unto.
+
+{{font|size=smaller|color=#0000FF|F}} For the poor shall never cease out of the land: therefore I command thee, saying,
+
+{{font|size=smaller|color=#0000FF|10}} Thou shalt open thine hand wide unto thy brother, to thy poor, and to thy needy, in thy land.
+
+{{font|size=smaller|color=#0000FF|11}} And if thy brother, an Hebrew man, or an Hebrew woman, be sold unto thee, and serve thee six years;
+
+{{font|size=smaller|color=#0000FF|A}} Then in the seventh year thou shalt let him go free from thee.
+
+{{font|size=smaller|color=#0000FF|B}} And when thou sendest him out free from thee, thou shalt not let him go away empty:
+
+{{font|size=smaller|color=#0000FF|C}} Thou shalt furnish him liberally out of thy flock, and out of thy floor, and out of thy winepress:
+
+{{font|size=smaller|color=#0000FF|D}} Of that wherewith the LORD thy God hath blessed thee thou shalt give unto him.
+
+{{font|size=smaller|color=#0000FF|12}} And thou shalt remember that thou wast a bondman in the land of Egypt, and the LORD thy God redeemed thee:
+
+{{font|size=smaller|color=#0000FF|13}} Therefore I command thee this thing to day.
+
+{{font|size=smaller|color=#0000FF|14}} And it shall be, if he say unto thee, I will not go away from thee; because he loveth thee and thine house, because he is well with thee;
+
+{{font|size=smaller|color=#0000FF|A}} Then thou shalt take an aul, and thrust it through his ear unto the door, and he shall be thy servant for ever.
+
+{{font|size=smaller|color=#0000FF|B}} And also unto thy maidservant thou shalt do likewise.
+
+{{font|size=smaller|color=#0000FF|15}} It shall not seem hard unto thee, when thou sendest him away free from thee;
+
+{{font|size=smaller|color=#0000FF|A}} For he hath been worth a double hired servant to thee, in serving thee six years:
+
+{{font|size=smaller|color=#0000FF|B}} And the LORD thy God shall bless thee in all that thou doest.
+
+===False weights and measures===
+:''(from Deuteronomy 25:13-16)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not have in thy bag divers weights, a great and a small.
+
+{{font|size=smaller|color=#0000FF|2}} Thou shalt not have in thine house divers measures, a great and a small.
+
+{{font|size=smaller|color=#0000FF|3}} But thou shalt have a perfect and just weight, a perfect and just measure shalt thou have:
+
+{{font|size=smaller|color=#0000FF|4}} That thy days may be lengthened in the land which the LORD thy God giveth thee.
+
+{{font|size=smaller|color=#0000FF|5}} For all that do such things, and all that do unrighteously, are an abomination unto the LORD thy God.
+
+===Boundary stones===
+:''(from Deuteronomy 19:14)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not remove thy neighbour's landmark, which they of old time have set in thine inheritance,
+
+{{font|size=smaller|color=#0000FF|2}} Which thou shalt inherit in the land that the LORD thy God giveth thee to possess it.
+
+===Lost property===
+:''(from Deuteronomy 22:1-4)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not see thy brother's ox or his sheep go astray, and hide thyself from them:
+
+{{font|size=smaller|color=#0000FF|2}} Thou shalt in any case bring them again unto thy brother.
+
+{{font|size=smaller|color=#0000FF|3}} And if thy brother be not nigh unto thee, or if thou know him not, then thou shalt bring it unto thine own house,
+
+{{font|size=smaller|color=#0000FF|4}} And it shall be with thee until thy brother seek after it, and thou shalt restore it to him again.
+
+{{font|size=smaller|color=#0000FF|5}} In like manner shalt thou do with his ass; and so shalt thou do with his raiment;
+
+{{font|size=smaller|color=#0000FF|6}} And with all lost thing of thy brother's, which he hath lost, and thou hast found, shalt thou do likewise: thou mayest not hide thyself.
+
+{{font|size=smaller|color=#0000FF|7}} Thou shalt not see thy brother's ass or his ox fall down by the way, and hide thyself from them:
+
+{{font|size=smaller|color=#0000FF|8}} Thou shalt surely help him to lift them up again.
+
+===Servants===
+====Treatment====
+:''(from Deuteronomy 24:14-15)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not oppress an hired servant that is poor and needy,
+
+{{font|size=smaller|color=#0000FF|2}} Whether he be of thy brethren, or of thy strangers that are in thy land within thy gates:
+
+{{font|size=smaller|color=#0000FF|3}} At his day thou shalt give him his hire, neither shall the sun go down upon it;
+
+{{font|size=smaller|color=#0000FF|4}} For he is poor, and setteth his heart upon it:
+
+{{font|size=smaller|color=#0000FF|5}} Lest he cry against thee unto the LORD, and it be sin unto thee.
+
+====Fleeing servants====
+:''(from Deuteronomy 23:15-16)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not deliver unto his master the servant which is escaped from his master unto thee:
+
+{{font|size=smaller|color=#0000FF|2}} He shall dwell with thee, even among you, in that place which he shall choose in one of thy gates, where it liketh him best:
+
+{{font|size=smaller|color=#0000FF|3}} Thou shalt not oppress him.
+
+====Kidnapping for slavery ====
+:''(from Deuteronomy 24:7)''
+
+{{font|size=smaller|color=#0000FF|1}} If a man be found stealing any of his brethren of the children of Israel, and maketh merchandise of him, or selleth him;
+
+{{font|size=smaller|color=#0000FF|2}} Then that thief shall die; and thou shalt put evil away from among you.
+
+===Inheritance===
+====The firstborn son====
+:''(from Deuteronomy 21:15-17)''
+
+{{font|size=smaller|color=#0000FF|1}} If a man have two wives, one beloved, and another hated, and they have born him children, both the beloved and the hated;
+
+{{font|size=smaller|color=#0000FF|2}} And if the firstborn son be hers that was hated:
+
+{{font|size=smaller|color=#0000FF|3}} Then it shall be, when he maketh his sons to inherit that which he hath,
+
+{{font|size=smaller|color=#0000FF|4}} That he may not make the son of the beloved firstborn before the son of the hated, which is indeed the firstborn:
+
+{{font|size=smaller|color=#0000FF|5}} But he shall acknowledge the son of the hated for the firstborn, by giving him a double portion of all that he hath:
+
+{{font|size=smaller|color=#0000FF|6}} For he is the beginning of his strength; the right of the firstborn is his.
+
+====Levites====
+:''(from Deuteronomy 18:1-8)''
+
+{{font|size=smaller|color=#0000FF|1}} The priests the Levites, and all the tribe of Levi, shall have no part nor inheritance with Israel:
+
+{{font|size=smaller|color=#0000FF|2}} They shall eat the offerings of the LORD made by fire, and his inheritance.
+
+{{font|size=smaller|color=#0000FF|3}} Therefore shall they have no inheritance among their brethren: the LORD is their inheritance, as he hath said unto them.
+
+{{font|size=smaller|color=#0000FF|4}} And this shall be the priest's due from the people, from them that offer a sacrifice, whether it be ox or sheep;
+
+{{font|size=smaller|color=#0000FF|5}} And they shall give unto the priest the shoulder, and the two cheeks, and the maw.
+
+{{font|size=smaller|color=#0000FF|6}} The firstfruit also of thy corn, of thy wine, and of thine oil, and the first of the fleece of thy sheep, shalt thou give him.
+
+{{font|size=smaller|color=#0000FF|7}} For the LORD thy God hath chosen him out of all thy tribes, to stand to minister in the name of the LORD, him and his sons for ever.
+
+{{font|size=smaller|color=#0000FF|8}} And if a Levite come from any of thy gates out of all Israel, where he sojourned,
+
+{{font|size=smaller|color=#0000FF|9}} And come with all the desire of his mind unto the place which the LORD shall choose;
+ 
+{{font|size=smaller|color=#0000FF|10}} Then he shall minister in the name of the LORD his God, as all his brethren the Levites do, which stand there before the LORD.
+
+{{font|size=smaller|color=#0000FF|11}} They shall have like portions to eat, beside that which cometh of the sale of his patrimony.
+
+==Manufacture==
+===Clothes===
+:''(from Deuteronomy 22:12)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt make thee fringes upon the four quarters of thy vesture, wherewith thou coverest thyself.
+===New Houses===
+:''(from Deuteronomy 22:8)''
+
+{{font|size=smaller|color=#0000FF|1}} When thou buildest a new house, then thou shalt make a battlement for thy roof,
+
+{{font|size=smaller|color=#0000FF|2}} That thou bring not blood upon thine house, if any man fall from thence.
+
+===Mixing types===
+:''(from Deuteronomy 22:9-11)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not sow thy vineyard with divers seeds: lest the fruit of thy seed which thou hast sown, and the fruit of thy vineyard, be defiled.
+
+{{font|size=smaller|color=#0000FF|2}} Thou shalt not plow with an ox and an ass together.
+
+{{font|size=smaller|color=#0000FF|3}} Thou shalt not wear a garment of divers sorts, as of woollen and linen together.
+
+==Countryside==
+===Remnants of crops===
+:''(from Deuteronomy 24:19-22 and Deuteronomy 23:24-25)''
+
+{{font|size=smaller|color=#0000FF|1}} When thou cuttest down thine harvest in thy field, and hast forgot a sheaf in the field, thou shalt not go again to fetch it:
+
+{{font|size=smaller|color=#0000FF|2}} It shall be for the stranger, for the fatherless, and for the widow:
+
+{{font|size=smaller|color=#0000FF|3}} That the LORD thy God may bless thee in all the work of thine hands.
+
+{{font|size=smaller|color=#0000FF|4}} When thou beatest thine olive tree, thou shalt not go over the boughs again:
+
+{{font|size=smaller|color=#0000FF|5}} It shall be for the stranger, for the fatherless, and for the widow.
+
+{{font|size=smaller|color=#0000FF|6}} When thou gatherest the grapes of thy vineyard, thou shalt not glean it afterward:
+
+{{font|size=smaller|color=#0000FF|7}} It shall be for the stranger, for the fatherless, and for the widow.
+
+{{font|size=smaller|color=#0000FF|8}} And thou shalt remember that thou wast a bondman in the land of Egypt: therefore I command thee to do this thing.
+
+{{font|size=smaller|color=#0000FF|9}} When thou comest into thy neighbour's vineyard, then thou mayest eat grapes thy fill at thine own pleasure;
+
+{{font|size=smaller|color=#0000FF|10}} But thou shalt not put any in thy vessel.
+
+{{font|size=smaller|color=#0000FF|11}} When thou comest into the standing corn of thy neighbour, then thou mayest pluck the ears with thine hand;
+
+{{font|size=smaller|color=#0000FF|12}} But thou shalt not move a sickle unto thy neighbour's standing corn.
+
+===Tithe===
+:''(from Deuteronomy 14:22-29)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt truly tithe all the increase of thy seed, that the field bringeth forth year by year.
+
+{{font|size=smaller|color=#0000FF|2}} And thou shalt eat before the LORD thy God, in the place which he shall choose to place his name there,
+
+{{font|size=smaller|color=#0000FF|3}} The tithe of thy corn, of thy wine, and of thine oil, and the firstlings of thy herds and of thy flocks;
+
+{{font|size=smaller|color=#0000FF|4}} That thou mayest learn to fear the LORD thy God always.
+
+{{font|size=smaller|color=#0000FF|5}} And if the way be too long for thee, so that thou art not able to carry it;
+
+{{font|size=smaller|color=#0000FF|6}} Or if the place be too far from thee, which the LORD thy God shall choose to set his name there, when the LORD thy God hath blessed thee:
+
+{{font|size=smaller|color=#0000FF|7}} Then shalt thou turn it into money, and bind up the money in thine hand, and shalt go unto the place which the LORD thy God shall choose:
+
+{{font|size=smaller|color=#0000FF|8}} And thou shalt bestow that money for whatsoever thy soul lusteth after,
+
+{{font|size=smaller|color=#0000FF|9}} For oxen, or for sheep, or for wine, or for strong drink, or for whatsoever thy soul desireth:
+
+{{font|size=smaller|color=#0000FF|10}} And thou shalt eat there before the LORD thy God, and thou shalt rejoice, thou, and thine household,
+
+{{font|size=smaller|color=#0000FF|11}} And the Levite that is within thy gates; thou shalt not forsake him; for he hath no part nor inheritance with thee.
+
+{{font|size=smaller|color=#0000FF|12}} At the end of three years thou shalt bring forth all the tithe of thine increase the same year, and shalt lay it up within thy gates:
+
+{{font|size=smaller|color=#0000FF|13}} And the Levite, (because he hath no part nor inheritance with thee,) and the stranger, and the fatherless, and the widow,
+
+{{font|size=smaller|color=#0000FF|14}} Which are within thy gates, shall come, and shall eat and be satisfied;
+
+{{font|size=smaller|color=#0000FF|15}} That the LORD thy God may bless thee in all the work of thine hand which thou doest.
+
+===Birds nests===
+:''(from Deuteronomy 22:6-7)''
+
+{{font|size=smaller|color=#0000FF|1}} If a bird's nest chance to be before thee in the way in any tree, or on the ground, whether they be young ones, or eggs,
+
+{{font|size=smaller|color=#0000FF|2}} And the dam sitting upon the young, or upon the eggs, thou shalt not take the dam with the young:
+
+{{font|size=smaller|color=#0000FF|3}} But thou shalt in any wise let the dam go, and take the young to thee;
+
+{{font|size=smaller|color=#0000FF|4}} That it may be well with thee, and that thou mayest prolong thy days.
+
+===Oxen===
+:''(from Deuteronomy 25:4)''
+
+{{font|size=smaller|color=#0000FF|1}} Thou shalt not muzzle the ox when he treadeth out the corn
+
+===Corpses===
+:''(from Deuteronomy 14:21a)''
+
+{{font|size=smaller|color=#0000FF|1}} Ye shall not eat of anything that dieth of itself: thou shalt give it unto the stranger that is in thy gates, that he may eat it;
+
+{{font|size=smaller|color=#0000FF|2}} Or thou mayest sell it unto an alien: for thou art an holy people unto the LORD thy God.
+
+==Conclusion==
+
+===Benefits===
+:''(from Deuteronomy 28:1-14)''
+
+{{font|size=smaller|color=#0000FF|1}} And it shall come to pass, if thou shalt hearken diligently unto the voice of the LORD thy God,
+
+{{font|size=smaller|color=#0000FF|2}} To observe and to do all his commandments which I command thee this day,
+
+{{font|size=smaller|color=#0000FF|3}} That the LORD thy God will set thee on high above all nations of the earth:
+
+{{font|size=smaller|color=#0000FF|4}} And all these blessings shall come on thee, and overtake thee, if thou shalt hearken unto the voice of the LORD thy God.
+
+{{font|size=smaller|color=#0000FF|5}} The LORD shall cause thine enemies that rise up against thee to be smitten before thy face:
+
+{{font|size=smaller|color=#0000FF|6}} They shall come out against thee one way, and flee before thee seven ways.
+
+{{font|size=smaller|color=#0000FF|7}} The LORD shall command the blessing upon thee in thy storehouses, and in all that thou settest thine hand unto;
+
+{{font|size=smaller|color=#0000FF|8}} And he shall bless thee in the land which the LORD thy God giveth thee.
+
+{{font|size=smaller|color=#0000FF|9}} The LORD shall establish thee an holy people unto himself, as he hath sworn unto thee,
+
+{{font|size=smaller|color=#0000FF|10}} If thou shalt keep the commandments of the LORD thy God, and walk in his ways.
+
+{{font|size=smaller|color=#0000FF|11}} And all people of the earth shall see that thou art called by the name of the LORD; and they shall be afraid of thee.
+
+{{font|size=smaller|color=#0000FF|12}} And the LORD shall make thee plenteous in goods, in the fruit of thy body, and in the fruit of thy cattle, and in the fruit of thy ground,
+
+{{font|size=smaller|color=#0000FF|13}} In the land which the LORD sware unto thy fathers to give thee.
+
+{{font|size=smaller|color=#0000FF|14}} The LORD shall open unto thee his good treasure, the heaven to give the rain unto thy land in his season, and to bless all the work of thine hand:
+
+{{font|size=smaller|color=#0000FF|15}} And thou shalt lend unto many nations, and thou shalt not borrow.
+
+{{font|size=smaller|color=#0000FF|16}} And the LORD shall make thee the head, and not the tail; and thou shalt be above only, and thou shalt not be beneath;
+
+{{font|size=smaller|color=#0000FF|17}} If that thou hearken unto the commandments of the LORD thy God, which I command thee this day, to observe and to do them:
+
+{{font|size=smaller|color=#0000FF|18}} And thou shalt not go aside from any of the words which I command thee this day,
+
+{{font|size=smaller|color=#0000FF|19}} To the right hand, or to the left, to go after other gods to serve them.
+
+===Divine penalties===
+:''(from Deuteronomy 28:15-68)''
+
+{{font|size=smaller|color=#0000FF|1}} But it shall come to pass, if thou wilt not hearken unto the voice of the LORD thy God,
+
+{{font|size=smaller|color=#0000FF|2}} To observe to do all his commandments and his statutes which I command thee this day;
+
+{{font|size=smaller|color=#0000FF|3}} The LORD shall send upon thee cursing, vexation, and rebuke, in all that thou settest thine hand unto for to do,
+
+{{font|size=smaller|color=#0000FF|4}} Until thou be destroyed, and until thou perish quickly;
+
+{{font|size=smaller|color=#0000FF|5}} Because of the wickedness of thy doings, whereby thou hast forsaken me.
+
+{{font|size=smaller|color=#0000FF|6}} The LORD shall make the pestilence cleave unto thee, until he have consumed thee from off the land, whither thou goest to possess it.
+
+{{font|size=smaller|color=#0000FF|7}} The LORD shall smite thee with a consumption, and with a fever, and with an inflammation, and with an extreme burning,
+
+{{font|size=smaller|color=#0000FF|8}} And with the sword, and with blasting, and with mildew; and they shall pursue thee until thou perish.
+
+{{font|size=smaller|color=#0000FF|9}} And thy heaven that is over thy head shall be brass, and the earth that is under thee shall be iron.
+
+{{font|size=smaller|color=#0000FF|10}} The LORD shall make the rain of thy land powder and dust: from heaven shall it come down upon thee, until thou be destroyed.
+
+{{font|size=smaller|color=#0000FF|11}} The LORD shall cause thee to be smitten before thine enemies:
+
+{{font|size=smaller|color=#0000FF|12}} Thou shalt go out one way against them, and flee seven ways before them: and shalt be removed into all the kingdoms of the earth.
+
+{{font|size=smaller|color=#0000FF|13}} And thy carcase shall be meat unto all fowls of the air, and unto the beasts of the earth, and no man shall fray them away.
+
+{{font|size=smaller|color=#0000FF|14}} The LORD will smite thee with the botch of Egypt, and with the emerods, and with the scab,
+
+{{font|size=smaller|color=#0000FF|15}} And with the itch, whereof thou canst not be healed.
+
+{{font|size=smaller|color=#0000FF|16}} The LORD shall smite thee with madness, and blindness, and astonishment of heart:
+
+{{font|size=smaller|color=#0000FF|17}} And thou shalt grope at noonday, as the blind gropeth in darkness, and thou shalt not prosper in thy ways:
+
+{{font|size=smaller|color=#0000FF|18}} And thou shalt be only oppressed and spoiled evermore, and no man shall save thee.
+
+{{font|size=smaller|color=#0000FF|19}} Thou shalt betroth a wife, and another man shall lie with her:
+
+{{font|size=smaller|color=#0000FF|20}} Thou shalt build an house, and thou shalt not dwell therein:
+
+{{font|size=smaller|color=#0000FF|21}} Thou shalt plant a vineyard, and shalt not gather the grapes thereof.
+
+{{font|size=smaller|color=#0000FF|22}} Thine ox shall be slain before thine eyes, and thou shalt not eat thereof:
+
+{{font|size=smaller|color=#0000FF|23}} Thine ass shall be violently taken away from before thy face, and shall not be restored to thee:
+
+{{font|size=smaller|color=#0000FF|24}} Thy sheep shall be given unto thine enemies, and thou shalt have none to rescue them.
+
+{{font|size=smaller|color=#0000FF|25}} Thy sons and thy daughters shall be given unto another people,
+
+{{font|size=smaller|color=#0000FF|26}} And thine eyes shall look, and fail with longing for them all the day long; and there shall be no might in thine hand.
+
+{{font|size=smaller|color=#0000FF|27}} The fruit of thy land, and all thy labours, shall a nation which thou knowest not eat up;
+
+{{font|size=smaller|color=#0000FF|28}} And thou shalt be only oppressed and crushed alway:
+
+{{font|size=smaller|color=#0000FF|29}} So that thou shalt be mad for the sight of thine eyes which thou shalt see.
+
+{{font|size=smaller|color=#0000FF|30}} The LORD shall smite thee in the knees, and in the legs,
+
+{{font|size=smaller|color=#0000FF|31}} With a sore botch that cannot be healed, from the sole of thy foot unto the top of thy head.
+
+{{font|size=smaller|color=#0000FF|32}} Thou shalt carry much seed out into the field, and shalt gather but little in; for the locust shall consume it.
+
+{{font|size=smaller|color=#0000FF|33}} Thou shalt plant vineyards, and dress them, but shalt neither drink of the wine, nor gather the grapes; for the worms shall eat them.
+
+{{font|size=smaller|color=#0000FF|34}} Thou shalt have olive trees throughout all thy coasts, but thou shalt not anoint thyself with the oil; for thine olive shall cast his fruit.
+
+{{font|size=smaller|color=#0000FF|35}} Thou shalt beget sons and daughters, but thou shalt not enjoy them; for they shall go into captivity.
+
+{{font|size=smaller|color=#0000FF|36}} All thy trees and fruit of thy land shall the locust consume.
+
+{{font|size=smaller|color=#0000FF|37}} The stranger that is within thee shall get up above thee very high; and thou shalt come down very low.
+
+{{font|size=smaller|color=#0000FF|38}} He shall lend to thee, and thou shalt not lend to him: he shall be the head, and thou shalt be the tail.
+
+{{font|size=smaller|color=#0000FF|39}} Moreover all these curses shall come upon thee, and shall pursue thee, and overtake thee, till thou be destroyed;
+
+{{font|size=smaller|color=#0000FF|40}} Because thou hearkenedst not unto the voice of the LORD thy God, to keep his commandments and his statutes which he commanded thee:
+
+{{font|size=smaller|color=#0000FF|41}} And they shall be upon thee for a sign and for a wonder, and upon thy seed for ever.
+
+{{font|size=smaller|color=#0000FF|42}} Because thou servedst not the LORD thy God with joyfulness, and with gladness of heart, for the abundance of all things;
+
+{{font|size=smaller|color=#0000FF|43}} Therefore shalt thou serve thine enemies which the LORD shall send against thee,
+
+{{font|size=smaller|color=#0000FF|44}} In hunger, and in thirst, and in nakedness, and in want of all things:
+
+{{font|size=smaller|color=#0000FF|45}} And he shall put a yoke of iron upon thy neck, until he have destroyed thee.
+
+{{font|size=smaller|color=#0000FF|46}} The LORD shall bring a nation against thee from far, from the end of the earth, as swift as the eagle flieth;
+
+{{font|size=smaller|color=#0000FF|47}} A nation whose tongue thou shalt not understand;
+
+{{font|size=smaller|color=#0000FF|48}} A nation of fierce countenance, which shall not regard the person of the old, nor shew favour to the young:
+
+{{font|size=smaller|color=#0000FF|49}} And he shall eat the fruit of thy cattle, and the fruit of thy land, until thou be destroyed:
+
+{{font|size=smaller|color=#0000FF|50}} Which also shall not leave thee either corn, wine, or oil, or the increase of thy kine, or flocks of thy sheep, until he have destroyed thee.
+
+{{font|size=smaller|color=#0000FF|51}} And he shall besiege thee in all thy gates, until thy high and fenced walls come down, wherein thou trustedst, throughout all thy land:
+
+{{font|size=smaller|color=#0000FF|52}} And he shall besiege thee in all thy gates throughout all thy land, which the LORD thy God hath given thee.
+
+{{font|size=smaller|color=#0000FF|53}} And thou shalt eat the fruit of thine own body, the flesh of thy sons and of thy daughters, which the LORD thy God hath given thee,
+
+{{font|size=smaller|color=#0000FF|54}} In the siege, and in the straitness, wherewith thine enemies shall distress thee:
+
+{{font|size=smaller|color=#0000FF|55}} So that the man that is tender among you, and very delicate,
+
+{{font|size=smaller|color=#0000FF|56}} His eye shall be evil toward his brother, and toward the wife of his bosom, and toward the remnant of his children which he shall leave:
+
+{{font|size=smaller|color=#0000FF|57}} So that he will not give to any of them of the flesh of his children whom he shall eat:
+
+{{font|size=smaller|color=#0000FF|58}} Because he hath nothing left him in the siege, and in the straitness, wherewith thine enemies shall distress thee in all thy gates.
+
+{{font|size=smaller|color=#0000FF|59}} The tender and delicate woman among you, which would not adventure to set the sole of her foot upon the ground for delicateness and tenderness,
+
+{{font|size=smaller|color=#0000FF|60}} Her eye shall be evil toward the husband of her bosom, and toward her son, and toward her daughter,
+
+{{font|size=smaller|color=#0000FF|61}} And toward her young one that cometh out from between her feet, and toward her children which she shall bear:
+
+{{font|size=smaller|color=#0000FF|62}} For she shall eat them for want of all things secretly in the siege and straitness, wherewith thine enemy shall distress thee in thy gates.
+
+{{font|size=smaller|color=#0000FF|63}} If thou wilt not observe to do all the words of this law that are written in this book, that thou mayest fear this glorious and fearful name,
+
+:{{font|size=smaller|color=#0000FF|A}} THE LORD THY GOD;
+
+{{font|size=smaller|color=#0000FF|64}} Then the LORD will make thy plagues wonderful, and the plagues of thy seed, even great plagues,
+
+{{font|size=smaller|color=#0000FF|65}} And of long continuance, and sore sicknesses, and of long continuance.
+
+{{font|size=smaller|color=#0000FF|66}} Moreover he will bring upon thee all the diseases of Egypt, which thou wast afraid of; and they shall cleave unto thee.
+
+{{font|size=smaller|color=#0000FF|67}} Also every sickness, and every plague, which is not written in the book of this law,
+
+{{font|size=smaller|color=#0000FF|68}} Them will the LORD bring upon thee, until thou be destroyed.
+
+{{font|size=smaller|color=#0000FF|69}} And ye shall be left few in number, whereas ye were as the stars of heaven for multitude;
+
+{{font|size=smaller|color=#0000FF|70}} Because thou wouldest not obey the voice of the LORD thy God.
+
+===Epilogue ===
+:''(from Deuteronomy 29:1-29, Deuteronomy 30:11-13, Deuteronomy 31:9-13, Deuteronomy 31:24-27, and Deuteronomy 32:45-47)''
+
+{{font|size=smaller|color=#0000FF|1}} These are the words of the covenant, which the LORD commanded Moses to make with the children of Israel in the land of Moab,
+
+{{font|size=smaller|color=#0000FF|2}} Beside the covenant which he made with them in Horeb.
+
+{{font|size=smaller|color=#0000FF|3}} And Moses called unto all Israel, and said unto them,
+
+{{font|size=smaller|color=#0000FF|4}} Ye have seen all that the LORD did before your eyes in the land of Egypt unto Pharaoh, and unto all his servants, and unto all his land;
+
+{{font|size=smaller|color=#0000FF|5}} The great temptations which thine eyes have seen, the signs, and those great miracles:
+
+{{font|size=smaller|color=#0000FF|6}} Yet the LORD hath not given you an heart to perceive, and eyes to see, and ears to hear, unto this day.
+
+{{font|size=smaller|color=#0000FF|7}} And I have led you forty years in the wilderness: your clothes are not waxen old upon you, and thy shoe is not waxen old upon thy foot.
+
+{{font|size=smaller|color=#0000FF|8}} Ye have not eaten bread, neither have ye drunk wine or strong drink: that ye might know that I am the LORD your God.
+
+{{font|size=smaller|color=#0000FF|9}} And when ye came unto this place, Sihon the king of Heshbon, and Og the king of Bashan, came out against us unto battle, and we smote them:
+
+{{font|size=smaller|color=#0000FF|10}} And we took their land, and gave it for an inheritance unto the Reubenites, and to the Gadites, and to the half tribe of Manasseh.
+
+{{font|size=smaller|color=#0000FF|11}} Keep therefore the words of this covenant, and do them, that ye may prosper in all that ye do.
+
+{{font|size=smaller|color=#0000FF|12}} Ye stand this day all of you before the LORD your God; your captains of your tribes, your elders, and your officers, with all the men of Israel,
+
+{{font|size=smaller|color=#0000FF|13}} Your little ones, your wives, and thy stranger that is in thy camp, from the hewer of thy wood unto the drawer of thy water:
+
+{{font|size=smaller|color=#0000FF|14}} That thou shouldest enter into covenant with the LORD thy God, and into his oath, which the LORD thy God maketh with thee this day:
+
+{{font|size=smaller|color=#0000FF|15}} That he may establish thee to day for a people unto himself, and that he may be unto thee a God,
+
+{{font|size=smaller|color=#0000FF|16}} As he hath said unto thee, and as he hath sworn unto thy fathers, to Abraham, to Isaac, and to Jacob.
+
+{{font|size=smaller|color=#0000FF|17}} Neither with you only do I make this covenant and this oath;
+
+{{font|size=smaller|color=#0000FF|18}} But with him that standeth here with us this day before the LORD our God, and also with him that is not here with us this day:
+
+{{font|size=smaller|color=#0000FF|19}} (For ye know how we have dwelt in the land of Egypt; and how we came through the nations which ye passed by;
+
+{{font|size=smaller|color=#0000FF|20}} And ye have seen their abominations, and their idols, wood and stone, silver and gold, which were among them:)
+
+{{font|size=smaller|color=#0000FF|21}} Lest there should be among you man, or woman, or family, or tribe,
+
+{{font|size=smaller|color=#0000FF|22}} Whose heart turneth away this day from the LORD our God, to go and serve the gods of these nations;
+
+{{font|size=smaller|color=#0000FF|23}} Lest there should be among you a root that beareth gall and wormwood;
+
+{{font|size=smaller|color=#0000FF|24}} And it come to pass, when he heareth the words of this curse, that he bless himself in his heart, saying,
+
+{{font|size=smaller|color=#0000FF|25}} I shall have peace, though I walk in the imagination of mine heart, to add drunkenness to thirst:
+
+{{font|size=smaller|color=#0000FF|26}} The LORD will not spare him, but then the anger of the LORD and his jealousy shall smoke against that man,
+
+{{font|size=smaller|color=#0000FF|27}} And all the curses that are written in this book shall lie upon him,
+
+{{font|size=smaller|color=#0000FF|28}} And the LORD shall blot out his name from under heaven.
+
+{{font|size=smaller|color=#0000FF|29}} The secret things belong unto the LORD our God:
+
+{{font|size=smaller|color=#0000FF|30}} But those things which are revealed belong unto us and to our children for ever, that we may do all the words of this law.
+
+{{font|size=smaller|color=#0000FF|31}} For this commandment which I command thee this day, it is not hidden from thee, neither is it far off.
+
+{{font|size=smaller|color=#0000FF|32}} It is not in heaven, that thou shouldest say, Who shall go up for us to heaven, and bring it unto us, that we may hear it, and do it?
+
+{{font|size=smaller|color=#0000FF|33}} Neither is it beyond the sea, that thou shouldest say, Who shall go over the sea for us, and bring it unto us, that we may hear it, and do it?
+
+{{font|size=smaller|color=#0000FF|34}} And Moses wrote this law, and delivered it unto the priests the sons of Levi,
+
+{{font|size=smaller|color=#0000FF|35}} Which bare the ark of the covenant of the LORD, and unto all the elders of Israel.
+
+{{font|size=smaller|color=#0000FF|36}} And Moses commanded them, saying, At the end of every seven years, in the solemnity of the year of release, in the feast of tabernacles,
+
+{{font|size=smaller|color=#0000FF|37}} When all Israel is come to appear before the LORD thy God in the place which he shall choose,
+
+{{font|size=smaller|color=#0000FF|38}} Thou shalt read this law before all Israel in their hearing.
+
+{{font|size=smaller|color=#0000FF|39}} Gather the people together, men and women, and children, and thy stranger that is within thy gates,
+
+{{font|size=smaller|color=#0000FF|40}} That they may hear, and that they may learn, and fear the LORD your God, and observe to do all the words of this law:
+
+{{font|size=smaller|color=#0000FF|41}} And that their children, which have not known any thing, may hear, and learn to fear the LORD your God,
+
+{{font|size=smaller|color=#0000FF|42}} As long as ye live in the land whither ye go over Jordan to possess it.
+
+{{font|size=smaller|color=#0000FF|43}} And it came to pass, when Moses had made an end of writing the words of this law in a book, until they were finished,
+
+{{font|size=smaller|color=#0000FF|44}} That Moses commanded the Levites, which bare the ark of the covenant of the LORD, saying,
+
+{{font|size=smaller|color=#0000FF|45}} Take this book of the law, and put it in the side of the ark of the covenant of the LORD your God,
+
+{{font|size=smaller|color=#0000FF|46}} That it may be there for a witness against thee.
+
+{{font|size=smaller|color=#0000FF|47}} For I know thy rebellion, and thy stiff neck: behold, while I am yet alive with you this day,
+
+{{font|size=smaller|color=#0000FF|48}} Ye have been rebellious against the LORD; and how much more after my death?
+
+{{font|size=smaller|color=#0000FF|49}} And Moses made an end of speaking all these words to all Israel:
+
+{{font|size=smaller|color=#0000FF|50}} And he said unto them, Set your hearts unto all the words which I testify among you this day,
+
+{{font|size=smaller|color=#0000FF|51}} Which ye shall command your children to observe to do, all the words of this law.
+
+{{font|size=smaller|color=#0000FF|52}} For it is not a vain thing for you; because it is your life:
+
+{{font|size=smaller|color=#0000FF|53}} And through this thing ye shall prolong your days in the land, whither ye go over Jordan to possess it.
+
+[[Category:Documentary hypothesis]]
+[[Category:Religious law]]
