@@ -4,3 +4,6 @@ lxml
 pandas 
 click
 rich
+qdrant-client
+sentence-transformers
+numpy

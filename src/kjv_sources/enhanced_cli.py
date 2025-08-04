@@ -28,6 +28,13 @@ from datetime import datetime
 # Add the parent directory to sys.path to import parse_wikitext
 sys.path.append(str(Path(__file__).parent.parent.parent))
 
+# Import Qdrant client
+try:
+    from .qdrant_client import create_qdrant_client, KJVQdrantClient
+    QDRANT_AVAILABLE = True
+except ImportError:
+    QDRANT_AVAILABLE = False
+
 DEFAULT_OUTPUT_DIR = os.path.join(os.getcwd(), "output")
 
 # Source color mapping for terminal display
@@ -441,6 +448,255 @@ def search(book, chapter, verse, text):
     console.print(f"[dim]Found {len(df)} verses[/dim]\n")
     
     show_rich_table(df, book_name)
+
+# Qdrant Vector Database Commands
+
+@cli.group()
+def qdrant():
+    """Qdrant vector database operations for KJV sources data."""
+    if not QDRANT_AVAILABLE:
+        console.print("[red]❌ Qdrant functionality not available. Install qdrant-client and sentence-transformers.[/red]")
+        return
+
+@qdrant.command()
+@click.option("--force", is_flag=True, help="Force recreate collection if it exists")
+def setup(force):
+    """Set up Qdrant collection for KJV sources data."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        success = client.create_collection(force_recreate=force)
+        
+        if success:
+            # Show collection stats
+            stats = client.get_collection_stats()
+            if stats:
+                table = Table(title="📊 Qdrant Collection Statistics")
+                table.add_column("Property", style="bold")
+                table.add_column("Value", style="green")
+                
+                for key, value in stats.items():
+                    table.add_row(key.replace("_", " ").title(), str(value))
+                
+                console.print(table)
+        else:
+            console.print("[red]❌ Failed to set up Qdrant collection[/red]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error setting up Qdrant: {e}[/red]")
+
+@qdrant.command()
+@click.argument("book")
+def upload(book):
+    """Upload a book's data to Qdrant vector database."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    book_name = BOOKS.get(book.lower())
+    if not book_name:
+        console.print(f"[red]Error: Unknown book '{book}'. Available: {list(BOOKS.keys())}[/red]")
+        return
+    
+    csv_path = os.path.join(DEFAULT_OUTPUT_DIR, book_name, f"{book_name}.csv")
+    if not os.path.exists(csv_path):
+        console.print(f"[red]Error: No data found for {book_name}. Run the parser first.[/red]")
+        return
+    
+    try:
+        client = create_qdrant_client()
+        success = client.upload_book_data(book_name, csv_path)
+        
+        if success:
+            console.print(f"[green]✅ Successfully uploaded {book_name} to Qdrant[/green]")
+        else:
+            console.print(f"[red]❌ Failed to upload {book_name} to Qdrant[/red]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error uploading to Qdrant: {e}[/red]")
+
+@qdrant.command()
+@click.option("--books", multiple=True, help="Specific books to upload")
+def upload_all(books):
+    """Upload all books or specific books to Qdrant."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    if not books:
+        books = list(BOOKS.keys())
+    
+    try:
+        client = create_qdrant_client()
+        
+        for book in books:
+            book_name = BOOKS.get(book.lower())
+            if not book_name:
+                console.print(f"[yellow]Warning: Unknown book '{book}', skipping...[/yellow]")
+                continue
+            
+            csv_path = os.path.join(DEFAULT_OUTPUT_DIR, book_name, f"{book_name}.csv")
+            if not os.path.exists(csv_path):
+                console.print(f"[yellow]Warning: No data found for {book_name}, skipping...[/yellow]")
+                continue
+            
+            console.print(f"[blue]📤 Uploading {book_name}...[/blue]")
+            success = client.upload_book_data(book_name, csv_path)
+            
+            if success:
+                console.print(f"[green]✅ {book_name} uploaded successfully[/green]")
+            else:
+                console.print(f"[red]❌ Failed to upload {book_name}[/red]")
+        
+        # Show final stats
+        stats = client.get_collection_stats()
+        if stats:
+            console.print(f"\n[bold green]📊 Final Collection Stats:[/bold green]")
+            console.print(f"Total verses: {stats.get('total_points', 0)}")
+            console.print(f"Vector size: {stats.get('vector_size', 0)}")
+            console.print(f"Status: {stats.get('status', 'Unknown')}")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error uploading to Qdrant: {e}[/red]")
+
+@qdrant.command()
+@click.argument("query")
+@click.option("--limit", default=10, help="Number of results to return")
+@click.option("--book", help="Filter by specific book")
+def search_semantic(query, limit, book):
+    """Search verses using semantic similarity in Qdrant."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_verses(query, limit=limit, book_filter=book)
+        
+        if not results:
+            console.print("[yellow]No results found for your query.[/yellow]")
+            return
+        
+        console.print(f"[bold blue]🔍 Semantic Search Results for: '{query}'[/bold blue]")
+        console.print(f"[dim]Found {len(results)} results[/dim]\n")
+        
+        table = Table(title="Search Results")
+        table.add_column("Score", style="bold", justify="right")
+        table.add_column("Reference", style="bold")
+        table.add_column("Text", style="italic", width=60)
+        table.add_column("Sources", style="bold")
+        table.add_column("Book", style="dim")
+        
+        for result in results:
+            # Color-code the sources
+            sources_text = Text()
+            for s in result['sources'].split(';'):
+                color = SOURCE_COLORS.get(s, "white")
+                sources_text.append(f"{s} ", style=color)
+            
+            table.add_row(
+                f"{result['score']:.3f}",
+                result['reference'],
+                result['text'][:80] + "..." if len(result['text']) > 80 else result['text'],
+                sources_text,
+                result['book']
+            )
+        
+        console.print(table)
+        
+    except Exception as e:
+        console.print(f"[red]❌ Error searching Qdrant: {e}[/red]")
+
+@qdrant.command()
+@click.argument("source")
+@click.option("--limit", default=20, help="Number of results to return")
+def search_by_source(source, limit):
+    """Search verses by specific source (J, E, P, R) in Qdrant."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_by_source(source, limit=limit)
+        
+        if not results:
+            console.print(f"[yellow]No verses found with source '{source}'.[/yellow]")
+            return
+        
+        console.print(f"[bold blue]🔍 Verses with Source '{source}'[/bold blue]")
+        console.print(f"[dim]Found {len(results)} results[/dim]\n")
+        
+        table = Table(title=f"Source {source} Results")
+        table.add_column("Reference", style="bold")
+        table.add_column("Text", style="italic", width=60)
+        table.add_column("Sources", style="bold")
+        table.add_column("Book", style="dim")
+        
+        for result in results:
+            # Color-code the sources
+            sources_text = Text()
+            for s in result['sources'].split(';'):
+                color = SOURCE_COLORS.get(s, "white")
+                sources_text.append(f"{s} ", style=color)
+            
+            table.add_row(
+                result['reference'],
+                result['text'][:80] + "..." if len(result['text']) > 80 else result['text'],
+                sources_text,
+                result['book']
+            )
+        
+        console.print(table)
+        
+    except Exception as e:
+        console.print(f"[red]❌ Error searching by source: {e}[/red]")
+
+@qdrant.command()
+def stats():
+    """Show Qdrant collection statistics."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        stats = client.get_collection_stats()
+        
+        if stats:
+            table = Table(title="📊 Qdrant Collection Statistics")
+            table.add_column("Property", style="bold")
+            table.add_column("Value", style="green")
+            
+            for key, value in stats.items():
+                table.add_row(key.replace("_", " ").title(), str(value))
+            
+            console.print(table)
+        else:
+            console.print("[red]❌ Could not retrieve collection statistics[/red]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error getting Qdrant stats: {e}[/red]")
+
+@qdrant.command()
+@click.option("--force", is_flag=True, help="Confirm deletion")
+def delete(force):
+    """Delete the Qdrant collection."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    if not force:
+        console.print("[red]⚠️ Use --force to confirm collection deletion[/red]")
+        return
+    
+    try:
+        client = create_qdrant_client()
+        success = client.delete_collection()
+        
+        if success:
+            console.print("[green]✅ Collection deleted successfully[/green]")
+        else:
+            console.print("[red]❌ Failed to delete collection[/red]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error deleting collection: {e}[/red]")
 
 if __name__ == "__main__":
     cli() 

@@ -220,7 +220,7 @@ def write_csv_output(verses, book_name, output_dir):
                 json.dumps(metadata)
             ])
     
-    print(f"[✅] Enhanced CSV written: {csv_path} ({len(verses)} verses)")
+    print(f"[SUCCESS] Enhanced CSV written: {csv_path} ({len(verses)} verses)")
     return csv_path
 
 def write_training_formats(verses, book_name, output_dir):
@@ -290,7 +290,7 @@ def write_training_formats(verses, book_name, output_dir):
                 }
                 f.write(json.dumps(sequence_example, ensure_ascii=False) + '\n')
     
-    print(f"[✅] Training formats written: {jsonl_path}, {classification_path}, {sequence_path}")
+    print(f"[SUCCESS] Training formats written: {jsonl_path}, {classification_path}, {sequence_path}")
 
 def write_analysis_dataset(verses, book_name, output_dir):
     """Create dataset for complex source analysis tasks"""
@@ -327,7 +327,7 @@ def write_analysis_dataset(verses, book_name, output_dir):
             for example in analysis_examples:
                 f.write(json.dumps(example, ensure_ascii=False) + '\n')
     
-    print(f"[✅] Analysis dataset written: {analysis_path}")
+    print(f"[SUCCESS] Analysis dataset written: {analysis_path}")
 
 def write_html_preview(verses, book_name, output_dir):
     """Write HTML preview with color-coded sources"""
@@ -586,67 +586,52 @@ def write_html_preview(verses, book_name, output_dir):
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_content)
     
-    print(f"[✅] HTML preview written: {html_path}")
-    print(f"[💡] Open {html_path} in your web browser to view the full analysis")
+    print(f"[SUCCESS] HTML preview written: {html_path}")
+    print(f"[TIP] Open {html_path} in your web browser to view the full analysis")
 
 def create_latest_files(book_name, output_dir):
-    """Create 'latest' symlinks/copies for easy access"""
+    """Create timestamped and latest files for a book"""
     timestamp = time.strftime("%Y%m%d_%H%M%S")
     
-    # Create timestamped files
+    # Source files
     csv_source = os.path.join(output_dir, f"{book_name}.csv")
     html_source = os.path.join(output_dir, f"{book_name}.html")
     
+    # Timestamped files
     csv_timestamped = os.path.join(output_dir, f"{book_name}_{timestamp}.csv")
     html_timestamped = os.path.join(output_dir, f"{book_name}_{timestamp}.html")
     
-    # Copy files with timestamps
-    if os.path.exists(csv_source):
-        shutil.copy2(csv_source, csv_timestamped)
-        print(f"[✅] Timestamped CSV: {csv_timestamped}")
-    
-    if os.path.exists(html_source):
-        shutil.copy2(html_source, html_timestamped)
-        print(f"[✅] Timestamped HTML: {html_timestamped}")
-    
-    # Create 'latest' files (overwrite existing)
+    # Latest files
     latest_csv = os.path.join(output_dir, f"{book_name}_latest.csv")
     latest_html = os.path.join(output_dir, f"{book_name}_latest.html")
     
+    # Create timestamped copies
+    if os.path.exists(csv_source):
+        shutil.copy2(csv_source, csv_timestamped)
+        print(f"[SUCCESS] Timestamped CSV: {csv_timestamped}")
+    
+    if os.path.exists(html_source):
+        shutil.copy2(html_source, html_timestamped)
+        print(f"[SUCCESS] Timestamped HTML: {html_timestamped}")
+    
+    # Create 'latest' files (overwrite existing)
     if os.path.exists(csv_source):
         shutil.copy2(csv_source, latest_csv)
-        print(f"[✅] Latest CSV: {latest_csv}")
+        print(f"[SUCCESS] Latest CSV: {latest_csv}")
     
     if os.path.exists(html_source):
         shutil.copy2(html_source, latest_html)
-        print(f"[✅] Latest HTML: {latest_html}")
+        print(f"[SUCCESS] Latest HTML: {latest_html}")
 
 def process_single_book(book_name):
-    """Process a single book and show preview"""
-    print(f"[INFO] Processing single book: {book_name}")
+    """Process a single book interactively"""
+    file_path = f"wiki_markdown/{book_name.title()}.wikitext"
     
-    # Define the books mapping
-    books = {
-        "genesis": "wiki_markdown/Genesis.wikitext",
-        "exodus": "wiki_markdown/Exodus.wikitext", 
-        "leviticus": "wiki_markdown/Leviticus.wikitext",
-        "numbers": "wiki_markdown/Numbers.wikitext",
-        "deuteronomy": "wiki_markdown/Deuteronomy.wikitext"
-    }
-    
-    # Normalize book name
-    book_key = book_name.lower()
-    if book_key not in books:
-        print(f"[ERROR] Unknown book: {book_name}")
-        print(f"[INFO] Available books: {', '.join(books.keys())}")
-        return
-    
-    file_path = books[book_key]
     if not os.path.exists(file_path):
         print(f"[ERROR] File not found: {file_path}")
         return
     
-    print(f"\n📖 Processing {book_name.title()}...")
+    print(f"\n[BOOK] Processing {book_name.title()}...")
     
     # Parse the wikitext file
     verses = parse_wikitext_file(file_path)
@@ -704,15 +689,15 @@ def process_single_book(book_name):
         # Create latest files
         create_latest_files(book_name.title(), book_output_dir)
         
-        print(f"\n[✅] Enhanced files generated in {book_output_dir}/ directory")
-        print(f"[📁] Book folder: {book_output_dir}")
-        print(f"[📄] Enhanced CSV: {book_name.title()}.csv")
-        print(f"[��] Training datasets:")
+        print(f"\n[SUCCESS] Enhanced files generated in {book_output_dir}/ directory")
+        print(f"[FOLDER] Book folder: {book_output_dir}")
+        print(f"[FILE] Enhanced CSV: {book_name.title()}.csv")
+        print(f"[TRAINING] Training datasets:")
         print(f"  - {book_name.title()}_training.jsonl (instruction fine-tuning)")
         print(f"  - {book_name.title()}_classification.jsonl (source classification)")
         print(f"  - {book_name.title()}_sequence.jsonl (sequence labeling)")
         print(f"  - {book_name.title()}_analysis.jsonl (complex analysis tasks)")
-        print(f"[📄] Latest files: {book_name.title()}_latest.csv and {book_name.title()}_latest.html")
+        print(f"[FILE] Latest files: {book_name.title()}_latest.csv and {book_name.title()}_latest.html")
     else:
         print("[INFO] Files not generated")
 
@@ -740,7 +725,7 @@ def process_all_books():
             print(f"[WARN] File not found: {file_path}")
             continue
             
-        print(f"\n📖 Processing {book_name}...")
+        print(f"\n[BOOK] Processing {book_name}...")
         
         # Parse the wikitext file
         verses = parse_wikitext_file(file_path)
@@ -751,29 +736,12 @@ def process_all_books():
         
         print(f"[DEBUG] {book_name}: found {len(verses)} verses")
         
-        # Count sources and multi-source verses
-        source_counts = Counter()
-        multi_source_count = 0
-        for verse in verses:
-            if isinstance(verse['source'], list):
-                if len(verse['source']) > 1:
-                    multi_source_count += 1
-                for source in verse['source']:
-                    source_counts[source] += 1
-            else:
-                source_counts[verse['source']] += 1
-        
-        print(f"[DEBUG] {book_name} source counts: {dict(source_counts)}")
-        print(f"[DEBUG] {book_name} multi-source verses: {multi_source_count}")
-        
         # Create book-specific output directory
         book_output_dir = os.path.join("output", book_name)
         os.makedirs(book_output_dir, exist_ok=True)
         
-        # Write enhanced CSV output
+        # Generate enhanced files
         csv_path = write_csv_output(verses, book_name, book_output_dir)
-        
-        # Write HTML preview
         write_html_preview(verses, book_name, book_output_dir)
         
         # Generate LLM training datasets
@@ -783,40 +751,30 @@ def process_all_books():
         # Create latest files
         create_latest_files(book_name, book_output_dir)
         
-        # Update pipeline manifest
+        # Update manifest
         pipeline_manifest["books"][book_name] = {
             "verses": len(verses),
-            "chapters": len(set(v['chapter'] for v in verses)),
-            "sources": dict(source_counts),
-            "multi_source_verses": multi_source_count,
-            "output_dir": book_output_dir,
-            "files": {
-                "csv": f"{book_name}.csv",
-                "html": f"{book_name}.html",
-                "training": f"{book_name}_training.jsonl",
-                "classification": f"{book_name}_classification.jsonl",
-                "sequence": f"{book_name}_sequence.jsonl",
-                "analysis": f"{book_name}_analysis.jsonl",
-                "latest_csv": f"{book_name}_latest.csv",
-                "latest_html": f"{book_name}_latest.html"
-            }
+            "csv_path": csv_path,
+            "processed_at": time.strftime("%Y-%m-%dT%H:%M:%SZ")
         }
+        
+        print(f"[SUCCESS] {book_name} processed successfully")
     
     # Write pipeline manifest
     pipeline_manifest_path = os.path.join("output", "pipeline_manifest.json")
     with open(pipeline_manifest_path, "w", encoding="utf-8") as f:
         json.dump(pipeline_manifest, f, indent=2)
-    print(f"\n[✅] Pipeline manifest written: {pipeline_manifest_path}")
+    print(f"\n[SUCCESS] Pipeline manifest written: {pipeline_manifest_path}")
     
     # Create overall latest manifest
     latest_manifest_path = os.path.join("output", "latest_manifest.json")
     with open(latest_manifest_path, "w", encoding="utf-8") as f:
         json.dump(pipeline_manifest, f, indent=2)
-    print(f"[✅] Latest manifest written: {latest_manifest_path}")
+    print(f"[SUCCESS] Latest manifest written: {latest_manifest_path}")
     
-    print(f"\n[🎯] LLM Training datasets ready!")
-    print(f"[📊] Enhanced CSV files with source analysis")
-    print(f"[��] Multiple training formats for different LLM tasks")
+    print(f"\n[TARGET] LLM Training datasets ready!")
+    print(f"[INFO] All books processed successfully!")
+    print(f"[INFO] Check the 'output/' directory for generated files")
 
 def main():
     print("[INFO] Starting enhanced wikitext parser (v2.0)...")
@@ -835,7 +793,7 @@ def main():
     print("  python parse_wikitext.py <book_name>  - Process single book")
     print("  python parse_wikitext.py pipeline     - Process all books")
     print("  Available books: genesis, exodus, leviticus, numbers, deuteronomy")
-    print("\n[��] Enhanced features:")
+    print("\n[INFO] Enhanced features:")
     print("  - LLM-optimized CSV with source analysis")
     print("  - Training datasets for fine-tuning")
     print("  - Source classification data")
