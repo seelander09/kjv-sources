@@ -7,3 +7,13 @@ rich
 qdrant-client
 sentence-transformers
 numpy
+
+# LightRAG and related dependencies
+lightrag>=0.1.0
+torch>=1.13.0
+transformers>=4.21.0
+scikit-learn>=1.1.0
+scipy>=1.9.0
+rank-bm25>=0.2.2
+orjson>=3.8.0
+tqdm>=4.64.0

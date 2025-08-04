@@ -1,0 +1,33 @@
+# LightRAG and related dependencies for KJV Sources Project
+
+# Core LightRAG (latest beta version)
+lightrag==0.1.0b6
+
+# Vector database and embeddings
+sentence-transformers>=2.2.0
+torch>=1.13.0
+transformers>=4.21.0
+
+# Sparse retrieval
+scikit-learn>=1.1.0
+scipy>=1.9.0
+
+# Reranking
+rank-bm25>=0.2.2
+
+# Rich terminal interface
+rich>=12.0.0
+
+# Data processing
+pandas>=1.5.0
+numpy>=1.21.0
+
+# JSON and file handling
+orjson>=3.8.0
+
+# Logging and utilities
+tqdm>=4.64.0
+click>=8.1.0
+
+# Optional: GPU acceleration (uncomment if using CUDA)
+# torch-cuda>=1.13.0 

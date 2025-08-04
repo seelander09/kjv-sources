@@ -1,0 +1,58 @@
+{
+  "source_entities": {
+    "J": {
+      "name": "Jahwist",
+      "description": "Yahwist source",
+      "color": "blue"
+    },
+    "E": {
+      "name": "Elohist",
+      "description": "Elohist source",
+      "color": "cyan"
+    },
+    "P": {
+      "name": "Priestly",
+      "description": "Priestly source",
+      "color": "yellow"
+    },
+    "R": {
+      "name": "Redactor",
+      "description": "Redactor source",
+      "color": "red"
+    }
+  },
+  "book_entities": {
+    "Genesis": {
+      "name": "Genesis",
+      "chapters": 50,
+      "type": "narrative"
+    },
+    "Exodus": {
+      "name": "Exodus",
+      "chapters": 40,
+      "type": "narrative"
+    },
+    "Leviticus": {
+      "name": "Leviticus",
+      "chapters": 27,
+      "type": "legal"
+    },
+    "Numbers": {
+      "name": "Numbers",
+      "chapters": 36,
+      "type": "narrative"
+    },
+    "Deuteronomy": {
+      "name": "Deuteronomy",
+      "chapters": 34,
+      "type": "legal"
+    }
+  },
+  "relation_types": {
+    "contains_source": "verse -> source",
+    "belongs_to_book": "verse -> book",
+    "has_chapter": "verse -> chapter",
+    "multi_source": "verse -> multiple_sources",
+    "redaction": "verse -> redaction_indicators"
+  }
+}
