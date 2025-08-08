@@ -683,7 +683,7 @@ def delete(force):
         return
     
     if not force:
-        console.print("[red]⚠️ Use --force to confirm collection deletion[/red]")
+        console.print("[yellow]⚠️ Use --force to confirm deletion[/yellow]")
         return
     
     try:
@@ -697,6 +697,361 @@ def delete(force):
             
     except Exception as e:
         console.print(f"[red]❌ Error deleting collection: {e}[/red]")
+
+# Enhanced Qdrant Commands
+
+@qdrant.command()
+@click.option("--limit", default=20, help="Number of results to return")
+@click.option("--min-sources", default=2, help="Minimum number of sources")
+def search_multi_source(limit, min_sources):
+    """Search for verses with multiple sources (complex redaction)."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_multi_source_verses(limit=limit, min_sources=min_sources)
+        
+        if results:
+            table = Table(title=f"🔗 Multi-Source Verses (≥{min_sources} sources)")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("Source Count", justify="right")
+            table.add_column("Redaction", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    str(result["source_count"]),
+                    result["redaction_indicators"]
+                )
+            
+            console.print(table)
+        else:
+            console.print("[yellow]No multi-source verses found[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching multi-source verses: {e}[/red]")
+
+@qdrant.command()
+@click.argument("pattern_type", type=click.Choice(["complex", "simple", "interwoven", "harmonized"]))
+@click.option("--limit", default=20, help="Number of results to return")
+def search_redaction_patterns(pattern_type, limit):
+    """Search for verses with specific redaction patterns."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_redaction_patterns(pattern_type=pattern_type, limit=limit)
+        
+        if results:
+            table = Table(title=f"🔍 Redaction Pattern: {pattern_type.title()}")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("Pattern", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    result["redaction_indicators"]
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found with {pattern_type} redaction pattern[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching redaction patterns: {e}[/red]")
+
+@qdrant.command()
+@click.argument("sources", nargs=-1, required=True)
+@click.option("--combination-type", type=click.Choice(["all", "any"]), default="all", help="How to combine sources")
+@click.option("--limit", default=20, help="Number of results to return")
+def search_source_combinations(sources, combination_type, limit):
+    """Search for verses with specific source combinations."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_source_combinations(
+            sources=list(sources), 
+            combination_type=combination_type, 
+            limit=limit
+        )
+        
+        if results:
+            table = Table(title=f"🔗 Source Combination: {' + '.join(sources)} ({combination_type})")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("Primary", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    result["primary_source"]
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found with {combination_type} combination of {', '.join(sources)}[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching source combinations: {e}[/red]")
+
+@qdrant.command()
+@click.argument("book")
+@click.argument("chapter", type=int)
+@click.option("--limit", default=50, help="Number of results to return")
+def search_by_chapter(book, chapter, limit):
+    """Search for verses in a specific chapter."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    book_name = BOOKS.get(book.lower())
+    if not book_name:
+        console.print(f"[red]Error: Unknown book '{book}'. Available: {list(BOOKS.keys())}[/red]")
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_by_chapter(book=book_name, chapter=chapter, limit=limit)
+        
+        if results:
+            table = Table(title=f"📖 {book_name} Chapter {chapter}")
+            table.add_column("Verse", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("Primary", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    result["primary_source"]
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found in {book_name} Chapter {chapter}[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching by chapter: {e}[/red]")
+
+@qdrant.command()
+@click.argument("analysis_type", type=click.Choice(["j_dominant", "p_ritual", "redaction_heavy", "narrative_flow"]))
+@click.option("--limit", default=20, help="Number of results to return")
+def search_source_analysis(analysis_type, limit):
+    """Search for verses based on source analysis patterns."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_source_analysis(analysis_type=analysis_type, limit=limit)
+        
+        if results:
+            analysis_names = {
+                "j_dominant": "J-Dominant Verses",
+                "p_ritual": "P-Ritual Content",
+                "redaction_heavy": "Complex Redaction",
+                "narrative_flow": "Narrative Sources (J/E)"
+            }
+            
+            table = Table(title=f"🔍 {analysis_names.get(analysis_type, analysis_type)}")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("Primary", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    result["primary_source"]
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found for {analysis_type} analysis[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error in source analysis search: {e}[/red]")
+
+@qdrant.command()
+@click.argument("query")
+@click.option("--limit", default=20, help="Number of results to return")
+@click.option("--book", help="Filter by specific book")
+@click.option("--source", help="Filter by specific source")
+@click.option("--min-sources", type=int, help="Minimum number of sources")
+@click.option("--chapter", type=int, help="Filter by specific chapter")
+def search_hybrid(query, limit, book, source, min_sources, chapter):
+    """Hybrid search combining semantic similarity with structured filtering."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        
+        # Build filters
+        filters = {}
+        if book:
+            book_name = BOOKS.get(book.lower())
+            if book_name:
+                filters["book"] = book_name
+        if source:
+            filters["source"] = source
+        if min_sources:
+            filters["min_sources"] = min_sources
+        if chapter:
+            filters["chapter"] = chapter
+        
+        results = client.search_hybrid(query=query, filters=filters, limit=limit)
+        
+        if results:
+            filter_text = " + ".join([f"{k}={v}" for k, v in filters.items()])
+            title = f"🔍 Hybrid Search: '{query}'"
+            if filter_text:
+                title += f" [{filter_text}]"
+            
+            table = Table(title=title)
+            table.add_column("Score", justify="right", style="dim")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                table.add_row(
+                    f"{result['score']:.3f}",
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No results found for hybrid search: '{query}'[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error in hybrid search: {e}[/red]")
+
+@qdrant.command()
+def source_statistics():
+    """Get comprehensive source statistics."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        stats = client.get_source_statistics()
+        
+        if stats:
+            # Create statistics tables
+            console.print(Panel.fit("📊 KJV Sources Statistics", style="bold blue"))
+            
+            # Overall stats
+            overall_table = Table(title="Overall Statistics")
+            overall_table.add_column("Metric", style="bold")
+            overall_table.add_column("Value", style="green")
+            
+            overall_table.add_row("Total Verses", str(stats["total_verses"]))
+            overall_table.add_row("Multi-Source Verses", str(stats["multi_source_verses"]))
+            overall_table.add_row("Multi-Source %", f"{(stats['multi_source_verses']/stats['total_verses']*100):.1f}%")
+            
+            console.print(overall_table)
+            
+            # Source distribution
+            source_table = Table(title="Source Distribution")
+            source_table.add_column("Source", style="bold")
+            source_table.add_column("Count", justify="right", style="green")
+            source_table.add_column("Percentage", justify="right", style="blue")
+            
+            for source, count in stats["source_counts"].items():
+                percentage = (count / stats["total_verses"] * 100) if stats["total_verses"] > 0 else 0
+                source_table.add_row(
+                    f"{source} ({client.entity_relations['source_entities'].get(source, {}).get('name', source)})",
+                    str(count),
+                    f"{percentage:.1f}%"
+                )
+            
+            console.print(source_table)
+            
+            # Book distribution
+            book_table = Table(title="Book Distribution")
+            book_table.add_column("Book", style="bold")
+            book_table.add_column("Count", justify="right", style="green")
+            book_table.add_column("Type", style="dim")
+            
+            for book, count in stats["books"].items():
+                book_info = client.entity_relations["book_entities"].get(book, {})
+                book_type = book_info.get("type", "unknown")
+                book_table.add_row(book, str(count), book_type)
+            
+            console.print(book_table)
+            
+            # Redaction patterns
+            if stats["redaction_patterns"]:
+                redaction_table = Table(title="Redaction Patterns")
+                redaction_table.add_column("Pattern", style="bold")
+                redaction_table.add_column("Count", justify="right", style="green")
+                
+                for pattern, count in stats["redaction_patterns"].items():
+                    redaction_table.add_row(pattern, str(count))
+                
+                console.print(redaction_table)
+        else:
+            console.print("[yellow]No statistics available[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error getting source statistics: {e}[/red]")
 
 if __name__ == "__main__":
     cli() 
