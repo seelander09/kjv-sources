@@ -933,7 +933,7 @@ class KJVQdrantClient:
                     must=[
                         FieldCondition(
                             key="pov_style",
-                            match=MatchText(text=style)
+                            match=MatchValue(value=style)
                         )
                     ]
                 ),
@@ -957,7 +957,7 @@ class KJVQdrantClient:
                     must=[
                         FieldCondition(
                             key="pov_perspective",
-                            match=MatchText(text=perspective)
+                            match=MatchValue(value=perspective)
                         )
                     ]
                 ),
@@ -981,7 +981,7 @@ class KJVQdrantClient:
                     must=[
                         FieldCondition(
                             key="pov_purpose",
-                            match=MatchText(text=purpose)
+                            match=MatchValue(value=purpose)
                         )
                     ]
                 ),
@@ -1029,11 +1029,11 @@ class KJVQdrantClient:
                     must=[
                         FieldCondition(
                             key="sources",
-                            match=MatchText(text=source1)
+                            match=MatchValue(value=source1)
                         ),
                         FieldCondition(
                             key="sources",
-                            match=MatchText(text=source2)
+                            match=MatchValue(value=source2)
                         )
                     ]
                 ),
@@ -1084,17 +1084,17 @@ class KJVQdrantClient:
                 if "style" in pov_filters:
                     filter_conditions.append(FieldCondition(
                         key="pov_style",
-                        match=MatchText(text=pov_filters["style"])
+                        match=MatchValue(value=pov_filters["style"])
                     ))
                 if "perspective" in pov_filters:
                     filter_conditions.append(FieldCondition(
                         key="pov_perspective",
-                        match=MatchText(text=pov_filters["perspective"])
+                        match=MatchValue(value=pov_filters["perspective"])
                     ))
                 if "purpose" in pov_filters:
                     filter_conditions.append(FieldCondition(
                         key="pov_purpose",
-                        match=MatchText(text=pov_filters["purpose"])
+                        match=MatchValue(value=pov_filters["purpose"])
                     ))
                 if "theme" in pov_filters:
                     filter_conditions.append(FieldCondition(
@@ -1109,7 +1109,7 @@ class KJVQdrantClient:
                 if "source" in pov_filters:
                     filter_conditions.append(FieldCondition(
                         key="sources",
-                        match=MatchText(text=pov_filters["source"])
+                        match=MatchValue(value=pov_filters["source"])
                     ))
             
             search_filter = Filter(must=filter_conditions) if filter_conditions else None
