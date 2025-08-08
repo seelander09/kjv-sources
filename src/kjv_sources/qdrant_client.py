@@ -88,7 +88,7 @@ class KJVQdrantClient:
         }
     
     def create_collection(self, force_recreate: bool = False) -> bool:
-        """Create the KJV sources collection in Qdrant."""
+        """Create the KJV sources collection in Qdrant with POV field indexes."""
         try:
             # Check if collection exists
             collections = self.client.get_collections()
@@ -111,7 +111,44 @@ class KJVQdrantClient:
                     )
                 )
                 
-                console.print(f"[green]✅ Collection '{self.collection_name}' created successfully[/green]")
+                # Create indexes for POV fields and other filterable fields
+                console.print(f"[blue]🔧 Creating indexes for POV fields...[/blue]")
+                
+                # POV field indexes
+                pov_fields = [
+                    "pov_style", "pov_perspective", "pov_purpose", "pov_complexity",
+                    "pov_audience", "pov_emotion", "pov_authority", "pov_temporal",
+                    "pov_spatial", "pov_social", "pov_theological"
+                ]
+                
+                # Other filterable fields
+                other_fields = [
+                    "book", "chapter", "verse", "sources", "source_count",
+                    "primary_source", "is_multi_source"
+                ]
+                
+                # Create indexes for all filterable fields
+                for field in pov_fields + other_fields:
+                    try:
+                        self.client.create_payload_index(
+                            collection_name=self.collection_name,
+                            field_name=field,
+                            field_schema="keyword"
+                        )
+                    except Exception as e:
+                        console.print(f"[yellow]⚠️ Could not create index for {field}: {e}[/yellow]")
+                
+                # Create text index for pov_themes (array field)
+                try:
+                    self.client.create_payload_index(
+                        collection_name=self.collection_name,
+                        field_name="pov_themes",
+                        field_schema="text"
+                    )
+                except Exception as e:
+                    console.print(f"[yellow]⚠️ Could not create text index for pov_themes: {e}[/yellow]")
+                
+                console.print(f"[green]✅ Collection '{self.collection_name}' created successfully with POV indexes[/green]")
                 return True
             else:
                 console.print(f"[blue]📚 Collection '{self.collection_name}' already exists[/blue]")
