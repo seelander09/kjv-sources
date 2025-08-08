@@ -1053,5 +1053,481 @@ def source_statistics():
     except Exception as e:
         console.print(f"[red]❌ Error getting source statistics: {e}[/red]")
 
+# POV Analysis Commands
+
+@qdrant.command()
+@click.argument("style", type=click.Choice(["narrative_anthropomorphic", "prophetic_didactic", "systematic_ritual", "editorial_harmonizing"]))
+@click.option("--limit", default=20, help="Number of results to return")
+def search_pov_style(style, limit):
+    """Search for verses with specific POV styles."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_by_pov_style(style=style, limit=limit)
+        
+        if results:
+            style_names = {
+                "narrative_anthropomorphic": "Narrative Anthropomorphic (J)",
+                "prophetic_didactic": "Prophetic Didactic (E)",
+                "systematic_ritual": "Systematic Ritual (P)",
+                "editorial_harmonizing": "Editorial Harmonizing (R)"
+            }
+            
+            table = Table(title=f"🎭 POV Style: {style_names.get(style, style)}")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("POV", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                # Get POV info
+                pov_primary = result.get("pov_primary", "")
+                pov_style = result.get("pov_style", "")
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    f"{pov_primary} ({pov_style})"
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found with {style} POV style[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching POV style: {e}[/red]")
+
+@qdrant.command()
+@click.argument("perspective", type=click.Choice(["intimate_personal", "prophetic_vision", "institutional_priestly", "editorial_omniscient"]))
+@click.option("--limit", default=20, help="Number of results to return")
+def search_pov_perspective(perspective, limit):
+    """Search for verses with specific POV perspectives."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_by_pov_perspective(perspective=perspective, limit=limit)
+        
+        if results:
+            perspective_names = {
+                "intimate_personal": "Intimate Personal (J)",
+                "prophetic_vision": "Prophetic Vision (E)",
+                "institutional_priestly": "Institutional Priestly (P)",
+                "editorial_omniscient": "Editorial Omniscient (R)"
+            }
+            
+            table = Table(title=f"👁️ POV Perspective: {perspective_names.get(perspective, perspective)}")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("POV", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                # Get POV info
+                pov_primary = result.get("pov_primary", "")
+                pov_perspective = result.get("pov_perspective", "")
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    f"{pov_primary} ({pov_perspective})"
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found with {perspective} POV perspective[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching POV perspective: {e}[/red]")
+
+@qdrant.command()
+@click.argument("purpose", type=click.Choice(["storytelling_identity", "moral_instruction", "ritual_instruction", "harmonization_integration"]))
+@click.option("--limit", default=20, help="Number of results to return")
+def search_pov_purpose(purpose, limit):
+    """Search for verses with specific POV purposes."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_by_pov_purpose(purpose=purpose, limit=limit)
+        
+        if results:
+            purpose_names = {
+                "storytelling_identity": "Storytelling & Identity (J)",
+                "moral_instruction": "Moral Instruction (E)",
+                "ritual_instruction": "Ritual Instruction (P)",
+                "harmonization_integration": "Harmonization & Integration (R)"
+            }
+            
+            table = Table(title=f"🎯 POV Purpose: {purpose_names.get(purpose, purpose)}")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("POV", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                # Get POV info
+                pov_primary = result.get("pov_primary", "")
+                pov_purpose = result.get("pov_purpose", "")
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    f"{pov_primary} ({pov_purpose})"
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found with {purpose} POV purpose[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching POV purpose: {e}[/red]")
+
+@qdrant.command()
+@click.argument("theme", type=click.Choice(["creation", "covenant", "family", "journey", "ritual", "holiness", "prophecy", "justice", "worship", "law"]))
+@click.option("--limit", default=20, help="Number of results to return")
+def search_pov_theme(theme, limit):
+    """Search for verses with specific POV themes."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_by_pov_theme(theme=theme, limit=limit)
+        
+        if results:
+            theme_names = {
+                "creation": "Creation",
+                "covenant": "Covenant",
+                "family": "Family",
+                "journey": "Journey",
+                "ritual": "Ritual",
+                "holiness": "Holiness",
+                "prophecy": "Prophecy",
+                "justice": "Justice",
+                "worship": "Worship",
+                "law": "Law"
+            }
+            
+            table = Table(title=f"🎨 POV Theme: {theme_names.get(theme, theme)}")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("Themes", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                # Get themes
+                themes = result.get("pov_themes", [])
+                themes_text = ", ".join(themes[:3])  # Show first 3 themes
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    themes_text
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found with {theme} POV theme[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching POV theme: {e}[/red]")
+
+@qdrant.command()
+@click.argument("source1", type=click.Choice(["J", "E", "P", "R"]))
+@click.argument("source2", type=click.Choice(["J", "E", "P", "R"]))
+@click.option("--limit", default=20, help="Number of results to return")
+def search_pov_comparison(source1, source2, limit):
+    """Search for verses that compare POV between two sources."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_pov_comparison(source1=source1, source2=source2, limit=limit)
+        
+        if results:
+            source_names = {"J": "Jahwist", "E": "Elohist", "P": "Priestly", "R": "Redactor"}
+            
+            table = Table(title=f"🔄 POV Comparison: {source_names.get(source1, source1)} vs {source_names.get(source2, source2)}")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("Primary POV", style="dim")
+            table.add_column("Secondary POV", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                # Get POV info
+                pov_primary = result.get("pov_primary", "")
+                pov_secondary = result.get("pov_secondary", "")
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    pov_primary,
+                    pov_secondary
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found comparing {source1} and {source2} POV[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching POV comparison: {e}[/red]")
+
+@qdrant.command()
+@click.argument("complexity", type=click.Choice(["simple", "moderate", "complex", "very_complex"]))
+@click.option("--limit", default=20, help="Number of results to return")
+def search_pov_complexity(complexity, limit):
+    """Search for verses with specific POV complexity levels."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_pov_complexity(complexity=complexity, limit=limit)
+        
+        if results:
+            complexity_names = {
+                "simple": "Simple (1 source)",
+                "moderate": "Moderate (2 sources)",
+                "complex": "Complex (3 sources)",
+                "very_complex": "Very Complex (4+ sources)"
+            }
+            
+            table = Table(title=f"🧩 POV Complexity: {complexity_names.get(complexity, complexity)}")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("Source Count", justify="right")
+            table.add_column("POV", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                # Get POV info
+                pov_primary = result.get("pov_primary", "")
+                pov_complexity = result.get("pov_complexity", "")
+                
+                table.add_row(
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    str(result["source_count"]),
+                    f"{pov_primary} ({pov_complexity})"
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No verses found with {complexity} POV complexity[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching POV complexity: {e}[/red]")
+
+@qdrant.command()
+@click.argument("query")
+@click.option("--limit", default=20, help="Number of results to return")
+@click.option("--style", help="Filter by POV style")
+@click.option("--perspective", help="Filter by POV perspective")
+@click.option("--purpose", help="Filter by POV purpose")
+@click.option("--theme", help="Filter by POV theme")
+@click.option("--complexity", type=click.Choice(["simple", "moderate", "complex", "very_complex"]), help="Filter by POV complexity")
+@click.option("--source", type=click.Choice(["J", "E", "P", "R"]), help="Filter by source")
+def search_hybrid_pov(query, limit, style, perspective, purpose, theme, complexity, source):
+    """Hybrid search combining semantic similarity with POV filtering."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        
+        # Build POV filters
+        pov_filters = {}
+        if style:
+            pov_filters["style"] = style
+        if perspective:
+            pov_filters["perspective"] = perspective
+        if purpose:
+            pov_filters["purpose"] = purpose
+        if theme:
+            pov_filters["theme"] = theme
+        if complexity:
+            pov_filters["complexity"] = complexity
+        if source:
+            pov_filters["source"] = source
+        
+        results = client.search_hybrid_pov(query=query, pov_filters=pov_filters, limit=limit)
+        
+        if results:
+            filter_text = " + ".join([f"{k}={v}" for k, v in pov_filters.items()])
+            title = f"🔍 Hybrid POV Search: '{query}'"
+            if filter_text:
+                title += f" [{filter_text}]"
+            
+            table = Table(title=title)
+            table.add_column("Score", justify="right", style="dim")
+            table.add_column("Reference", style="bold")
+            table.add_column("Text", style="italic", width=60)
+            table.add_column("Sources", style="bold")
+            table.add_column("POV", style="dim")
+            
+            for result in results:
+                # Color-code the sources
+                sources_text = Text()
+                for s in result["sources"].split(";"):
+                    color = SOURCE_COLORS.get(s, "white")
+                    sources_text.append(f"{s} ", style=color)
+                
+                # Get POV info
+                pov_primary = result.get("pov_primary", "")
+                pov_style = result.get("pov_style", "")
+                
+                table.add_row(
+                    f"{result['score']:.3f}",
+                    result["reference"],
+                    result["text"][:80] + "..." if len(result["text"]) > 80 else result["text"],
+                    sources_text,
+                    f"{pov_primary} ({pov_style})"
+                )
+            
+            console.print(table)
+        else:
+            console.print(f"[yellow]No results found for hybrid POV search: '{query}'[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error in hybrid POV search: {e}[/red]")
+
+@qdrant.command()
+def pov_statistics():
+    """Get comprehensive POV statistics."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        stats = client.get_pov_statistics()
+        
+        if stats:
+            # Create statistics tables
+            console.print(Panel.fit("🎭 POV Analysis Statistics", style="bold blue"))
+            
+            # Overall stats
+            overall_table = Table(title="Overall Statistics")
+            overall_table.add_column("Metric", style="bold")
+            overall_table.add_column("Value", style="green")
+            
+            overall_table.add_row("Total Verses", str(stats["total_verses"]))
+            
+            console.print(overall_table)
+            
+            # POV Styles distribution
+            if stats["pov_styles"]:
+                style_table = Table(title="POV Styles Distribution")
+                style_table.add_column("Style", style="bold")
+                style_table.add_column("Count", justify="right", style="green")
+                style_table.add_column("Percentage", justify="right", style="blue")
+                
+                for style, count in stats["pov_styles"].items():
+                    percentage = (count / stats["total_verses"] * 100) if stats["total_verses"] > 0 else 0
+                    style_table.add_row(style, str(count), f"{percentage:.1f}%")
+                
+                console.print(style_table)
+            
+            # POV Perspectives distribution
+            if stats["pov_perspectives"]:
+                perspective_table = Table(title="POV Perspectives Distribution")
+                perspective_table.add_column("Perspective", style="bold")
+                perspective_table.add_column("Count", justify="right", style="green")
+                
+                for perspective, count in stats["pov_perspectives"].items():
+                    perspective_table.add_row(perspective, str(count))
+                
+                console.print(perspective_table)
+            
+            # POV Purposes distribution
+            if stats["pov_purposes"]:
+                purpose_table = Table(title="POV Purposes Distribution")
+                purpose_table.add_column("Purpose", style="bold")
+                purpose_table.add_column("Count", justify="right", style="green")
+                
+                for purpose, count in stats["pov_purposes"].items():
+                    purpose_table.add_row(purpose, str(count))
+                
+                console.print(purpose_table)
+            
+            # POV Themes distribution
+            if stats["pov_themes"]:
+                theme_table = Table(title="POV Themes Distribution")
+                theme_table.add_column("Theme", style="bold")
+                theme_table.add_column("Count", justify="right", style="green")
+                
+                # Sort themes by count
+                sorted_themes = sorted(stats["pov_themes"].items(), key=lambda x: x[1], reverse=True)
+                for theme, count in sorted_themes[:10]:  # Show top 10
+                    theme_table.add_row(theme, str(count))
+                
+                console.print(theme_table)
+            
+            # POV Complexity distribution
+            if stats["pov_complexities"]:
+                complexity_table = Table(title="POV Complexity Distribution")
+                complexity_table.add_column("Complexity", style="bold")
+                complexity_table.add_column("Count", justify="right", style="green")
+                complexity_table.add_column("Percentage", justify="right", style="blue")
+                
+                for complexity, count in stats["pov_complexities"].items():
+                    percentage = (count / stats["total_verses"] * 100) if stats["total_verses"] > 0 else 0
+                    complexity_table.add_row(complexity, str(count), f"{percentage:.1f}%")
+                
+                console.print(complexity_table)
+        else:
+            console.print("[yellow]No POV statistics available[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error getting POV statistics: {e}[/red]")
+
 if __name__ == "__main__":
     cli() 

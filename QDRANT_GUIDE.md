@@ -1,422 +1,322 @@
-# Enhanced Qdrant Vector Database Integration for KJV Sources
+# Enhanced Qdrant Vector Database Integration
 
-This guide explains how to use the enhanced Qdrant vector database to store and search your KJV sources data with advanced entity-relation reasoning capabilities.
+## What Enhanced Qdrant Provides
 
-## 🚀 Quick Setup
+Enhanced Qdrant integration provides advanced biblical source analysis with:
 
-### 1. Install Dependencies
+- **Multi-Source Verse Search**: Find verses with multiple documentary sources
+- **Redaction Pattern Analysis**: Identify editorial patterns and harmonizations
+- **Source Combination Queries**: Search for specific source combinations
+- **Chapter-Specific Search**: Filter by book and chapter
+- **Source Analysis Patterns**: Predefined research patterns
+- **Hybrid Search**: Combine semantic similarity with structured filtering
+- **🎭 POV Analysis**: Author point of view analysis and comparison
+- **📊 Comprehensive Statistics**: Detailed analytics and insights
+
+## Quick Start
+
 ```bash
-pip install qdrant-client sentence-transformers numpy
-```
-
-### 2. Set Up Qdrant Collection
-```bash
+# Setup Qdrant collection
 python kjv_cli.py qdrant setup
-```
 
-### 3. Upload Your Data
-```bash
-# Upload all books
-python kjv_cli.py qdrant upload-all
-
-# Or upload specific books
+# Upload book data
 python kjv_cli.py qdrant upload genesis
-python kjv_cli.py qdrant upload exodus
-```
 
-### 4. Test the Enhanced Features
-```bash
-# Test semantic search
-python kjv_cli.py qdrant search-semantic "God created the world"
-
-# Test entity-relation search
+# Search for multi-source verses
 python kjv_cli.py qdrant search-multi-source
-python kjv_cli.py qdrant search-source-combinations J P
-```
 
-## 📊 What Enhanced Qdrant Provides
-
-### Vector Embeddings
-- **Semantic Search**: Find verses by meaning, not just exact text
-- **Similarity Matching**: Discover related verses across books
-- **Context Understanding**: Search for concepts and themes
-
-### Advanced Entity-Relation Filtering
-- **Source Filtering**: Find verses by J, E, P, R sources
-- **Book Filtering**: Search within specific books
-- **Multi-source Detection**: Find verses with multiple sources
-- **Redaction Pattern Analysis**: Identify complex editorial work
-- **Source Combination Queries**: Find verses with specific source combinations
-
-### Rich Metadata
-- **Complete Verse Data**: All source information preserved
-- **Source Analysis**: Primary sources, percentages, sequences
-- **Redaction Indicators**: Editorial complexity flags
-- **Entity-Relation Mappings**: Structured relationships between entities
-
-## 🔧 Enhanced Qdrant Commands
-
-### Setup and Management
-
-#### Create Collection
-```bash
-# Create new collection
-python kjv_cli.py qdrant setup
-
-# Recreate existing collection
-python kjv_cli.py qdrant setup --force
-```
-
-#### Upload Data
-```bash
-# Upload all books
-python kjv_cli.py qdrant upload-all
-
-# Upload specific books
-python kjv_cli.py qdrant upload genesis
-python kjv_cli.py qdrant upload exodus leviticus
-
-# Upload with progress tracking
-python kjv_cli.py qdrant upload-all --books genesis exodus
-```
-
-#### Collection Statistics
-```bash
-# View collection stats
-python kjv_cli.py qdrant stats
-
-# Get comprehensive source statistics
+# Get source statistics
 python kjv_cli.py qdrant source-statistics
 ```
 
-#### Delete Collection
+## Advanced Entity-Relation Commands
+
+### Multi-Source Verse Search
 ```bash
-# Delete collection (use with caution)
-python kjv_cli.py qdrant delete --force
+# Find verses with multiple sources
+python kjv_cli.py qdrant search-multi-source --limit 10 --min-sources 2
 ```
 
-### Basic Search Commands
-
-#### Semantic Search
+### Redaction Pattern Analysis
 ```bash
-# Basic semantic search
-python kjv_cli.py qdrant search-semantic "God created"
-
-# Search with limit
-python kjv_cli.py qdrant search-semantic "creation story" --limit 20
+# Find complex redaction patterns
+python kjv_cli.py qdrant search-redaction-patterns complex --limit 15
 ```
 
-#### Source Search
+### Source Combination Queries
 ```bash
-# Search by specific source
-python kjv_cli.py qdrant search-by-source P
-
-# Search with limit
-python kjv_cli.py qdrant search-by-source J --limit 15
-```
-
-### Advanced Entity-Relation Commands
-
-#### Multi-Source Verse Search
-```bash
-# Find verses with multiple sources (complex redaction)
-python kjv_cli.py qdrant search-multi-source
-
-# Find verses with 3+ sources
-python kjv_cli.py qdrant search-multi-source --min-sources 3 --limit 10
-```
-
-#### Redaction Pattern Analysis
-```bash
-# Find verses with complex redaction
-python kjv_cli.py qdrant search-redaction-patterns complex
-
-# Find verses with simple redaction
-python kjv_cli.py qdrant search-redaction-patterns simple
-
-# Find interwoven sources
-python kjv_cli.py qdrant search-redaction-patterns interwoven
-
-# Find harmonized text
-python kjv_cli.py qdrant search-redaction-patterns harmonized
-```
-
-#### Source Combination Queries
-```bash
-# Find verses with BOTH J and P sources
+# Find verses with both J and P sources
 python kjv_cli.py qdrant search-source-combinations J P --combination-type all
 
-# Find verses with EITHER J or P sources
-python kjv_cli.py qdrant search-source-combinations J P --combination-type any
-
-# Find verses with J, P, and R sources
-python kjv_cli.py qdrant search-source-combinations J P R --limit 15
+# Find verses with either J or E sources
+python kjv_cli.py qdrant search-source-combinations J E --combination-type any
 ```
 
-#### Chapter-Specific Search
+### Chapter-Specific Search
 ```bash
-# Search Genesis Chapter 1
-python kjv_cli.py qdrant search-by-chapter genesis 1
-
-# Search Exodus Chapter 20 (Ten Commandments)
-python kjv_cli.py qdrant search-by-chapter exodus 20
-
-# Search with custom limit
-python kjv_cli.py qdrant search-by-chapter deuteronomy 5 --limit 30
+# Search within specific chapters
+python kjv_cli.py qdrant search-by-chapter genesis 1 --limit 20
 ```
 
-#### Source Analysis Patterns
+### Source Analysis Patterns
 ```bash
 # Find J-dominant verses
 python kjv_cli.py qdrant search-source-analysis j_dominant
 
-# Find P-ritual content
+# Find P ritual verses
 python kjv_cli.py qdrant search-source-analysis p_ritual
-
-# Find verses with complex redaction
-python kjv_cli.py qdrant search-source-analysis redaction_heavy
-
-# Find narrative flow (J/E sources)
-python kjv_cli.py qdrant search-source-analysis narrative_flow
 ```
 
-#### Hybrid Search (Semantic + Structured)
+### Hybrid Search
 ```bash
-# Semantic search with book filter
-python kjv_cli.py qdrant search-hybrid "covenant" --book genesis
-
-# Semantic search with source filter
-python kjv_cli.py qdrant search-hybrid "creation" --source P
-
-# Semantic search with multiple filters
-python kjv_cli.py qdrant search-hybrid "law" --book exodus --source P --chapter 20
-
-# Find complex verses about specific topics
-python kjv_cli.py qdrant search-hybrid "sacrifice" --min-sources 2 --limit 15
+# Combine semantic search with filters
+python kjv_cli.py qdrant search-hybrid "creation" --book genesis --source J
 ```
 
-## 📈 Advanced Usage Examples
+## 🎭 POV Analysis Commands
+
+### POV Style Search
+```bash
+# Find narrative anthropomorphic style (J source)
+python kjv_cli.py qdrant search-pov-style narrative_anthropomorphic
+
+# Find systematic ritual style (P source)
+python kjv_cli.py qdrant search-pov-style systematic_ritual
+
+# Find prophetic didactic style (E source)
+python kjv_cli.py qdrant search-pov-style prophetic_didactic
+
+# Find editorial harmonizing style (R source)
+python kjv_cli.py qdrant search-pov-style editorial_harmonizing
+```
+
+### POV Perspective Search
+```bash
+# Find intimate personal perspective (J)
+python kjv_cli.py qdrant search-pov-perspective intimate_personal
+
+# Find institutional priestly perspective (P)
+python kjv_cli.py qdrant search-pov-perspective institutional_priestly
+
+# Find prophetic vision perspective (E)
+python kjv_cli.py qdrant search-pov-perspective prophetic_vision
+
+# Find editorial omniscient perspective (R)
+python kjv_cli.py qdrant search-pov-perspective editorial_omniscient
+```
+
+### POV Purpose Search
+```bash
+# Find storytelling and identity purpose (J)
+python kjv_cli.py qdrant search-pov-purpose storytelling_identity
+
+# Find ritual instruction purpose (P)
+python kjv_cli.py qdrant search-pov-purpose ritual_instruction
+
+# Find moral instruction purpose (E)
+python kjv_cli.py qdrant search-pov-purpose moral_instruction
+
+# Find harmonization and integration purpose (R)
+python kjv_cli.py qdrant search-pov-purpose harmonization_integration
+```
+
+### POV Theme Search
+```bash
+# Find creation themes
+python kjv_cli.py qdrant search-pov-theme creation
+
+# Find covenant themes
+python kjv_cli.py qdrant search-pov-theme covenant
+
+# Find ritual themes
+python kjv_cli.py qdrant search-pov-theme ritual
+
+# Find prophecy themes
+python kjv_cli.py qdrant search-pov-theme prophecy
+```
+
+### POV Comparison
+```bash
+# Compare J and P sources
+python kjv_cli.py qdrant search-pov-comparison J P
+
+# Compare E and R sources
+python kjv_cli.py qdrant search-pov-comparison E R
+
+# Compare J and E sources
+python kjv_cli.py qdrant search-pov-comparison J E
+```
+
+### POV Complexity Search
+```bash
+# Find simple POV (single source)
+python kjv_cli.py qdrant search-pov-complexity simple
+
+# Find moderate POV (two sources)
+python kjv_cli.py qdrant search-pov-complexity moderate
+
+# Find complex POV (three sources)
+python kjv_cli.py qdrant search-pov-complexity complex
+
+# Find very complex POV (four+ sources)
+python kjv_cli.py qdrant search-pov-complexity very_complex
+```
+
+### Hybrid POV Search
+```bash
+# Search for creation with narrative style
+python kjv_cli.py qdrant search-hybrid-pov "creation" --style narrative_anthropomorphic
+
+# Search for covenant with J source
+python kjv_cli.py qdrant search-hybrid-pov "covenant" --source J
+
+# Search for ritual with moderate complexity
+python kjv_cli.py qdrant search-hybrid-pov "ritual" --complexity moderate
+
+# Search for prophecy with intimate perspective
+python kjv_cli.py qdrant search-hybrid-pov "prophecy" --perspective intimate_personal
+```
+
+### POV Statistics
+```bash
+# Get comprehensive POV statistics
+python kjv_cli.py qdrant pov-statistics
+```
+
+## Advanced Usage Examples
 
 ### Research Workflows
 
-#### 1. Source Analysis Research
+#### 1. Source Comparison Analysis
 ```bash
-# Get overall statistics
-python kjv_cli.py qdrant source-statistics
+# Find verses where J and P sources overlap
+python kjv_cli.py qdrant search-pov-comparison J P --limit 50
 
-# Find complex redaction patterns
-python kjv_cli.py qdrant search-redaction-patterns complex --limit 30
-
-# Compare J and P creation accounts
-python kjv_cli.py qdrant search-source-combinations J P --combination-type all
-python kjv_cli.py qdrant search-source-analysis j_dominant
-python kjv_cli.py qdrant search-source-analysis p_ritual
+# Analyze their different POV styles
+python kjv_cli.py qdrant search-pov-style narrative_anthropomorphic --limit 20
+python kjv_cli.py qdrant search-pov-style systematic_ritual --limit 20
 ```
 
-#### 2. Narrative Flow Analysis
+#### 2. Theme-Based Research
 ```bash
-# Find narrative sources across books
-python kjv_cli.py qdrant search-source-analysis narrative_flow --limit 50
+# Find all creation-related verses
+python kjv_cli.py qdrant search-pov-theme creation --limit 30
 
-# Analyze Genesis narrative structure
-python kjv_cli.py qdrant search-hybrid "story" --book genesis --source J
-
-# Find covenant narratives
-python kjv_cli.py qdrant search-hybrid "covenant" --source J --limit 20
+# Compare how different sources handle creation
+python kjv_cli.py qdrant search-hybrid-pov "creation" --source J
+python kjv_cli.py qdrant search-hybrid-pov "creation" --source P
 ```
 
-#### 3. Redaction Complexity Study
+#### 3. Complexity Analysis
 ```bash
-# Find most complex redaction
-python kjv_cli.py qdrant search-multi-source --min-sources 3 --limit 10
+# Find the most complex redaction patterns
+python kjv_cli.py qdrant search-pov-complexity very_complex --limit 20
 
-# Analyze redaction patterns by book
-python kjv_cli.py qdrant search-hybrid "redaction" --book genesis
-python kjv_cli.py qdrant search-hybrid "redaction" --book exodus
-
-# Find harmonized text
-python kjv_cli.py qdrant search-redaction-patterns harmonized
+# Compare with simple single-source verses
+python kjv_cli.py qdrant search-pov-complexity simple --limit 20
 ```
 
-#### 4. Chapter-by-Chapter Analysis
+#### 4. Purpose-Driven Research
 ```bash
-# Analyze Genesis creation account
-python kjv_cli.py qdrant search-by-chapter genesis 1
+# Find storytelling elements (J source)
+python kjv_cli.py qdrant search-pov-purpose storytelling_identity --limit 25
 
-# Analyze Exodus law
-python kjv_cli.py qdrant search-by-chapter exodus 20
+# Find ritual instructions (P source)
+python kjv_cli.py qdrant search-pov-purpose ritual_instruction --limit 25
 
-# Analyze Deuteronomy covenant renewal
-python kjv_cli.py qdrant search-by-chapter deuteronomy 5
+# Find moral teachings (E source)
+python kjv_cli.py qdrant search-pov-purpose moral_instruction --limit 25
 ```
 
-## 🔍 Entity-Relation Structure
+## Entity-Relation Structure
 
 ### Source Entities
-- **J (Jahwist)**: Narrative source with anthropomorphic God
-- **E (Elohist)**: Northern source emphasizing divine communication  
-- **P (Priestly)**: Ritual and genealogical source
-- **R (Redactor)**: Editorial additions and connections
+- **J (Jahwist)**: Narrative anthropomorphic style, intimate personal perspective
+- **E (Elohist)**: Prophetic didactic style, prophetic vision perspective  
+- **P (Priestly)**: Systematic ritual style, institutional priestly perspective
+- **R (Redactor)**: Editorial harmonizing style, editorial omniscient perspective
 
-### Book Entities
-- **Genesis**: Creation and patriarchal narratives
-- **Exodus**: Liberation and covenant formation
-- **Leviticus**: Ritual and legal codes
-- **Numbers**: Wilderness journey and census
-- **Deuteronomy**: Covenant renewal and law
+### POV Analysis Dimensions
+- **Style**: narrative_anthropomorphic, prophetic_didactic, systematic_ritual, editorial_harmonizing
+- **Perspective**: intimate_personal, prophetic_vision, institutional_priestly, editorial_omniscient
+- **Purpose**: storytelling_identity, moral_instruction, ritual_instruction, harmonization_integration
+- **Themes**: creation, covenant, family, journey, ritual, holiness, prophecy, justice, worship, law
+- **Complexity**: simple, moderate, complex, very_complex
 
 ### Relation Types
-- `contains_source`: verse → source
-- `belongs_to_book`: verse → book
-- `has_chapter`: verse → chapter
-- `multi_source`: verse → multiple sources
-- `redaction`: verse → redaction indicators
+- `contains_source`: Verse contains specific source
+- `belongs_to_book`: Verse belongs to specific book
+- `multi_source`: Verse has multiple sources
+- `redaction`: Verse shows redaction patterns
+- `pov_style`: Verse exhibits specific POV style
+- `pov_perspective`: Verse shows specific POV perspective
+- `pov_purpose`: Verse serves specific POV purpose
+- `pov_theme`: Verse contains specific POV themes
 
-## 📊 Statistics and Analytics
+## Statistics and Analytics
 
-### Source Distribution Analysis
+### Source Statistics
 ```bash
-# Get comprehensive statistics
 python kjv_cli.py qdrant source-statistics
 ```
 
-This provides:
-- **Overall Statistics**: Total verses, multi-source count, percentages
-- **Source Distribution**: Count and percentage for each source (J, E, P, R)
-- **Book Distribution**: Verse count by book with type classification
-- **Redaction Patterns**: Frequency of different redaction types
-
-### Custom Analysis Scripts
-```python
-from src.kjv_sources.qdrant_client import create_qdrant_client
-
-# Create client
-client = create_qdrant_client()
-
-# Get statistics
-stats = client.get_source_statistics()
-
-# Analyze specific patterns
-j_verses = client.search_by_source("J", limit=1000)
-p_verses = client.search_by_source("P", limit=1000)
-
-# Compare source characteristics
-complex_verses = client.search_multi_source_verses(limit=100)
+### POV Statistics
+```bash
+python kjv_cli.py qdrant pov-statistics
 ```
 
-## 🚀 Performance Optimization
+Provides detailed breakdowns of:
+- Total verses and multi-source verses
+- Source distribution and percentages
+- Book distribution and types
+- Redaction pattern frequencies
+- POV style distribution
+- POV perspective distribution
+- POV purpose distribution
+- POV theme frequencies
+- POV complexity distribution
+
+## Performance Optimization
+
+### Indexing Strategy
+- **Text fields**: Indexed for exact matching
+- **Numeric fields**: Range queries supported
+- **Array fields**: Multi-value filtering
+- **Vector fields**: Semantic similarity search
 
 ### Query Optimization
-- **Use filters**: Combine semantic search with structured filters for better results
-- **Limit results**: Use appropriate limits to avoid overwhelming output
-- **Batch processing**: For large datasets, process in batches
+- Use specific filters to reduce search space
+- Combine semantic and structured search for best results
+- Leverage POV analysis for targeted research
 
-### Memory Management
-- **Scroll API**: Use scroll for large result sets
-- **Pagination**: Process results in pages
-- **Filter early**: Apply filters before semantic search
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-#### Connection Problems
-```bash
-# Check Qdrant connection
-python kjv_cli.py qdrant stats
-
-# Verify API key and endpoint
-# Check network connectivity
-```
-
-#### Data Issues
-```bash
-# Recreate collection if needed
-python kjv_cli.py qdrant setup --force
-
-# Re-upload data
-python kjv_cli.py qdrant upload-all
-```
-
-#### Search Issues
-```bash
-# Test basic search first
-python kjv_cli.py qdrant search-semantic "test"
-
-# Check collection has data
-python kjv_cli.py qdrant source-statistics
-```
-
-## 📚 Integration Examples
+## Integration Examples
 
 ### Programmatic Usage
 ```python
-from src.kjv_sources.qdrant_client import create_qdrant_client
+from kjv_sources.qdrant_client import create_qdrant_client
 
-# Initialize client
 client = create_qdrant_client()
 
-# Entity-relation search
-results = client.search_entity_relation("source", "J", limit=20)
-
-# Hybrid search
-results = client.search_hybrid(
-    query="covenant with Abraham",
-    filters={"book": "Genesis", "source": "J"},
-    limit=15
-)
-
-# Source analysis
-results = client.search_source_analysis("j_dominant", limit=30)
-
-# Get statistics
-stats = client.get_source_statistics()
-print(f"Total verses: {stats['total_verses']}")
+# POV analysis
+results = client.search_by_pov_style("narrative_anthropomorphic")
+comparison = client.search_pov_comparison("J", "P")
+stats = client.get_pov_statistics()
 ```
 
 ### Research Applications
-- **Textual criticism** and source analysis
-- **Computational linguistics** for biblical studies
-- **Machine learning** in religious studies
-- **Digital humanities** research
-- **Theological education** and training
+- **Source Criticism**: Compare different documentary sources
+- **Redaction Analysis**: Identify editorial patterns
+- **POV Analysis**: Understand author perspectives and purposes
+- **Theme Research**: Track themes across sources
+- **Complexity Analysis**: Study multi-source verses
+- **Statistical Analysis**: Quantitative source analysis
 
-## 🎯 Advanced Features
-
-### Custom Entity-Relation Queries
-The enhanced Qdrant client supports custom entity-relation queries:
-
-```python
-# Find verses where J and P sources are combined
-results = client.search_source_combinations(["J", "P"], "all")
-
-# Find verses with complex redaction
-results = client.search_redaction_patterns("complex")
-
-# Find narrative flow
-results = client.search_source_analysis("narrative_flow")
-```
-
-### Hybrid Retrieval
-Combine semantic similarity with structured filtering:
-
-```python
-# Semantic search with source filter
-results = client.search_hybrid(
-    query="creation narrative",
-    filters={"source": "P", "book": "Genesis"}
-)
-```
-
-### Statistical Analysis
-Get comprehensive statistics for research:
-
-```python
-# Get source distribution
-stats = client.get_source_statistics()
-print(f"J source verses: {stats['source_counts']['J']}")
-print(f"Multi-source verses: {stats['multi_source_verses']}")
-```
+### Advanced Features
+- **Hybrid Search**: Combine semantic and structured queries
+- **POV Filtering**: Filter by author perspective and style
+- **Theme Detection**: Automatic theme identification
+- **Complexity Assessment**: Multi-source complexity analysis
+- **Statistical Reporting**: Comprehensive analytics
 
 ---
 

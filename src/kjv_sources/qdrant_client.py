@@ -131,7 +131,7 @@ class KJVQdrantClient:
             return []
     
     def prepare_verse_data(self, row: pd.Series) -> Dict[str, Any]:
-        """Prepare verse data for Qdrant storage."""
+        """Prepare verse data for Qdrant storage with POV analysis."""
         # Create a rich text representation for embedding
         text_for_embedding = f"{row['canonical_reference']}: {row['full_text']}"
         
@@ -140,6 +140,9 @@ class KJVQdrantClient:
         
         if not embedding:
             return None
+        
+        # Analyze POV for each source
+        pov_analysis = self.analyze_source_pov(row)
         
         # Prepare metadata
         metadata = {
@@ -161,7 +164,24 @@ class KJVQdrantClient:
             "text_R": row.get('text_R', ''),
             "source_confidence": row.get('source_confidence', ''),
             "is_multi_source": row.get('source_count', 0) > 1,
-            "timestamp": datetime.now().isoformat()
+            "timestamp": datetime.now().isoformat(),
+            # POV Analysis Fields
+            "pov_analysis": pov_analysis,
+            "pov_primary": pov_analysis.get('primary_pov', ''),
+            "pov_secondary": pov_analysis.get('secondary_pov', ''),
+            "pov_themes": pov_analysis.get('themes', []),
+            "pov_style": pov_analysis.get('style', ''),
+            "pov_perspective": pov_analysis.get('perspective', ''),
+            "pov_audience": pov_analysis.get('audience', ''),
+            "pov_purpose": pov_analysis.get('purpose', ''),
+            "pov_emotion": pov_analysis.get('emotion', ''),
+            "pov_authority": pov_analysis.get('authority', ''),
+            "pov_temporal": pov_analysis.get('temporal', ''),
+            "pov_spatial": pov_analysis.get('spatial', ''),
+            "pov_social": pov_analysis.get('social', ''),
+            "pov_theological": pov_analysis.get('theological', ''),
+            "pov_complexity": pov_analysis.get('complexity', ''),
+            "pov_confidence": pov_analysis.get('confidence', 0.0)
         }
         
         return {
@@ -169,6 +189,192 @@ class KJVQdrantClient:
             "vector": embedding,
             "metadata": metadata
         }
+    
+    def analyze_source_pov(self, row: pd.Series) -> Dict[str, Any]:
+        """Analyze point of view for each source in the verse."""
+        pov_analysis = {
+            'primary_pov': '',
+            'secondary_pov': '',
+            'themes': [],
+            'style': '',
+            'perspective': '',
+            'audience': '',
+            'purpose': '',
+            'emotion': '',
+            'authority': '',
+            'temporal': '',
+            'spatial': '',
+            'social': '',
+            'theological': '',
+            'complexity': '',
+            'confidence': 0.0
+        }
+        
+        sources = row.get('sources', '').split(';')
+        source_texts = {
+            'J': row.get('text_J', ''),
+            'E': row.get('text_E', ''),
+            'P': row.get('text_P', ''),
+            'R': row.get('text_R', '')
+        }
+        
+        # Analyze POV for each source
+        source_povs = {}
+        for source in sources:
+            if source in source_texts and source_texts[source].strip():
+                source_povs[source] = self.analyze_single_source_pov(source, source_texts[source])
+        
+        # Determine primary and secondary POV
+        if source_povs:
+            # Sort by confidence and take top 2
+            sorted_povs = sorted(source_povs.items(), key=lambda x: x[1].get('confidence', 0), reverse=True)
+            
+            if len(sorted_povs) >= 1:
+                primary_source, primary_pov = sorted_povs[0]
+                pov_analysis['primary_pov'] = f"{primary_source}:{primary_pov.get('style', '')}"
+                pov_analysis['perspective'] = primary_pov.get('perspective', '')
+                pov_analysis['audience'] = primary_pov.get('audience', '')
+                pov_analysis['purpose'] = primary_pov.get('purpose', '')
+                pov_analysis['emotion'] = primary_pov.get('emotion', '')
+                pov_analysis['authority'] = primary_pov.get('authority', '')
+                pov_analysis['temporal'] = primary_pov.get('temporal', '')
+                pov_analysis['spatial'] = primary_pov.get('spatial', '')
+                pov_analysis['social'] = primary_pov.get('social', '')
+                pov_analysis['theological'] = primary_pov.get('theological', '')
+                pov_analysis['confidence'] = primary_pov.get('confidence', 0.0)
+            
+            if len(sorted_povs) >= 2:
+                secondary_source, secondary_pov = sorted_povs[1]
+                pov_analysis['secondary_pov'] = f"{secondary_source}:{secondary_pov.get('style', '')}"
+            
+            # Combine themes from all sources
+            all_themes = []
+            for source_pov in source_povs.values():
+                all_themes.extend(source_pov.get('themes', []))
+            pov_analysis['themes'] = list(set(all_themes))  # Remove duplicates
+            
+            # Determine overall complexity
+            pov_analysis['complexity'] = self.determine_pov_complexity(source_povs)
+        
+        return pov_analysis
+    
+    def analyze_single_source_pov(self, source: str, text: str) -> Dict[str, Any]:
+        """Analyze POV for a single source."""
+        pov = {
+            'style': '',
+            'perspective': '',
+            'audience': '',
+            'purpose': '',
+            'emotion': '',
+            'authority': '',
+            'temporal': '',
+            'spatial': '',
+            'social': '',
+            'theological': '',
+            'themes': [],
+            'confidence': 0.0
+        }
+        
+        # Source-specific POV characteristics
+        source_characteristics = {
+            'J': {
+                'style': 'narrative_anthropomorphic',
+                'perspective': 'intimate_personal',
+                'audience': 'general_community',
+                'purpose': 'storytelling_identity',
+                'emotion': 'warm_engaging',
+                'authority': 'charismatic_leadership',
+                'temporal': 'mythic_origins',
+                'spatial': 'promised_land',
+                'social': 'family_tribal',
+                'theological': 'covenant_relationship',
+                'themes': ['creation', 'covenant', 'family', 'promise', 'journey']
+            },
+            'E': {
+                'style': 'prophetic_didactic',
+                'perspective': 'prophetic_vision',
+                'audience': 'northern_kingdom',
+                'purpose': 'moral_instruction',
+                'emotion': 'reverent_awe',
+                'authority': 'prophetic_authority',
+                'temporal': 'historical_events',
+                'spatial': 'northern_territory',
+                'social': 'prophetic_community',
+                'theological': 'divine_justice',
+                'themes': ['prophecy', 'justice', 'obedience', 'worship', 'messenger']
+            },
+            'P': {
+                'style': 'systematic_ritual',
+                'perspective': 'institutional_priestly',
+                'audience': 'priestly_community',
+                'purpose': 'ritual_instruction',
+                'emotion': 'formal_reverent',
+                'authority': 'institutional_authority',
+                'temporal': 'sacred_time',
+                'spatial': 'sacred_space',
+                'social': 'hierarchical_priestly',
+                'theological': 'holiness_order',
+                'themes': ['ritual', 'holiness', 'order', 'sacrifice', 'purity']
+            },
+            'R': {
+                'style': 'editorial_harmonizing',
+                'perspective': 'editorial_omniscient',
+                'audience': 'unified_community',
+                'purpose': 'harmonization_integration',
+                'emotion': 'balanced_neutral',
+                'authority': 'editorial_authority',
+                'temporal': 'unified_timeline',
+                'spatial': 'unified_territory',
+                'social': 'unified_community',
+                'theological': 'unified_theology',
+                'themes': ['harmonization', 'integration', 'unity', 'coherence']
+            }
+        }
+        
+        # Get base characteristics for this source
+        base_char = source_characteristics.get(source, {})
+        pov.update(base_char)
+        
+        # Analyze text-specific themes
+        text_lower = text.lower()
+        additional_themes = []
+        
+        # Theme detection based on keywords
+        theme_keywords = {
+            'creation': ['created', 'beginning', 'heaven', 'earth', 'light', 'darkness'],
+            'covenant': ['covenant', 'promise', 'swore', 'oath', 'agreement'],
+            'family': ['son', 'daughter', 'father', 'mother', 'family', 'generations'],
+            'journey': ['went', 'came', 'journeyed', 'traveled', 'moved'],
+            'ritual': ['sacrifice', 'offering', 'altar', 'priest', 'ritual'],
+            'holiness': ['holy', 'sanctify', 'consecrate', 'clean', 'unclean'],
+            'prophecy': ['prophet', 'prophesied', 'vision', 'dream', 'message'],
+            'justice': ['judge', 'justice', 'righteous', 'wicked', 'punish'],
+            'worship': ['worship', 'praise', 'serve', 'bow', 'sacrifice'],
+            'law': ['command', 'statute', 'ordinance', 'law', 'rule']
+        }
+        
+        for theme, keywords in theme_keywords.items():
+            if any(keyword in text_lower for keyword in keywords):
+                additional_themes.append(theme)
+        
+        pov['themes'].extend(additional_themes)
+        pov['themes'] = list(set(pov['themes']))  # Remove duplicates
+        
+        # Calculate confidence based on text length and theme detection
+        pov['confidence'] = min(1.0, len(text.split()) / 20.0 + len(additional_themes) * 0.1)
+        
+        return pov
+    
+    def determine_pov_complexity(self, source_povs: Dict[str, Dict]) -> str:
+        """Determine overall POV complexity."""
+        if len(source_povs) == 1:
+            return 'simple'
+        elif len(source_povs) == 2:
+            return 'moderate'
+        elif len(source_povs) == 3:
+            return 'complex'
+        else:
+            return 'very_complex'
     
     def upload_book_data(self, book_name: str, csv_path: str) -> bool:
         """Upload a book's data to Qdrant."""
@@ -588,7 +794,16 @@ class KJVQdrantClient:
                 "verse": result.payload.get("verse", 0),
                 "source_count": result.payload.get("source_count", 0),
                 "redaction_indicators": result.payload.get("redaction_indicators", ""),
-                "word_count": result.payload.get("word_count", 0)
+                "word_count": result.payload.get("word_count", 0),
+                # POV Analysis Fields
+                "pov_primary": result.payload.get("pov_primary", ""),
+                "pov_secondary": result.payload.get("pov_secondary", ""),
+                "pov_themes": result.payload.get("pov_themes", []),
+                "pov_style": result.payload.get("pov_style", ""),
+                "pov_perspective": result.payload.get("pov_perspective", ""),
+                "pov_purpose": result.payload.get("pov_purpose", ""),
+                "pov_complexity": result.payload.get("pov_complexity", ""),
+                "pov_confidence": result.payload.get("pov_confidence", 0.0)
             })
         return results
     
@@ -668,6 +883,276 @@ class KJVQdrantClient:
             
         except Exception as e:
             console.print(f"[red]❌ Error getting source statistics: {e}[/red]")
+            return {}
+
+    def search_by_pov_style(self, style: str, limit: int = 20) -> List[Dict]:
+        """Search for verses with specific POV styles."""
+        try:
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                limit=limit,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(
+                            key="pov_style",
+                            match=MatchText(text=style)
+                        )
+                    ]
+                ),
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching by POV style: {e}[/red]")
+            return []
+    
+    def search_by_pov_perspective(self, perspective: str, limit: int = 20) -> List[Dict]:
+        """Search for verses with specific POV perspectives."""
+        try:
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                limit=limit,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(
+                            key="pov_perspective",
+                            match=MatchText(text=perspective)
+                        )
+                    ]
+                ),
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching by POV perspective: {e}[/red]")
+            return []
+    
+    def search_by_pov_purpose(self, purpose: str, limit: int = 20) -> List[Dict]:
+        """Search for verses with specific POV purposes."""
+        try:
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                limit=limit,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(
+                            key="pov_purpose",
+                            match=MatchText(text=purpose)
+                        )
+                    ]
+                ),
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching by POV purpose: {e}[/red]")
+            return []
+    
+    def search_by_pov_theme(self, theme: str, limit: int = 20) -> List[Dict]:
+        """Search for verses with specific POV themes."""
+        try:
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                limit=limit,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(
+                            key="pov_themes",
+                            match=MatchText(text=theme)
+                        )
+                    ]
+                ),
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching by POV theme: {e}[/red]")
+            return []
+    
+    def search_pov_comparison(self, source1: str, source2: str, limit: int = 20) -> List[Dict]:
+        """Search for verses that compare POV between two sources."""
+        try:
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                limit=limit,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(
+                            key="sources",
+                            match=MatchText(text=source1)
+                        ),
+                        FieldCondition(
+                            key="sources",
+                            match=MatchText(text=source2)
+                        )
+                    ]
+                ),
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching POV comparison: {e}[/red]")
+            return []
+    
+    def search_pov_complexity(self, complexity: str, limit: int = 20) -> List[Dict]:
+        """Search for verses with specific POV complexity levels."""
+        try:
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                limit=limit,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(
+                            key="pov_complexity",
+                            match=MatchValue(value=complexity)
+                        )
+                    ]
+                ),
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching POV complexity: {e}[/red]")
+            return []
+    
+    def search_hybrid_pov(self, query: str, pov_filters: Dict[str, Any] = None, limit: int = 20) -> List[Dict]:
+        """Hybrid search combining semantic similarity with POV filtering."""
+        try:
+            # Generate embedding for semantic search
+            query_embedding = self.get_embedding(query)
+            if not query_embedding:
+                return []
+            
+            # Build POV filter conditions
+            filter_conditions = []
+            if pov_filters:
+                if "style" in pov_filters:
+                    filter_conditions.append(FieldCondition(
+                        key="pov_style",
+                        match=MatchText(text=pov_filters["style"])
+                    ))
+                if "perspective" in pov_filters:
+                    filter_conditions.append(FieldCondition(
+                        key="pov_perspective",
+                        match=MatchText(text=pov_filters["perspective"])
+                    ))
+                if "purpose" in pov_filters:
+                    filter_conditions.append(FieldCondition(
+                        key="pov_purpose",
+                        match=MatchText(text=pov_filters["purpose"])
+                    ))
+                if "theme" in pov_filters:
+                    filter_conditions.append(FieldCondition(
+                        key="pov_themes",
+                        match=MatchText(text=pov_filters["theme"])
+                    ))
+                if "complexity" in pov_filters:
+                    filter_conditions.append(FieldCondition(
+                        key="pov_complexity",
+                        match=MatchValue(value=pov_filters["complexity"])
+                    ))
+                if "source" in pov_filters:
+                    filter_conditions.append(FieldCondition(
+                        key="sources",
+                        match=MatchText(text=pov_filters["source"])
+                    ))
+            
+            search_filter = Filter(must=filter_conditions) if filter_conditions else None
+            
+            # Perform hybrid search
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=query_embedding,
+                limit=limit,
+                query_filter=search_filter,
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error in hybrid POV search: {e}[/red]")
+            return []
+    
+    def get_pov_statistics(self) -> Dict[str, Any]:
+        """Get comprehensive POV statistics."""
+        try:
+            # Get all verses
+            all_results = self.client.scroll(
+                collection_name=self.collection_name,
+                limit=10000,  # Adjust based on your data size
+                with_payload=True
+            )[0]
+            
+            stats = {
+                "total_verses": len(all_results),
+                "pov_styles": {},
+                "pov_perspectives": {},
+                "pov_purposes": {},
+                "pov_themes": {},
+                "pov_complexities": {},
+                "source_pov_distribution": {"J": {}, "E": {}, "P": {}, "R": {}}
+            }
+            
+            for result in all_results:
+                payload = result.payload
+                
+                # Count POV styles
+                style = payload.get("pov_style", "")
+                if style:
+                    stats["pov_styles"][style] = stats["pov_styles"].get(style, 0) + 1
+                
+                # Count perspectives
+                perspective = payload.get("pov_perspective", "")
+                if perspective:
+                    stats["pov_perspectives"][perspective] = stats["pov_perspectives"].get(perspective, 0) + 1
+                
+                # Count purposes
+                purpose = payload.get("pov_purpose", "")
+                if purpose:
+                    stats["pov_purposes"][purpose] = stats["pov_purposes"].get(purpose, 0) + 1
+                
+                # Count themes
+                themes = payload.get("pov_themes", [])
+                for theme in themes:
+                    stats["pov_themes"][theme] = stats["pov_themes"].get(theme, 0) + 1
+                
+                # Count complexities
+                complexity = payload.get("pov_complexity", "")
+                if complexity:
+                    stats["pov_complexities"][complexity] = stats["pov_complexities"].get(complexity, 0) + 1
+                
+                # Count source POV distribution
+                sources = payload.get("sources", "").split(";")
+                for source in sources:
+                    if source in stats["source_pov_distribution"]:
+                        primary_pov = payload.get("pov_primary", "")
+                        if primary_pov:
+                            pov_style = primary_pov.split(":")[-1] if ":" in primary_pov else primary_pov
+                            stats["source_pov_distribution"][source][pov_style] = stats["source_pov_distribution"][source].get(pov_style, 0) + 1
+            
+            return stats
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error getting POV statistics: {e}[/red]")
             return {}
 
 def create_qdrant_client() -> KJVQdrantClient:
