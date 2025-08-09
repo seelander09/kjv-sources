@@ -1,0 +1,40 @@
+# FastAPI Backend Requirements for KJPBS RAG Integration
+# =====================================================
+
+# Core FastAPI and ASGI server
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+
+# HTTP and networking
+httpx==0.25.2
+aiohttp==3.9.1
+
+# Security and authentication
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# CORS and middleware
+starlette==0.27.0
+
+# Data validation and serialization
+email-validator==2.1.0
+python-dotenv==1.0.0
+
+# Logging and monitoring
+structlog==23.2.0
+
+# Development and testing (optional)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2  # for testing
+
+# Note: Your existing requirements.txt already includes:
+# - qdrant-client (for vector database)
+# - sentence-transformers (for embeddings)
+# - pandas (for data manipulation)
+# - rich (for console output)
+# - click (for CLI)
+# 
+# These will be imported from your existing installation
