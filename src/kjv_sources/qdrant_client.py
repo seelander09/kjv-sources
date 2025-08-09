@@ -111,14 +111,19 @@ class KJVQdrantClient:
                     )
                 )
                 
-                # Create indexes for POV fields and other filterable fields
-                console.print(f"[blue]🔧 Creating indexes for POV fields...[/blue]")
+                # Create indexes for POV fields, doublet fields, and other filterable fields
+                console.print(f"[blue]🔧 Creating indexes for POV and doublet fields...[/blue]")
                 
                 # POV field indexes
                 pov_fields = [
                     "pov_style", "pov_perspective", "pov_purpose", "pov_complexity",
                     "pov_audience", "pov_emotion", "pov_authority", "pov_temporal",
                     "pov_spatial", "pov_social", "pov_theological"
+                ]
+                
+                # Doublet field indexes
+                doublet_fields = [
+                    "is_doublet", "doublet_categories", "doublet_names", "doublet_ids"
                 ]
                 
                 # Other filterable fields
@@ -128,7 +133,7 @@ class KJVQdrantClient:
                 ]
                 
                 # Create indexes for all filterable fields
-                for field in pov_fields + other_fields:
+                for field in pov_fields + doublet_fields + other_fields:
                     try:
                         self.client.create_payload_index(
                             collection_name=self.collection_name,
@@ -138,17 +143,19 @@ class KJVQdrantClient:
                     except Exception as e:
                         console.print(f"[yellow]⚠️ Could not create index for {field}: {e}[/yellow]")
                 
-                # Create text index for pov_themes (array field)
-                try:
-                    self.client.create_payload_index(
-                        collection_name=self.collection_name,
-                        field_name="pov_themes",
-                        field_schema="text"
-                    )
-                except Exception as e:
-                    console.print(f"[yellow]⚠️ Could not create text index for pov_themes: {e}[/yellow]")
+                # Create text indexes for array fields
+                array_fields = ["pov_themes", "parallel_passages", "theological_differences", "doublet_themes"]
+                for field in array_fields:
+                    try:
+                        self.client.create_payload_index(
+                            collection_name=self.collection_name,
+                            field_name=field,
+                            field_schema="text"
+                        )
+                    except Exception as e:
+                        console.print(f"[yellow]⚠️ Could not create text index for {field}: {e}[/yellow]")
                 
-                console.print(f"[green]✅ Collection '{self.collection_name}' created successfully with POV indexes[/green]")
+                console.print(f"[green]✅ Collection '{self.collection_name}' created successfully with POV and doublet indexes[/green]")
                 return True
             else:
                 console.print(f"[blue]📚 Collection '{self.collection_name}' already exists[/blue]")
@@ -180,6 +187,9 @@ class KJVQdrantClient:
         
         # Analyze POV for each source
         pov_analysis = self.analyze_source_pov(row)
+        
+        # Analyze doublets
+        doublet_analysis = self.analyze_verse_for_doublets(row)
         
         # Prepare metadata
         metadata = {
@@ -218,7 +228,16 @@ class KJVQdrantClient:
             "pov_social": pov_analysis.get('social', ''),
             "pov_theological": pov_analysis.get('theological', ''),
             "pov_complexity": pov_analysis.get('complexity', ''),
-            "pov_confidence": pov_analysis.get('confidence', 0.0)
+            "pov_confidence": pov_analysis.get('confidence', 0.0),
+            # Doublet Analysis Fields
+            "doublet_analysis": doublet_analysis,
+            "is_doublet": doublet_analysis.get('is_doublet', False),
+            "doublet_ids": doublet_analysis.get('doublet_ids', []),
+            "doublet_names": doublet_analysis.get('doublet_names', []),
+            "doublet_categories": doublet_analysis.get('doublet_categories', []),
+            "parallel_passages": doublet_analysis.get('parallel_passages', []),
+            "theological_differences": doublet_analysis.get('theological_differences', []),
+            "doublet_themes": doublet_analysis.get('related_themes', [])
         }
         
         return {
@@ -412,6 +431,87 @@ class KJVQdrantClient:
             return 'complex'
         else:
             return 'very_complex'
+    
+    def load_doublets_data(self) -> Dict[str, Any]:
+        """Load doublet definitions from JSON file."""
+        try:
+            doublets_path = Path(__file__).parent.parent.parent / "doublets_data.json"
+            with open(doublets_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            console.print(f"[yellow]⚠️ Could not load doublets data: {e}[/yellow]")
+            return {"doublets": [], "categories": {}}
+    
+    def analyze_verse_for_doublets(self, row: pd.Series) -> Dict[str, Any]:
+        """Analyze if a verse is part of any known doublets."""
+        doublet_info = {
+            'is_doublet': False,
+            'doublet_ids': [],
+            'doublet_names': [],
+            'doublet_categories': [],
+            'parallel_passages': [],
+            'theological_differences': [],
+            'related_themes': []
+        }
+        
+        book = row.get('book', '')
+        chapter = int(row.get('chapter', 0))
+        verse = int(row.get('verse', 0))
+        sources = row.get('sources', '').split(';')
+        
+        doublets_data = self.load_doublets_data()
+        
+        for doublet in doublets_data.get('doublets', []):
+            # Check if this verse falls within any doublet passage
+            for passage in doublet.get('passages', []):
+                if (passage.get('book') == book and
+                    passage.get('chapter_start') <= chapter <= passage.get('chapter_end')):
+                    
+                    # Check verse range
+                    verse_in_range = False
+                    if passage.get('chapter_start') == passage.get('chapter_end'):
+                        # Same chapter
+                        verse_in_range = passage.get('verse_start') <= verse <= passage.get('verse_end')
+                    elif chapter == passage.get('chapter_start'):
+                        # First chapter
+                        verse_in_range = verse >= passage.get('verse_start')
+                    elif chapter == passage.get('chapter_end'):
+                        # Last chapter
+                        verse_in_range = verse <= passage.get('verse_end')
+                    else:
+                        # Middle chapters
+                        verse_in_range = True
+                    
+                    if verse_in_range:
+                        doublet_info['is_doublet'] = True
+                        doublet_info['doublet_ids'].append(doublet.get('id'))
+                        doublet_info['doublet_names'].append(doublet.get('name'))
+                        doublet_info['doublet_categories'].append(doublet.get('category'))
+                        
+                        # Add parallel passages
+                        for other_passage in doublet.get('passages', []):
+                            if other_passage != passage:
+                                doublet_info['parallel_passages'].append(other_passage.get('reference'))
+                        
+                        # Add theological differences
+                        doublet_info['theological_differences'].extend(
+                            doublet.get('theological_differences', [])
+                        )
+                        
+                        # Add related themes
+                        doublet_info['related_themes'].extend(
+                            passage.get('themes', [])
+                        )
+        
+        # Remove duplicates
+        doublet_info['doublet_ids'] = list(set(doublet_info['doublet_ids']))
+        doublet_info['doublet_names'] = list(set(doublet_info['doublet_names']))
+        doublet_info['doublet_categories'] = list(set(doublet_info['doublet_categories']))
+        doublet_info['parallel_passages'] = list(set(doublet_info['parallel_passages']))
+        doublet_info['theological_differences'] = list(set(doublet_info['theological_differences']))
+        doublet_info['related_themes'] = list(set(doublet_info['related_themes']))
+        
+        return doublet_info
     
     def upload_book_data(self, book_name: str, csv_path: str) -> bool:
         """Upload a book's data to Qdrant."""
@@ -1190,6 +1290,250 @@ class KJVQdrantClient:
             
         except Exception as e:
             console.print(f"[red]❌ Error getting POV statistics: {e}[/red]")
+            return {}
+    
+    # ====== DOUBLET ANALYSIS SEARCH METHODS ======
+    
+    def search_doublets(self, limit: int = 50) -> List[Dict]:
+        """Search for all verses that are part of doublets."""
+        try:
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(
+                            key="is_doublet",
+                            match=MatchValue(value=True)
+                        )
+                    ]
+                ),
+                limit=limit,
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching doublets: {e}[/red]")
+            return []
+    
+    def search_doublets_by_category(self, category: str, limit: int = 20) -> List[Dict]:
+        """Search for doublets by category (e.g., 'cosmogony', 'covenant', 'deception')."""
+        try:
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(
+                            key="doublet_categories",
+                            match=MatchValue(value=category)
+                        )
+                    ]
+                ),
+                limit=limit,
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching doublets by category: {e}[/red]")
+            return []
+    
+    def search_doublets_by_name(self, doublet_name: str, limit: int = 20) -> List[Dict]:
+        """Search for verses from a specific doublet by name."""
+        try:
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(
+                            key="doublet_names",
+                            match=MatchValue(value=doublet_name)
+                        )
+                    ]
+                ),
+                limit=limit,
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching doublets by name: {e}[/red]")
+            return []
+    
+    def search_doublet_parallels(self, book: str, chapter: int, verse: int) -> List[Dict]:
+        """Find parallel passages for a specific verse if it's part of a doublet."""
+        try:
+            # First, get the verse to see if it's a doublet
+            verse_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=[0.0] * self.embedding_dim,
+                query_filter=Filter(
+                    must=[
+                        FieldCondition(key="book", match=MatchValue(value=book)),
+                        FieldCondition(key="chapter", match=MatchValue(value=chapter)),
+                        FieldCondition(key="verse", match=MatchValue(value=verse)),
+                        FieldCondition(key="is_doublet", match=MatchValue(value=True))
+                    ]
+                ),
+                limit=1,
+                with_payload=True
+            )
+            
+            if not verse_results:
+                return []
+            
+            # Get the doublet IDs from this verse
+            doublet_ids = verse_results[0].payload.get("doublet_ids", [])
+            
+            if not doublet_ids:
+                return []
+            
+            # Find all other verses with the same doublet IDs
+            parallel_results = []
+            for doublet_id in doublet_ids:
+                results = self.client.search(
+                    collection_name=self.collection_name,
+                    query_vector=[0.0] * self.embedding_dim,
+                    query_filter=Filter(
+                        must=[
+                            FieldCondition(
+                                key="doublet_ids",
+                                match=MatchValue(value=doublet_id)
+                            )
+                        ],
+                        must_not=[
+                            Filter(
+                                must=[
+                                    FieldCondition(key="book", match=MatchValue(value=book)),
+                                    FieldCondition(key="chapter", match=MatchValue(value=chapter)),
+                                    FieldCondition(key="verse", match=MatchValue(value=verse))
+                                ]
+                            )
+                        ]
+                    ),
+                    limit=50,
+                    with_payload=True
+                )
+                parallel_results.extend(results)
+            
+            return self._format_search_results(parallel_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error searching doublet parallels: {e}[/red]")
+            return []
+    
+    def search_hybrid_doublet(self, query: str, category: Optional[str] = None, limit: int = 20) -> List[Dict]:
+        """Hybrid search combining semantic similarity with doublet filtering."""
+        try:
+            query_embedding = self.get_embedding(query)
+            if not query_embedding:
+                return []
+            
+            filter_conditions = [
+                FieldCondition(
+                    key="is_doublet",
+                    match=MatchValue(value=True)
+                )
+            ]
+            
+            if category:
+                filter_conditions.append(
+                    FieldCondition(
+                        key="doublet_categories",
+                        match=MatchValue(value=category)
+                    )
+                )
+            
+            search_results = self.client.search(
+                collection_name=self.collection_name,
+                query_vector=query_embedding,
+                query_filter=Filter(must=filter_conditions),
+                limit=limit,
+                with_payload=True
+            )
+            
+            return self._format_search_results(search_results)
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error in hybrid doublet search: {e}[/red]")
+            return []
+    
+    def get_doublet_statistics(self) -> Dict[str, Any]:
+        """Get comprehensive doublet statistics."""
+        try:
+            # Get all verses
+            all_results = self.client.scroll(
+                collection_name=self.collection_name,
+                limit=10000,
+                with_payload=True
+            )[0]
+            
+            stats = {
+                "total_verses": len(all_results),
+                "doublet_verses": 0,
+                "non_doublet_verses": 0,
+                "doublet_categories": {},
+                "doublet_names": {},
+                "doublets_by_book": {},
+                "source_doublet_distribution": {"J": 0, "E": 0, "P": 0, "R": 0},
+                "theological_differences": {},
+                "unique_doublets": set()
+            }
+            
+            for result in all_results:
+                payload = result.payload
+                book = payload.get("book", "")
+                is_doublet = payload.get("is_doublet", False)
+                
+                # Count doublet vs non-doublet verses
+                if is_doublet:
+                    stats["doublet_verses"] += 1
+                    
+                    # Track by book
+                    stats["doublets_by_book"][book] = stats["doublets_by_book"].get(book, 0) + 1
+                    
+                    # Count categories
+                    categories = payload.get("doublet_categories", [])
+                    for category in categories:
+                        stats["doublet_categories"][category] = stats["doublet_categories"].get(category, 0) + 1
+                    
+                    # Count doublet names
+                    names = payload.get("doublet_names", [])
+                    for name in names:
+                        stats["doublet_names"][name] = stats["doublet_names"].get(name, 0) + 1
+                    
+                    # Track unique doublets
+                    doublet_ids = payload.get("doublet_ids", [])
+                    stats["unique_doublets"].update(doublet_ids)
+                    
+                    # Count source distribution in doublets
+                    sources = payload.get("sources", "").split(";")
+                    for source in sources:
+                        if source in stats["source_doublet_distribution"]:
+                            stats["source_doublet_distribution"][source] += 1
+                    
+                    # Count theological differences
+                    differences = payload.get("theological_differences", [])
+                    for diff in differences:
+                        stats["theological_differences"][diff] = stats["theological_differences"].get(diff, 0) + 1
+                
+                else:
+                    stats["non_doublet_verses"] += 1
+            
+            # Convert set to count
+            stats["unique_doublet_count"] = len(stats["unique_doublets"])
+            del stats["unique_doublets"]
+            
+            return stats
+            
+        except Exception as e:
+            console.print(f"[red]❌ Error getting doublet statistics: {e}[/red]")
             return {}
 
 def create_qdrant_client() -> KJVQdrantClient:

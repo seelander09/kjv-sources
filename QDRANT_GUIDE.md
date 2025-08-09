@@ -11,6 +11,7 @@ Enhanced Qdrant integration provides advanced biblical source analysis with:
 - **Source Analysis Patterns**: Predefined research patterns
 - **Hybrid Search**: Combine semantic similarity with structured filtering
 - **🎭 POV Analysis**: Author point of view analysis and comparison
+- **📚 Doublet Analysis**: Detection and analysis of biblical narrative doublets
 - **📊 Comprehensive Statistics**: Detailed analytics and insights
 
 ## Quick Start
@@ -275,6 +276,108 @@ Provides detailed breakdowns of:
 - POV purpose distribution
 - POV theme frequencies
 - POV complexity distribution
+
+## 📚 Doublet Analysis Commands
+
+### Search All Doublets
+```bash
+python kjv_cli.py qdrant search-doublets --limit 50
+```
+Find all verses that are part of known biblical doublets.
+
+### Search Doublets by Category
+```bash
+python kjv_cli.py qdrant search-doublets-by-category cosmogony --limit 20
+python kjv_cli.py qdrant search-doublets-by-category covenant --limit 20
+python kjv_cli.py qdrant search-doublets-by-category deception --limit 20
+```
+
+Available categories:
+- `cosmogony` - Creation and origin stories
+- `genealogy` - Family lineages and ancestral records
+- `catastrophe` - Divine judgment and natural disasters
+- `deception` - Stories involving deception or misdirection
+- `covenant` - Divine covenant making and renewal
+- `family_conflict` - Domestic and family tensions
+- `prophetic_calling` - Divine calling of leaders and prophets
+- `law` - Legal and commandment traditions
+- `wilderness_miracle` - Miraculous provisions in the wilderness
+- `wilderness_provision` - God's provision during wilderness wandering
+
+### Search Doublets by Name
+```bash
+python kjv_cli.py qdrant search-doublets-by-name "Creation Stories"
+python kjv_cli.py qdrant search-doublets-by-name "Wife-Sister Motif"
+python kjv_cli.py qdrant search-doublets-by-name "Flood Narrative"
+```
+
+### Find Parallel Passages
+```bash
+python kjv_cli.py qdrant search-doublet-parallels Genesis 1 1
+python kjv_cli.py qdrant search-doublet-parallels Genesis 12 10
+python kjv_cli.py qdrant search-doublet-parallels Exodus 20 1
+```
+Find parallel passages for a specific verse if it's part of a doublet.
+
+### Hybrid Doublet Search
+```bash
+python kjv_cli.py qdrant search-hybrid-doublet "creation of man"
+python kjv_cli.py qdrant search-hybrid-doublet "flood waters" --category catastrophe
+python kjv_cli.py qdrant search-hybrid-doublet "divine covenant" --category covenant
+```
+Combine semantic search with doublet filtering for targeted research.
+
+### Doublet Statistics
+```bash
+python kjv_cli.py qdrant doublet-statistics
+```
+
+Provides comprehensive doublet analytics:
+- Total verses vs doublet verses percentage
+- Unique doublet count
+- Doublet categories distribution
+- Doublets by book breakdown
+- Source distribution in doublets
+- Most common doublets
+- Theological differences frequency
+
+## Doublet Analysis Features
+
+### What are Doublets?
+Doublets are occurrences in the Old Testament where a story is told at least two different times by different documentary sources. They provide crucial evidence for the Documentary Hypothesis by showing how different authors approached the same narratives with distinct theological emphases and literary styles.
+
+### Supported Doublets
+The system includes comprehensive analysis of 30+ doublets from Genesis through Deuteronomy, including:
+
+#### Genesis Doublets
+- **Creation Stories**: P (Gen 1:1-2:3) vs J (Gen 2:4b-25)
+- **Genealogies from Adam**: J (Gen 4:17-26) vs P (Gen 5:1-32)
+- **Flood Narrative**: Interwoven J and P accounts
+- **Wife-Sister Motif**: Three variations across J and E sources
+- **Abrahamic Covenant**: J/E/R (Gen 15) vs P (Gen 17)
+- **Hagar and Ishmael**: Multiple accounts across J, P, and E
+
+#### Exodus/Numbers Doublets
+- **Moses' Commission**: Multiple calling accounts across J, E, and P
+- **Ten Commandments**: Three different versions (Exodus 20, 34, Deuteronomy 5)
+- **Water from Rock**: E (Exodus 17) vs P (Numbers 20)
+- **Manna and Quail**: P (Exodus 16) vs E (Numbers 11)
+
+### Analysis Dimensions
+Each doublet is analyzed across multiple dimensions:
+- **Source Attribution**: Which documentary sources tell the story
+- **Theological Emphasis**: Different theological perspectives in each account
+- **Narrative Purpose**: Why each version exists and what it emphasizes
+- **Historical Development**: How the tradition developed over time
+- **Literary Characteristics**: Distinctive features of each source
+- **Redactional Integration**: How the editor combined different versions
+
+### Search Capabilities
+- **Category-based search**: Find doublets by narrative type
+- **Parallel passage detection**: Automatically find related accounts
+- **Theological difference analysis**: Compare theological emphases
+- **Source pattern analysis**: Track how sources handle the same stories
+- **Hybrid semantic search**: Combine meaning-based search with doublet filtering
 
 ## Performance Optimization
 

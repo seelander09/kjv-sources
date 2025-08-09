@@ -1529,5 +1529,296 @@ def pov_statistics():
     except Exception as e:
         console.print(f"[red]❌ Error getting POV statistics: {e}[/red]")
 
+# ====== DOUBLET ANALYSIS COMMANDS ======
+
+@qdrant.command()
+@click.option("--limit", default=50, help="Number of results to return")
+def search_doublets(limit):
+    """Search for all verses that are part of doublets."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_doublets(limit=limit)
+        
+        if results:
+            table = Table(title=f"📚 Doublet Verses (Top {len(results)})")
+            table.add_column("Reference", style="bold blue")
+            table.add_column("Text", style="white", max_width=50)
+            table.add_column("Sources", style="yellow")
+            table.add_column("Doublet Names", style="green")
+            table.add_column("Categories", style="cyan")
+            table.add_column("Score", justify="right", style="magenta")
+            
+            for result in results:
+                doublet_names = ", ".join(result.get("doublet_names", [])[:2])  # Show first 2
+                categories = ", ".join(result.get("doublet_categories", []))
+                
+                table.add_row(
+                    result["canonical_reference"],
+                    result["full_text"][:60] + "..." if len(result["full_text"]) > 60 else result["full_text"],
+                    result["sources"],
+                    doublet_names,
+                    categories,
+                    f"{result['score']:.3f}"
+                )
+            
+            console.print(table)
+            console.print(f"\n[green]✅ Found {len(results)} doublet verses[/green]")
+        else:
+            console.print("[yellow]No doublet verses found[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching doublets: {e}[/red]")
+
+@qdrant.command()
+@click.argument("category", type=click.Choice(["cosmogony", "genealogy", "catastrophe", "deception", "covenant", "family_conflict", "prophetic_calling", "law", "wilderness_miracle", "wilderness_provision"]))
+@click.option("--limit", default=20, help="Number of results to return")
+def search_doublets_by_category(category, limit):
+    """Search for doublets by category."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_doublets_by_category(category, limit=limit)
+        
+        if results:
+            table = Table(title=f"📚 Doublets in '{category}' Category")
+            table.add_column("Reference", style="bold blue")
+            table.add_column("Text", style="white", max_width=50)
+            table.add_column("Sources", style="yellow")
+            table.add_column("Doublet Name", style="green")
+            table.add_column("Themes", style="cyan")
+            
+            for result in results:
+                doublet_name = result.get("doublet_names", [""])[0] if result.get("doublet_names") else ""
+                themes = ", ".join(result.get("doublet_themes", [])[:3])  # Show first 3
+                
+                table.add_row(
+                    result["canonical_reference"],
+                    result["full_text"][:60] + "..." if len(result["full_text"]) > 60 else result["full_text"],
+                    result["sources"],
+                    doublet_name,
+                    themes
+                )
+            
+            console.print(table)
+            console.print(f"\n[green]✅ Found {len(results)} verses in '{category}' doublets[/green]")
+        else:
+            console.print(f"[yellow]No doublets found in '{category}' category[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching doublets by category: {e}[/red]")
+
+@qdrant.command()
+@click.argument("doublet_name")
+@click.option("--limit", default=20, help="Number of results to return")
+def search_doublets_by_name(doublet_name, limit):
+    """Search for verses from a specific doublet by name."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_doublets_by_name(doublet_name, limit=limit)
+        
+        if results:
+            table = Table(title=f"📚 Verses from '{doublet_name}' Doublet")
+            table.add_column("Reference", style="bold blue")
+            table.add_column("Text", style="white", max_width=60)
+            table.add_column("Sources", style="yellow")
+            table.add_column("Parallels", style="green", max_width=30)
+            
+            for result in results:
+                parallels = ", ".join(result.get("parallel_passages", [])[:2])  # Show first 2
+                
+                table.add_row(
+                    result["canonical_reference"],
+                    result["full_text"][:80] + "..." if len(result["full_text"]) > 80 else result["full_text"],
+                    result["sources"],
+                    parallels
+                )
+            
+            console.print(table)
+            console.print(f"\n[green]✅ Found {len(results)} verses from '{doublet_name}' doublet[/green]")
+        else:
+            console.print(f"[yellow]No verses found for doublet '{doublet_name}'[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching doublets by name: {e}[/red]")
+
+@qdrant.command()
+@click.argument("book")
+@click.argument("chapter", type=int)
+@click.argument("verse", type=int)
+def search_doublet_parallels(book, chapter, verse):
+    """Find parallel passages for a specific verse if it's part of a doublet."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_doublet_parallels(book, chapter, verse)
+        
+        if results:
+            console.print(f"[blue]📖 Parallel passages for {book} {chapter}:{verse}[/blue]\n")
+            
+            table = Table(title="Parallel Passages")
+            table.add_column("Reference", style="bold blue")
+            table.add_column("Text", style="white", max_width=60)
+            table.add_column("Sources", style="yellow")
+            table.add_column("Doublet", style="green")
+            table.add_column("Differences", style="cyan", max_width=30)
+            
+            for result in results:
+                doublet_name = result.get("doublet_names", [""])[0] if result.get("doublet_names") else ""
+                differences = ", ".join(result.get("theological_differences", [])[:2])
+                
+                table.add_row(
+                    result["canonical_reference"],
+                    result["full_text"][:80] + "..." if len(result["full_text"]) > 80 else result["full_text"],
+                    result["sources"],
+                    doublet_name,
+                    differences
+                )
+            
+            console.print(table)
+            console.print(f"\n[green]✅ Found {len(results)} parallel passages[/green]")
+        else:
+            console.print(f"[yellow]No parallel passages found for {book} {chapter}:{verse}. This verse may not be part of a doublet.[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error searching doublet parallels: {e}[/red]")
+
+@qdrant.command()
+@click.argument("query")
+@click.option("--category", help="Filter by doublet category")
+@click.option("--limit", default=20, help="Number of results to return")
+def search_hybrid_doublet(query, category, limit):
+    """Hybrid search combining semantic similarity with doublet filtering."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        results = client.search_hybrid_doublet(query, category=category, limit=limit)
+        
+        if results:
+            table = Table(title=f"🔍 Hybrid Doublet Search: '{query}'" + (f" (Category: {category})" if category else ""))
+            table.add_column("Reference", style="bold blue")
+            table.add_column("Text", style="white", max_width=50)
+            table.add_column("Sources", style="yellow")
+            table.add_column("Doublet", style="green")
+            table.add_column("Category", style="cyan")
+            table.add_column("Score", justify="right", style="magenta")
+            
+            for result in results:
+                doublet_name = result.get("doublet_names", [""])[0] if result.get("doublet_names") else ""
+                category_display = result.get("doublet_categories", [""])[0] if result.get("doublet_categories") else ""
+                
+                table.add_row(
+                    result["canonical_reference"],
+                    result["full_text"][:60] + "..." if len(result["full_text"]) > 60 else result["full_text"],
+                    result["sources"],
+                    doublet_name,
+                    category_display,
+                    f"{result['score']:.3f}"
+                )
+            
+            console.print(table)
+            console.print(f"\n[green]✅ Found {len(results)} relevant doublet verses[/green]")
+        else:
+            console.print(f"[yellow]No doublet verses found for '{query}'[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error in hybrid doublet search: {e}[/red]")
+
+@qdrant.command()
+def doublet_statistics():
+    """Get comprehensive doublet statistics."""
+    if not QDRANT_AVAILABLE:
+        return
+    
+    try:
+        client = create_qdrant_client()
+        stats = client.get_doublet_statistics()
+        
+        if stats:
+            # Create statistics tables
+            console.print(Panel.fit("📚 Doublet Analysis Statistics", style="bold blue"))
+            
+            # Overall stats
+            overall_table = Table(title="Overall Doublet Statistics")
+            overall_table.add_column("Metric", style="bold")
+            overall_table.add_column("Value", style="green")
+            overall_table.add_column("Percentage", style="blue")
+            
+            total = stats["total_verses"]
+            doublet_verses = stats["doublet_verses"]
+            non_doublet = stats["non_doublet_verses"]
+            
+            overall_table.add_row("Total Verses", str(total), "100.0%")
+            overall_table.add_row("Doublet Verses", str(doublet_verses), f"{(doublet_verses/total*100):.1f}%" if total > 0 else "0%")
+            overall_table.add_row("Non-Doublet Verses", str(non_doublet), f"{(non_doublet/total*100):.1f}%" if total > 0 else "0%")
+            overall_table.add_row("Unique Doublets", str(stats["unique_doublet_count"]), "")
+            
+            console.print(overall_table)
+            
+            # Doublet categories
+            if stats["doublet_categories"]:
+                category_table = Table(title="Doublet Categories")
+                category_table.add_column("Category", style="bold")
+                category_table.add_column("Verse Count", justify="right", style="green")
+                
+                sorted_categories = sorted(stats["doublet_categories"].items(), key=lambda x: x[1], reverse=True)
+                for category, count in sorted_categories:
+                    category_table.add_row(category, str(count))
+                
+                console.print(category_table)
+            
+            # Doublets by book
+            if stats["doublets_by_book"]:
+                book_table = Table(title="Doublets by Book")
+                book_table.add_column("Book", style="bold")
+                book_table.add_column("Doublet Verses", justify="right", style="green")
+                
+                sorted_books = sorted(stats["doublets_by_book"].items(), key=lambda x: x[1], reverse=True)
+                for book, count in sorted_books:
+                    book_table.add_row(book, str(count))
+                
+                console.print(book_table)
+            
+            # Source distribution in doublets
+            if stats["source_doublet_distribution"]:
+                source_table = Table(title="Source Distribution in Doublets")
+                source_table.add_column("Source", style="bold")
+                source_table.add_column("Doublet Occurrences", justify="right", style="green")
+                
+                for source, count in stats["source_doublet_distribution"].items():
+                    if count > 0:
+                        source_table.add_row(source, str(count))
+                
+                console.print(source_table)
+            
+            # Top doublet names
+            if stats["doublet_names"]:
+                name_table = Table(title="Most Common Doublets")
+                name_table.add_column("Doublet Name", style="bold")
+                name_table.add_column("Verse Count", justify="right", style="green")
+                
+                sorted_names = sorted(stats["doublet_names"].items(), key=lambda x: x[1], reverse=True)
+                for name, count in sorted_names[:10]:  # Top 10
+                    name_table.add_row(name, str(count))
+                
+                console.print(name_table)
+            
+        else:
+            console.print("[yellow]No doublet statistics available[/yellow]")
+            
+    except Exception as e:
+        console.print(f"[red]❌ Error getting doublet statistics: {e}[/red]")
+
 if __name__ == "__main__":
     cli() 

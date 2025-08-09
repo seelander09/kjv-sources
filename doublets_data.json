@@ -1,0 +1,437 @@
+{
+  "doublets": [
+    {
+      "id": "creation_narratives",
+      "name": "Creation Stories",
+      "description": "Two different creation accounts in Genesis",
+      "category": "cosmogony",
+      "sources": ["P", "J"],
+      "passages": [
+        {
+          "reference": "Genesis 1:1-2:3",
+          "source": "P",
+          "book": "Genesis",
+          "chapter_start": 1,
+          "verse_start": 1,
+          "chapter_end": 2,
+          "verse_end": 3,
+          "themes": ["creation", "ordered_creation", "sabbath", "divine_command"],
+          "characteristics": ["systematic", "liturgical", "seven_days", "elohim"]
+        },
+        {
+          "reference": "Genesis 2:4b-25",
+          "source": "J",
+          "book": "Genesis",
+          "chapter_start": 2,
+          "verse_start": 4,
+          "chapter_end": 2,
+          "verse_end": 25,
+          "themes": ["creation", "anthropomorphic_creation", "garden_of_eden", "human_formation"],
+          "characteristics": ["anthropomorphic", "narrative", "garden_focus", "yahweh"]
+        }
+      ],
+      "theological_differences": [
+        "Divine name (Elohim vs Yahweh)",
+        "Creation order (cosmos first vs humans first)", 
+        "Divine method (word vs hands)",
+        "Human creation (image vs dust)"
+      ]
+    },
+    {
+      "id": "genealogy_adam",
+      "name": "Genealogy from Adam",
+      "description": "Two genealogical accounts from Adam",
+      "category": "genealogy",
+      "sources": ["J", "P"],
+      "passages": [
+        {
+          "reference": "Genesis 4:17-26",
+          "source": "J",
+          "book": "Genesis",
+          "chapter_start": 4,
+          "verse_start": 17,
+          "chapter_end": 4,
+          "verse_end": 26,
+          "themes": ["genealogy", "cain_lineage", "civilization_development"],
+          "characteristics": ["cultural_development", "city_building", "invention"]
+        },
+        {
+          "reference": "Genesis 5:1-28,30-32",
+          "source": "P",
+          "book": "Genesis",
+          "chapter_start": 5,
+          "verse_start": 1,
+          "chapter_end": 5,
+          "verse_end": 32,
+          "themes": ["genealogy", "seth_lineage", "longevity", "ages"],
+          "characteristics": ["priestly_record", "systematic_ages", "longevity_emphasis"]
+        }
+      ],
+      "theological_differences": [
+        "Lineage focus (Cain vs Seth)",
+        "Purpose (cultural vs chronological)",
+        "Emphasis (achievement vs longevity)"
+      ]
+    },
+    {
+      "id": "flood_narrative",
+      "name": "Flood Narrative",
+      "description": "Two interwoven flood accounts",
+      "category": "catastrophe",
+      "sources": ["J", "P"],
+      "passages": [
+        {
+          "reference": "Genesis 6:5-8; 7:1-5,7,10,12,16b-20,22-23; 8:2b-3a,6,8-12,13b,20-22",
+          "source": "J",
+          "book": "Genesis",
+          "chapter_start": 6,
+          "verse_start": 5,
+          "chapter_end": 8,
+          "verse_end": 22,
+          "themes": ["divine_judgment", "noah_righteousness", "animal_sacrifice"],
+          "characteristics": ["anthropomorphic_god", "forty_days", "clean_unclean_distinction"]
+        },
+        {
+          "reference": "Genesis 6:9-22; 7:8-9,11,13-16a,21,24; 8:1-2a,3b-5,7,13a,14-19; 9:1-17",
+          "source": "P",
+          "book": "Genesis",
+          "chapter_start": 6,
+          "verse_start": 9,
+          "chapter_end": 9,
+          "verse_end": 17,
+          "themes": ["covenant", "noah_righteousness", "divine_order"],
+          "characteristics": ["systematic_chronology", "ark_specifications", "covenant_establishment"]
+        }
+      ],
+      "theological_differences": [
+        "Animal numbers (7 pairs vs 1 pair)",
+        "Duration emphasis (40 days vs 1 year)",
+        "Divine character (anthropomorphic vs transcendent)",
+        "Conclusion (sacrifice vs covenant)"
+      ]
+    },
+    {
+      "id": "wife_sister_motif",
+      "name": "Wife-Sister Motif",
+      "description": "Three accounts of patriarch presenting wife as sister",
+      "category": "deception",
+      "sources": ["J", "E"],
+      "passages": [
+        {
+          "reference": "Genesis 12:10-20",
+          "source": "J",
+          "book": "Genesis",
+          "chapter_start": 12,
+          "verse_start": 10,
+          "chapter_end": 12,
+          "verse_end": 20,
+          "themes": ["deception", "famine", "egypt", "pharaoh"],
+          "characteristics": ["abraham_sarah", "egypt_setting", "plagues_result"]
+        },
+        {
+          "reference": "Genesis 20:1-18",
+          "source": "E",
+          "book": "Genesis",
+          "chapter_start": 20,
+          "verse_start": 1,
+          "chapter_end": 20,
+          "verse_end": 18,
+          "themes": ["deception", "abimelech", "gerar", "dreams"],
+          "characteristics": ["abraham_sarah", "philistine_setting", "divine_dreams"]
+        },
+        {
+          "reference": "Genesis 26:6-14",
+          "source": "J",
+          "book": "Genesis",
+          "chapter_start": 26,
+          "verse_start": 6,
+          "chapter_end": 26,
+          "verse_end": 14,
+          "themes": ["deception", "isaac_rebekah", "abimelech", "wells"],
+          "characteristics": ["isaac_rebekah", "philistine_setting", "agricultural_prosperity"]
+        }
+      ],
+      "theological_differences": [
+        "Patriarch (Abraham vs Isaac)",
+        "Location (Egypt vs Gerar)",
+        "Divine intervention method (plagues vs dreams vs observation)",
+        "Resolution outcome (expulsion vs gifts vs prosperity)"
+      ]
+    },
+    {
+      "id": "abrahamic_covenant",
+      "name": "Abrahamic Covenant",
+      "description": "Two major covenant accounts",
+      "category": "covenant",
+      "sources": ["J", "E", "R", "P"],
+      "passages": [
+        {
+          "reference": "Genesis 15",
+          "source": "J/E/R",
+          "book": "Genesis",
+          "chapter_start": 15,
+          "verse_start": 1,
+          "chapter_end": 15,
+          "verse_end": 21,
+          "themes": ["covenant", "faith_righteousness", "land_promise", "ritual"],
+          "characteristics": ["ritual_ceremony", "faith_emphasis", "future_prediction"]
+        },
+        {
+          "reference": "Genesis 17",
+          "source": "P",
+          "book": "Genesis",
+          "chapter_start": 17,
+          "verse_start": 1,
+          "chapter_end": 17,
+          "verse_end": 27,
+          "themes": ["covenant", "circumcision", "name_change", "eternal_covenant"],
+          "characteristics": ["circumcision_sign", "priestly_emphasis", "eternal_covenant"]
+        }
+      ],
+      "theological_differences": [
+        "Covenant sign (ritual cutting vs circumcision)",
+        "Emphasis (faith vs law)",
+        "Divine name (Yahweh vs El Shaddai)",
+        "Scope (conditional vs eternal)"
+      ]
+    },
+    {
+      "id": "hagar_ishmael",
+      "name": "Hagar and Ishmael",
+      "description": "Multiple accounts of Hagar's experience",
+      "category": "family_conflict",
+      "sources": ["J", "P", "E"],
+      "passages": [
+        {
+          "reference": "Genesis 16:1-2,4-14",
+          "source": "J",
+          "book": "Genesis",
+          "chapter_start": 16,
+          "verse_start": 1,
+          "chapter_end": 16,
+          "verse_end": 14,
+          "themes": ["barrenness", "surrogacy", "conflict", "divine_encounter"],
+          "characteristics": ["pre_birth_account", "well_naming", "angel_encounter"]
+        },
+        {
+          "reference": "Genesis 16:3,15-16",
+          "source": "P",
+          "book": "Genesis",
+          "chapter_start": 16,
+          "verse_start": 3,
+          "chapter_end": 16,
+          "verse_end": 16,
+          "themes": ["chronology", "birth_record"],
+          "characteristics": ["priestly_chronology", "birth_notation"]
+        },
+        {
+          "reference": "Genesis 21:8-19",
+          "source": "E",
+          "book": "Genesis",
+          "chapter_start": 21,
+          "verse_start": 8,
+          "chapter_end": 21,
+          "verse_end": 19,
+          "themes": ["expulsion", "divine_provision", "survival"],
+          "characteristics": ["post_birth_account", "wilderness_survival", "divine_rescue"]
+        }
+      ],
+      "theological_differences": [
+        "Timing (pre-birth vs post-birth)",
+        "Divine interaction (angel vs God)",
+        "Focus (promise vs survival)",
+        "Outcome (return vs permanent departure)"
+      ]
+    },
+    {
+      "id": "moses_commissioning",
+      "name": "Moses' Divine Commission",
+      "description": "Multiple accounts of Moses' calling",
+      "category": "prophetic_calling",
+      "sources": ["J", "E", "P"],
+      "passages": [
+        {
+          "reference": "Exodus 3:2-4a,5,7-8,19-22; 4:19-20a",
+          "source": "J",
+          "book": "Exodus",
+          "chapter_start": 3,
+          "verse_start": 2,
+          "chapter_end": 4,
+          "verse_end": 20,
+          "themes": ["burning_bush", "divine_name", "mission"],
+          "characteristics": ["yahweh_revelation", "immediate_mission"]
+        },
+        {
+          "reference": "Exodus 3:1,4b,6,9-18; 4:1-18,20b-21a,22-23",
+          "source": "E",
+          "book": "Exodus",
+          "chapter_start": 3,
+          "verse_start": 1,
+          "chapter_end": 4,
+          "verse_end": 23,
+          "themes": ["burning_bush", "signs", "aaron_helper"],
+          "characteristics": ["elohim_usage", "miraculous_signs", "aaron_appointment"]
+        },
+        {
+          "reference": "Exodus 6:2-12",
+          "source": "P",
+          "book": "Exodus",
+          "chapter_start": 6,
+          "verse_start": 2,
+          "chapter_end": 6,
+          "verse_end": 12,
+          "themes": ["divine_name_revelation", "covenant_fulfillment"],
+          "characteristics": ["patriarchal_connection", "covenant_emphasis", "priestly_genealogy"]
+        }
+      ],
+      "theological_differences": [
+        "Divine name usage (Yahweh vs Elohim vs El Shaddai)",
+        "Signs emphasis (immediate vs detailed vs genealogical)",
+        "Helper provision (none vs Aaron vs Levitical priesthood)",
+        "Historical connection (immediate vs patriarchal)"
+      ]
+    },
+    {
+      "id": "ten_commandments",
+      "name": "Ten Commandments",
+      "description": "Multiple versions of the Decalogue",
+      "category": "law",
+      "sources": ["R", "J", "D"],
+      "passages": [
+        {
+          "reference": "Exodus 20:1-17",
+          "source": "R",
+          "book": "Exodus",
+          "chapter_start": 20,
+          "verse_start": 1,
+          "chapter_end": 20,
+          "verse_end": 17,
+          "themes": ["divine_law", "moral_commandments", "covenant_stipulations"],
+          "characteristics": ["ethical_decalogue", "covenant_context"]
+        },
+        {
+          "reference": "Exodus 34:10-28",
+          "source": "J",
+          "book": "Exodus",
+          "chapter_start": 34,
+          "verse_start": 10,
+          "chapter_end": 34,
+          "verse_end": 28,
+          "themes": ["ritual_law", "cultic_commandments", "covenant_renewal"],
+          "characteristics": ["ritual_decalogue", "cultic_focus"]
+        },
+        {
+          "reference": "Deuteronomy 5:6-18",
+          "source": "D",
+          "book": "Deuteronomy",
+          "chapter_start": 5,
+          "verse_start": 6,
+          "chapter_end": 5,
+          "verse_end": 18,
+          "themes": ["covenant_renewal", "moral_law", "deuteronomic_theology"],
+          "characteristics": ["deuteronomic_style", "expanded_explanations"]
+        }
+      ],
+      "theological_differences": [
+        "Focus (ethical vs ritual vs renewal)",
+        "Context (first giving vs renewal vs deuteronomic)",
+        "Style (concise vs detailed vs explanatory)",
+        "Emphasis (universal vs cultic vs covenantal)"
+      ]
+    },
+    {
+      "id": "water_from_rock",
+      "name": "Water from Rock",
+      "description": "Two accounts of Moses bringing water from rock",
+      "category": "wilderness_miracle",
+      "sources": ["E", "P"],
+      "passages": [
+        {
+          "reference": "Exodus 17:2-7",
+          "source": "E",
+          "book": "Exodus",
+          "chapter_start": 17,
+          "verse_start": 2,
+          "chapter_end": 17,
+          "verse_end": 7,
+          "themes": ["wilderness_testing", "divine_provision", "massah_meribah"],
+          "characteristics": ["early_wilderness", "testing_theme", "place_naming"]
+        },
+        {
+          "reference": "Numbers 20:2-13",
+          "source": "P",
+          "book": "Numbers",
+          "chapter_start": 20,
+          "verse_start": 2,
+          "chapter_end": 20,
+          "verse_end": 13,
+          "themes": ["wilderness_rebellion", "moses_failure", "kadesh"],
+          "characteristics": ["late_wilderness", "moses_sin", "leadership_failure"]
+        }
+      ],
+      "theological_differences": [
+        "Timing (early vs late wilderness)",
+        "Moses' role (obedient vs disobedient)",
+        "Consequence (none vs exclusion from promised land)",
+        "Location (Horeb/Sinai vs Kadesh)"
+      ]
+    },
+    {
+      "id": "manna_quail",
+      "name": "Manna and Quail Provision",
+      "description": "Two accounts of wilderness food provision",
+      "category": "wilderness_provision",
+      "sources": ["P", "E"],
+      "passages": [
+        {
+          "reference": "Exodus 16:2-3,6-35a",
+          "source": "P",
+          "book": "Exodus",
+          "chapter_start": 16,
+          "verse_start": 2,
+          "chapter_end": 16,
+          "verse_end": 35,
+          "themes": ["manna", "sabbath_law", "divine_provision", "testing"],
+          "characteristics": ["systematic_provision", "sabbath_emphasis", "detailed_instructions"]
+        },
+        {
+          "reference": "Numbers 11:4-34",
+          "source": "E",
+          "book": "Numbers",
+          "chapter_start": 11,
+          "verse_start": 4,
+          "chapter_end": 11,
+          "verse_end": 34,
+          "themes": ["quail", "complaint", "divine_anger", "craving"],
+          "characteristics": ["complaint_focus", "divine_anger", "mass_provision"]
+        }
+      ],
+      "theological_differences": [
+        "Food type emphasis (manna vs quail)",
+        "Divine response (provision vs anger)",
+        "People's attitude (testing vs craving)",
+        "Outcome (blessing vs judgment)"
+      ]
+    }
+  ],
+  "categories": {
+    "cosmogony": "Creation and origin stories",
+    "genealogy": "Family lineages and ancestral records", 
+    "catastrophe": "Divine judgment and natural disasters",
+    "deception": "Stories involving deception or misdirection",
+    "covenant": "Divine covenant making and renewal",
+    "family_conflict": "Domestic and family tensions",
+    "prophetic_calling": "Divine calling of leaders and prophets",
+    "law": "Legal and commandment traditions",
+    "wilderness_miracle": "Miraculous provisions in the wilderness",
+    "wilderness_provision": "God's provision during wilderness wandering"
+  },
+  "analysis_dimensions": {
+    "source_attribution": "Which documentary sources tell this story",
+    "theological_emphasis": "Different theological perspectives in each account",
+    "narrative_purpose": "Why each version exists and what it emphasizes",
+    "historical_development": "How the tradition developed over time",
+    "redactional_integration": "How the editor combined different versions",
+    "literary_characteristics": "Distinctive literary features of each source"
+  }
+}
