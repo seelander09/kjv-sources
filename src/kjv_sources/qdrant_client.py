@@ -121,19 +121,28 @@ class KJVQdrantClient:
                     "pov_spatial", "pov_social", "pov_theological"
                 ]
                 
-                # Doublet field indexes
-                doublet_fields = [
-                    "is_doublet", "doublet_categories", "doublet_names", "doublet_ids"
+                # Doublet keyword field indexes
+                doublet_keyword_fields = [
+                    "doublet_categories", "doublet_names", "doublet_ids"
                 ]
                 
-                # Other filterable fields
-                other_fields = [
-                    "book", "chapter", "verse", "sources", "source_count",
-                    "primary_source", "is_multi_source"
+                # Boolean fields
+                boolean_fields = [
+                    "is_doublet", "is_multi_source"
                 ]
                 
-                # Create indexes for all filterable fields
-                for field in pov_fields + doublet_fields + other_fields:
+                # Text/keyword filterable fields
+                text_fields = [
+                    "book", "sources", "primary_source"
+                ]
+                
+                # Numeric filterable fields
+                numeric_fields = [
+                    "chapter", "verse", "source_count"
+                ]
+                
+                # Create indexes for text/keyword fields
+                for field in pov_fields + doublet_keyword_fields + text_fields:
                     try:
                         self.client.create_payload_index(
                             collection_name=self.collection_name,
@@ -142,6 +151,28 @@ class KJVQdrantClient:
                         )
                     except Exception as e:
                         console.print(f"[yellow]⚠️ Could not create index for {field}: {e}[/yellow]")
+                
+                # Create indexes for numeric fields
+                for field in numeric_fields:
+                    try:
+                        self.client.create_payload_index(
+                            collection_name=self.collection_name,
+                            field_name=field,
+                            field_schema="integer"
+                        )
+                    except Exception as e:
+                        console.print(f"[yellow]⚠️ Could not create numeric index for {field}: {e}[/yellow]")
+                
+                # Create indexes for boolean fields
+                for field in boolean_fields:
+                    try:
+                        self.client.create_payload_index(
+                            collection_name=self.collection_name,
+                            field_name=field,
+                            field_schema="bool"
+                        )
+                    except Exception as e:
+                        console.print(f"[yellow]⚠️ Could not create boolean index for {field}: {e}[/yellow]")
                 
                 # Create text indexes for array fields
                 array_fields = ["pov_themes", "parallel_passages", "theological_differences", "doublet_themes"]
@@ -940,7 +971,18 @@ class KJVQdrantClient:
                 "pov_perspective": result.payload.get("pov_perspective", ""),
                 "pov_purpose": result.payload.get("pov_purpose", ""),
                 "pov_complexity": result.payload.get("pov_complexity", ""),
-                "pov_confidence": result.payload.get("pov_confidence", 0.0)
+                "pov_confidence": result.payload.get("pov_confidence", 0.0),
+                # Doublet Analysis Fields
+                "is_doublet": result.payload.get("is_doublet", False),
+                "doublet_ids": result.payload.get("doublet_ids", []),
+                "doublet_names": result.payload.get("doublet_names", []),
+                "doublet_categories": result.payload.get("doublet_categories", []),
+                "parallel_passages": result.payload.get("parallel_passages", []),
+                "theological_differences": result.payload.get("theological_differences", []),
+                "doublet_themes": result.payload.get("doublet_themes", []),
+                # Consistent field access
+                "canonical_reference": result.payload.get("canonical_reference", ""),
+                "full_text": result.payload.get("full_text", "")
             })
         return results
     
