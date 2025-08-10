@@ -1,0 +1,10 @@
+[33m49c13e7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m wrapper api for RAG complete
+[33m7cd8ab0[m[33m ([m[1;33mtag: [m[1;33mv2.1-doublet-working[m[33m, [m[1;31morigin/phase-2-doublet-working[m[33m, [m[1;32mphase-2-doublet-working[m[33m)[m Fix doublet indexing and validate complete system functionality
+[33m6ca78db[m[33m ([m[1;33mtag: [m[1;33mv2.0-doublet-analysis[m[33m, [m[1;31morigin/phase-2-doublet-complete[m[33m, [m[1;32mphase-2-doublet-complete[m[33m)[m Phase 2: Implement comprehensive doublet analysis system
+[33m89bbff0[m POV analysis fully implemented and working
+[33m4bdc3c5[m Fix POV analysis: Add missing field indexes to Qdrant collection
+[33m592ea1a[m Add POV analysis features and enhanced Qdrant capabilities
+[33m88b924f[m Enhanced Qdrant integration with entity-relation features
+[33m5769637[m Add LightRAG integration for entity-relation reasoning and structured queries
+[33m2ed6b51[m Add Qdrant vector database integration and enhanced CLI features
+[33m1577f81[m cleanup folder structure
