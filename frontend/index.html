@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KJV Sources - Mathematical Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .search-btn {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .results-count {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .search-time {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .word-result {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s;
+        }
+
+        .word-result:hover {
+            transform: translateX(5px);
+        }
+
+        .word-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .word-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .word-reference {
+            font-size: 0.9rem;
+            color: #666;
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+
+        .word-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .patterns-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .pattern-item {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .pattern-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .pattern-word {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .pattern-count {
+            background: #fff;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .pattern-flags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .pattern-flag {
+            background: #fff;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .flag-sevened {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .flag-777 {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #f5c6cb;
+        }
+
+        .api-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .status-healthy {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .word-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔢 KJV Sources</h1>
+            <p>Mathematical Pattern Analysis of the King James Version Bible</p>
+        </div>
+
+        <div class="api-status" id="apiStatus">
+            Checking API...
+        </div>
+
+        <div class="search-section">
+            <h2>🔍 Search the Bible</h2>
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchInput" placeholder="Enter a word to search (e.g., 'God', 'Lord', 'Jesus')" />
+                <button class="search-btn" onclick="searchBible()">Search</button>
+            </div>
+            <p style="color: #666; font-size: 0.9rem;">
+                Search for words and discover their mathematical patterns, positions, and source attributions.
+            </p>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h3>📊 Search Results</h3>
+                <div>
+                    <span class="results-count" id="resultsCount">0 results</span>
+                    <span class="search-time" id="searchTime"></span>
+                </div>
+            </div>
+            <div id="resultsList"></div>
+        </div>
+
+        <div class="patterns-section" id="patternsSection" style="display: none;">
+            <h3>🧮 Mathematical Patterns</h3>
+            <div id="patternsList"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000/api';
+
+        // Check API health on page load
+        window.addEventListener('load', checkApiHealth);
+
+        async function checkApiHealth() {
+            const statusElement = document.getElementById('apiStatus');
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+                
+                if (data.status === 'healthy') {
+                    statusElement.textContent = '✅ API Healthy';
+                    statusElement.className = 'api-status status-healthy';
+                } else {
+                    throw new Error('API not healthy');
+                }
+            } catch (error) {
+                statusElement.textContent = '❌ API Error';
+                statusElement.className = 'api-status status-error';
+                console.error('API health check failed:', error);
+            }
+        }
+
+        async function searchBible() {
+            const searchInput = document.getElementById('searchInput');
+            const query = searchInput.value.trim();
+            
+            if (!query) {
+                alert('Please enter a search term');
+                return;
+            }
+
+            // Show loading
+            showLoading();
+
+            try {
+                const response = await fetch(`${API_BASE}/search?q=${encodeURIComponent(query)}&limit=20&include_patterns=true`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                displayResults(data);
+            } catch (error) {
+                console.error('Search failed:', error);
+                showError('Search failed. Please check if the API server is running.');
+            }
+        }
+
+        function showLoading() {
+            const resultsSection = document.getElementById('resultsSection');
+            const patternsSection = document.getElementById('patternsSection');
+            
+            resultsSection.style.display = 'block';
+            patternsSection.style.display = 'block';
+            
+            document.getElementById('resultsList').innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Searching the Bible...</p>
+                </div>
+            `;
+            
+            document.getElementById('patternsList').innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Analyzing patterns...</p>
+                </div>
+            `;
+        }
+
+        function showError(message) {
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.style.display = 'block';
+            
+            document.getElementById('resultsList').innerHTML = `
+                <div class="error">
+                    <strong>Error:</strong> ${message}
+                </div>
+            `;
+        }
+
+        function displayResults(data) {
+            // Update results count and search time
+            document.getElementById('resultsCount').textContent = `${data.total_results} results`;
+            document.getElementById('searchTime').textContent = `(${data.search_time_ms.toFixed(2)}ms)`;
+
+            // Display word results
+            const resultsList = document.getElementById('resultsList');
+            if (data.results.length === 0) {
+                resultsList.innerHTML = '<p style="text-align: center; color: #666; padding: 40px;">No results found</p>';
+            } else {
+                resultsList.innerHTML = data.results.map(word => `
+                    <div class="word-result">
+                        <div class="word-header">
+                            <span class="word-text">${word.word}</span>
+                            <span class="word-reference">${word.canonical_reference}</span>
+                        </div>
+                        <div class="word-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Global Position:</span>
+                                <span class="detail-value">${word.position_global}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Word Length:</span>
+                                <span class="detail-value">${word.word_length}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Capitalized:</span>
+                                <span class="detail-value">${word.is_capitalized ? 'Yes' : 'No'}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Proper Name:</span>
+                                <span class="detail-value">${word.is_proper_name ? 'Yes' : 'No'}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Sources:</span>
+                                <span class="detail-value">${word.source_attribution.join(', ') || 'None'}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Display patterns
+            const patternsList = document.getElementById('patternsList');
+            if (data.patterns_found.length === 0) {
+                patternsList.innerHTML = '<p style="text-align: center; color: #666; padding: 40px;">No mathematical patterns found</p>';
+            } else {
+                patternsList.innerHTML = data.patterns_found.map(pattern => `
+                    <div class="pattern-item">
+                        <div class="pattern-header">
+                            <span class="pattern-word">${pattern.word}</span>
+                            <span class="pattern-count">${pattern.total_count} occurrences</span>
+                        </div>
+                        <div class="pattern-details">
+                            <div class="detail-item">
+                                <span class="detail-label">First Occurrence:</span>
+                                <span class="detail-value">${pattern.first_occurrence}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Last Occurrence:</span>
+                                <span class="detail-value">${pattern.last_occurrence}</span>
+                            </div>
+                        </div>
+                        <div class="pattern-flags">
+                            ${pattern.is_sevened ? '<span class="pattern-flag flag-sevened">7-Pattern</span>' : ''}
+                            ${pattern.is_777 ? '<span class="pattern-flag flag-777">777</span>' : ''}
+                            ${pattern.is_70x7 ? '<span class="pattern-flag">70×7</span>' : ''}
+                            ${pattern.is_77 ? '<span class="pattern-flag">77</span>' : ''}
+                            ${pattern.is_343 ? '<span class="pattern-flag">343</span>' : ''}
+                            ${pattern.is_490 ? '<span class="pattern-flag">490</span>' : ''}
+                            ${pattern.is_980 ? '<span class="pattern-flag">980</span>' : ''}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            document.getElementById('resultsSection').style.display = 'block';
+            document.getElementById('patternsSection').style.display = 'block';
+        }
+
+        // Allow Enter key to trigger search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchBible();
+            }
+        });
+    </script>
+</body>
+</html>

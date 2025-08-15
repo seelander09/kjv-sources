@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KJV Bible Reader - Mathematical Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .header p {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .control-group select, .control-group input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .control-group select:focus, .control-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+            height: calc(100vh - 250px);
+        }
+
+        .bible-text {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .verse {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .verse:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .verse-reference {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .verse-text {
+            line-height: 1.6;
+            font-size: 1.05em;
+            color: #34495e;
+        }
+
+        .word {
+            display: inline-block;
+            padding: 2px 4px;
+            margin: 1px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .word:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: scale(1.05);
+        }
+
+        .word.source-J { background: rgba(255, 193, 7, 0.2); }
+        .word.source-E { background: rgba(40, 167, 69, 0.2); }
+        .word.source-P { background: rgba(220, 53, 69, 0.2); }
+        .word.source-R { background: rgba(108, 117, 125, 0.2); }
+        .word.source-UNKNOWN { background: rgba(255, 193, 7, 0.1); }
+
+        .word.proper-name {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .word.capitalized {
+            color: #2c3e50;
+        }
+
+        .sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #667eea;
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .info-card p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .pattern-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin: 2px;
+        }
+
+        .pattern-7 { background: #e74c3c; color: white; }
+        .pattern-77 { background: #f39c12; color: white; }
+        .pattern-777 { background: #9b59b6; color: white; }
+        .pattern-490 { background: #3498db; color: white; }
+        .pattern-343 { background: #1abc9c; color: white; }
+
+        .search-results {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .search-result {
+            padding: 8px;
+            border-bottom: 1px solid #ecf0f1;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-result:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+        }
+
+        .error {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .success {
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔢 KJV Bible Reader</h1>
+            <p>Mathematical Pattern Analysis with Source Attribution</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="bookSelect">Book:</label>
+                <select id="bookSelect">
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="chapterSelect">Chapter:</label>
+                <select id="chapterSelect">
+                    <option value="">Select Book First</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="searchInput">Search:</label>
+                <input type="text" id="searchInput" placeholder="Enter word to search...">
+            </div>
+            
+            <div class="control-group">
+                <label>&nbsp;</label>
+                <button class="btn" onclick="loadChapter()">Load Chapter</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="bible-text" id="bibleText">
+                <div class="loading">
+                    <h3>Welcome to the KJV Bible Reader</h3>
+                    <p>Select a book and chapter to begin reading, or search for specific words to analyze mathematical patterns.</p>
+                    <p>Words are color-coded by source: <span class="word source-J">J (Yellow)</span> <span class="word source-E">E (Green)</span> <span class="word source-P">P (Red)</span> <span class="word source-R">R (Gray)</span></p>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <h3>📊 Analysis Panel</h3>
+                
+                <div class="info-card">
+                    <h4>Current Selection</h4>
+                    <p id="currentSelection">No word selected</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Mathematical Patterns</h4>
+                    <div id="patternInfo">
+                        <p>Click on a word to see its mathematical patterns</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>Source Attribution</h4>
+                    <div id="sourceInfo">
+                        <p>Source information will appear here</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>Search Results</h4>
+                    <div id="searchResults" class="search-results">
+                        <p>Search results will appear here</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>Statistics</h4>
+                    <div id="statistics">
+                        <p>Loading statistics...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentBook = '';
+        let currentChapter = '';
+        let wordData = [];
+        let patternEngine = null;
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBooks();
+            loadStatistics();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            document.getElementById('bookSelect').addEventListener('change', onBookChange);
+            document.getElementById('searchInput').addEventListener('input', debounce(onSearch, 300));
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        async function loadBooks() {
+            try {
+                const response = await fetch('/api/health');
+                const health = await response.json();
+                
+                if (health.components.word_data_loaded) {
+                    // Load books from the loaded data
+                    const books = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy'];
+                    populateBookSelect(books);
+                } else {
+                    // Load data first
+                    await loadBibleData();
+                    const books = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy'];
+                    populateBookSelect(books);
+                }
+            } catch (error) {
+                console.error('Error loading books:', error);
+                showError('Failed to load books. Please check if the API server is running.');
+            }
+        }
+
+        function populateBookSelect(books) {
+            const bookSelect = document.getElementById('bookSelect');
+            bookSelect.innerHTML = '<option value="">Select a Book</option>';
+            
+            books.forEach(book => {
+                const option = document.createElement('option');
+                option.value = book;
+                option.textContent = book;
+                bookSelect.appendChild(option);
+            });
+        }
+
+        async function loadBibleData() {
+            try {
+                const response = await fetch('/api/load-data');
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    showSuccess(`Loaded ${result.words_loaded} words from ${result.statistics.total_books} books`);
+                    return true;
+                } else {
+                    throw new Error('Failed to load Bible data');
+                }
+            } catch (error) {
+                console.error('Error loading Bible data:', error);
+                showError('Failed to load Bible data. Please check the API server.');
+                return false;
+            }
+        }
+
+        function onBookChange() {
+            const bookSelect = document.getElementById('bookSelect');
+            const chapterSelect = document.getElementById('chapterSelect');
+            
+            currentBook = bookSelect.value;
+            chapterSelect.innerHTML = '<option value="">Select Chapter</option>';
+            
+            if (currentBook) {
+                // Load chapters for the selected book
+                loadChapters(currentBook);
+            }
+        }
+
+        async function loadChapters(book) {
+            try {
+                // For now, we'll use a simple approach with predefined chapter counts
+                const chapterCounts = {
+                    'Genesis': 50,
+                    'Exodus': 40,
+                    'Leviticus': 27,
+                    'Numbers': 36,
+                    'Deuteronomy': 34
+                };
+                
+                const chapters = chapterCounts[book] || 0;
+                const chapterSelect = document.getElementById('chapterSelect');
+                
+                for (let i = 1; i <= chapters; i++) {
+                    const option = document.createElement('option');
+                    option.value = i;
+                    option.textContent = `Chapter ${i}`;
+                    chapterSelect.appendChild(option);
+                }
+            } catch (error) {
+                console.error('Error loading chapters:', error);
+                showError('Failed to load chapters');
+            }
+        }
+
+        async function loadChapter() {
+            const bookSelect = document.getElementById('bookSelect');
+            const chapterSelect = document.getElementById('chapterSelect');
+            
+            currentBook = bookSelect.value;
+            currentChapter = chapterSelect.value;
+            
+            if (!currentBook || !currentChapter) {
+                showError('Please select both a book and chapter');
+                return;
+            }
+            
+            try {
+                showLoading('Loading chapter...');
+                
+                // Use the new chapter endpoint
+                const response = await fetch(`/api/chapter/${encodeURIComponent(currentBook)}/${currentChapter}`);
+                const chapterData = await response.json();
+                
+                if (chapterData.verses && chapterData.verses.length > 0) {
+                    displayChapterFromAPI(chapterData);
+                } else {
+                    showError('No verses found for the selected chapter');
+                }
+            } catch (error) {
+                console.error('Error loading chapter:', error);
+                showError('Failed to load chapter');
+            }
+        }
+
+        function displayChapterFromAPI(chapterData) {
+            const bibleText = document.getElementById('bibleText');
+            
+            if (!chapterData.verses || chapterData.verses.length === 0) {
+                bibleText.innerHTML = '<div class="loading"><p>No verses found for this chapter.</p></div>';
+                return;
+            }
+            
+            let html = `
+                <div style="margin-bottom: 20px; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 8px;">
+                    <h3>${chapterData.book} Chapter ${chapterData.chapter}</h3>
+                    <p><strong>Total Verses:</strong> ${chapterData.total_verses} | <strong>Total Words:</strong> ${chapterData.total_words}</p>
+                </div>
+            `;
+            
+            chapterData.verses.forEach(verse => {
+                html += `
+                    <div class="verse">
+                        <div class="verse-reference">${verse.canonical_reference}</div>
+                        <div class="verse-text">
+                `;
+                
+                verse.words.forEach(word => {
+                    const sourceClass = word.source_attribution.length > 0 ? `source-${word.source_attribution[0]}` : 'source-UNKNOWN';
+                    const properNameClass = word.is_proper_name ? 'proper-name' : '';
+                    const capitalizedClass = word.is_capitalized ? 'capitalized' : '';
+                    
+                    html += `<span class="word ${sourceClass} ${properNameClass} ${capitalizedClass}" 
+                                   onclick="showWordInfo('${word.word}', ${word.position_global})">${word.word}</span> `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            bibleText.innerHTML = html;
+        }
+
+        function displayChapter(verses) {
+            const bibleText = document.getElementById('bibleText');
+            
+            if (verses.length === 0) {
+                bibleText.innerHTML = '<div class="loading"><p>No verses found for this chapter.</p></div>';
+                return;
+            }
+            
+            // Group verses by verse number
+            const verseGroups = {};
+            verses.forEach(word => {
+                const verseKey = word.verse;
+                if (!verseGroups[verseKey]) {
+                    verseGroups[verseKey] = [];
+                }
+                verseGroups[verseKey].push(word);
+            });
+            
+            // Sort verses by verse number
+            const sortedVerses = Object.keys(verseGroups).sort((a, b) => parseInt(a) - parseInt(b));
+            
+            let html = '';
+            sortedVerses.forEach(verseNum => {
+                const verseWords = verseGroups[verseNum].sort((a, b) => a.position_in_verse - b.position_in_verse);
+                const firstWord = verseWords[0];
+                
+                html += `
+                    <div class="verse">
+                        <div class="verse-reference">${firstWord.canonical_reference}</div>
+                        <div class="verse-text">
+                `;
+                
+                verseWords.forEach(word => {
+                    const sourceClass = word.source_attribution.length > 0 ? `source-${word.source_attribution[0]}` : 'source-UNKNOWN';
+                    const properNameClass = word.is_proper_name ? 'proper-name' : '';
+                    const capitalizedClass = word.is_capitalized ? 'capitalized' : '';
+                    
+                    html += `<span class="word ${sourceClass} ${properNameClass} ${capitalizedClass}" 
+                                   onclick="showWordInfo('${word.word}', ${word.position_global})">${word.word}</span> `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            bibleText.innerHTML = html;
+        }
+
+        async function showWordInfo(word, position) {
+            const currentSelection = document.getElementById('currentSelection');
+            const patternInfo = document.getElementById('patternInfo');
+            const sourceInfo = document.getElementById('sourceInfo');
+            
+            currentSelection.textContent = `"${word}" at position ${position}`;
+            
+            try {
+                // Get pattern information
+                const patternResponse = await fetch(`/api/patterns/${word}`);
+                if (patternResponse.ok) {
+                    const pattern = await patternResponse.json();
+                    
+                    let patternHtml = `<p><strong>Total occurrences:</strong> ${pattern.total_count}</p>`;
+                    
+                    if (pattern.is_sevened) patternHtml += '<span class="pattern-indicator pattern-7">7×</span>';
+                    if (pattern.is_77) patternHtml += '<span class="pattern-indicator pattern-77">77</span>';
+                    if (pattern.is_777) patternHtml += '<span class="pattern-indicator pattern-777">777</span>';
+                    if (pattern.is_490) patternHtml += '<span class="pattern-indicator pattern-490">490</span>';
+                    if (pattern.is_343) patternHtml += '<span class="pattern-indicator pattern-343">343</span>';
+                    
+                    patternInfo.innerHTML = patternHtml;
+                } else {
+                    patternInfo.innerHTML = '<p>No mathematical patterns found</p>';
+                }
+                
+                // Get source information
+                const searchResponse = await fetch(`/api/search?q=${word}&limit=1`);
+                if (searchResponse.ok) {
+                    const searchResult = await searchResponse.json();
+                    if (searchResult.results.length > 0) {
+                        const wordData = searchResult.results[0];
+                        const sources = wordData.source_attribution.join(', ') || 'Unknown';
+                        sourceInfo.innerHTML = `<p><strong>Sources:</strong> ${sources}</p>`;
+                    }
+                }
+            } catch (error) {
+                console.error('Error getting word info:', error);
+                patternInfo.innerHTML = '<p>Error loading pattern information</p>';
+                sourceInfo.innerHTML = '<p>Error loading source information</p>';
+            }
+        }
+
+        async function onSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const query = searchInput.value.trim();
+            
+            if (query.length < 2) {
+                document.getElementById('searchResults').innerHTML = '<p>Enter at least 2 characters to search</p>';
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/search?q=${encodeURIComponent(query)}&limit=20`);
+                const result = await response.json();
+                
+                displaySearchResults(result.results);
+            } catch (error) {
+                console.error('Error searching:', error);
+                document.getElementById('searchResults').innerHTML = '<p>Error performing search</p>';
+            }
+        }
+
+        function displaySearchResults(results) {
+            const searchResults = document.getElementById('searchResults');
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = '<p>No results found</p>';
+                return;
+            }
+            
+            let html = '';
+            results.forEach(word => {
+                html += `
+                    <div class="search-result" onclick="showWordInfo('${word.word}', ${word.position_global})">
+                        <strong>${word.word}</strong> - ${word.canonical_reference}
+                        <br><small>Sources: ${word.source_attribution.join(', ') || 'Unknown'}</small>
+                    </div>
+                `;
+            });
+            
+            searchResults.innerHTML = html;
+        }
+
+        async function loadStatistics() {
+            try {
+                const response = await fetch('/api/health');
+                const health = await response.json();
+                
+                const statistics = document.getElementById('statistics');
+                statistics.innerHTML = `
+                    <p><strong>API Status:</strong> ${health.status}</p>
+                    <p><strong>Word Parser:</strong> ${health.components.word_parser ? '✅' : '❌'}</p>
+                    <p><strong>Pattern Engine:</strong> ${health.components.pattern_engine ? '✅' : '❌'}</p>
+                    <p><strong>Data Loaded:</strong> ${health.components.word_data_loaded ? '✅' : '❌'}</p>
+                `;
+            } catch (error) {
+                console.error('Error loading statistics:', error);
+                document.getElementById('statistics').innerHTML = '<p>Error loading statistics</p>';
+            }
+        }
+
+        function showLoading(message) {
+            document.getElementById('bibleText').innerHTML = `<div class="loading"><p>${message}</p></div>`;
+        }
+
+        function showError(message) {
+            const bibleText = document.getElementById('bibleText');
+            bibleText.innerHTML = `<div class="error">${message}</div>`;
+        }
+
+        function showSuccess(message) {
+            const bibleText = document.getElementById('bibleText');
+            bibleText.innerHTML = `<div class="success">${message}</div>`;
+        }
+    </script>
+</body>
+</html>
