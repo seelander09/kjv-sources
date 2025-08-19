@@ -488,6 +488,10 @@ def write_html_preview(verses, book_name, output_dir):
             <span><strong>P</strong> - Priestly Source</span>
         </div>
         <div class="legend-item">
+            <div class="color-box" style="background-color: {source_colors.get('D', '#000000')}"></div>
+            <span><strong>D</strong> - Deuteronomist Source</span>
+        </div>
+        <div class="legend-item">
             <div class="color-box" style="background-color: {source_colors.get('R', '#880000')}"></div>
             <span><strong>R</strong> - Redactor</span>
         </div>

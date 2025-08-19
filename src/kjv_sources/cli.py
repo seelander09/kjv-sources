@@ -53,7 +53,7 @@ def cli():
 @click.option("--format", type=click.Choice(["table", "json"]), default="table")
 def preview(book, data_dir, limit, chapter, format):
     """Preview CSV rows for one book or all books."""
-    console = Console()
+    console = Console(legacy_windows=True)
     pattern = (
         f"{data_dir}/{book}/*.csv"
         if book else f"{data_dir}/*/*.csv"
@@ -122,7 +122,7 @@ def rich_preview(book, limit, chapter, show_multi, source, show_source_texts):
     
     # Show loading message
     with Progress(
-        SpinnerColumn(),
+        SpinnerColumn(spinner_name="line"),
         TextColumn("[progress.description]{task.description}"),
         console=console,
     ) as progress:
@@ -323,6 +323,11 @@ def rich_preview(book, limit, chapter, show_multi, source, show_source_texts):
         f"[{RICH_COLORS['P']}]P[/{RICH_COLORS['P']}]", 
         "Priestly Source", 
         f"[{RICH_COLORS['P']}]{SOURCE_COLORS['P']}[/{RICH_COLORS['P']}]"
+    )
+    legend_table.add_row(
+        f"[{RICH_COLORS['D']}]D[/{RICH_COLORS['D']}]", 
+        "Deuteronomist Source", 
+        f"[{RICH_COLORS['D']}]{SOURCE_COLORS['D']}[/{RICH_COLORS['D']}]"
     )
     legend_table.add_row(
         f"[{RICH_COLORS['R']}]R[/{RICH_COLORS['R']}]", 
