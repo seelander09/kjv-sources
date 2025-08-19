@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KJV Sources - Cytoscape.js Network Visualization</title>
+    
+    <!-- Cytoscape.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    
+    <!-- Cytoscape.js Extensions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-dagre/2.5.0/cytoscape-dagre.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-cose-bilkent/4.1.0/cytoscape-cose-bilkent.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-panzoom/2.5.3/cytoscape-panzoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-qtip/2.8.0/cytoscape-qtip.min.js"></script>
+    
+    <!-- Register Cytoscape Extensions -->
+    <script>
+        // Wait for all scripts to load, then register extensions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Register extensions with proper error handling
+            try {
+                if (typeof cytoscape !== 'undefined') {
+                    if (typeof cytoscapeDagre !== 'undefined') {
+                        cytoscape.use(cytoscapeDagre);
+                        console.log('Dagre extension registered');
+                    }
+                    if (typeof cytoscapeCoseBilkent !== 'undefined') {
+                        cytoscape.use(cytoscapeCoseBilkent);
+                        console.log('Cose-Bilkent extension registered');
+                    }
+                    if (typeof cytoscapePanzoom !== 'undefined') {
+                        cytoscape.use(cytoscapePanzoom);
+                        console.log('Panzoom extension registered');
+                    }
+                    if (typeof cytoscapeQtip !== 'undefined') {
+                        cytoscape.use(cytoscapeQtip);
+                        console.log('Qtip extension registered');
+                    }
+                }
+            } catch (error) {
+                console.warn('Some extensions failed to register:', error.message);
+            }
+        });
+    </script>
+    
+    <!-- jQuery for qtip -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .header p {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .control-group select, .control-group input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .control-group select:focus, .control-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        }
+
+        .visualization-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .visualization-controls {
+            margin-bottom: 10px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .visualization-controls button {
+            padding: 8px 15px;
+            font-size: 12px;
+        }
+        
+        #cy {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        .info-panel {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .info-panel h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card h4 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .search-examples {
+            margin-top: 8px;
+            color: #7f8c8d;
+        }
+        
+        .search-examples .example {
+            color: #667eea;
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        
+        .search-examples .example:hover {
+            color: #764ba2;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .error {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+                 .error.show {
+             display: block;
+         }
+         
+         /* Book container styling */
+         .book-container {
+             background: rgba(255, 255, 255, 0.1);
+             border: 2px solid rgba(255, 255, 255, 0.3);
+             border-radius: 15px;
+             padding: 20px;
+             margin-bottom: 20px;
+             backdrop-filter: blur(5px);
+         }
+         
+         .book-title {
+             font-size: 1.5em;
+             font-weight: bold;
+             color: #2c3e50;
+             margin-bottom: 15px;
+             text-align: center;
+             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+             color: white;
+             padding: 10px;
+             border-radius: 8px;
+         }
+         
+         .chronological-indicator {
+             position: absolute;
+             top: 10px;
+             right: 10px;
+             background: rgba(255, 255, 255, 0.9);
+             padding: 5px 10px;
+             border-radius: 15px;
+             font-size: 0.8em;
+             color: #2c3e50;
+             font-weight: bold;
+         }
+         
+         /* Doublet visualization styling */
+         .doublet-container {
+             background: rgba(255, 255, 255, 0.1);
+             border: 2px solid rgba(255, 255, 255, 0.3);
+             border-radius: 15px;
+             padding: 20px;
+             margin-bottom: 20px;
+             backdrop-filter: blur(5px);
+         }
+         
+         .doublet-title {
+             font-size: 1.5em;
+             font-weight: bold;
+             color: #2c3e50;
+             margin-bottom: 15px;
+             text-align: center;
+             background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+             color: white;
+             padding: 10px;
+             border-radius: 8px;
+         }
+         
+         .doublet-legend {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 15px;
+             margin-top: 15px;
+             justify-content: center;
+         }
+         
+         .doublet-legend-item {
+             display: flex;
+             align-items: center;
+             gap: 8px;
+             background: rgba(255, 255, 255, 0.9);
+             padding: 8px 12px;
+             border-radius: 6px;
+             font-size: 0.9em;
+         }
+         
+         .doublet-color {
+             width: 20px;
+             height: 20px;
+             border-radius: 50%;
+             border: 2px solid #fff;
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+         }
+         
+         /* Book overview styling */
+         .book-overview-container {
+             background: rgba(255, 255, 255, 0.1);
+             border: 2px solid rgba(255, 255, 255, 0.3);
+             border-radius: 15px;
+             padding: 20px;
+             margin-bottom: 20px;
+             backdrop-filter: blur(5px);
+         }
+         
+         .book-overview-title {
+             font-size: 1.5em;
+             font-weight: bold;
+             color: #2c3e50;
+             margin-bottom: 15px;
+             text-align: center;
+             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+             color: white;
+             padding: 10px;
+             border-radius: 8px;
+         }
+         
+         .book-overview-legend {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 15px;
+             margin-top: 15px;
+             justify-content: center;
+         }
+         
+         .book-overview-legend-item {
+             display: flex;
+             align-items: center;
+             gap: 8px;
+             background: rgba(255, 255, 255, 0.9);
+             padding: 8px 12px;
+             border-radius: 6px;
+             font-size: 0.9em;
+         }
+         
+         .book-overview-color {
+             width: 20px;
+             height: 20px;
+             border-radius: 50%;
+             border: 2px solid #fff;
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+         }
+
+        @media (max-width: 768px) {
+            .controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔗 KJV Sources Network Visualization</h1>
+            <p>Interactive network analysis of biblical sources, persons, locations, and relationships</p>
+        </div>
+
+        <div class="controls">
+                         <div class="control-group">
+                 <label for="network-select">Network View</label>
+                 <select id="network-select">
+                     <option value="main">Complete Network</option>
+                     <option value="hierarchical">Hierarchical by Book</option>
+                     <option value="chronological">Chronological Timeline</option>
+                     <option value="doublets">Doublet Analysis</option>
+                     <option value="book-overview">Book Overview (Overhead View)</option>
+                     <option value="source">Source Analysis</option>
+                     <option value="person">Person Network</option>
+                     <option value="geographic">Geographic Network</option>
+                 </select>
+             </div>
+
+            <div class="control-group">
+                <label for="layout-select">Layout Algorithm</label>
+                <select id="layout-select">
+                    <option value="grid">Grid (Default)</option>
+                    <option value="cose-bilkent">Cose-Bilkent (Force)</option>
+                    <option value="dagre">Hierarchical</option>
+                    <option value="concentric">Concentric</option>
+                    <option value="random">Random</option>
+                    <option value="breadthfirst">Breadth First</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="filter-type">Filter by Type</label>
+                <select id="filter-type">
+                    <option value="all">All Types</option>
+                    <option value="person">Persons Only</option>
+                    <option value="city">Cities Only</option>
+                    <option value="source">Sources Only</option>
+                    <option value="book">Books Only</option>
+                    <option value="tribe">Tribes Only</option>
+                    <option value="direction">Directions Only</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="filter-source">Filter by Source</label>
+                <select id="filter-source">
+                    <option value="all">All Sources</option>
+                    <option value="J">J (Jahwist)</option>
+                    <option value="E">E (Elohist)</option>
+                    <option value="P">P (Priestly)</option>
+                    <option value="D">D (Deuteronomist)</option>
+                    <option value="R">R (Redactor)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for nodes (e.g., 'Moses', 'Jerusalem', 'east', 'J', 'P')">
+            <button id="search-btn">Search</button>
+            <button id="clear-search-btn" class="btn-secondary">Clear</button>
+            <div class="search-examples">
+                <small>Try: <span class="example" onclick="searchExample('Moses')">Moses</span> | 
+                <span class="example" onclick="searchExample('Jerusalem')">Jerusalem</span> | 
+                <span class="example" onclick="searchExample('east')">east</span> | 
+                <span class="example" onclick="searchExample('J')">J source</span> | 
+                <span class="example" onclick="searchExample('Genesis')">Genesis</span></small>
+            </div>
+        </div>
+
+        <div class="visualization-container">
+            <div class="visualization-controls">
+                <button class="btn-secondary" onclick="fitToScreen()">Fit to Screen</button>
+                <button class="btn-secondary" onclick="resetView()">Reset View</button>
+                <button class="btn-secondary" onclick="zoomIn()">Zoom In</button>
+                <button class="btn-secondary" onclick="zoomOut()">Zoom Out</button>
+            </div>
+            <div id="cy"></div>
+        </div>
+
+        <div class="info-panel">
+            <h3>📊 Network Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4 id="total-nodes">0</h4>
+                    <p>Total Nodes</p>
+                </div>
+                <div class="stat-card">
+                    <h4 id="total-edges">0</h4>
+                    <p>Total Edges</p>
+                </div>
+                <div class="stat-card">
+                    <h4 id="selected-nodes">0</h4>
+                    <p>Selected Nodes</p>
+                </div>
+                <div class="stat-card">
+                    <h4 id="network-density">0</h4>
+                    <p>Network Density</p>
+                </div>
+            </div>
+
+                         <div class="legend">
+                 <div class="legend-item">
+                     <div class="legend-color" style="background-color: #3498db;"></div>
+                     <span>Person</span>
+                 </div>
+                 <div class="legend-item">
+                     <div class="legend-color" style="background-color: #e74c3c;"></div>
+                     <span>City</span>
+                 </div>
+                 <div class="legend-item">
+                     <div class="legend-color" style="background-color: #f39c12;"></div>
+                     <span>Location</span>
+                 </div>
+                 <div class="legend-item">
+                     <div class="legend-color" style="background-color: #9b59b6;"></div>
+                     <span>Source</span>
+                 </div>
+                 <div class="legend-item">
+                     <div class="legend-color" style="background-color: #1abc9c;"></div>
+                     <span>Book</span>
+                 </div>
+                 <div class="legend-item">
+                     <div class="legend-color" style="background-color: #34495e;"></div>
+                     <span>Tribe</span>
+                 </div>
+                 <div class="legend-item">
+                     <div class="legend-color" style="background-color: #95a5a6;"></div>
+                     <span>Direction</span>
+                 </div>
+             </div>
+             
+             <!-- Doublet Legend (hidden by default) -->
+             <div id="doublet-legend" class="doublet-legend" style="display: none;">
+                 <div class="doublet-legend-item">
+                     <div class="doublet-color" style="background-color: #e74c3c;"></div>
+                     <span>Creation Doublets</span>
+                 </div>
+                 <div class="doublet-legend-item">
+                     <div class="doublet-color" style="background-color: #f39c12;"></div>
+                     <span>Flood Doublets</span>
+                 </div>
+                 <div class="doublet-legend-item">
+                     <div class="doublet-color" style="background-color: #9b59b6;"></div>
+                     <span>Genealogy Doublets</span>
+                 </div>
+                 <div class="doublet-legend-item">
+                     <div class="doublet-color" style="background-color: #3498db;"></div>
+                     <span>Legal Doublets</span>
+                 </div>
+                 <div class="doublet-legend-item">
+                     <div class="doublet-color" style="background-color: #1abc9c;"></div>
+                     <span>Narrative Doublets</span>
+                 </div>
+                 <div class="doublet-legend-item">
+                     <div class="doublet-color" style="background-color: #34495e;"></div>
+                     <span>Ritual Doublets</span>
+                 </div>
+             </div>
+             
+             <!-- Book Overview Legend (hidden by default) -->
+             <div id="book-overview-legend" class="book-overview-legend" style="display: none;">
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #3498db;"></div>
+                     <span>Genesis</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #e74c3c;"></div>
+                     <span>Exodus</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #f39c12;"></div>
+                     <span>Leviticus</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #9b59b6;"></div>
+                     <span>Numbers</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #1abc9c;"></div>
+                     <span>Deuteronomy</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #ff0000; border: 3px solid #ffffff;"></div>
+                     <span>Creation Doublets</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #00ff00; border: 3px solid #ffffff;"></div>
+                     <span>Flood Doublets</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #0000ff; border: 3px solid #ffffff;"></div>
+                     <span>Genealogy Doublets</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #ff00ff; border: 3px solid #ffffff;"></div>
+                     <span>Legal Doublets</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #00ffff; border: 3px solid #ffffff;"></div>
+                     <span>Narrative Doublets</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #ffff00; border: 3px solid #000000;"></div>
+                     <span>Ritual Doublets</span>
+                 </div>
+                 <div class="book-overview-legend-item">
+                     <div class="book-overview-color" style="background-color: #ff6b35; border: 3px dashed #ff6b35;"></div>
+                     <span>Parallel Connections</span>
+                 </div>
+             </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <h3>🔄 Loading Network Data...</h3>
+            <p>Please wait while we process the biblical data...</p>
+        </div>
+
+        <div class="error" id="error">
+            <h3>❌ Error Loading Data</h3>
+            <p id="error-message">An error occurred while loading the network data.</p>
+        </div>
+    </div>
+
+    <script>
+                 // Global variables
+         let cy;
+         let currentNetwork = 'main';
+         let networkData = {};
+         let selectedNodes = [];
+         let doubletData = null;
+
+        // Initialize Cytoscape.js
+        function initializeCytoscape() {
+            cy = cytoscape({
+                container: document.getElementById('cy'),
+                style: [
+                    {
+                        selector: 'node',
+                        style: {
+                            'background-color': 'data(color)',
+                            'label': 'data(label)',
+                            'color': '#fff',
+                            'text-outline-color': '#000',
+                            'text-outline-width': 1,
+                            'font-size': 10,
+                            'font-weight': 'bold',
+                            'text-valign': 'center',
+                            'text-halign': 'center',
+                            'width': 25,
+                            'height': 25,
+                            'border-color': '#fff',
+                            'border-width': 1,
+                            'text-wrap': 'wrap',
+                            'text-max-width': 80
+                        }
+                    },
+                    {
+                        selector: 'node[type = "person"]',
+                        style: {
+                            'shape': 'ellipse',
+                            'width': 40,
+                            'height': 40
+                        }
+                    },
+                    {
+                        selector: 'node[type = "city"]',
+                        style: {
+                            'shape': 'diamond',
+                            'width': 35,
+                            'height': 35
+                        }
+                    },
+                    {
+                        selector: 'node[type = "source"]',
+                        style: {
+                            'shape': 'rectangle',
+                            'width': 45,
+                            'height': 30
+                        }
+                    },
+                    {
+                        selector: 'node[type = "book"]',
+                        style: {
+                            'shape': 'triangle',
+                            'width': 40,
+                            'height': 40
+                        }
+                    },
+                    {
+                        selector: 'node[type = "tribe"]',
+                        style: {
+                            'shape': 'hexagon',
+                            'width': 35,
+                            'height': 35
+                        }
+                    },
+                                         {
+                         selector: 'node[type = "direction"]',
+                         style: {
+                             'shape': 'vee',
+                             'width': 30,
+                             'height': 30
+                         }
+                     },
+                     {
+                         selector: 'node[type = "doublet_group"]',
+                         style: {
+                             'shape': 'diamond',
+                             'width': 60,
+                             'height': 60,
+                             'font-size': 12,
+                             'text-wrap': 'wrap',
+                             'text-max-width': 100,
+                             'border-width': 3,
+                             'border-color': '#2c3e50'
+                         }
+                     },
+                     {
+                         selector: 'node[type = "doublet_passage"]',
+                         style: {
+                             'shape': 'ellipse',
+                             'width': 40,
+                             'height': 40,
+                             'font-size': 10,
+                             'text-wrap': 'wrap',
+                             'text-max-width': 80,
+                             'border-width': 2,
+                             'border-color': '#2c3e50'
+                         }
+                     },
+                     {
+                         selector: 'node[type = "book_title"]',
+                         style: {
+                             'shape': 'rectangle',
+                             'width': 'data(width)',
+                             'height': 40,
+                             'font-size': 16,
+                             'font-weight': 'bold',
+                             'text-wrap': 'wrap',
+                             'text-max-width': 200,
+                             'border-width': 3,
+                             'border-color': '#2c3e50',
+                             'text-valign': 'center',
+                             'text-halign': 'center'
+                         }
+                     },
+                     {
+                         selector: 'node[type = "book_container"]',
+                         style: {
+                             'shape': 'rectangle',
+                             'width': 'data(width)',
+                             'height': 'data(height)',
+                             'background-color': 'rgba(255, 255, 255, 0.1)',
+                             'border-color': 'data(color)',
+                             'border-width': 2,
+                             'border-style': 'dashed',
+                             'text-valign': 'center',
+                             'text-halign': 'center'
+                         }
+                     },
+                     {
+                         selector: 'node[type = "verse_block"]',
+                         style: {
+                             'shape': 'rectangle',
+                             'width': 'data(width)',
+                             'height': 'data(height)',
+                             'background-color': 'rgba(255, 255, 255, 0.08)',
+                             'border-color': 'data(color)',
+                             'border-width': 1,
+                             'font-size': 7,
+                             'text-wrap': 'wrap',
+                             'text-max-width': 80,
+                             'text-valign': 'center',
+                             'text-halign': 'center',
+                             'color': '#333',
+                             'text-outline-color': '#fff',
+                             'text-outline-width': 1
+                         }
+                     },
+                     {
+                         selector: 'node[type = "doublet_container"]',
+                         style: {
+                             'shape': 'round-rectangle',
+                             'width': 220,
+                             'height': 'data(container_height)',
+                             'background-color': 'data(color)',
+                             'border-color': 'data(border_color)',
+                             'border-width': 8,
+                             'border-style': 'solid',
+                             'font-size': 12,
+                             'font-weight': 'bold',
+                             'text-valign': 'center',
+                             'text-halign': 'center',
+                             'text-outline-color': '#000',
+                             'text-outline-width': 3,
+                             'text-wrap': 'wrap',
+                             'text-max-width': 200,
+                             'z-index': 1000,
+                             'opacity': 1,
+                             'box-shadow': '0 0 30px rgba(0,0,0,0.5)'
+                         }
+                     },
+                     {
+                         selector: 'node[type = "doublet_container"]:hover',
+                         style: {
+                             'width': 220,
+                             'border-width': 6,
+                             'border-color': '#ffff00',
+                             'font-size': 13,
+                             'opacity': 1,
+                             'z-index': 1001,
+                             'box-shadow': '0 0 25px rgba(255,255,0,0.9)'
+                         }
+                     },
+                     {
+                         selector: 'node[type = "doublet_container"]:selected',
+                         style: {
+                             'width': 240,
+                             'border-width': 8,
+                             'border-color': '#ffff00',
+                             'font-size': 14,
+                             'opacity': 1,
+                             'z-index': 1002,
+                             'box-shadow': '0 0 35px rgba(255,255,0,1)'
+                         }
+                     },
+                     {
+                         selector: 'node[type = "verse_block"]:has_doublets',
+                         style: {
+                             'background-color': 'rgba(255, 255, 255, 0.15)',
+                             'border-width': 2,
+                             'border-color': '#ff6b35',
+                             'font-weight': 'bold',
+                             'z-index': 999
+                         }
+                     },
+                     {
+                         selector: 'node.doublet-highlighted',
+                         style: {
+                             'width': 40,
+                             'height': 30,
+                             'border-width': 8,
+                             'border-color': '#ffff00',
+                             'box-shadow': '0 0 25px rgba(255,255,0,0.9)',
+                             'font-size': 13,
+                             'opacity': 1,
+                             'z-index': 1001
+                         }
+                     },
+                     {
+                         selector: 'edge.doublet-highlighted',
+                         style: {
+                             'width': 6,
+                             'line-color': '#fff',
+                             'target-arrow-color': '#fff',
+                             'source-arrow-color': '#fff',
+                             'opacity': 1,
+                             'z-index': 1001
+                         }
+                     },
+                                         {
+                         selector: 'edge',
+                         style: {
+                             'width': 2,
+                             'line-color': '#ccc',
+                             'target-arrow-color': '#ccc',
+                             'target-arrow-shape': 'triangle',
+                             'curve-style': 'bezier',
+                             'label': 'data(relationship)',
+                             'font-size': 10,
+                             'text-rotation': 'autorotate',
+                             'text-margin-y': -10
+                         }
+                     },
+                     {
+                         selector: 'edge[relationship = "parallel_passage"]',
+                         style: {
+                             'width': 3,
+                             'line-color': 'data(color)',
+                             'line-style': 'dashed',
+                             'target-arrow-color': 'data(color)',
+                             'target-arrow-shape': 'triangle',
+                             'curve-style': 'bezier',
+                             'label': 'parallel',
+                             'font-size': 12,
+                             'font-weight': 'bold',
+                             'text-rotation': 'autorotate',
+                             'text-margin-y': -15,
+                             'z-index': 1000
+                         }
+                     },
+                     {
+                         selector: 'edge[relationship = "contains"]',
+                         style: {
+                             'width': 2,
+                             'line-color': 'data(color)',
+                             'target-arrow-color': 'data(color)',
+                             'target-arrow-shape': 'triangle',
+                             'curve-style': 'bezier',
+                             'label': 'contains',
+                             'font-size': 10,
+                             'text-rotation': 'autorotate',
+                             'text-margin-y': -10
+                         }
+                     },
+                     {
+                         selector: 'edge[relationship = "spans"]',
+                         style: {
+                             'width': 'data(width)',
+                             'line-color': 'data(color)',
+                             'line-style': 'solid',
+                             'curve-style': 'straight',
+                             'z-index': 998,
+                             'opacity': 0.7,
+                             'target-arrow-shape': 'triangle',
+                             'target-arrow-color': 'data(color)'
+                         }
+                     },
+                     {
+                         selector: 'edge[relationship = "parallel"]',
+                         style: {
+                             'width': 4,
+                             'line-color': '#ff6b35',
+                             'line-style': 'dashed',
+                             'curve-style': 'bezier',
+                             'z-index': 999,
+                             'opacity': 0.8,
+                             'target-arrow-shape': 'triangle',
+                             'target-arrow-color': '#ff6b35',
+                             'source-arrow-shape': 'triangle',
+                             'source-arrow-color': '#ff6b35'
+                         }
+                     },
+                     {
+                         selector: 'edge[relationship = "parallel"]:hover',
+                         style: {
+                             'width': 6,
+                             'opacity': 1,
+                             'z-index': 1000
+                         }
+                     },
+                     {
+                         selector: 'edge',
+                         style: {
+                             'width': 2,
+                             'line-color': '#ccc',
+                             'target-arrow-color': '#ccc',
+                             'target-arrow-shape': 'triangle',
+                             'curve-style': 'bezier',
+                             'label': 'data(relationship)',
+                             'font-size': 10,
+                             'text-rotation': 'autorotate',
+                             'text-margin-y': -10
+                         }
+                     },
+                     {
+                         selector: 'edge[relationship = "parallel"]',
+                         style: {
+                             'width': 'data(width)',
+                             'line-color': 'data(color)',
+                             'line-style': 'dashed',
+                             'curve-style': 'bezier',
+                             'z-index': 999
+                         }
+                     },
+                    {
+                        selector: 'node:selected',
+                        style: {
+                            'border-color': '#f39c12',
+                            'border-width': 4,
+                            'background-color': 'data(color)',
+                            'z-index': 999
+                        }
+                    },
+                    {
+                        selector: 'edge:selected',
+                        style: {
+                            'line-color': '#f39c12',
+                            'width': 4
+                        }
+                    }
+                ],
+                layout: {
+                    name: 'grid',
+                    animate: true,
+                    animationDuration: 1000,
+                    nodeDimensionsIncludeLabels: true,
+                    padding: 50,
+                    cols: 100, // Optimize for large network
+                    rows: 60
+                }
+            });
+
+            // Add panzoom
+            try {
+                if (typeof cy.panzoom === 'function') {
+                    cy.panzoom();
+                    console.log('Panzoom initialized successfully');
+                } else {
+                    console.warn('Panzoom extension not loaded');
+                }
+            } catch (error) {
+                console.warn('Panzoom not available:', error.message);
+            }
+
+            // Add qtip for tooltips
+            try {
+                cy.qtip({
+                content: function() {
+                    const node = this;
+                    const data = node.data();
+                    let content = `<div style="text-align: center; padding: 10px;">`;
+                    content += `<h4 style="margin-bottom: 10px; color: #2c3e50;">${data.label}</h4>`;
+                    content += `<p><strong>Type:</strong> ${data.type}</p>`;
+                    
+                    if (data.book) {
+                        content += `<p><strong>Book:</strong> ${data.book}</p>`;
+                    }
+                    if (data.chapter) {
+                        content += `<p><strong>Chapter:</strong> ${data.chapter}</p>`;
+                    }
+                    if (data.verse) {
+                        content += `<p><strong>Verse:</strong> ${data.verse}</p>`;
+                    }
+                    if (data.text) {
+                        content += `<p><strong>Text:</strong> ${data.text.substring(0, 100)}...</p>`;
+                    }
+                    if (data.sources && data.sources.length > 0) {
+                        content += `<p><strong>Sources:</strong> ${data.sources.join(', ')}</p>`;
+                    }
+                    if (data.description) {
+                        content += `<p><strong>Description:</strong> ${data.description}</p>`;
+                    }
+                    content += `</div>`;
+                    return content;
+                },
+                position: {
+                    my: 'bottom center',
+                    at: 'top center'
+                },
+                style: {
+                    classes: 'qtip-bootstrap',
+                    tip: {
+                        width: 16,
+                        height: 8
+                    }
+                }
+            });
+                console.log('Qtip initialized successfully');
+            } catch (error) {
+                console.warn('Qtip not available:', error.message);
+            }
+
+            // Event listeners
+            cy.on('select', 'node', function(evt) {
+                const node = evt.target;
+                selectedNodes.push(node);
+                updateStats();
+            });
+
+            cy.on('unselect', 'node', function(evt) {
+                const node = evt.target;
+                selectedNodes = selectedNodes.filter(n => n.id() !== node.id());
+                updateStats();
+            });
+
+            cy.on('tap', 'node', function(evt) {
+                const node = evt.target;
+                console.log('Node clicked:', node.data());
+            });
+
+            cy.on('tap', 'edge', function(evt) {
+                const edge = evt.target;
+                console.log('Edge clicked:', edge.data());
+            });
+        }
+
+                 // Load network data
+         async function loadNetworkData(networkType = 'main') {
+             showLoading(true);
+             hideError();
+
+             try {
+                 let filename, data;
+                 
+                 if (networkType === 'hierarchical' || networkType === 'chronological' || networkType === 'doublets' || networkType === 'book-overview') {
+                     // Use main data for hierarchical/chronological/doublet/book-overview views
+                     filename = 'cytoscape_network_data.json';
+                 } else {
+                     filename = networkType === 'main' ? 
+                         'cytoscape_network_data.json' : 
+                         `cytoscape_${networkType}_network.json`;
+                 }
+
+                console.log(`Loading network data from: ${filename}`);
+                
+                const response = await fetch(filename);
+                console.log(`Response status: ${response.status}, ok: ${response.ok}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filename}: HTTP ${response.status}`);
+                }
+
+                data = await response.json();
+                console.log(`Data loaded successfully: ${data.nodes ? data.nodes.length : 'undefined'} nodes, ${data.edges ? data.edges.length : 'undefined'} edges`);
+                
+                networkData[networkType] = data;
+                
+                // Load data into Cytoscape
+                console.log('Removing existing elements...');
+                cy.elements().remove();
+                
+                console.log('Adding nodes...');
+                cy.add(data.nodes);
+                console.log('Adding edges...');
+                cy.add(data.edges);
+                
+                console.log(`Total elements in Cytoscape: ${cy.elements().length}`);
+                
+                                 // Apply specialized layout based on network type
+                 console.log('Applying layout...');
+                 if (networkType === 'hierarchical') {
+                     applyHierarchicalLayout();
+                 } else if (networkType === 'chronological') {
+                     applyChronologicalLayout();
+                 } else if (networkType === 'doublets') {
+                     applyDoubletLayout();
+                 } else if (networkType === 'book-overview') {
+                     // Disable animations for better performance
+                     cy.style().update();
+                     applyBookOverviewLayout();
+                 } else {
+                     applyLayout();
+                 }
+                
+                // Update stats
+                console.log('Updating stats...');
+                updateStats();
+                
+                showLoading(false);
+                console.log('Data loading complete!');
+                
+            } catch (error) {
+                console.error('Error loading network data:', error);
+                showError(`Failed to load network data: ${error.message}`);
+                showLoading(false);
+            }
+        }
+
+        // Apply layout algorithm
+        function applyLayout() {
+            const layoutName = document.getElementById('layout-select').value;
+            
+            try {
+                const layout = cy.layout({
+                    name: layoutName,
+                    animate: true,
+                    animationDuration: 1000,
+                    nodeDimensionsIncludeLabels: true,
+                    padding: 50
+                });
+                
+                layout.run();
+                console.log(`Layout '${layoutName}' applied successfully`);
+            } catch (error) {
+                console.error(`Error applying layout '${layoutName}':`, error);
+                // Fallback to grid layout
+                console.log('Falling back to grid layout...');
+                const fallbackLayout = cy.layout({
+                    name: 'grid',
+                    animate: true,
+                    animationDuration: 1000,
+                    nodeDimensionsIncludeLabels: true,
+                    padding: 50
+                });
+                fallbackLayout.run();
+            }
+        }
+        
+        // Apply hierarchical layout by book
+        function applyHierarchicalLayout() {
+            const bookOrder = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy'];
+            const bookPositions = {};
+            
+            // Calculate positions for each book
+            bookOrder.forEach((book, index) => {
+                bookPositions[book] = {
+                    x: (index - 2) * 400, // Center Genesis at x=0
+                    y: 0
+                };
+            });
+            
+            // Apply positions to nodes
+            cy.nodes().forEach(node => {
+                const nodeData = node.data();
+                if (nodeData.book && bookPositions[nodeData.book]) {
+                    const basePos = bookPositions[nodeData.book];
+                    const nodeType = nodeData.type;
+                    
+                    // Offset nodes within each book based on type
+                    let yOffset = 0;
+                    switch (nodeType) {
+                        case 'person': yOffset = -200; break;
+                        case 'city': yOffset = -100; break;
+                        case 'source': yOffset = 0; break;
+                        case 'verse': yOffset = 100; break;
+                        case 'book': yOffset = 200; break;
+                        default: yOffset = 0;
+                    }
+                    
+                    node.position({
+                        x: basePos.x + (Math.random() - 0.5) * 200,
+                        y: basePos.y + yOffset + (Math.random() - 0.5) * 100
+                    });
+                }
+            });
+            
+            console.log('Hierarchical layout applied successfully');
+        }
+        
+        // Apply chronological timeline layout
+        function applyChronologicalLayout() {
+            const bookOrder = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy'];
+            const bookPositions = {};
+            
+            // Calculate timeline positions
+            bookOrder.forEach((book, index) => {
+                bookPositions[book] = {
+                    x: index * 300, // Horizontal timeline
+                    y: 0
+                };
+            });
+            
+            // Apply timeline positions
+            cy.nodes().forEach(node => {
+                const nodeData = node.data();
+                if (nodeData.book && bookPositions[nodeData.book]) {
+                    const basePos = bookPositions[nodeData.book];
+                    const nodeType = nodeData.type;
+                    
+                    // Stack nodes vertically within each book
+                    let yOffset = 0;
+                    switch (nodeType) {
+                        case 'person': yOffset = -300; break;
+                        case 'city': yOffset = -150; break;
+                        case 'source': yOffset = 0; break;
+                        case 'verse': yOffset = 150; break;
+                        case 'book': yOffset = 300; break;
+                        default: yOffset = 0;
+                    }
+                    
+                    node.position({
+                        x: basePos.x + (Math.random() - 0.5) * 100,
+                        y: basePos.y + yOffset + (Math.random() - 0.5) * 50
+                    });
+                }
+            });
+            
+                         console.log('Chronological timeline layout applied successfully');
+         }
+         
+         // Apply doublet visualization layout
+         async function applyDoubletLayout() {
+             // Load doublet data if not already loaded
+             if (!doubletData) {
+                 try {
+                     const response = await fetch('doublets_data.json');
+                     if (response.ok) {
+                         doubletData = await response.json();
+                         console.log('Doublet data loaded successfully');
+                     } else {
+                         console.warn('Could not load doublet data');
+                         doubletData = { doublets: [] };
+                     }
+                 } catch (error) {
+                     console.warn('Error loading doublet data:', error);
+                     doubletData = { doublets: [] };
+                 }
+             }
+             
+             // Show doublet legend
+             document.getElementById('doublet-legend').style.display = 'flex';
+             
+             // Create doublet nodes and edges
+             const doubletNodes = [];
+             const doubletEdges = [];
+             
+             // Color mapping for doublet categories
+             const categoryColors = {
+                 'cosmogony': '#e74c3c',      // Red for creation
+                 'catastrophe': '#f39c12',    // Orange for flood
+                 'genealogy': '#9b59b6',      // Purple for genealogy
+                 'legal': '#3498db',          // Blue for legal
+                 'narrative': '#1abc9c',      // Teal for narrative
+                 'ritual': '#34495e'          // Dark gray for ritual
+             };
+             
+             doubletData.doublets.forEach((doublet, doubletIndex) => {
+                 // Create doublet group node
+                 const doubletGroupId = `doublet_${doublet.id}`;
+                 doubletNodes.push({
+                     data: {
+                         id: doubletGroupId,
+                         label: doublet.name,
+                         type: 'doublet_group',
+                         category: doublet.category,
+                         color: categoryColors[doublet.category] || '#95a5a6',
+                         book: 'Multiple',
+                         description: doublet.description,
+                         sources: doublet.sources.join(', '),
+                         theological_differences: doublet.theological_differences
+                     }
+                 });
+                 
+                 // Create nodes for each passage in the doublet
+                 doublet.passages.forEach((passage, passageIndex) => {
+                     const passageId = `${doubletGroupId}_passage_${passageIndex}`;
+                     
+                     // Calculate position based on book and chapter
+                     const bookOrder = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy'];
+                     const bookIndex = bookOrder.indexOf(passage.book);
+                     const x = bookIndex * 300; // Same as chronological layout
+                     const y = (passage.chapter_start - 1) * 20; // Stack by chapter
+                     
+                     doubletNodes.push({
+                         data: {
+                             id: passageId,
+                             label: passage.reference,
+                             type: 'doublet_passage',
+                             category: doublet.category,
+                             color: categoryColors[doublet.category] || '#95a5a6',
+                             book: passage.book,
+                             chapter_start: passage.chapter_start,
+                             verse_start: passage.verse_start,
+                             chapter_end: passage.chapter_end,
+                             verse_end: passage.verse_end,
+                             source: passage.source,
+                             themes: passage.themes.join(', '),
+                             characteristics: passage.characteristics.join(', '),
+                             doublet_group: doubletGroupId
+                         },
+                         position: { x: x + (passageIndex * 50), y: y }
+                     });
+                     
+                     // Create edge from doublet group to passage
+                     doubletEdges.push({
+                         data: {
+                             id: `${doubletGroupId}_to_${passageId}`,
+                             source: doubletGroupId,
+                             target: passageId,
+                             relationship: 'contains',
+                             color: categoryColors[doublet.category] || '#95a5a6'
+                         }
+                     });
+                 });
+                 
+                 // Create edges between passages in the same doublet
+                 for (let i = 0; i < doublet.passages.length; i++) {
+                     for (let j = i + 1; j < doublet.passages.length; j++) {
+                         const sourceId = `${doubletGroupId}_passage_${i}`;
+                         const targetId = `${doubletGroupId}_passage_${j}`;
+                         
+                         doubletEdges.push({
+                             data: {
+                                 id: `${sourceId}_parallel_${targetId}`,
+                                 source: sourceId,
+                                 target: targetId,
+                                 relationship: 'parallel_passage',
+                                 color: categoryColors[doublet.category] || '#95a5a6',
+                                 style: 'dashed'
+                             }
+                         });
+                     }
+                 }
+             });
+             
+             // Add doublet nodes and edges to the graph
+             cy.add(doubletNodes);
+             cy.add(doubletEdges);
+             
+             // Apply timeline layout for doublet passages
+             cy.nodes('[type = "doublet_passage"]').forEach(node => {
+                 const data = node.data();
+                 const bookOrder = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy'];
+                 const bookIndex = bookOrder.indexOf(data.book);
+                 const x = bookIndex * 300;
+                 const y = (data.chapter_start - 1) * 20;
+                 
+                 node.position({
+                     x: x,
+                     y: y
+                 });
+             });
+             
+             // Position doublet group nodes above their passages
+             cy.nodes('[type = "doublet_group"]').forEach(node => {
+                 const connectedPassages = node.connectedEdges().connectedNodes('[type = "doublet_passage"]');
+                 if (connectedPassages.length > 0) {
+                     const avgX = connectedPassages.map(p => p.position('x')).reduce((a, b) => a + b, 0) / connectedPassages.length;
+                     const avgY = connectedPassages.map(p => p.position('y')).reduce((a, b) => a + b, 0) / connectedPassages.length;
+                     
+                     node.position({
+                         x: avgX,
+                         y: avgY - 100
+                     });
+                 }
+             });
+             
+             console.log('Doublet layout applied successfully');
+         }
+         
+         // Apply book overview layout (overhead view) - OPTIMIZED VERSION
+         async function applyBookOverviewLayout() {
+             console.log('Starting optimized book overview layout...');
+             
+             // Load doublet data if not already loaded
+             if (!doubletData) {
+                 try {
+                     const response = await fetch('doublets_data.json');
+                     if (response.ok) {
+                         doubletData = await response.json();
+                         console.log('Doublet data loaded successfully');
+                     } else {
+                         console.warn('Could not load doublet data');
+                         doubletData = { doublets: [] };
+                     }
+                 } catch (error) {
+                     console.warn('Error loading doublet data:', error);
+                     doubletData = { doublets: [] };
+                 }
+             }
+             
+             // Show book overview legend
+             document.getElementById('book-overview-legend').style.display = 'flex';
+             
+             // Create book overview nodes and edges
+             const overviewNodes = [];
+             const overviewEdges = [];
+             
+             // Book colors for overview
+             const bookColors = {
+                 'Genesis': '#3498db',
+                 'Exodus': '#e74c3c', 
+                 'Leviticus': '#f39c12',
+                 'Numbers': '#9b59b6',
+                 'Deuteronomy': '#1abc9c'
+             };
+             
+             // Book dimensions and positioning - BIBLE-ACCURATE PROPORTIONS
+             const bookLayout = {
+                 'Genesis': { x: 0, y: 0, width: 800, height: 600, chapters: 50, verses: 1533 },
+                 'Exodus': { x: 900, y: 0, width: 600, height: 450, chapters: 40, verses: 1213 },
+                 'Leviticus': { x: 1600, y: 0, width: 400, height: 300, chapters: 27, verses: 859 },
+                 'Numbers': { x: 2100, y: 0, width: 500, height: 375, chapters: 36, verses: 1288 },
+                 'Deuteronomy': { x: 2700, y: 0, width: 450, height: 338, chapters: 34, verses: 959 }
+             };
+             
+             // Create book container nodes
+             Object.keys(bookLayout).forEach(book => {
+                 const layout = bookLayout[book];
+                 
+                 // Book title node
+                 overviewNodes.push({
+                     data: {
+                         id: `book_title_${book}`,
+                         label: book,
+                         type: 'book_title',
+                         book: book,
+                         color: bookColors[book],
+                         width: layout.width,
+                         height: layout.height
+                     },
+                     position: { x: layout.x + layout.width/2, y: layout.y - 30 }
+                 });
+                 
+                 // Book container (invisible, for organization)
+                 overviewNodes.push({
+                     data: {
+                         id: `book_container_${book}`,
+                         label: '',
+                         type: 'book_container',
+                         book: book,
+                         color: bookColors[book],
+                         width: layout.width,
+                         height: layout.height
+                     },
+                     position: { x: layout.x + layout.width/2, y: layout.y + layout.height/2 }
+                 });
+             });
+             
+             // Create Bible-like verse structure for each book
+             Object.keys(bookLayout).forEach(book => {
+                 const layout = bookLayout[book];
+                 
+                 // Create verse blocks - every 12 verses for better detail
+                 const versesPerBlock = 12;
+                 const totalBlocks = Math.ceil(layout.verses / versesPerBlock);
+                 const blockHeight = layout.height / totalBlocks;
+                 
+                 for (let blockIndex = 0; blockIndex < totalBlocks; blockIndex++) {
+                     const startVerse = blockIndex * versesPerBlock + 1;
+                     const endVerse = Math.min((blockIndex + 1) * versesPerBlock, layout.verses);
+                     const blockId = `verse_block_${book}_${startVerse}_${endVerse}`;
+                     const y = layout.y + (blockIndex + 0.5) * blockHeight;
+                     
+                     // Calculate which chapter this block belongs to
+                     const avgVerse = (startVerse + endVerse) / 2;
+                     const estimatedChapter = Math.ceil(avgVerse / (layout.verses / layout.chapters));
+                     
+                     overviewNodes.push({
+                         data: {
+                             id: blockId,
+                             label: `${book} ${estimatedChapter}\n${startVerse}-${endVerse}`,
+                             type: 'verse_block',
+                             book: book,
+                             chapter: estimatedChapter,
+                             start_verse: startVerse,
+                             end_verse: endVerse,
+                             color: bookColors[book],
+                             width: layout.width - 30,
+                             height: blockHeight - 4,
+                             has_doublets: false // Will be updated when we add doublets
+                         },
+                         position: { x: layout.x + layout.width/2, y: y }
+                     });
+                     
+                     // Connect verse block to book container
+                     overviewEdges.push({
+                         data: {
+                             id: `container_to_verse_block_${blockId}`,
+                             source: `book_container_${book}`,
+                             target: blockId,
+                             relationship: 'contains',
+                             color: bookColors[book]
+                         }
+                     });
+                 }
+             });
+             
+             // Create doublet passage containers - BIBLE-ACCURATE POSITIONING
+             const doubletContainers = new Set();
+             const verseBlocksWithDoublets = new Set();
+             
+             // Color mapping for different doublet categories - HIGH CONTRAST VERSION
+             const doubletColors = {
+                 'Creation': { color: '#ff0000', border: '#ffffff' },      // Bright red
+                 'Flood': { color: '#00ff00', border: '#ffffff' },         // Bright green
+                 'Genealogy': { color: '#0000ff', border: '#ffffff' },     // Bright blue
+                 'Legal': { color: '#ff00ff', border: '#ffffff' },         // Magenta
+                 'Narrative': { color: '#00ffff', border: '#ffffff' },     // Cyan
+                 'Ritual': { color: '#ffff00', border: '#000000' },        // Yellow with black border
+                 'default': { color: '#ff0000', border: '#ffffff' }        // Bright red default
+             };
+             
+             doubletData.doublets.forEach((doublet, doubletIndex) => {
+                 const categoryColors = doubletColors[doublet.category] || doubletColors.default;
+                 
+                 doublet.passages.forEach((passage, passageIndex) => {
+                     const book = passage.book;
+                     const layout = bookLayout[book];
+                     
+                     if (layout) {
+                         // Calculate which verse blocks this doublet spans
+                         const versesPerBlock = 12;
+                         const startBlockIndex = Math.floor((passage.verse_start - 1) / versesPerBlock);
+                         const endBlockIndex = Math.floor((passage.verse_end - 1) / versesPerBlock);
+                         
+                         // Create a container that spans the exact verse range
+                         const containerId = `doublet_container_${doublet.name.replace(/\s+/g, '_')}_${book}_${passageIndex}`;
+                         
+                         if (!doubletContainers.has(containerId)) {
+                             doubletContainers.add(containerId);
+                             
+                             // Calculate position based on verse blocks
+                             const blockHeight = layout.height / Math.ceil(layout.verses / versesPerBlock);
+                             const startY = layout.y + (startBlockIndex + 0.5) * blockHeight;
+                             const endY = layout.y + (endBlockIndex + 0.5) * blockHeight;
+                             const centerY = (startY + endY) / 2;
+                             const containerHeight = Math.max(30, (endBlockIndex - startBlockIndex + 1) * blockHeight * 0.9);
+                             
+                             // Position horizontally with staggered offsets to avoid overlap
+                             const baseOffset = 80;
+                             const doubletOffset = doubletIndex * 25; // Spread different doublets
+                             const passageOffset = passageIndex * 35; // Spread passages within doublets
+                             const x = layout.x + layout.width + baseOffset + doubletOffset + passageOffset;
+                             
+                             overviewNodes.push({
+                                 data: {
+                                     id: containerId,
+                                     label: `${doublet.name}\n${book} ${passage.chapter_start}:${passage.verse_start}-${passage.chapter_end}:${passage.verse_end}`,
+                                     type: 'doublet_container',
+                                     book: book,
+                                     chapter_start: passage.chapter_start,
+                                     chapter_end: passage.chapter_end,
+                                     verse_start: passage.verse_start,
+                                     verse_end: passage.verse_end,
+                                     doublet_name: doublet.name,
+                                     doublet_category: doublet.category,
+                                     doublet_description: doublet.description || 'Parallel passage',
+                                     color: categoryColors.color,
+                                     border_color: categoryColors.border,
+                                     border_width: 6,
+                                     container_height: containerHeight,
+                                     z_index: 1000
+                                 },
+                                 position: { x: x, y: centerY }
+                             });
+                             
+                             // Mark verse blocks that contain doublets
+                             for (let blockIndex = startBlockIndex; blockIndex <= endBlockIndex; blockIndex++) {
+                                 const blockId = `verse_block_${book}_${blockIndex * versesPerBlock + 1}_${Math.min((blockIndex + 1) * versesPerBlock, layout.verses)}`;
+                                 verseBlocksWithDoublets.add(blockId);
+                             }
+                             
+                             // Connect container to the verse blocks it spans
+                             for (let blockIndex = startBlockIndex; blockIndex <= endBlockIndex; blockIndex++) {
+                                 const blockId = `verse_block_${book}_${blockIndex * versesPerBlock + 1}_${Math.min((blockIndex + 1) * versesPerBlock, layout.verses)}`;
+                                 overviewEdges.push({
+                                     data: {
+                                         id: `doublet_to_block_${containerId}_${blockId}`,
+                                         source: containerId,
+                                         target: blockId,
+                                         relationship: 'spans',
+                                         color: categoryColors.color,
+                                         width: 4,
+                                         line_style: 'solid',
+                                         arrow_shape: 'triangle'
+                                     }
+                                 });
+                             }
+                         }
+                     }
+                 });
+             });
+             
+             // Create parallel connections between doublet containers - CLEAN CONTAINER CONNECTIONS
+             doubletData.doublets.forEach(doublet => {
+                 const doubletContainerIds = [];
+                 
+                 // Collect all container IDs for this doublet
+                 doublet.passages.forEach((passage, passageIndex) => {
+                     const containerId = `doublet_container_${doublet.name.replace(/\s+/g, '_')}_${passage.book}_${passageIndex}`;
+                     doubletContainerIds.push(containerId);
+                 });
+                 
+                 // Create connections between all containers in this doublet
+                 for (let i = 0; i < doubletContainerIds.length; i++) {
+                     for (let j = i + 1; j < doubletContainerIds.length; j++) {
+                         if (doubletContainerIds[i] && doubletContainerIds[j]) {
+                             overviewEdges.push({
+                                 data: {
+                                     id: `parallel_${doubletContainerIds[i]}_${doubletContainerIds[j]}`,
+                                     source: doubletContainerIds[i],
+                                     target: doubletContainerIds[j],
+                                     relationship: 'parallel',
+                                     doublet_name: doublet.name,
+                                     doublet_category: doublet.category,
+                                     color: '#ff6b35',
+                                     width: 8,
+                                     line_style: 'dashed',
+                                     z_index: 999
+                                 }
+                             });
+                         }
+                     }
+                 }
+             });
+             
+             // Update verse blocks to show which ones contain doublets
+             cy.nodes('[type = "verse_block"]').forEach(node => {
+                 const nodeId = node.id();
+                 if (verseBlocksWithDoublets.has(nodeId)) {
+                     node.data('has_doublets', true);
+                 }
+             });
+             
+             // Add all nodes and edges to the graph
+             console.log(`Adding ${overviewNodes.length} nodes and ${overviewEdges.length} edges...`);
+             cy.add(overviewNodes);
+             cy.add(overviewEdges);
+             
+             console.log('Book overview layout applied successfully');
+             console.log(`Total elements: ${cy.elements().length}`);
+             
+             // Add interactive features for doublet verses
+             addDoubletInteractivity();
+         }
+         
+         // Add interactive features for doublet identification
+         function addDoubletInteractivity() {
+             // Tooltip functionality for doublet containers
+             cy.on('mouseover', 'node[type = "doublet_container"]', function(evt) {
+                 const node = evt.target;
+                 const data = node.data();
+                 
+                 // Show detailed info in console
+                 console.log(`Doublet Container: ${data.doublet_name}`);
+                 console.log(`Category: ${data.doublet_category}`);
+                 console.log(`Location: ${data.book} ${data.chapter_start}:${data.verse_start}-${data.chapter_end}:${data.verse_end}`);
+                 console.log(`Description: ${data.doublet_description}`);
+                 
+                 // Highlight the container
+                 node.style('z-index', 1001);
+             });
+             
+             cy.on('mouseout', 'node[type = "doublet_container"]', function(evt) {
+                 const node = evt.target;
+                 node.style('z-index', 1000);
+             });
+             
+             // Click functionality to highlight all related doublet containers
+             cy.on('tap', 'node[type = "doublet_container"]', function(evt) {
+                 const node = evt.target;
+                 const doubletName = node.data('doublet_name');
+                 
+                 // Clear previous selections
+                 cy.elements().removeClass('doublet-highlighted');
+                 
+                 // Highlight all containers with the same doublet name
+                 cy.nodes(`[doublet_name = "${doubletName}"]`).addClass('doublet-highlighted');
+                 
+                 // Highlight all parallel edges for this doublet
+                 cy.edges(`[doublet_name = "${doubletName}"]`).addClass('doublet-highlighted');
+                 
+                 console.log(`Selected doublet story: ${doubletName}`);
+                 console.log(`Highlighting all related passages across books`);
+             });
+             
+             // Clear highlights when clicking elsewhere
+             cy.on('tap', function(evt) {
+                 if (evt.target === cy) {
+                     cy.elements().removeClass('doublet-highlighted');
+                 }
+             });
+         }
+
+        // Filter network by type
+        function filterByType(type) {
+            if (type === 'all') {
+                cy.elements().show();
+            } else {
+                cy.elements().hide();
+                cy.elements(`node[type = "${type}"]`).show();
+                cy.elements(`edge`).show();
+            }
+            updateStats();
+        }
+
+        // Filter network by source
+        function filterBySource(source) {
+            if (source === 'all') {
+                cy.elements().show();
+            } else {
+                cy.elements().hide();
+                cy.elements(`node[primary_source = "${source}"]`).show();
+                cy.elements(`node[type = "source"]`).show();
+                cy.elements(`edge`).show();
+            }
+            updateStats();
+        }
+
+        // Search functionality
+        function searchNodes(query) {
+            if (!query.trim()) {
+                cy.elements().removeClass('highlighted');
+                cy.elements().removeClass('book-highlighted');
+                return;
+            }
+
+            cy.elements().removeClass('highlighted');
+            cy.elements().removeClass('book-highlighted');
+            
+            // Enhanced search - look in multiple fields with proper selector syntax
+            const matchingNodes = cy.elements(`node[label *= "${query}" i], node[type *= "${query}" i], node[book *= "${query}" i], node[primary_source *= "${query}" i]`);
+            matchingNodes.addClass('highlighted');
+            
+            // Highlight books that contain search results
+            const bookBreakdown = getBookBreakdown(query);
+            Object.keys(bookBreakdown).forEach(book => {
+                const bookNodes = cy.elements(`node[book = "${book}"]`);
+                bookNodes.addClass('book-highlighted');
+            });
+            
+            console.log(`Found ${matchingNodes.length} nodes matching "${query}"`);
+            
+            // Fit to highlighted elements
+            if (matchingNodes.length > 0) {
+                cy.fit(matchingNodes, 50);
+                // Show search results info
+                showSearchResults(matchingNodes.length, query);
+            } else {
+                showSearchResults(0, query);
+            }
+        }
+        
+        // Search example function
+        function searchExample(term) {
+            document.getElementById('search-input').value = term;
+            searchNodes(term);
+        }
+        
+        // Show search results info with book breakdown
+        function showSearchResults(count, query) {
+            const resultsDiv = document.getElementById('search-results') || createSearchResultsDiv();
+            
+            if (count > 0) {
+                // Get book breakdown for search results
+                const bookBreakdown = getBookBreakdown(query);
+                let content = `<strong>Found ${count} nodes matching "${query}"</strong>`;
+                
+                if (Object.keys(bookBreakdown).length > 0) {
+                    content += `<br><small>Books: ${Object.entries(bookBreakdown).map(([book, count]) => `${book} (${count})`).join(', ')}</small>`;
+                }
+                
+                resultsDiv.innerHTML = content;
+                resultsDiv.style.display = 'block';
+            } else {
+                resultsDiv.innerHTML = `<strong>No nodes found matching "${query}"</strong>`;
+                resultsDiv.style.display = 'block';
+            }
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                resultsDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Get book breakdown for search results
+        function getBookBreakdown(query) {
+            const matchingNodes = cy.elements(`node[label *= "${query}" i], node[type *= "${query}" i], node[book *= "${query}" i], node[primary_source *= "${query}" i]`);
+            const bookCounts = {};
+            
+            matchingNodes.forEach(node => {
+                const nodeData = node.data();
+                if (nodeData.book) {
+                    bookCounts[nodeData.book] = (bookCounts[nodeData.book] || 0) + 1;
+                }
+            });
+            
+            return bookCounts;
+        }
+        
+        // Create search results div
+        function createSearchResultsDiv() {
+            const div = document.createElement('div');
+            div.id = 'search-results';
+            div.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 10px 15px;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                display: none;
+                color: #2c3e50;
+            `;
+            document.body.appendChild(div);
+            return div;
+        }
+        
+        // Visualization control functions
+        function fitToScreen() {
+            if (cy) {
+                cy.fit();
+                console.log('Fitted to screen');
+            }
+        }
+        
+        function resetView() {
+            if (cy) {
+                cy.reset();
+                cy.fit();
+                console.log('View reset');
+            }
+        }
+        
+        function zoomIn() {
+            if (cy) {
+                cy.zoom({
+                    level: cy.zoom() * 1.2,
+                    renderedPosition: { x: cy.width() / 2, y: cy.height() / 2 }
+                });
+            }
+        }
+        
+        function zoomOut() {
+            if (cy) {
+                cy.zoom({
+                    level: cy.zoom() / 1.2,
+                    renderedPosition: { x: cy.width() / 2, y: cy.height() / 2 }
+                });
+            }
+        }
+
+        // Update statistics
+        function updateStats() {
+            const totalNodes = cy.nodes().length;
+            const totalEdges = cy.edges().length;
+            const visibleNodes = cy.nodes(':visible').length;
+            const selectedCount = selectedNodes.length;
+            
+            // Calculate network density
+            const maxEdges = (totalNodes * (totalNodes - 1)) / 2;
+            const density = maxEdges > 0 ? (totalEdges / maxEdges).toFixed(3) : 0;
+            
+            document.getElementById('total-nodes').textContent = visibleNodes;
+            document.getElementById('total-edges').textContent = totalEdges;
+            document.getElementById('selected-nodes').textContent = selectedCount;
+            document.getElementById('network-density').textContent = density;
+        }
+
+        // Utility functions
+        function showLoading(show) {
+            const loading = document.getElementById('loading');
+            if (show) {
+                loading.classList.add('show');
+            } else {
+                loading.classList.remove('show');
+            }
+        }
+
+        function showError(message) {
+            const error = document.getElementById('error');
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = message;
+            error.classList.add('show');
+        }
+
+        function hideError() {
+            const error = document.getElementById('error');
+            error.classList.remove('show');
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded - Starting initialization...');
+            
+            // Initialize Cytoscape
+            console.log('Initializing Cytoscape...');
+            initializeCytoscape();
+            console.log('Cytoscape initialized successfully');
+            
+            // Load initial data
+            console.log('Loading initial network data...');
+            loadNetworkData('main');
+            
+                         // Network view selector
+             document.getElementById('network-select').addEventListener('change', function() {
+                 const networkType = this.value;
+                 currentNetwork = networkType;
+                 
+                 // Hide legends for non-relevant views
+                 if (networkType !== 'doublets') {
+                     document.getElementById('doublet-legend').style.display = 'none';
+                 }
+                 if (networkType !== 'book-overview') {
+                     document.getElementById('book-overview-legend').style.display = 'none';
+                 }
+                 
+                 loadNetworkData(networkType);
+             });
+            
+            // Layout selector
+            document.getElementById('layout-select').addEventListener('change', function() {
+                applyLayout();
+            });
+            
+            // Filter by type
+            document.getElementById('filter-type').addEventListener('change', function() {
+                filterByType(this.value);
+            });
+            
+            // Filter by source
+            document.getElementById('filter-source').addEventListener('change', function() {
+                filterBySource(this.value);
+            });
+            
+            // Search functionality
+            document.getElementById('search-btn').addEventListener('click', function() {
+                const query = document.getElementById('search-input').value;
+                searchNodes(query);
+            });
+            
+            document.getElementById('clear-search-btn').addEventListener('click', function() {
+                document.getElementById('search-input').value = '';
+                cy.elements().removeClass('highlighted');
+                cy.elements().removeClass('book-highlighted');
+            });
+            
+            // Enter key for search
+            document.getElementById('search-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const query = this.value;
+                    searchNodes(query);
+                }
+            });
+        });
+
+        // Add custom styles for highlighted nodes
+        const style = document.createElement('style');
+        style.textContent = `
+            .highlighted {
+                border-color: #f39c12 !important;
+                border-width: 4px !important;
+                z-index: 999 !important;
+                box-shadow: 0 0 10px #f39c12 !important;
+            }
+            
+            .book-highlighted {
+                border-color: #e74c3c !important;
+                border-width: 2px !important;
+                opacity: 0.8 !important;
+            }
+            
+            .book-highlighted:not(.highlighted) {
+                background-color: rgba(231, 76, 60, 0.3) !important;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
