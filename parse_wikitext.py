@@ -15,9 +15,11 @@ COLOR_TO_SOURCE = {
     "#000088": "J",  # Jahwist source - navy blue  
     "#008888": "E",  # Elohist source - teal blueish grey
     "#880000": "R",  # Redactor - maroon red
-    "#000000": "UNKNOWN",  # Black text (unknown source)
+    "#000000": "D",  # Deuteronomist source - black
+    "#800080": "D",  # Deuteronomist source - purple (Dtr1)
+    "#008800": "D",  # Deuteronomist source - green (Dtr2)
+    "#00FF88": "D",  # Deuteronomist source - turquoise (Song of Moses)
     "#888888": "UNKNOWN",  # Grey text (unknown source)
-    "#008800": "UNKNOWN",  # Green text (unknown source)
 }
 
 def parse_wikitext_file(file_path):
@@ -88,7 +90,7 @@ def parse_wikitext_file(file_path):
                 if full_text.strip():
                     # Create source-specific text columns
                     source_text_columns = {}
-                    for source in ["J", "E", "P", "R", "UNKNOWN"]:
+                    for source in ["J", "E", "P", "D", "R", "UNKNOWN"]:
                         if source in source_texts:
                             source_text_columns[source] = " ".join(source_texts[source])
                         else:
@@ -104,6 +106,7 @@ def parse_wikitext_file(file_path):
                         'text_J': source_text_columns.get("J", ""),
                         'text_E': source_text_columns.get("E", ""),
                         'text_P': source_text_columns.get("P", ""),
+                        'text_D': source_text_columns.get("D", ""),
                         'text_R': source_text_columns.get("R", ""),
                         'text_UNKNOWN': source_text_columns.get("UNKNOWN", "")
                     })
@@ -122,7 +125,7 @@ def write_csv_output(verses, book_name, output_dir):
             'book', 'chapter', 'verse', 'verse_id', 'canonical_reference',
             'full_text', 'text_clean', 'word_count',
             'sources', 'source_count', 'primary_source', 'source_sequence',
-            'text_J', 'text_E', 'text_P', 'text_R', 'text_UNKNOWN',
+            'text_J', 'text_E', 'text_P', 'text_D', 'text_R', 'text_UNKNOWN',
             'source_percentages', 'source_confidence',
             'narrative_context', 'theological_themes', 'literary_features',
             'cross_references', 'redaction_indicators', 'source_boundaries',
@@ -150,7 +153,7 @@ def write_csv_output(verses, book_name, output_dir):
             # Calculate source percentages
             source_percentages = {}
             total_chars = len(verse['text'])
-            for source in ['J', 'E', 'P', 'R', 'UNKNOWN']:
+            for source in ['J', 'E', 'P', 'D', 'R', 'UNKNOWN']:
                 source_text = verse.get(f'text_{source}', '')
                 if source_text and total_chars > 0:
                     percentage = round((len(source_text) / total_chars) * 100, 1)
@@ -205,6 +208,7 @@ def write_csv_output(verses, book_name, output_dir):
                 verse.get('text_J', ''),
                 verse.get('text_E', ''),
                 verse.get('text_P', ''),
+                verse.get('text_D', ''),
                 verse.get('text_R', ''),
                 verse.get('text_UNKNOWN', ''),
                 source_percentages_str,

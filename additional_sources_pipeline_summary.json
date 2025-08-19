@@ -1,0 +1,63 @@
+{
+  "timestamp": "2025-01-18 18:17:50",
+  "pipeline_name": "Additional Sources Pipeline",
+  "status": "completed_successfully",
+  "steps_completed": [
+    "Download additional Wikiversity pages",
+    "Process Deuteronomist source",
+    "Ingest additional sources into vector database",
+    "Update existing data with Deuteronomist source"
+  ],
+  "files_created": [
+    "wiki_markdown/additional_sources_metadata.json",
+    "output/deuteronomist_verses.csv",
+    "output/deuteronomist_analysis.jsonl",
+    "output/deuteronomist_vector_docs.jsonl",
+    "output/deuteronomist_processing_summary.json",
+    "lightrag_data/additional_sources_source_analysis.jsonl",
+    "lightrag_data/additional_sources_comparative_analysis.jsonl",
+    "lightrag_data/additional_sources_thematic_analysis.jsonl",
+    "lightrag_data/additional_sources_ingestion_summary.json",
+    "output/Deuteronomy/Deuteronomy_20250818_181750.csv",
+    "output/Deuteronomy/Deuteronomy_20250818_181750.html",
+    "output/Deuteronomy/Deuteronomy_latest.csv",
+    "output/Deuteronomy/Deuteronomy_latest.html"
+  ],
+  "statistics": {
+    "additional_sources_downloaded": 11,
+    "deuteronomist_verses_processed": 685,
+    "deuteronomist_sub_sources": ["Dtr2", "Late_insertion", "Dtr1", "Core", "Song_of_Moses"],
+    "deuteronomy_total_verses": 959,
+    "deuteronomy_source_breakdown": {
+      "D": 830,
+      "P": 12,
+      "R": 84,
+      "E": 6,
+      "J": 34
+    },
+    "additional_sources_processed": 41,
+    "source_types": {
+      "specialized": 29,
+      "comparative": 2,
+      "sub_source": 6,
+      "individual_source": 4
+    }
+  },
+  "integration_status": {
+    "deuteronomist_source_added": true,
+    "color_mapping_updated": true,
+    "cli_updated": true,
+    "entity_relations_updated": true,
+    "vector_database_datasets_created": true
+  },
+  "next_steps": [
+    "Test the updated CLI with: python -m src.kjv_sources.cli rich-preview deuteronomy --source D",
+    "Check the vector database with: python lightrag_query.py",
+    "Run the RAG API server: python rag_api_server.py"
+  ],
+  "errors": [],
+  "warnings": [
+    "LightRAG not available during ingestion (simulation mode used)",
+    "1 additional source failed to download due to rate limiting"
+  ]
+}

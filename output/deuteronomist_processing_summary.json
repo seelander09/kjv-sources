@@ -1,0 +1,22 @@
+{
+  "processing_date": "2025-08-18T18:16:26.225513",
+  "total_verses": 685,
+  "sub_sources": {
+    "Dtr2": 250,
+    "Late_insertion": 3,
+    "Dtr1": 45,
+    "Core": 344,
+    "Song_of_Moses": 43
+  },
+  "files_processed": [
+    "Deuteronomist_source.wikitext",
+    "First_Deuteronomist_Version.wikitext",
+    "Deuteronomic_Laws.wikitext",
+    "Song_of_Moses.wikitext"
+  ],
+  "output_files": [
+    "deuteronomist_verses.csv",
+    "deuteronomist_analysis.jsonl",
+    "deuteronomist_vector_docs.jsonl"
+  ]
+}

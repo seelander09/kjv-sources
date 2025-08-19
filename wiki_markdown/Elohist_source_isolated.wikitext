@@ -1,0 +1,1418 @@
+According to the [[w:documentary hypothesis|documentary hypothesis]], the [[w:Torah|Torah]] is composed from a number of originally independent sources joined by a [[w:redaction|redactor]]. One of these supposed sources is named the [[w:Elohist|"Elohist source"]], due to its preference of referring to God as [[w:Elohim|Elohim]] (usually translated as "God").
+
+There follows the reconstructed text of the Elohist Source, using the [[w:King James Version|King James Translation]] of the Torah. 
+*The main body of the source is highlighted in black
+*The text of the Covenant Code is highlighted in {{font|color=#FF0000|red}} <small>{{font|color=#0000FF|([[Bible/King James/Documentary Hypothesis/Elohist source/Covenant Code|view in isolation]])}}</small>
+* Interpolated sections, believed to be removed by a redactor, are included in [brackets]
+* Sections moved from their place in the final text to their original location are surrounded by *asterisks*
+
+''Although the text is ordered as it appears in the bible, the partitions do not reflect, in any way, the original partitioning of the text, and simply exists for the ease of modern readership''
+
+==The Blessing of Melchizedek ==
+{{font|size=smaller|color=#0000FF|1}}{{font|And Melchizedek king of Salem brought forth bread and wine: and he was the priest of the most high God.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|And he blessed him, and said, Blessed be Abra[ha]m of the most high God, possessor of heaven and earth:|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|And blessed be the most high God, which hath delivered thine enemies into thy hand. And he gave him tithes of all.|color=#000000}}
+
+==The Covenant of the Pieces ==
+{{font|1|size=smaller|color=#0000FF}}{{font|After these things the word of the LORD came unto Abra[ha]m in a vision, saying, Fear not, Abra[ha]m: I am thy shield, and thy exceeding great reward.|color=#000000}}
+
+{{font|2|size=smaller|color=#0000FF}}{{font|And Abra[ha]m said,|color=#000000}} {{font|[lord]|color=#000000}} {{font|what wilt thou give me, seeing I go childless, and the steward of my house is this Eliezer of Damascus?|color=#000000}}
+
+{{font|3|size=smaller|color=#0000FF}}{{font|And Abra[ha]m said, Behold, to me thou hast given no seed: and, lo, one born in my house is mine heir.|color=#000000}}
+
+{{font|4|size=smaller|color=#0000FF}}{{font|And, behold, the word of the LORD came unto him, saying, This shall not be thine heir; but he that shall come forth out of thine own bowels shall be thine heir.|color=#000000}}
+
+{{font|5|size=smaller|color=#0000FF}}{{font|And he brought him forth abroad, and said, Look now toward heaven, and tell the stars, if thou be able to number them: and he said unto him, So shall thy seed be.|color=#000000}}
+
+{{font|6|size=smaller|color=#0000FF}}{{font|And he believed in the LORD; and he counted it to him for righteousness.|color=#000000}}
+
+{{font|7|size=smaller|color=#0000FF}}{{font|And he said unto him, I am the|color=#000000}} {{font|[God]|color=#000000}} {{font|to give thee this land to inherit it.|color=#00000}}
+
+{{font|8|size=smaller|color=#0000FF}}{{font|And he said,|color=#000000}} {{font|[lord]|color=#000000}} {{font|whereby shall I know that I shall inherit it?|color=#000000}}
+
+{{font|9|size=smaller|color=#0000FF}}{{font|And he said unto him, Take me an heifer of three years old, and a she goat of three years old, and a ram of three years old, and a turtledove, and a young pigeon.|color=#000000}}
+
+{{font|10|size=smaller|color=#0000FF}}{{font|And he took unto him all these, and divided them in the midst, and laid each piece one against another: but the birds divided he not.|color=#000000}}
+
+{{font|11|size=smaller|color=#0000FF}}{{font|And when the fowls came down upon the carcases, Abra[ha]m drove them away.|color=#000000}}
+
+{{font|12|size=smaller|color=#0000FF}}{{font|And he said unto Abra[ha]m, Know of a surety that thy seed shall be a stranger in a land that is not theirs,|color=#000000}}
+
+{{font|13|size=smaller|color=#0000FF}}{{font|But in the fourth generation they shall come hither again: for the iniquity of the Amorites is not yet full.|color=#000000}}
+
+{{font|14|size=smaller|color=#0000FF}}{{font|And it came to pass, that, when the sun went down, and it was dark, behold a smoking furnace, and a burning lamp that passed between those pieces.|color=#000000}}
+
+{{font|15|size=smaller|color=#0000FF}}{{font|In the same day the LORD made a covenant with Abra[ha]m, saying, Unto thy seed have I given this land, from the river of Egypt unto the great river, the river Euphrates:|color=#000000}}
+
+{{font|16|size=smaller|color=#0000FF}}{{font|The Kenites, and the Kenizzites, and the Kadmonites,|color=#000000}}
+
+{{font|17|size=smaller|color=#0000FF}}{{font|And the Hittites, and the Perizzites, and the Rephaims,|color=#000000}}
+
+{{font|18|size=smaller|color=#0000FF}}{{font|And the Amorites, and the Canaanites, and the Girgashites, and the Jebusites.|color=#000000}}
+
+==Abraham's wife as his sister==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Abraham journeyed from thence toward the south country, and dwelled between Kadesh and Shur, and sojourned in Gerar.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Abraham said of Sarah his wife, She is my sister: and Abimelech king of Gerar sent, and took Sarah.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| But God came to Abimelech in a dream by night, and said to him, Behold, thou art but a dead man, for the woman which thou hast taken; for she is a man's wife.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| But Abimelech had not come near her: and he said, LORD, wilt thou slay also a righteous nation?}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| Said he not unto me, She is my sister? and she, even she herself said, He is my brother: In the integrity of my heart and innocency of my hands have I done this.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And God said unto him in a dream, Yea, I know that thou didst this in the integrity of thy heart; For I also withheld thee from sinning against me: therefore suffered I thee not to touch her.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| Now therefore restore the man his wife; for he is a prophet, and he shall pray for thee, and thou shalt live: and if thou restore her not, know thou that thou shalt surely die, thou, and all that are thine.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| Therefore Abimelech rose early in the morning, and called all his servants, and told all these things in their ears: and the men were sore afraid.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| Then Abimelech called Abraham, and said unto him, What hast thou done unto us? And what have I offended thee, that thou hast brought on me and on my kingdom a great sin? Thou hast done deeds unto me that ought not to be done.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And Abimelech said unto Abraham, What sawest thou, that thou hast done this thing?}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And Abraham said, Because I thought, Surely the fear of God is not in this place; and they will slay me for my wife's sake.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| And yet indeed she is my sister; she is the daughter of my father, but not the daughter of my mother; and she became my wife.}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| And it came to pass, when God caused me to wander from my father's house, that I said unto her, This is thy kindness which thou shalt shew unto me; at every place whither we shall come, say of me, He is my brother.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And Abimelech took sheep, and oxen, and menservants, and womenservants, and gave them unto Abraham, and restored him Sarah his wife.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| And Abimelech said, Behold, my land is before thee: dwell where it pleaseth thee.}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| And unto Sarah he said, Behold, I have given thy brother a thousand pieces of silver: behold, he is to thee a covering of the eyes, unto all that are with thee, and with all other: thus she was reproved.}}
+
+{{font|size=smaller|color=#0000FF|17}}{{font|color=#000000| So Abraham prayed unto God: and God healed Abimelech, and his wife, and his maidservants; and they bare children.}}
+
+{{font|size=smaller|color=#0000FF|18}}{{font|color=#000000| For the LORD had fast closed up all the wombs of the house of Abimelech, because of Sarah, Abraham's wife.}}
+==The exile of Hagar and Ismael==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000|[And Sarah conceived, and bare Abraham a son, and she named him Isaac.]}}<ref>{{Cite web|url=https://twitter.com/joelbaden/status/1297141601723199488|title=https://twitter.com/joelbaden/status/1297141601723199488|website=Twitter|language=en|access-date=2021-10-11}}</ref>
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Sarah said, God hath made me to laugh, so that all who hear will laugh with me.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And the child grew, and was weaned: and Abraham made a great feast the same day that Isaac was weaned.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And Sarah saw the son of Hagar the Egyptian, which she had born unto Abraham, mocking.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| Wherefore she said unto Abraham, Cast out this bondwoman and her son: for the son of this bondwoman shall not be heir with my son, even with Isaac.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And the thing was very grievous in Abraham's sight because of his son.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And God said unto Abraham, Let it not be grievous in thy sight because of the lad, and because of thy bondwoman;}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| In all that Sarah hath said unto thee, hearken unto her voice; for in Isaac shall thy seed be called.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And also of the son of the bondwoman will I make a nation, because he is thy seed.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And Abraham rose up early in the morning, and took bread, and a bottle of water,}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And gave it unto Hagar, putting it on her shoulder, and the child, and sent her away:}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| And she departed, and wandered in the wilderness of Beersheba.}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| And the water was spent in the bottle, and she cast the child under one of the shrubs.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And she went, and sat her down over against him a good way off, as it were a bow shot: for she said, Let me not see the death of the child.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| And she sat over against him, and lift up her voice, and wept.}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| And God heard the voice of the lad; and the angel of God called to Hagar out of heaven, and said unto her,}}
+
+{{font|size=smaller|color=#0000FF|17}}{{font|color=#000000| What aileth thee, Hagar? fear not; for God hath heard the voice of the lad where he is.}}
+
+{{font|size=smaller|color=#0000FF|18}}{{font|color=#000000| Arise, lift up the lad, and hold him in thine hand; for I will make him a great nation.}}
+
+{{font|size=smaller|color=#0000FF|19}}{{font|color=#000000| And God opened her eyes, and she saw a well of water; and she went, and filled the bottle with water, and gave the lad drink.}}
+
+{{font|size=smaller|color=#0000FF|20}}{{font|color=#000000| And God was with the lad; and he grew, and dwelt in the wilderness, and became an archer.}}
+
+{{font|size=smaller|color=#0000FF|21}}{{font|color=#000000| And he dwelt in the wilderness of Paran: and his mother took him a wife out of the land of Egypt.}}
+
+==Conflict with Abimelech at Beersheba==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Abraham reproved Abimelech because of a well of water, which Abimelech's servants had violently taken away.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Abimelech said, I wot not who hath done this thing: neither didst thou tell me, neither yet heard I of it, but to day.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And Abraham set seven ewe lambs of the flock by themselves.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And Abimelech said unto Abraham, What mean these seven ewe lambs which thou hast set by themselves?}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And he said, For these seven ewe lambs shalt thou take of my hand, that they may be a witness unto me, that I have digged this well.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000|[Wherefore he called that place Beersheba; because of the seven ewe lambs.]}}<ref>{{Cite web|url=https://twitter.com/joelbaden/status/1297867597904580610|title=https://twitter.com/joelbaden/status/1297867597904580610|website=Twitter|language=en|access-date=2021-10-11}}</ref>
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And Abraham sojourned in the Philistines' land many days.}}
+
+==The sacrifice of Isaac==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And it came to pass after these things, that God did tempt Abraham, and said unto him, Abraham: and he said, Behold, here I am.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And he said, Take now thy son, thine only son Isaac, whom thou lovest, and get thee into the land of Moriah; and offer him there for a burnt offering upon one of the mountains which I will tell thee of.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And Abraham rose up early in the morning, and saddled his ass, and took two of his young men with him, and Isaac his son, and clave the wood for the burnt offering, and rose up, and went unto the place of which God had told him.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| Then on the third day Abraham lifted up his eyes, and saw the place afar off.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And Abraham said unto his young men, Abide ye here with the ass; and I and the lad will go yonder and worship, and I shall come again to you.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Abraham took the wood of the burnt offering, and laid it upon Isaac his son; and he took the fire in his hand, and a knife; and they went both of them together.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And Isaac spake unto Abraham his father, and said, My father: and he said, Here am I, my son. And he said, Behold the fire and the wood: but where is the lamb for a burnt offering?}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| And Abraham said, My son, God will provide himself a lamb for a burnt offering: so they went both of them together.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And they came to the place which God had told him of; and Abraham built an altar there, and laid the wood in order, and bound Isaac his son, and laid him on the altar upon the wood.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And Abraham stretched forth his hand, and took the knife to slay his son.}}
+
+{{font|11|size=smaller|color=#0000FF}}{{font|And the angel of the LORD called unto him out of heaven, and said, Abraham, Abraham: and he said, Here am I.|color=#000000}}
+
+{{font|12|size=smaller|color=#0000FF}}{{font|And he said, Lay not thine hand upon the lad, neither do thou any thing unto him: for now I know that thou fearest God, seeing thou hast not withheld thy son, thine only son from me.|color=#000000}}
+
+{{font|13|size=smaller|color=#0000FF}}{{font|And Abraham lifted up his eyes, and looked, and behold behind him a ram caught in a thicket by his horns: and Abraham went and took the ram, and offered him up for a burnt offering in the stead of his son.|color=#000000}}
+
+{{font|14|size=smaller|color=#0000FF}}{{font|And Abraham called the name of that place Jehovahjireh: as it is said to this day, In the mount of the LORD it shall be seen.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| So Abraham returned unto his young men, and they rose up and went together to Beersheba; and Abraham dwelt at Beersheba.}}
+
+==Jacob's ladder==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|And he lighted upon a certain place, and tarried there all night, because the sun was set; and he took of the stones of that place, and put them for his pillows, and lay down in that place to sleep.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And he dreamed, and behold a ladder set up on the earth, and the top of it reached to heaven: and behold the angels of God ascending and descending on it.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|And Jacob awaked out of his sleep, and he was afraid, and said, How dreadful is this place! this is none other but the house of God, and this is the gate of heaven.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And Jacob rose up early in the morning, and took the stone that he had put for his pillows, and set it up for a pillar, and poured oil upon the top of it.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|And he called the name of that place Bethel: but the name of that city was called Luz at the first.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Jacob vowed a vow, saying, So that I come again to my father's house in peace, this stone, which I have set for a pillar, shall be God's house: and of all that thou shalt give me I will surely give the tenth unto thee.}}
+
+==The children of Jacob==
+
+<small>{{font|Due to the extreme textual difficulties of this section, the parts ascribed to the J source are included in brackets.|color=#0000FF}}</small><ref>{{Cite web|url=https://twitter.com/joelbaden/status/1308356214418538496|title=https://twitter.com/joelbaden/status/1308356214418538496|website=Twitter|language=en|access-date=2021-10-14}}</ref>
+
+{{font|1|size=smaller|color=#0000FF}}{{font|[And when the LORD saw that Leah was hated, he opened her womb: but Rachel was barren.]|color=#000000}}
+
+{{font|2|size=smaller|color=#0000FF}}{{font|[And Leah conceived, and bare a son, and she called his name Reuben: for she said, Surely the LORD hath looked upon my affliction; now therefore my husband will love me.]|color=#000000}}
+
+{{font|3|size=smaller|color=#0000FF}}{{font|[And she conceived again, and bare a son; and said, Because the LORD hath heard that I was hated, he hath therefore given me this son also: and she called his name Simeon.]|color=#000000}}
+
+{{font|4|size=smaller|color=#0000FF}}{{font|[And she conceived again, and bare a son; and said, Now this time will my husband be joined unto me, because I have born him three sons: therefore was his name called Levi.]|color=#000000}}
+
+{{font|5|size=smaller|color=#0000FF}}{{font|[And she conceived again, and bare a son: and she said, Now will I praise the LORD: therefore she called his name Judah; and left bearing.]|color=#000000}}
+
+{{font|6|size=smaller|color=#0000FF}}{{font|[And when Rachel saw that she bare Jacob no children, Rachel envied her sister; and said unto Jacob, Give me children, or else I die.]|color=#000000}}
+
+{{font|7|size=smaller|color=#0000FF}}{{font|[And Jacob's anger was kindled against Rachel: and he said, Am I in God's stead, who hath withheld from thee the fruit of the womb?]|color=#000000}}
+
+{{font|8|size=smaller|color=#0000FF}}{{font|And she said, Behold my maid Bilhah, go in unto her; and she shall bear upon my knees, that I may also have children by her.|color=#000000}}
+
+{{font|9|size=smaller|color=#0000FF}}{{font|[And she gave him Bilhah her handmaid to wife:]|color=#000000}} {{font|and Jacob went in unto her.|color=#000000}}
+
+{{font|10|size=smaller|color=#0000FF}}{{font|[And Bilhah conceived, and bare Jacob a son.]|color=#000000}}
+
+{{font|11|size=smaller|color=#0000FF}}{{font|[And Rachel said, God hath judged me, and hath also heard my voice, and hath given me a son: therefore called she his name Dan.]|color=#000000}}
+
+{{font|12|size=smaller|color=#0000FF}}{{font|[And Bilhah Rachel's maid conceived again, and bare Jacob a second son.]|color=#000000}}
+
+{{font|13|size=smaller|color=#0000FF}}{{font|[And Rachel said, With great wrestlings have I wrestled with my sister, and I have prevailed: and she called his name Naphtali.]|color=#000000}}
+
+{{font|14|size=smaller|color=#0000FF}}{{font|[When Leah saw that she had left bearing, she took Zilpah her maid, and gave her Jacob to wife.]|color=#000000}}
+
+{{font|15|size=smaller|color=#0000FF}}{{font|[And Zilpah Leah's maid bare Jacob a son.]|color=#000000}}
+
+{{font|16|size=smaller|color=#0000FF}}{{font|[And Leah said, A troop cometh: and she called his name Gad.]|color=#000000}}
+
+{{font|17|size=smaller|color=#0000FF}}{{font|[And Zilpah Leah's maid bare Jacob a second son.]|color=#000000}}
+
+{{font|18|size=smaller|color=#0000FF}}{{font|[And Leah said, Happy am I, for the daughters will call me blessed: and she called his name Asher.]|color=#000000}}
+
+{{font|19|size=smaller|color=#0000FF}}{{font|[And Reuben went in the days of wheat harvest, and found mandrakes in the field, and brought them unto his mother Leah. Then Rachel said to Leah, Give me, I pray thee, of thy son's mandrakes.]|color=#000000}}
+
+{{font|20|size=smaller|color=#0000FF}}{{font|[And she said unto her, Is it a small matter that thou hast taken my husband? and wouldest thou take away my son's mandrakes also? And Rachel said, Therefore he shall lie with thee to night for thy son's mandrakes.]|color=#000000}}
+
+{{font|21|size=smaller|color=#0000FF}}{{font|[And Jacob came out of the field in the evening, and Leah went out to meet him, and said, Thou must come in unto me; for surely I have hired thee with my son's mandrakes. And he lay with her that night.]|color=#000000}}
+
+{{font|22|size=smaller|color=#0000FF}}{{font|And God hearkened unto Leah, and she conceived, and bare Jacob the fifth son.|color=#000000}}
+
+{{font|23|size=smaller|color=#0000FF}}{{font|And Leah said, God hath given me my hire, because I have given my maiden to my husband: and she called his name Issachar.|color=#000000}}
+
+{{font|24|size=smaller|color=#0000FF}}{{font|And Leah conceived again, and bare Jacob the sixth son.|color=#000000}}
+
+{{font|25|size=smaller|color=#0000FF}}{{font|And Leah said, God hath endued me with a good dowry;|color=#000000}} {{font|[now will my husband dwell with me, because I have born him six sons:]|color=#000000}} {{font|and she called his name Zebulun.|color=#000000}}
+
+{{font|26|size=smaller|color=#0000FF}}{{font|And afterwards she bare a daughter, and called her name Dinah.|color=#000000}}
+
+{{font|27|size=smaller|color=#0000FF}}{{font|And God remembered Rachel, and God hearkened to her, and opened her womb.|color=#000000}}
+
+{{font|28|size=smaller|color=#0000FF}}{{font|And she conceived, and bare a son; and said, God hath taken away my reproach:|color=#000000}}
+
+{{font|29|size=smaller|color=#0000FF}}{{font|And she called his name Joseph;|color=#000000}} {{font|[and said, The LORD shall add to me another son.]|color=#000000}}
+
+==The blemished flock==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And he heard the words of Laban's sons, saying, Jacob hath taken away all that was our father's; and of that which was our father's hath he gotten all this glory.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Jacob beheld the countenance of Laban, and, behold, it was not toward him as before.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And Jacob sent and called Rachel and Leah to the field unto his flock,}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And said unto them, I see your father's countenance, that it is not toward me as before; but the God of my father hath been with me.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And ye know that with all my power I have served your father.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And your father hath deceived me, and changed my wages ten times; but God suffered him not to hurt me.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| If he said thus, The speckled shall be thy wages; then all the cattle bare speckled: and if he said thus, The ringstraked shall be thy hire; then bare all the cattle ringstraked.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| Thus God hath taken away the cattle of your father, and given them to me.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And it came to pass at the time that the cattle conceived, that I lifted up mine eyes, and saw in a dream, and, behold, the rams which leaped upon the cattle were ringstraked, speckled, and grisled.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And the angel of God spake unto me in a dream, saying, Jacob: And I said, Here am I.}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And he said, Lift up now thine eyes, and see, all the rams which leap upon the cattle are ringstraked, speckled, and grisled: for I have seen all that Laban doeth unto thee.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| I am the God of Bethel, where thou anointedst the pillar, and where thou vowedst a vow unto me: now arise, get thee out from this land, and return unto the land of thy kindred.}}
+
+==The stones of Galeed==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Rachel and Leah answered and said unto him, Is there yet any portion or inheritance for us in our father's house?}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| Are we not counted of him strangers? for he hath sold us, and hath quite devoured also our money.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| For all the riches which God hath taken from our father, that is ours, and our children's: now then, whatsoever God hath said unto thee, do.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And Laban went to shear his sheep: and Rachel had stolen the images that were her father's.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And Jacob stole away unawares to Laban the Syrian, in that he told him not that he fled.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| So he fled with all that he had; and he rose up, and passed over the river, and set his face toward the mount Gilead.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And it was told Laban on the third day that Jacob was fled.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| And he took his brethren with him, and pursued after him seven days' journey; and they overtook him in the mount Gilead.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And God came to Laban the Syrian in a dream by night, and said unto him, Take heed that thou speak not to Jacob either good or bad.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| Then Laban overtook Jacob. Now Jacob had pitched his tent in the mount: and Laban with his brethren pitched in the mount of Gilead.}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And Laban said to Jacob, What hast thou done, that thou hast stolen away unawares to me, and carried away my daughters, as captives taken with the sword?}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| Wherefore didst thou flee away secretly, and steal away from me; and didst not tell me, that I might have sent thee away with mirth, and with songs, with tabret, and with harp?}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| And hast not suffered me to kiss my sons and my daughters? thou hast now done foolishly in so doing.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| It is in the power of my hand to do you hurt: but the God of your father spake unto me yesternight, saying, Take thou heed that thou speak not to Jacob either good or bad.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| And now, though thou wouldest needs be gone, because thou sore longedst after thy father's house, yet wherefore hast thou stolen my gods?}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| And Jacob answered and said to Laban, Because I was afraid: for I said, Peradventure thou wouldest take by force thy daughters from me.}}
+
+{{font|size=smaller|color=#0000FF|17}}{{font|color=#000000| With whomsoever thou findest thy gods, let him not live: before our brethren discern thou what is thine with me, and take it to thee. For Jacob knew not that Rachel had stolen them.}}
+
+{{font|size=smaller|color=#0000FF|18}}{{font|color=#000000| And Laban went into Jacob's tent, and into Leah's tent, and into the two maidservants' tents; but he found them not. Then went he out of Leah's tent, and entered into Rachel's tent.}}
+
+{{font|size=smaller|color=#0000FF|19}}{{font|color=#000000| Now Rachel had taken the images, and put them in the camel's furniture, and sat upon them. And Laban searched all the tent, but found them not.}}
+
+{{font|size=smaller|color=#0000FF|20}}{{font|color=#000000| And she said to her father, Let it not displease my lord that I cannot rise up before thee; for the custom of women is upon me. And he searched, but found not the images.}}
+
+{{font|size=smaller|color=#0000FF|21}}{{font|color=#000000| And Jacob was wroth, and chode with Laban: and Jacob answered and said to Laban, What is my trespass? what is my sin, that thou hast so hotly pursued after me?}}
+
+{{font|size=smaller|color=#0000FF|22}}{{font|color=#000000| Whereas thou hast searched all my things, what hast thou found of all thy household things? Set it here before my brethren and thy brethren, that they may judge betwixt us both.}}
+
+{{font|size=smaller|color=#0000FF|23}}{{font|color=#000000| This twenty years have I been with thee; thy ewes and thy she goats have not cast their young, and the rams of thy flock have I not eaten.}}
+
+{{font|size=smaller|color=#0000FF|24}}{{font|color=#000000| That which was torn of beasts I brought not unto thee; I bare the loss of it; Of my hand didst thou require it, whether stolen by day, or stolen by night.}}
+
+{{font|size=smaller|color=#0000FF|25}}{{font|color=#000000| Thus I was; in the day the drought consumed me, and the frost by night; and my sleep departed from mine eyes.}}
+
+{{font|size=smaller|color=#0000FF|26}}{{font|color=#000000| Thus have I been twenty years in thy house; I served thee fourteen years for thy two daughters, and six years for thy cattle: and thou hast changed my wages ten times.}}
+
+{{font|size=smaller|color=#0000FF|27}}{{font|color=#000000| Except the God of my father, the God of Abraham, and the fear of Isaac, had been with me, surely thou hadst sent me away now empty. God hath seen mine affliction and the labour of my hands, and rebuked thee yesternight.}}
+
+{{font|size=smaller|color=#0000FF|28}}{{font|color=#000000| And Laban answered and said unto Jacob, These daughters are my daughters, and these children are my children, and these cattle are my cattle, and all that thou seest is mine: and what can I do this day unto these my daughters, or unto their children which they have born?}}
+
+{{font|size=smaller|color=#0000FF|29}}{{font|color=#000000| Now therefore come thou, let us make a covenant, I and thou; and let it be for a witness between me and thee.}}
+
+{{font|size=smaller|color=#0000FF|30}}{{font|color=#000000| And Jacob took a stone, and set it up for a pillar.}}
+
+{{font|size=smaller|color=#0000FF|31}}{{font|color=#000000| And Jacob said unto his brethren, Gather stones; and they took stones, and made an heap: and they did eat there upon the heap.}}
+
+{{font|size=smaller|color=#0000FF|32}}{{font|color=#000000| And Laban called it Jegarsahadutha: but Jacob called it Galeed.}}
+
+{{font|size=smaller|color=#0000FF|33}}{{font|color=#000000| And Laban said, This heap is a witness between me and thee this day. Therefore was the name of it called Galeed;}}
+
+{{font|size=smaller|color=#0000FF|34}}{{font|color=#000000| If thou shalt afflict my daughters, or if thou shalt take other wives beside my daughters, no man is with us; see, God is witness betwixt me and thee.}}
+
+{{font|size=smaller|color=#0000FF|35}}{{font|color=#000000| And Laban said to Jacob, Behold this heap, and behold this pillar, which I have cast betwixt me and thee:}}
+
+{{font|size=smaller|color=#0000FF|36}}{{font|color=#000000| This heap be witness, and this pillar be witness, that I will not pass over this heap to thee, and that thou shalt not pass over this heap and this pillar unto me, for harm.}}
+
+{{font|size=smaller|color=#0000FF|37}}{{font|color=#000000| The God of Abraham, and the God of Nahor, the God of their father, judge betwixt us. And Jacob sware by the fear of his father Isaac.}}
+
+{{font|size=smaller|color=#0000FF|38}}{{font|color=#000000| Then Jacob offered sacrifice upon the mount, and called his brethren to eat bread: and they did eat bread, and tarried all night in the mount.}}
+
+{{font|size=smaller|color=#0000FF|39}}{{font|color=#000000| And early in the morning Laban rose up, and kissed his sons and his daughters, and blessed them: and Laban departed, and returned unto his place.}}
+
+==Jacob is Named Israel==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Jacob went on his way, and the angels of God met him.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And when Jacob saw them, he said, This is God's host.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|And he said unto him, What is thy name? And he said, Jacob.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|And he said, Thy name shall be called no more Jacob, but Israel: for as a prince hast thou power with God.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|And Jacob asked him, and said, Tell me, I pray thee, thy name. And he said, Wherefore is it that thou dost ask after my name?|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|And Jacob called the name of the place Peniel: for I have seen God face to face, and my life is preserved.|color=#000000}}
+
+==Negotiation with Hamor Over Dinah==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Jacob came to Shalem, a city of Shechem, which is in the land of Canaan, and pitched his tent before the city.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And he bought a parcel of a field, where he had spread his tent, at the hand of the children of Hamor, Shechem's father, for an hundred pieces of money.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And he erected there an altar, and called it EleloheIsrael.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|And when Shechem the son of Hamor the Hivite, prince of the country, saw her, his soul clave unto Dinah the daughter of Jacob, and he loved the damsel, and spake kindly unto the damsel.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|And Shechem spake unto his father Hamor, saying, Get me this damsel to wife.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|And Hamor the father of Shechem went out unto Jacob to commune with him.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|And Hamor communed with them, saying, The soul of my son Shechem longeth for your daughter: I pray you give her him to wife.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|And make ye marriages with us, and give your daughters unto us, and take our daughters unto you.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|And ye shall dwell with us: and the land shall be before you; dwell and trade ye therein, and get you possessions therein.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|And Shechem said unto her father and unto her brethren, Let me find grace in your eyes, and what ye shall say unto me I will give.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|Ask me never so much dowry and gift, and I will give according as ye shall say unto me: but give me the damsel to wife.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|And the sons of Jacob answered Shechem and Hamor his father deceitfully,|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|And they said unto them, We cannot do this thing, to give our sister to one that is uncircumcised; for that were a reproach unto us:|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|But in this will we consent unto you: If ye will be as we be, that every male of you be circumcised;|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|Then will we give our daughters unto you, and we will take your daughters to us, and we will dwell with you, and we will become one people.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|But if ye will not hearken unto us, to be circumcised; then will we take our daughter, and we will be gone.|color=#000000}}
+
+{{font|17|size=smaller|color=#0000FF}}{{font|And their words pleased Hamor, and Shechem Hamor's son.|color=#000000}}
+
+{{font|18|size=smaller|color=#0000FF}}{{font|And the young man deferred not to do the thing, because he had delight in Jacob's daughter: and he was more honourable than all the house of his father.|color=#000000}}
+
+{{font|19|size=smaller|color=#0000FF}}{{font|And Hamor and Shechem his son came unto the gate of their city, and communed with the men of their city, saying,|color=#000000}}
+
+{{font|20|size=smaller|color=#0000FF}}{{font|These men are peaceable with us; therefore let them dwell in the land, and trade therein; for the land, behold, it is large enough for them; let us take their daughters to us for wives, and let us give them our daughters.|color=#000000}}
+
+{{font|21|size=smaller|color=#0000FF}}{{font|Only herein will the men consent unto us for to dwell with us, to be one people, if every male among us be circumcised, as they are circumcised.|color=#000000}}
+
+{{font|22|size=smaller|color=#0000FF}}{{font|Shall not their cattle and their substance and every beast of theirs be ours? only let us consent unto them, and they will dwell with us.|color=#000000}}
+
+{{font|23|size=smaller|color=#0000FF}}{{font|And unto Hamor and unto Shechem his son hearkened all that went out of the gate of his city; and every male was circumcised, all that went out of the gate of his city.|color=#000000}}
+
+{{font|24|size=smaller|color=#0000FF}}{{font|And it came to pass on the third day, when they were sore, [they] came upon the city boldly, and slew all the males.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|25}}{{font|The sons of Jacob came upon the slain, and spoiled the city,|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|26}}{{font|They took their sheep, and their oxen, and their asses, and that which was in the city, and that which was in the field,|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|27}}{{font|And all their wealth, and all their little ones, and their wives took they captive, and spoiled even all that was in the house.|color=#000000}}
+
+==The birth of Benjamin==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000|And Rachel travailed, and she had hard labour.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And it came to pass, when she was in hard labour, that the midwife said unto her, Fear not; thou shalt have this son also.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And it came to pass, as her soul was in departing, (for she died) that she called his name Benoni: but his father called him Benjamin.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And Jacob set a pillar upon her grave: that is the pillar of Rachel's grave unto this day.}}
+
+==Joseph enslaved==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|Joseph, being seventeen years old, was feeding the flock with his brethren; and the lad was with the sons of Bilhah, and with the sons of Zilpah, his father's wives: and Joseph brought unto his father their evil report, but his father observed the saying.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And his brethren went to feed their father's flock in Shechem.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And Israel said unto Joseph, Do not thy brethren feed the flock in Shechem? come, and I will send thee unto them. And he said to him, Here am I.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And he said to him, Go, I pray thee, see whether it be well with thy brethren, and well with the flocks; and bring me word again. So he sent him out of the vale of [the place], and he came to Shechem.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And a certain man found him, and, behold, he was wandering in the field: and the man asked him, saying, What seekest thou?}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And he said, I seek my brethren: tell me, I pray thee, where they feed their flocks.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And the man said, They are departed hence; for I heard them say, Let us go to Dothan. And Joseph went after his brethren, and found them in Dothan.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| And when they saw him afar off, even before he came near unto them, they conspired against him to slay him.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And Reuben heard it, and he delivered him out of their hands; and said, Let us not kill him.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And Reuben said unto them, Shed no blood, but cast him into this pit that is in the wilderness, and lay no hand upon him; that he might rid him out of their hands, to deliver him to his father again.}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And they took him, and cast him into a pit: and the pit was empty, there was no water in it.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| And they sat down to eat bread.}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| There passed by some Midianite merchantmen; and they drew and lifted Joseph up out of the pit.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And Reuben returned unto the pit; and, behold, Joseph was not in the pit; and he rent his clothes.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| And he returned unto his brethren, and said, The child is not there; and I, whither shall I go?}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000|And the Midianites sold him into Egypt unto Potiphar, an officer of Pharaoh's, and captain of the guard.}}
+
+==The butler and the baker ==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And it came to pass after these things, that the servant of the king of Egypt and his baker had offended their lord the king of Egypt.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Pharaoh was wroth against two of his officers, against the chief of the butlers, and against the chief of the bakers.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And he put them in ward in the house of the captain of the guard.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And the captain of the guard charged Joseph with them, and he served them: and they continued a season in ward.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000|And they dreamed a dream both of them, each man his dream in one night, each man according to the interpretation of his dream, the butler and the baker of the king of Egypt,}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Joseph came in unto them in the morning, and looked upon them, and, behold, they were sad.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And he asked Pharaoh's officers that were with him in the ward of his lord's house, saying, Wherefore look ye so sadly to day?}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| And they said unto him, We have dreamed a dream, and there is no interpreter of it. And Joseph said unto them, Do not interpretations belong to God? tell me them, I pray you.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And the chief butler told his dream to Joseph, and said to him, In my dream, behold, a vine was before me;}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And in the vine were three branches: and it was as though it budded, and her blossoms shot forth; and the clusters thereof brought forth ripe grapes:}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And Pharaoh's cup was in my hand: and I took the grapes, and pressed them into Pharaoh's cup, and I gave the cup into Pharaoh's hand.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| And Joseph said unto him, This is the interpretation of it: The three branches are three days:}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| Yet within three days shall Pharaoh lift up thine head, and restore thee unto thy place: and thou shalt deliver Pharaoh's cup into his hand, after the former manner when thou wast his butler.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| But think on me when it shall be well with thee, and shew kindness, I pray thee, unto me, and make mention of me unto Pharaoh, and bring me out of this house:}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| For indeed I was stolen away out of the land of the Hebrews.}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| When the chief baker saw that the interpretation was good, he said unto Joseph, I also was in my dream, and, behold, I had three white baskets on my head:}}
+
+{{font|size=smaller|color=#0000FF|17}}{{font|color=#000000| And in the uppermost basket there was of all manner of bakemeats for Pharaoh; and the birds did eat them out of the basket upon my head.}}
+
+{{font|size=smaller|color=#0000FF|18}}{{font|color=#000000| And Joseph answered and said, This is the interpretation thereof: The three baskets are three days:}}
+
+{{font|size=smaller|color=#0000FF|19}}{{font|color=#000000| Yet within three days shall Pharaoh lift up thy head from off thee, and shall hang thee on a tree; and the birds shall eat thy flesh from off thee.}}
+
+{{font|size=smaller|color=#0000FF|20}}{{font|color=#000000| And it came to pass the third day, which was Pharaoh's birthday, that he made a feast unto all his servants: and he lifted up the head of the chief butler and of the chief baker among his servants.}}
+
+{{font|size=smaller|color=#0000FF|21}}{{font|color=#000000| And he restored the chief butler unto his butlership again; and he gave the cup into Pharaoh's hand:}}
+
+{{font|size=smaller|color=#0000FF|22}}{{font|color=#000000| But he hanged the chief baker: as Joseph had interpreted to them.}}
+
+{{font|size=smaller|color=#0000FF|23}}{{font|color=#000000| Yet the chief butler did not remember Joseph, but forgat him.}}
+
+==Pharaoh's dreams==
+
+{{font|1|size=smaller|color=#0000FF}}{{font|And it came to pass at the end of two full years, that Pharaoh dreamed: and, behold, he stood by the river.|color=#000000}}
+
+{{font|2|size=smaller|color=#0000FF}}{{font|And, behold, there came up out of the river seven well favoured kine and fatfleshed; and they fed in a meadow.|color=#000000}}
+
+{{font|3|size=smaller|color=#0000FF}}{{font|And, behold, seven other kine came up after them out of the river, ill favoured and leanfleshed; and stood by the other kine upon the brink of the river.|color=#000000}}
+
+{{font|4|size=smaller|color=#0000FF}}{{font|And the ill favoured and leanfleshed kine did eat up the seven well favoured and fat kine. So Pharaoh awoke.|color=#000000}}
+
+{{font|5|size=smaller|color=#0000FF}}{{font|And he slept and dreamed the second time: and, behold, seven ears of corn came up upon one stalk, rank and good.|color=#000000}}
+
+{{font|6|size=smaller|color=#0000FF}}{{font|And, behold, seven thin ears and blasted with the east wind sprung up after them.|color=#000000}}
+
+{{font|7|size=smaller|color=#0000FF}}{{font|And the seven thin ears devoured the seven rank and full ears. And Pharaoh awoke, and, behold, it was a dream.|color=#000000}}
+
+{{font|8|size=smaller|color=#0000FF}}{{font|And it came to pass in the morning that his spirit was troubled; and he sent and called for all the magicians of Egypt, and all the wise men thereof: and Pharaoh told them his dream; but there was none that could interpret them unto Pharaoh.|color=#000000}}
+
+{{font|9|size=smaller|color=#0000FF}}{{font|Then spake the chief butler unto Pharaoh, saying, I do remember my faults this day:|color=#000000}}
+
+{{font|10|size=smaller|color=#0000FF}}{{font|Pharaoh was wroth with his servants, and put me in ward in the captain of the guard's house, both me and the chief baker:|color=#000000}}
+
+{{font|11|size=smaller|color=#0000FF}}{{font|And we dreamed a dream in one night, I and he; we dreamed each man according to the interpretation of his dream.|color=#000000}}
+
+{{font|12|size=smaller|color=#0000FF}}{{font|And there was there with us a young man, an Hebrew, servant to the captain of the guard; and we told him, and he interpreted to us our dreams; to each man according to his dream he did interpret.|color=#000000}}
+
+{{font|13|size=smaller|color=#0000FF}}{{font|And it came to pass, as he interpreted to us, so it was; me he restored unto mine office, and him he hanged.|color=#000000}}<ref>{{Cite web|url=https://twitter.com/joelbaden/status/1318157819770769408|title=https://twitter.com/joelbaden/status/1318157819770769408|website=Twitter|language=en|access-date=2021-10-15}}</ref>
+
+{{font|14|size=smaller|color=#0000FF}}{{font|Then Pharaoh sent and called Joseph, and they brought him hastily out of the dungeon: and he shaved himself, and changed his raiment, and came in unto Pharaoh.|color=#000000}}
+
+{{font|15|size=smaller|color=#0000FF}}{{font|And Pharaoh said unto Joseph, I have dreamed a dream, and there is none that can interpret it: and I have heard say of thee, that thou canst understand a dream to interpret it.|color=#000000}}
+
+{{font|16|size=smaller|color=#0000FF}}{{font|And Joseph answered Pharaoh, saying, It is not in me: God shall give Pharaoh an answer of peace.|color=#000000}}
+
+{{font|17|size=smaller|color=#0000FF}}{{font|And Pharaoh said unto Joseph, In my dream, behold, I stood upon the bank of the river:|color=#000000}}
+
+{{font|18|size=smaller|color=#0000FF}}{{font|And, behold, there came up out of the river seven kine, fatfleshed and well favoured; and they fed in a meadow:|color=#000000}}
+
+{{font|19|size=smaller|color=#0000FF}}{{font|And, behold, seven other kine came up after them, poor and very ill favoured and leanfleshed, such as I never saw in all the land of Egypt for badness:|color=#000000}}
+
+{{font|20|size=smaller|color=#0000FF}}{{font|And the lean and the ill favoured kine did eat up the first seven fat kine:|color=#000000}}
+
+{{font|21|size=smaller|color=#0000FF}}{{font|And when they had eaten them up, it could not be known that they had eaten them; but they were still ill favoured, as at the beginning. So I awoke.|color=#000000}}
+
+{{font|22|size=smaller|color=#0000FF}}{{font|And I saw in my dream, and, behold, seven ears came up in one stalk, full and good:|color=#000000}}
+
+{{font|23|size=smaller|color=#0000FF}}{{font|And, behold, seven ears, withered, thin, and blasted with the east wind, sprung up after them:|color=#000000}}
+
+{{font|24|size=smaller|color=#0000FF}}{{font|And the thin ears devoured the seven good ears: and I told this unto the magicians; but there was none that could declare it to me.|color=#000000}}
+
+{{font|25|size=smaller|color=#0000FF}}{{font|And Joseph said unto Pharaoh, The dream of Pharaoh is one: God hath shewed Pharaoh what he is about to do.|color=#000000}}
+
+{{font|26|size=smaller|color=#0000FF}}{{font|The seven good kine are seven years; and the seven good ears are seven years: the dream is one.|color=#000000}}
+
+{{font|27|size=smaller|color=#0000FF}}{{font|And the seven thin and ill favoured kine that came up after them are seven years; and the seven empty ears blasted with the east wind shall be seven years of famine.|color=#000000}}
+
+{{font|28|size=smaller|color=#0000FF}}{{font|This is the thing which I have spoken unto Pharaoh: What God is about to do he sheweth unto Pharaoh.|color=#000000}}
+
+{{font|29|size=smaller|color=#0000FF}}{{font|Behold, there come seven years of great plenty throughout all the land of Egypt:|color=#000000}}
+
+{{font|30|size=smaller|color=#0000FF}}{{font|And there shall arise after them seven years of famine; and all the plenty shall be forgotten in the land of Egypt; and the famine shall consume the land;|color=#000000}}
+
+{{font|31|size=smaller|color=#0000FF}}{{font|And the plenty shall not be known in the land by reason of that famine following; for it shall be very grievous.|color=#000000}}
+
+{{font|32|size=smaller|color=#0000FF}}{{font|And for that the dream was doubled unto Pharaoh twice; it is because the thing is established by God, and God will shortly bring it to pass.|color=#000000}}
+
+{{font|33|size=smaller|color=#0000FF}}{{font|Now therefore let Pharaoh look out a man discreet and wise, and set him over the land of Egypt.|color=#000000}}
+
+{{font|34|size=smaller|color=#0000FF}}{{font|Let Pharaoh do this, and let him appoint officers over the land, and take up the fifth part of the land of Egypt in the seven plenteous years.|color=#000000}}
+
+{{font|35|size=smaller|color=#0000FF}}{{font|And let them gather all the food of those good years that come, and lay up corn under the hand of Pharaoh, and let them keep food in the cities.|color=#000000}}
+
+{{font|36|size=smaller|color=#0000FF}}{{font|And that food shall be for store to the land against the seven years of famine, which shall be in the land of Egypt; that the land perish not through the famine.|color=#000000}}<ref>{{Cite web|url=https://twitter.com/joelbaden/status/1318506616908546053|title=https://twitter.com/joelbaden/status/1318506616908546053|website=Twitter|language=en|access-date=2021-10-15}}</ref>
+
+{{font|37|size=smaller|color=#0000FF}}{{font|And the thing was good in the eyes of Pharaoh, and in the eyes of all his servants.|color=#000000}}
+
+{{font|38|size=smaller|color=#0000FF}}{{font|And Pharaoh said unto his servants, Can we find such a one as this is, a man in whom the Spirit of God is?|color=#000000}}
+
+{{font|39|size=smaller|color=#0000FF}}{{font|And Pharaoh said unto Joseph, Forasmuch as God hath shewed thee all this, there is none so discreet and wise as thou art:|color=#000000}}
+
+{{font|40|size=smaller|color=#0000FF}}{{font|Thou shalt be over my house, and according unto thy word shall all my people be ruled: only in the throne will I be greater than thou.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|41}}{{font|And Joseph went out from the presence of Pharaoh, and went throughout all the land of Egypt.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|42}}{{font|color=#000000| And in the seven plenteous years the earth brought forth by handfuls.}}
+
+{{font|size=smaller|color=#0000FF|43}}{{font|color=#000000| And he gathered up all the food of the seven years, which were in the land of Egypt, and laid up the food in the cities: the food of the field, which was round about every city, laid he up in the same.}}
+
+{{font|size=smaller|color=#0000FF|44}}{{font|color=#000000| And Joseph gathered corn as the sand of the sea, very much, until he left numbering; for it was without number.}}
+
+{{font|size=smaller|color=#0000FF|45}}{{font|color=#000000| And unto Joseph were born two sons before the years of famine came,}}
+
+{{font|size=smaller|color=#0000FF|46}}{{font|color=#000000| And Joseph called the name of the firstborn Manasseh: For God, said he, hath made me forget all my toil, and all my father's house.}}
+
+{{font|size=smaller|color=#0000FF|47}}{{font|color=#000000| And the name of the second called he Ephraim: For God hath caused me to be fruitful in the land of my affliction.}}
+
+{{font|size=smaller|color=#0000FF|48}}{{font|color=#000000| And the seven years of plenteousness, that was in the land of Egypt, were ended.}}
+
+{{font|size=smaller|color=#0000FF|49}}{{font|color=#000000| And the seven years of dearth began to come, according as Joseph had said:}}
+
+{{font|size=smaller|color=#0000FF|50}}{{font|color=#000000| And when all the land of Egypt was famished, the people cried to Pharaoh for bread: and Pharaoh said unto all the Egyptians, Go unto Joseph; what he saith to you, do.}}
+
+{{font|size=smaller|color=#0000FF|51}}{{font|color=#000000|And Joseph opened all the storehouses, and sold unto the Egyptians; and the famine waxed sore in the land of Egypt.}}
+
+==Israel's migration to Egypt==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Israel took his journey with all that he had, and came to Beersheba, and offered sacrifices unto the God of his father Isaac.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And God spake unto Israel in the visions of the night, and said, Jacob, Jacob. And he said, Here am I.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And he said, I am God, the God of thy father: fear not to go down into Egypt; for I will there make of thee a great nation:}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| I will go down with thee into Egypt; and I will also surely bring thee up again: and Joseph shall put his hand upon thine eyes.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And Jacob rose up from Beersheba.}}
+
+==Ephraim's pre-eminence==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And it came to pass after these things, that one told Joseph, Behold, thy father is sick: and he took with him his two sons, Manasseh and Ephraim.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And one told Jacob, and said, Behold, thy son Joseph cometh unto thee: and Israel strengthened himself, and sat upon the bed.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And Israel beheld Joseph's sons, and said, Who are these?}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And Joseph said unto his father, They are my sons, whom God hath given me in this place. And he said, Bring them, I pray thee, unto me, and I will bless them.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| Now the eyes of Israel were dim for age, so that he could not see. And he brought them near unto him; and he kissed them, and embraced them.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Israel said unto Joseph, I had not thought to see thy face: and, lo, God hath shewed me also thy seed.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And Joseph brought them out from between his knees, and he bowed himself with his face to the earth.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| And Joseph took them both, Ephraim in his right hand toward Israel's left hand, and Manasseh in his left hand toward Israel's right hand, and brought them near unto him.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And Israel stretched out his right hand, and laid it upon Ephraim's head, who was the younger, and his left hand upon Manasseh's head, guiding his hands wittingly; for Manasseh was the firstborn.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And he blessed Joseph, and said, God, before whom my fathers Abraham and Isaac did walk, the God which fed me all my life long unto this day,}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| The Angel which redeemed me from all evil, bless the lads; and let my name be named on them, and the name of my fathers Abraham and Isaac; and let them grow into a multitude in the midst of the earth.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| And when Joseph saw that his father laid his right hand upon the head of Ephraim, it displeased him: and he held up his father's hand, to remove it from Ephraim's head unto Manasseh's head.}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| And Joseph said unto his father, Not so, my father: for this is the firstborn; put thy right hand upon his head.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And his father refused, and said, I know it, my son, I know it: he also shall become a people, and he also shall be great: but truly his younger brother shall be greater than he, and his seed shall become a multitude of nations.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000|Saying, God make thee as Ephraim and as Manasseh: and he set Ephraim before Manasseh.}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| And Israel said unto Joseph, Behold, I die: but God shall be with you, and bring you again unto the land of your fathers.}}
+
+{{font|size=smaller|color=#0000FF|17}}{{font|color=#000000| Moreover I have given to thee one portion above thy brethren, which I took out of the hand of the Amorite with my sword and with my bow.}}
+
+==The death of Joseph==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000|And Joseph saw Ephraim's children of the third generation: the children also of Machir the son of Manasseh were brought up upon Joseph's knees.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000|And Joseph said unto his brethren, I die: and God will surely visit you, and bring you out of this land unto the land which he sware to Abraham, to Isaac, and to Jacob.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And Joseph took an oath of the children of Israel, saying, God will surely visit you, and ye shall carry up my bones from hence.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| So Joseph died, being a hundred and ten years old: and they embalmed him, and he was put into a coffin in Egypt.}}
+
+==The baby in the reeds ==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And the king of Egypt spake to the Hebrew midwives, of which the name of the one was Shiphrah, and the name of the other Puah:}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And he said, When ye do the office of a midwife to the Hebrew women, and see them upon the stools; if it be a son, then ye shall kill him: but if it be a daughter, then she shall live.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| But the midwives feared God, and did not as the king of Egypt commanded them, but saved the men children alive.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And the king of Egypt called for the midwives, and said unto them, Why have ye done this thing, and have saved the men children alive?}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And the midwives said unto Pharaoh, Because the Hebrew women are not as the Egyptian women; for they are lively, and are delivered ere the midwives come in unto them.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| Therefore God dealt well with the midwives: and the people multiplied, and waxed very mighty.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And it came to pass, because the midwives feared God, that he made them houses.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000|And Pharaoh charged all his people, saying, Every son that is born ye shall cast into the river, and every daughter ye shall save alive.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And there went a man of the house of Levi, and took to wife a daughter of Levi.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And the woman conceived, and bare a son: and when she saw him that he was a goodly child, she hid him three months.}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And when she could not longer hide him, she took for him an ark of bulrushes, and daubed it with slime and with pitch, and put the child therein; and she laid it in the flags by the river's brink.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| And his sister stood afar off, to wit what would be done to him.}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| And the daughter of Pharaoh came down to wash herself at the river; and her maidens walked along by the river's side; and when she saw the ark among the flags, she sent her maid to fetch it.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And when she had opened it, she saw the child: and, behold, the babe wept. And she had compassion on him, and said, This is one of the Hebrews' children.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| Then said his sister to Pharaoh's daughter, Shall I go and call to thee a nurse of the Hebrew women, that she may nurse the child for thee?}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| And Pharaoh's daughter said to her, Go. And the maid went and called the child's mother.}}
+
+{{font|size=smaller|color=#0000FF|17}}{{font|color=#000000| And Pharaoh's daughter said unto her, Take this child away, and nurse it for me, and I will give thee thy wages. And the women took the child, and nursed it.}}
+
+{{font|size=smaller|color=#0000FF|18}}{{font|color=#000000| And the child grew, and she brought him unto Pharaoh's daughter, and he became her son. And she called his name Moses: and she said, Because I drew him out of the water.}}
+
+==Revelation of the Divine Name==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| Now Moses kept the flock of Jethro his father in law, and he led the flock to the backside of the desert, and came to the mountain of God, even to Horeb.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000|God called unto him out of the midst of the [mountain] and said, Moses, Moses. And he said, Here am I.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| Moreover he said, I am the God of thy father, the God of Abraham, the God of Isaac, and the God of Jacob. And Moses hid his face; for he was afraid to look upon God.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000|[And God said], Behold, the cry of the children of Israel is come unto me: and I have also seen the oppression wherewith the Egyptians oppress them.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| Come now therefore, and I will send thee unto Pharaoh, that thou mayest bring forth my people the children of Israel out of Egypt.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Moses said unto God, Who am I, that I should go unto Pharaoh, and that I should bring forth the children of Israel out of Egypt?}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And he said, Certainly I will be with thee; and this shall be a token unto thee, that I have sent thee: When thou hast brought forth the people out of Egypt, ye shall serve God upon this mountain.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| And Moses said unto God, Behold, when I come unto the children of Israel, and shall say unto them, The God of your fathers hath sent me unto you; and they shall say to me, What is his name? what shall I say unto them?}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And God said unto Moses, I AM THAT I AM: and he said, Thus shalt thou say unto the children of Israel, I AM hath sent me unto you.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And God said moreover unto Moses, Thus shalt thou say unto the children of Israel, the LORD God of your fathers, the God of Abraham, the God of Isaac, and the God of Jacob, hath sent me unto you: this is my name for ever, and this is my memorial unto all generations.}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|And Moses went and returned to Jethro his father in law, and said unto him, Let me go, I pray thee, and return unto my brethren which are in Egypt, and see whether they be yet alive. And Jethro said to Moses, Go in peace.|color=#000000}}
+
+==The departure from Egypt==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|[Gap where Moses goes to Pharaoh and frees the Israelites from Egypt]|color=#000000|size=small}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|And the children of Israel went up harnessed out of the land of Egypt.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|And Moses took the bones of Joseph with him: for he had straitly sworn the children of Israel, saying, God will surely visit you; and ye shall carry up my bones away hence with you.|color=#000000}}
+
+==The Song of the Sea==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Miriam the prophetess, the sister of Aaron, took a timbrel in her hand; and all the women went out after her with timbrels and with dances.}}
+
+<small>{{font|2|color=#0000FF}}</small>{{font|color=#000000| And Miriam answered them,}} {{font|color=#000088| Sing ye to the LORD, for he hath triumphed gloriously; The horse and his rider hath he thrown into the sea.}}
+
+<small>{{font|3|color=#0000FF}}</small>[{{font|The LORD is my strength and song, and he is become my salvation: he is my God, and I will prepare him an habitation; my father's God, and I will exalt him.|color=#000088}}]
+
+<small>{{font|4|color=#0000FF}}</small>[{{font|The LORD is a man of war: the LORD is his name.|color=#000088}}]
+
+<small>{{font|5|color=#0000FF}}</small>[{{font|Pharaoh's chariots and his host hath he cast into the sea: his chosen captains also are drowned in the Red sea.|color=#000088}}]
+
+<small>{{font|6|color=#0000FF}}</small>[{{font|The depths have covered them: they sank into the bottom as a stone.|color=#000088}}]
+
+<small>{{font|7|color=#0000FF}}</small>[{{font|Thy right hand, O LORD, is become glorious in power: thy right hand, O LORD, hath dashed in pieces the enemy.|color=#000088}}]
+
+<small>{{font|8|color=#0000FF}}</small>[{{font|And in the greatness of thine excellency thou hast overthrown them that rose up against thee: thou sentest forth thy wrath, which consumed them as stubble.|color=#000088}}]
+
+<small>{{font|9|color=#0000FF}}</small>[{{font|And with the blast of thy nostrils the waters were gathered together, the floods stood upright as an heap, and the depths were congealed in the heart of the sea.|color=#000088}}]
+
+<small>{{font|10|color=#0000FF}}</small>[{{font|The enemy said, I will pursue, I will overtake, I will divide the spoil; my lust shall be satisfied upon them; I will draw my sword, my hand shall destroy them.|color=#000088}}]
+
+<small>{{font|11|color=#0000FF}}</small>[{{font|Thou didst blow with thy wind, the sea covered them: they sank as lead in the mighty waters.|color=#000088}}]
+
+<small>{{font|12|color=#0000FF}}</small>[{{font|Who is like unto thee, O LORD, among the gods? who is like thee, glorious in holiness, fearful in praises, doing wonders?|color=#000088}}]
+
+<small>{{font|13|color=#0000FF}}</small>[{{font|Thou stretchedst out thy right hand, the earth swallowed them.|color=#000088}}]
+
+<small>{{font|14|color=#0000FF}}</small>[{{font|Thou in thy mercy hast led forth the people which thou hast redeemed: thou hast guided them in thy strength unto thy holy habitation.|color=#000088}}]
+
+<small>{{font|15|color=#0000FF}}</small>[{{font|The people shall hear, and be afraid: sorrow shall take hold on the inhabitants of Palestina.|color=#000088}}]
+
+<small>{{font|16|color=#0000FF}}</small>[{{font|Then the dukes of Edom shall be amazed; the mighty men of Moab, trembling shall take hold upon them; all the inhabitants of Canaan shall melt away.|color=#000088}}]
+
+<small>{{font|17|color=#0000FF}}</small>[{{font|Fear and dread shall fall upon them; by the greatness of thine arm they shall be as still as a stone; till thy people pass over, O LORD, till the people pass over, which thou hast purchased.|color=#000088}}]
+
+<small>{{font|18|color=#0000FF}}</small>[{{font|Thou shalt bring them in, and plant them in the mountain of thine inheritance, in the place, O LORD, which thou hast made for thee to dwell in, in the Sanctuary, O LORD, which thy hands have established.|color=#000088}}]
+
+<small>{{font|19|color=#0000FF}}</small>[{{font|The LORD shall reign for ever and ever.|color=#000088}}]
+
+==Amalek==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| Then came Amalek, and fought with Israel in Rephidim.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Moses said unto Joshua, Choose us out men, and go out, fight with Amalek: to morrow I will stand on the top of the hill with the rod of God in mine hand.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| So Joshua did as Moses had said to him, and fought with Amalek: and Moses, Aaron, and Hur went up to the top of the hill.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And it came to pass, when Moses held up his hand, that Israel prevailed: and when he let down his hand, Amalek prevailed.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| But Moses hands were heavy; and they took a stone, and put it under him, and he sat thereon; and Aaron and Hur stayed up his hands, the one on the one side, and the other on the other side; and his hands were steady until the going down of the sun.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Joshua discomfited Amalek and his people with the edge of the sword.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And the LORD said unto Moses, Write this for a memorial in a book, and rehearse it in the ears of Joshua: for I will utterly put out the remembrance of Amalek from under heaven.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| And Moses built an altar, and called the name of it Jehovahnissi:}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| For he said, Because the LORD hath sworn that the LORD will have war with Amalek from generation to generation.}}
+
+==Jethro==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| When Jethro, the priest of Midian, Moses' father in law, heard of all that God had done for Moses, and for Israel his people, and that the LORD had brought Israel out of Egypt;}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000|Then Jethro, Moses' father in law, came with his sons and his wife unto Moses into the wilderness, where he encamped at the mount of God:}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And he said unto Moses, I thy father in law Jethro am come unto thee, and thy wife, and her two sons with her.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And Moses went out to meet his father in law, and did obeisance, and kissed him; and they asked each other of their welfare; and they came into the tent.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And Moses told his father in law all that the LORD had done unto Pharaoh and to the Egyptians for Israel's sake, and all the travail that had come upon them by the way, and how the LORD delivered them.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Jethro rejoiced for all the goodness which the LORD had done to Israel, whom he had delivered out of the hand of the Egyptians.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And Jethro said, Blessed be the LORD, who hath delivered you out of the hand of the Egyptians, and out of the hand of Pharaoh, who hath delivered the people from under the hand of the Egyptians.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| Now I know that the LORD is greater than all gods: for in the thing wherein they dealt proudly he was above them.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And Jethro, Moses' father in law, took a burnt offering and sacrifices for God: and Aaron came, and all the elders of Israel, to eat bread with Moses' father in law before God.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And it came to pass on the morrow, that Moses sat to judge the people: and the people stood by Moses from the morning unto the evening.}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And when Moses' father in law saw all that he did to the people, he said, What is this thing that thou doest to the people? why sittest thou thyself alone, and all the people stand by thee from morning unto even?}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| And Moses said unto his father in law, Because the people come unto me to enquire of God:}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| When they have a matter, they come unto me; and I judge between one and another, and I do make them know the statutes of God, and his laws.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And Moses' father in law said unto him, The thing that thou doest is not good.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| Thou wilt surely wear away, both thou, and this people that is with thee: for this thing is too heavy for thee; thou art not able to perform it thyself alone.}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| Hearken now unto my voice, I will give thee counsel, and God shall be with thee: Be thou for the people to God-ward, that thou mayest bring the causes unto God:}}
+
+{{font|size=smaller|color=#0000FF|17}}{{font|color=#000000| And thou shalt teach them ordinances and laws, and shalt shew them the way wherein they must walk, and the work that they must do.}}
+
+{{font|size=smaller|color=#0000FF|18}}{{font|color=#000000| Moreover thou shalt provide out of all the people able men, such as fear God, men of truth, hating covetousness; and place such over them, to be rulers of thousands, and rulers of hundreds, rulers of fifties, and rulers of tens:}} 
+
+{{font|size=smaller|color=#0000FF|19}}{{font|color=#000000| And let them judge the people at all seasons: and it shall be, that every great matter they shall bring unto thee, but every small matter they shall judge: so shall it be easier for thyself, and they shall bear the burden with thee.}}
+
+{{font|size=smaller|color=#0000FF|20}}{{font|color=#000000| If thou shalt do this thing, and God command thee so, then thou shalt be able to endure, and all this people shall also go to their place in peace.}}
+
+{{font|size=smaller|color=#0000FF|21}}{{font|color=#000000| So Moses hearkened to the voice of his father in law, and did all that he had said.}}
+
+{{font|size=smaller|color=#0000FF|22}}{{font|color=#000000| And Moses chose able men out of all Israel, and made them heads over the people, rulers of thousands, rulers of hundreds, rulers of fifties, and rulers of tens.}}
+
+{{font|size=smaller|color=#0000FF|23}}{{font|color=#000000| And they judged the people at all seasons: the hard causes they brought unto Moses, but every small matter they judged themselves.}}
+
+{{font|size=smaller|color=#0000FF|24}}{{font|color=#000000| And Moses let his father in law depart; and he went his way into his own land.}}
+
+==The arrival at Sinai==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000|And there Israel camped before the mount. And Moses went up unto God, and the LORD called unto him out of the mountain, saying, Thus shalt thou say to the house of Jacob, and tell the children of Israel;}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| Ye have seen what I did unto the Egyptians, and how I bare you on eagles' wings, and brought you unto myself.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| Now therefore, if ye will obey my voice indeed, and keep my covenant, then ye shall be a peculiar treasure unto me above all people: for all the earth is mine:}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And ye shall be unto me a kingdom of priests, and an holy nation. These are the words which thou shalt speak unto the children of Israel.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And Moses came and called for the elders of the people, and laid before their faces all these words which the LORD commanded him.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And all the people answered together, and said, All that the LORD hath spoken we will do. And Moses returned the words of the people unto the LORD.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And the LORD said unto Moses, Lo, I come unto thee in a thick cloud, that the people may hear when I speak with thee, and believe thee for ever.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|And there were thunders and lightnings, and a thick cloud upon the mount, and the voice of the trumpet exceeding loud; so that all the people that was in the camp trembled.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And Moses brought forth the people out of the camp to meet with God; and they stood at the nether part of the mount.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And when the voice of the trumpet sounded long, and waxed louder and louder, Moses spake, and God answered him by a voice.}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And all the people saw the thunderings, and the lightnings, and the noise of the trumpet, and the mountain smoking: and when the people saw it, they removed, and stood afar off.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| And they said unto Moses, Speak thou with us, and we will hear: but let not God speak with us, lest we die.}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| And Moses said unto the people, Fear not: for God is come to prove you, and that his fear may be before your faces, that ye sin not.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And the people stood afar off, and Moses drew near unto the thick darkness where God was.}}
+
+==The Covenant Code==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And the LORD said unto Moses, Thus thou shalt say unto the children of Israel, Ye have seen that I have talked with you from heaven.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| Ye shall not make with me gods of silver, neither shall ye make unto you gods of gold.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| An altar of earth thou shalt make unto me, and shalt sacrifice thereon thy burnt offerings, and thy peace offerings, thy sheep, and thine oxen: in all places where I record my name I will come unto thee, and I will bless thee.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And if thou wilt make me an altar of stone, thou shalt not build it of hewn stone: for if thou lift up thy tool upon it, thou hast polluted it.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| Neither shalt thou go up by steps unto mine altar, that thy nakedness be not discovered thereon.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| Now these are the judgments which thou shalt set before them.}}
+
+<small>{{font|7|color=#0000FF}}</small>{{font|If thou buy an Hebrew servant, six years he shall serve: and in the seventh he shall go out free for nothing.|color=#FF0000}}
+
+<small>{{font|8|color=#0000FF}}</small>{{font|If he came in by himself, he shall go out by himself: if he were married, then his wife shall go out with him.|color=#FF0000}}
+
+<small>{{font|9|color=#0000FF}}</small>{{font|If his master have given him a wife, and she have born him sons or daughters; the wife and her children shall be her master's, and he shall go out by himself.|color=#FF0000}}
+
+<small>{{font|10|color=#0000FF}}</small>{{font|And if the servant shall plainly say, I love my master, my wife, and my children; I will not go out free:|color=#FF0000}}
+
+<small>{{font|11|color=#0000FF}}</small>{{font|Then his master shall bring him unto the judges; he shall also bring him to the door, or unto the door post; and his master shall bore his ear through with an aul; and he shall serve him for ever.|color=#FF0000}}
+
+<small>{{font|12|color=#0000FF}}</small>{{font|And if a man sell his daughter to be a maidservant, she shall not go out as the menservants do.|color=#FF0000}}
+
+<small>{{font|13|color=#0000FF}}</small>{{font|If she please not her master, who hath betrothed her to himself, then shall he let her be redeemed: to sell her unto a strange nation he shall have no power, seeing he hath dealt deceitfully with her.|color=#FF0000}}
+
+<small>{{font|14|color=#0000FF}}</small>{{font|And if he have betrothed her unto his son, he shall deal with her after the manner of daughters.|color=#FF0000}}
+
+<small>{{font|15|color=#0000FF}}</small>{{font|If he take him another wife; her food, her raiment, and her duty of marriage, shall he not diminish.|color=#FF0000}}
+
+<small>{{font|16|color=#0000FF}}</small>{{font|And if he do not these three unto her, then shall she go out free without money.|color=#FF0000}}
+
+<small>{{font|17|color=#0000FF}}</small>{{font|He that smiteth a man, so that he die, shall be surely put to death.|color=#FF0000}}
+
+<small>{{font|18|color=#0000FF}}</small>{{font|And if a man lie not in wait, but God deliver him into his hand; then I will appoint thee a place whither he shall flee.|color=#FF0000}}
+
+<small>{{font|19|color=#0000FF}}</small>{{font|But if a man come presumptuously upon his neighbour, to slay him with guile; thou shalt take him from mine altar, that he may die.|color=#FF0000}}
+
+<small>{{font|20|color=#0000FF}}</small>{{font|And he that smiteth his father, or his mother, shall be surely put to death.|color=#FF0000}}
+
+<small>{{font|21|color=#0000FF}}</small>{{font|And he that stealeth a man, and selleth him, or if he be found in his hand, he shall surely be put to death.|color=#FF0000}}
+
+<small>{{font|22|color=#0000FF}}</small>{{font|And he that curseth his father, or his mother, shall surely be put to death.|color=#FF0000}}
+
+<small>{{font|23|color=#0000FF}}</small>{{font|And if men strive together, and one smite another with a stone, or with his fist, and he die not, but keepeth his bed:|color=#FF0000}}
+
+<small>{{font|24|color=#0000FF}}</small>{{font|If he rise again, and walk abroad upon his staff, then shall he that smote him be quit: only he shall pay for the loss of his time, and shall cause him to be thoroughly healed.|color=#FF0000}}
+
+<small>{{font|25|color=#0000FF}}</small>{{font|And if a man smite his servant, or his maid, with a rod, and he die under his hand; he shall be surely punished.|color=#FF0000}}
+
+<small>{{font|26|color=#0000FF}}</small>{{font|Notwithstanding, if he continue a day or two, he shall not be punished: for he is his money.|color=#FF0000}}
+
+<small>{{font|27|color=#0000FF}}</small>{{font|If men strive, and hurt a woman with child, so that her fruit depart from her, and yet no mischief follow: he shall be surely punished, according as the woman's husband will lay upon him; and he shall pay as the judges determine.|color=#FF0000}}
+
+<small>{{font|28|color=#0000FF}}</small>{{font|And if any mischief follow, then thou shalt give life for life,|color=#FF0000}}
+
+<small>{{font|29|color=#0000FF}}</small>{{font|Eye for eye, tooth for tooth, hand for hand, foot for foot,|color=#FF0000}}
+
+<small>{{font|30|color=#0000FF}}</small>{{font|Burning for burning, wound for wound, stripe for stripe.|color=#FF0000}}
+
+<small>{{font|31|color=#0000FF}}</small>{{font|And if a man smite the eye of his servant, or the eye of his maid, that it perish; he shall let him go free for his eye's sake.|color=#FF0000}}
+
+<small>{{font|32|color=#0000FF}}</small>{{font|And if he smite out his manservant's tooth, or his maidservant's tooth; he shall let him go free for his tooth's sake.|color=#FF0000}}
+
+<small>{{font|33|color=#0000FF}}</small>{{font|If an ox gore a man or a woman, that they die: then the ox shall be surely stoned, and his flesh shall not be eaten; but the owner of the ox shall be quit.|color=#FF0000}}
+
+<small>{{font|34|color=#0000FF}}</small>{{font|But if the ox were wont to push with his horn in time past, and it hath been testified to his owner, and he hath not kept him in, but that he hath killed a man or a woman; the ox shall be stoned, and his owner also shall be put to death.|color=#FF0000}}
+
+<small>{{font|35|color=#0000FF}}</small>{{font|If there be laid on him a sum of money, then he shall give for the ransom of his life whatsoever is laid upon him.|color=#FF0000}}
+
+<small>{{font|36|color=#0000FF}}</small>{{font|Whether he have gored a son, or have gored a daughter, according to this judgment shall it be done unto him.|color=#FF0000}}
+
+<small>{{font|37|color=#0000FF}}</small>{{font|If the ox shall push a manservant or a maidservant; he shall give unto their master thirty shekels of silver, and the ox shall be stoned.|color=#FF0000}}
+
+<small>{{font|38|color=#0000FF}}</small>{{font|And if a man shall open a pit, or if a man shall dig a pit, and not cover it, and an ox or an ass fall therein;|color=#FF0000}}
+
+<small>{{font|39|color=#0000FF}}</small>{{font|The owner of the pit shall make it good, and give money unto the owner of them; and the dead beast shall be his.|color=#FF0000}}
+
+<small>{{font|40|color=#0000FF}}</small>{{font|And if one man's ox hurt another's, that he die; then they shall sell the live ox, and divide the money of it; and the dead ox also they shall divide.|color=#FF0000}}
+
+<small>{{font|41|color=#0000FF}}</small>{{font|Or if it be known that the ox hath used to push in time past, and his owner hath not kept him in; he shall surely pay ox for ox; and the dead shall be his own.|color=#FF0000}}
+
+<small>{{font|42|color=#0000FF}}</small>{{font|If a man shall steal an ox, or a sheep, and kill it, or sell it; he shall restore five oxen for an ox, and four sheep for a sheep.|color=#FF0000}}
+
+<small>{{font|43|color=#0000FF}}</small>{{font|If a thief be found breaking up, and be smitten that he die, there shall no blood be shed for him.|color=#FF0000}}
+
+<small>{{font|43|color=#0000FF}}</small>{{font|If the sun be risen upon him, there shall be blood shed for him; for he should make full restitution; if he have nothing, then he shall be sold for his theft.|color=#FF0000}}
+
+<small>{{font|44|color=#0000FF}}</small>{{font|If the theft be certainly found in his hand alive, whether it be ox, or ass, or sheep; he shall restore double.|color=#FF0000}}
+
+<small>{{font|45|color=#0000FF}}</small>{{font|If a man shall cause a field or vineyard to be eaten, and shall put in his beast, and shall feed in another man's field; of the best of his own field, and of the best of his own vineyard, shall he make restitution.|color=#FF0000}}
+
+<small>{{font|46|color=#0000FF}}</small>{{font|If fire break out, and catch in thorns, so that the stacks of corn, or the standing corn, or the field, be consumed therewith; he that kindled the fire shall surely make restitution.|color=#FF0000}}
+
+<small>{{font|47|color=#0000FF}}</small>{{font|If a man shall deliver unto his neighbour money or stuff to keep, and it be stolen out of the man's house; if the thief be found, let him pay double.|color=#FF0000}}
+
+<small>{{font|48|color=#0000FF}}</small>{{font|If the thief be not found, then the master of the house shall be brought unto the judges, to see whether he have put his hand unto his neighbour's goods.|color=#FF0000}}
+
+<small>{{font|49|color=#0000FF}}</small>{{font|For all manner of trespass, whether it be for ox, for ass, for sheep, for raiment, or for any manner of lost thing which another challengeth to be his, the cause of both parties shall come before the judges; and whom the judges shall condemn, he shall pay double unto his neighbour.|color=#FF0000}}
+
+<small>{{font|50|color=#0000FF}}</small>{{font|If a man deliver unto his neighbour an ass, or an ox, or a sheep, or any beast, to keep; and it die, or be hurt, or driven away, no man seeing it:|color=#FF0000}}
+
+<small>{{font|51|color=#0000FF}}</small>{{font|Then shall an oath of the LORD be between them both, that he hath not put his hand unto his neighbour's goods; and the owner of it shall accept thereof, and he shall not make it good.|color=#FF0000}}
+
+<small>{{font|52|color=#0000FF}}</small>{{font|And if it be stolen from him, he shall make restitution unto the owner thereof.|color=#FF0000}}
+
+<small>{{font|53|color=#0000FF}}</small>{{font|If it be torn in pieces, then let him bring it for witness, and he shall not make good that which was torn.|color=#FF0000}}
+
+<small>{{font|54|color=#0000FF}}</small>{{font|And if a man borrow ought of his neighbour, and it be hurt, or die, the owner thereof being not with it, he shall surely make it good.|color=#FF0000}}
+
+<small>{{font|55|color=#0000FF}}</small>{{font|But if the owner thereof be with it, he shall not make it good: if it be an hired thing, it came for his hire.|color=#FF0000}}
+
+<small>{{font|56|color=#0000FF}}</small>{{font|And if a man entice a maid that is not betrothed, and lie with her, he shall surely endow her to be his wife.|color=#FF0000}}
+
+<small>{{font|57|color=#0000FF}}</small>{{font|If her father utterly refuse to give her unto him, he shall pay money according to the dowry of virgins.|color=#FF0000}}
+
+<small>{{font|58|color=#0000FF}}</small>{{font|Thou shalt not suffer a witch to live.|color=#FF0000}}
+
+<small>{{font|59|color=#0000FF}}</small>{{font|Whosoever lieth with a beast shall surely be put to death.|color=#FF0000}}
+
+<small>{{font|60|color=#0000FF}}</small>{{font|He that sacrificeth unto any god, save unto the LORD only, he shall be utterly destroyed.|color=#FF0000}}
+
+<small>{{font|61|color=#0000FF}}</small>{{font|Thou shalt neither vex a stranger, nor oppress him: for ye were strangers in the land of Egypt.|color=#FF0000}}
+
+<small>{{font|62|color=#0000FF}}</small>{{font|Ye shall not afflict any widow, or fatherless child.|color=#FF0000}}
+
+<small>{{font|63|color=#0000FF}}</small>{{font|If thou afflict them in any wise, and they cry at all unto me, I will surely hear their cry;|color=#FF0000}}
+
+<small>{{font|64|color=#0000FF}}</small>{{font|And my wrath shall wax hot, and I will kill you with the sword; and your wives shall be widows, and your children fatherless.|color=#FF0000}}
+
+<small>{{font|65|color=#0000FF}}</small>{{font|If thou lend money to any of my people that is poor by thee,  thou shalt not be to him as an usurer, neither shalt thou lay upon him usury.|color=#FF0000}}
+
+<small>{{font|66|color=#0000FF}}</small>{{font|If thou at all take thy neighbour's raiment to pledge, thou shalt deliver it unto him by that the sun goeth down:|color=#FF0000}}
+
+<small>{{font|67|color=#0000FF}}</small>{{font|For that is his covering only, it is his raiment for his skin: wherein shall he sleep? and it shall come to pass, when he crieth unto me, that I will hear; for I am gracious.|color=#FF0000}}
+
+<small>{{font|68|color=#0000FF}}</small>{{font|Thou shalt not revile the gods, nor curse the ruler of thy people.|color=#FF0000}}
+
+<small>{{font|69|color=#0000FF}}</small>{{font|Thou shalt not delay to offer the first of thy ripe fruits, and of thy liquors: the firstborn of thy sons shalt thou give unto me.|color=#FF0000}}
+
+<small>{{font|70|color=#0000FF}}</small>{{font|Likewise shalt thou do with thine oxen, and with thy sheep: seven days it shall be with his dam; on the eighth day thou shalt give it me.|color=#FF0000}}
+
+<small>{{font|71|color=#0000FF}}</small>{{font|And ye shall be holy men unto me: neither shall ye eat any flesh that is torn of beasts in the field; ye shall cast it to the dogs.|color=#FF0000}}
+
+<small>{{font|72|color=#0000FF}}</small>{{font|Thou shalt not raise a false report: put not thine hand with the wicked to be an unrighteous witness.|color=#FF0000}}
+
+<small>{{font|73|color=#0000FF}}</small>{{font|Thou shalt not follow a multitude to do evil; neither shalt thou speak in a cause to decline after many to wrest judgment:|color=#FF0000}}
+
+<small>{{font|74|color=#0000FF}}</small>{{font|Neither shalt thou countenance a poor man in his cause.|color=#FF0000}}
+
+<small>{{font|75|color=#0000FF}}</small>{{font|If thou meet thine enemy's ox or his ass going astray, thou shalt surely bring it back to him again.|color=#FF0000}}
+
+<small>{{font|76|color=#0000FF}}</small>{{font|If thou see the ass of him that hateth thee lying under his burden, and wouldest forbear to help him, thou shalt surely help with him.|color=#FF0000}}
+
+<small>{{font|77|color=#0000FF}}</small>{{font|Thou shalt not wrest the judgment of thy poor in his cause.|color=#FF0000}}
+
+<small>{{font|78|color=#0000FF}}</small>{{font|Keep thee far from a false matter; and the innocent and righteous slay thou not: for I will not justify the wicked.|color=#FF0000}}
+
+<small>{{font|79|color=#0000FF}}</small>{{font|And thou shalt take no gift: for the gift blindeth the wise, and perverteth the words of the righteous.|color=#FF0000}}
+
+<small>{{font|80|color=#0000FF}}</small>{{font|Also thou shalt not oppress a stranger: for ye know the heart of a stranger, seeing ye were strangers in the land of Egypt.|color=#FF0000}}
+
+<small>{{font|81|color=#0000FF}}</small>{{font|And six years thou shalt sow thy land, and shalt gather in the fruits thereof:|color=#FF0000}}
+
+<small>{{font|82|color=#0000FF}}</small>{{font|But the seventh year thou shalt let it rest and lie still; that the poor of thy people may eat: and what they leave the beasts of the field shall eat. In like manner thou shalt deal with thy vineyard, and with thy oliveyard.|color=#FF0000}}
+
+<small>{{font|83|color=#0000FF}}</small>{{font|Six days thou shalt do thy work, and on the seventh day thou shalt rest: that thine ox and thine ass may rest, and the son of thy handmaid, and the stranger, may be refreshed.|color=#FF0000}}
+
+<small>{{font|84|color=#0000FF}}</small>{{font|And in all things that I have said unto you be circumspect: and make no mention of the name of other gods, neither let it be heard out of thy mouth.|color=#FF0000}}
+
+<small>{{font|85|color=#0000FF}}</small>{{font|Three times thou shalt keep a feast unto me in the year.|color=#FF0000}}
+
+<small>{{font|86|color=#0000FF}}</small>{{font|Thou shalt keep the feast of unleavened bread.|color=#FF0000}}
+
+<small>{{font|87|color=#0000FF}}</small>{{font|And the feast of harvest, the firstfruits of thy labours, which thou hast sown in the field: and the feast of ingathering, which is in the end of the year, when thou hast gathered in thy labours out of the field.|color=#FF0000}}
+
+<small>{{font|88|color=#0000FF}}</small>{{font|Three times in the year all thy males shall [see the face of ] the LORD God.|color=#FF0000}}
+
+<small>{{font|89|color=#0000FF}}</small>{{font|Thou shalt not offer the blood of my sacrifice with leavened bread; neither shall the fat of my sacrifice remain until the morning.|color=#FF0000}}
+
+<small>{{font|90|color=#0000FF}}</small>{{font|The first of the firstfruits of thy land thou shalt bring into the house of the LORD thy God. Thou shalt not seethe a kid in his mother's milk.|color=#FF0000}}
+
+<small>{{font|91|color=#0000FF}}</small>{{font|Behold, I send an Angel before thee, to keep thee in the way, and to bring thee into the place which I have prepared.|color=#FF0000}}
+
+<small>{{font|92|color=#0000FF}}</small>{{font|Beware of him, and obey his voice, provoke him not; for he will not pardon your transgressions: for my name is in him.|color=#FF0000}}
+
+<small>{{font|93|color=#0000FF}}</small>{{font|But if thou shalt indeed obey his voice, and do all that I speak; then I will be an enemy unto thine enemies, and an adversary unto thine adversaries.|color=#FF0000}}
+
+<small>{{font|94|color=#0000FF}}</small>{{font|For mine Angel shall go before thee, and bring thee in unto the Amorites, and the Hittites, and the Perizzites, and the Canaanites, the Hivites, and the Jebusites: and I will cut them off.|color=#FF0000}}
+
+<small>{{font|95|color=#0000FF}}</small>{{font|Thou shalt not bow down to their gods, nor serve them, nor do after their works: but thou shalt utterly overthrow them, and quite break down their images.|color=#FF0000}}
+
+<small>{{font|96|color=#0000FF}}</small>{{font|And ye shall serve the LORD your God, and he shall bless thy bread, and thy water; and I will take sickness away from the midst of thee.|color=#FF0000}}
+
+<small>{{font|97|color=#0000FF}}</small>{{font|There shall nothing cast their young, nor be barren, in thy land: the number of thy days I will fulfil.|color=#FF0000}}
+
+<small>{{font|98|color=#0000FF}}</small>{{font|I will send my fear before thee, and will destroy all the people to whom thou shalt come, and I will make all thine enemies turn their backs unto thee.|color=#FF0000}}
+
+<small>{{font|99|color=#0000FF}}</small>{{font|And I will send hornets before thee, which shall drive out the Hivite, the Canaanite, and the Hittite, from before thee.|color=#FF0000}}
+
+<small>{{font|100|color=#0000FF}}</small>{{font|I will not drive them out from before thee in one year; lest the land become desolate, and the beast of the field multiply against thee.|color=#FF0000}}
+
+<small>{{font|101|color=#0000FF}}</small>{{font|By little and little I will drive them out from before thee, until thou be increased, and inherit the land.|color=#FF0000}}
+
+<small>{{font|102|color=#0000FF}}</small>{{font|And I will set thy bounds from the Red sea even unto the sea of the Philistines, and from the desert unto the river: for I will deliver the inhabitants of the land into your hand; and thou shalt drive them out before thee.|color=#FF0000}}
+
+<small>{{font|103|color=#0000FF}}</small>{{font|Thou shalt make no covenant with them, nor with their gods.|color=#FF0000}}
+
+<small>{{font|104|color=#0000FF}}</small>{{font|They shall not dwell in thy land, lest they make thee sin against me: for if thou serve their gods, it will surely be a snare unto thee.|color=#FF0000}}
+
+==The Reading of the Covenant==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Moses came and told the people all the words of the LORD, and all the judgments: and all the people answered with one voice, and said, All the words which the LORD hath said will we do.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Moses wrote all the words of the LORD, and rose up early in the morning, and builded an altar under the hill, and twelve pillars, according to the twelve tribes of Israel.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And he sent young men of the children of Israel, which offered burnt offerings, and sacrificed peace offerings of oxen unto the LORD.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And Moses took half of the blood, and put it in basons; and half of the blood he sprinkled on the altar.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And he took the book of the covenant, and read in the audience of the people: and they said, All that the LORD hath said will we do, and be obedient.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Moses took the blood, and sprinkled it on the people, and said, Behold the blood of the covenant, which the LORD hath made with you concerning all these words. And they did eat and drink.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And the LORD said unto Moses, Come up to me into the mount, and be there: and I will give thee tables of stone, 
+which I have written on; that thou mayest teach them.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| And Moses rose up, and his minister Joshua: and Moses went up into the mount of God.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And he said unto the elders, Tarry ye here for us, until we come again unto you: and, behold, Aaron and Hur are with you: if any man have any matters to do, let him come unto them.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|And Moses went up into the mount, and a cloud covered the mount; and Moses was in the mount forty days and forty nights.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|[And he gave unto Moses] two tables, tables of stone, written with the finger of God.|color=#000000}}<ref name=":32">{{Cite web|url=https://twitter.com/joelbaden/status/1385556715064659968|title=https://twitter.com/joelbaden/status/1385556715064659968|website=Twitter|language=en|access-date=2021-11-10}}</ref>
+
+==The Golden Calf==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And when the people saw that Moses delayed to come down out of the mount, the people gathered themselves together unto Aaron, and said unto him, Up, make us gods, which shall go before us; for as for this Moses, the man that brought us up out of the land of Egypt, we wot not what is become of him.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Aaron said unto them, Break off the golden earrings, which are in the ears of your wives, of your sons, and of your daughters, and bring them unto me.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And all the people brake off the golden earrings which were in their ears, and brought them unto Aaron.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And he received them at their hand, and fashioned it with a graving tool, after he had made it a molten calf: and they said, These be thy gods, O Israel, which brought thee up out of the land of Egypt.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And when Aaron saw it, he built an altar before it; and Aaron made proclamation, and said, To morrow is a feast to the LORD.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And they rose up early on the morrow, and offered burnt offerings, and brought peace offerings; and the people sat down to eat and to drink, and rose up to play.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And the LORD said unto Moses, Go, get thee down; for thy people, which thou broughtest out of the land of Egypt, have corrupted themselves:}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| They have turned aside quickly out of the way which I commanded them: they have made them a molten calf, and have worshipped it, and have sacrificed thereunto, and said, These be thy gods, O Israel, which have brought thee up out of the land of Egypt.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And Moses turned, and went down from the mount, and the two tables were in his hand: the tables were written on both their sides; on the one side and on the other were they written.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And the tables were the work of God, and the writing was the writing of God, graven upon the tables.}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And when Joshua heard the noise of the people as they shouted, he said unto Moses, There is a noise of war in the camp.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| And he said, It is not the voice of them that shout for mastery, neither is it the voice of them that cry for being overcome: but the noise of them that sing do I hear.}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| And it came to pass, as soon as he came nigh unto the camp, that he saw the calf, and the dancing: and Moses' anger waxed hot, and he cast the tables out of his hands, and brake them beneath the mount.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And he took the calf which they had made, and burnt it in the fire, and ground it to powder, and strawed it upon the water, and made the children of Israel drink of it.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| And Moses said unto Aaron, What did this people unto thee, that thou hast brought so great a sin upon them?}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| And Aaron said, Let not the anger of my lord wax hot: thou knowest the people, that they are set on mischief.}}
+
+{{font|size=smaller|color=#0000FF|17}}{{font|color=#000000| For they said unto me, Make us gods, which shall go before us: for as for this Moses, the man that brought us up out of the land of Egypt, we wot not what is become of him.}}
+
+{{font|size=smaller|color=#0000FF|18}}{{font|color=#000000| And I said unto them, Whosoever hath any gold, let them break it off. So they gave it me: then I cast it into the fire, and there came out this calf.}}
+
+{{font|size=smaller|color=#0000FF|19}}{{font|color=#000000| And it came to pass on the morrow, that Moses said unto the people, Ye have sinned a great sin: and now I will go up unto the LORD; peradventure I shall make an atonement for your sin.}}
+
+{{font|size=smaller|color=#0000FF|20}}{{font|color=#000000| And Moses returned unto the LORD, and said, Oh, this people have sinned a great sin, and have made them gods of gold.}}
+
+{{font|size=smaller|color=#0000FF|21}}{{font|color=#000000| Yet now, if thou wilt forgive their sin--; and if not, blot me, I pray thee, out of thy book which thou hast written.}}
+
+{{font|size=smaller|color=#0000FF|22}}{{font|color=#000000| And the LORD said unto Moses, Whosoever hath sinned against me, him will I blot out of my book.}}
+
+{{font|size=smaller|color=#0000FF|23}}{{font|color=#000000| Therefore now go, lead the people unto the place of which I have spoken unto thee: behold, mine Angel shall go before thee: nevertheless in the day when I visit I will visit their sin upon them.}}
+
+{{font|size=smaller|color=#0000FF|24}}{{font|And I will send an angel before thee; and I will drive out the Canaanite, the Amorite, and the Hittite, and the Perizzite, the Hivite, and the Jebusite:|color=#000000}}
+
+==The Tabernacle of the Congregation==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|By the mount Horeb, Moses took the tabernacle, and pitched it without the camp, afar off from the camp, and called it the Tabernacle of the congregation. And it came to pass, that every one which sought the LORD went out unto the tabernacle of the congregation, which was without the camp.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And it came to pass, when Moses went out unto the tabernacle, that all the people rose up, and stood every man at his tent door, and looked after Moses, until he was gone into the tabernacle.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And it came to pass, as Moses entered into the tabernacle, the cloudy pillar descended, and stood at the door of the tabernacle, and the Lord talked with Moses.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And all the people saw the cloudy pillar stand at the tabernacle door: and all the people rose up and worshipped, every man in his tent door.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And the LORD spake unto Moses face to face, as a man speaketh unto his friend. And he turned again into the camp: but his servant Joshua, the son of Nun, a young man, departed not out of the tabernacle.}}
+
+== The New Tablets ==
+<small>{{font|1|color=#0000FF}}</small>{{font|And the LORD said unto Moses, Hew thee two tables of stone like unto the first: and I will write upon these tables the words that were in the first tables, which thou brakest.|color=#000000}}
+
+<small>{{font|2|color=#0000FF}}</small>{{font|And he hewed two tables of stone like unto the first; [and Moses went up into the mountain,] as the LORD had commanded him, and took in his hand the two tables of stone.|color=#000000}}<ref name=":38">{{Cite web|url=https://twitter.com/joelbaden/status/1392104074275868680|title=https://twitter.com/joelbaden/status/1392104074275868680|website=Twitter|language=en|access-date=2021-11-12}}</ref>
+
+<small>{{font|3|color=#0000FF}}</small>{{font|And the LORD descended in the cloud, and he was there with the LORD forty days and forty nights; he did neither eat bread, nor drink water. And he wrote upon the tables the words of the covenant.|color=#000000}}
+
+==The Elders Prophesy==
+
+<small>{{font|color=#0000FF|1}}</small>{{font|color=#000000| And Moses said unto the LORD, Wherefore hast thou afflicted thy servant? and wherefore have I not found favour in thy sight, that thou layest the burden of all this people upon me?}}
+
+<small>{{font|color=#0000FF|2}}</small>{{font|color=#000000| Have I conceived all this people? have I begotten them, that thou shouldest say unto me, Carry them in thy bosom, as a nursing father beareth the sucking child, unto the land which thou swarest unto their fathers?}}
+
+<small>{{font|color=#0000FF|3}}</small>{{font|color=#000000| I am not able to bear all this people alone, because it is too heavy for me.}}
+
+<small>{{font|color=#0000FF|4}}</small>{{font|color=#000000| And if thou deal thus with me, kill me, I pray thee, out of hand, if I have found favour in thy sight; and let me not see my wretchedness.}}
+
+<small>{{font|color=#0000FF|5}}</small>{{font|color=#000000| And the LORD said unto Moses, Gather unto me seventy men of the elders of Israel, whom thou knowest to be the elders of the people, and officers over them; and bring them unto the tabernacle of the congregation, that they may stand there with thee.}}
+
+<small>{{font|color=#0000FF|6}}</small>{{font|color=#000000| And I will come down and talk with thee there: and I will take of the spirit which is upon thee, and will put it upon them; and they shall bear the burden of the people with thee, that thou bear it not thyself alone.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And [he] gathered the seventy men of the elders of the people, and set them round about the tabernacle.}}
+
+<small>{{font|color=#0000FF|8}}</small>{{font|color=#000000| And the LORD came down in a cloud, and spake unto him, and took of the spirit that was upon him, and gave it unto the seventy elders: and it came to pass, that, when the spirit rested upon them, they prophesied, and did not cease.}}
+
+<small>{{font|color=#0000FF|9}}</small>{{font|color=#000000| But there remained two of the men in the camp, the name of the one was Eldad, and the name of the other Medad: and the spirit rested upon them; and they were of them that were written, but went not out unto the tabernacle: and they prophesied in the camp.}}
+
+<small>{{font|color=#0000FF|10}}</small>{{font|color=#000000| And there ran a young man, and told Moses, and said, Eldad and Medad do prophesy in the camp.}}
+
+<small>{{font|color=#0000FF|11}}</small>{{font|color=#000000| And Joshua the son of Nun, the servant of Moses, one of his young men, answered and said, My lord Moses, forbid them.}}
+
+<small>{{font|color=#0000FF|12}}</small>{{font|color=#000000| And Moses said unto him, Enviest thou for my sake? would God that all the LORD's people were prophets, and that the LORD would put his spirit upon them!}}
+
+<small>{{font|color=#0000FF|13}}</small>{{font|color=#000000| And Moses gat him into the camp, he and the elders of Israel.}}
+
+==Aaron and Miriam Rebel ==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Miriam and Aaron spake against Moses,}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000|And they said, Hath the LORD indeed spoken only by Moses? hath he not spoken also by us? And the LORD heard it.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| (Now the man Moses was very meek, above all the men which were upon the face of the earth.)}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| And the LORD spake suddenly unto Moses, and unto Aaron, and unto Miriam, Come out ye three unto the tabernacle of the congregation. And they three came out.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And the LORD came down in the pillar of the cloud, and stood in the door of the tabernacle, and called Aaron and Miriam: and they both came forth.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And he said, Hear now my words: If there be a prophet among you, I the LORD will make myself known unto him in a vision, and will speak unto him in a dream.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| My servant Moses is not so, who is faithful in all mine house.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000| With him will I speak mouth to mouth, even apparently, and not in dark speeches; and the similitude of the LORD shall he behold: wherefore then were ye not afraid to speak against my servant Moses?}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|color=#000000| And the anger of the LORD was kindled against them; and he departed.}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000| And the cloud departed from off the tabernacle; and, behold, Miriam became leprous, white as snow: and Aaron looked upon Miriam, and, behold, she was leprous.}}
+
+{{font|size=smaller|color=#0000FF|11}}{{font|color=#000000| And Aaron said unto Moses, Alas, my lord, I beseech thee, lay not the sin upon us, wherein we have done foolishly, and wherein we have sinned.}}
+
+{{font|size=smaller|color=#0000FF|12}}{{font|color=#000000| Let her not be as one dead, of whom the flesh is half consumed when he cometh out of his mother's womb.}}
+
+{{font|size=smaller|color=#0000FF|13}}{{font|color=#000000| And Moses cried unto the LORD, saying, Heal her now, O God, I beseech thee.}}
+
+{{font|size=smaller|color=#0000FF|14}}{{font|color=#000000| And the LORD said unto Moses, If her father had but spit in her face, should she not be ashamed seven days? Let her be shut out from the camp seven days, and after that let her be received in again.}}
+
+{{font|size=smaller|color=#0000FF|15}}{{font|color=#000000| And Miriam was shut out from the camp seven days: and the people journeyed not till Miriam was brought in again.}}
+
+{{font|size=smaller|color=#0000FF|16}}{{font|color=#000000| And afterward the people removed from Hazeroth, and pitched in the wilderness of Paran.}}
+
+==Rebellion against Moses==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Dathan and Abiram, the sons of Eliab, son of Reuben, took men:}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Moses sent to call Dathan and Abiram, the sons of Eliab: which said, We will not come up:}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|Is it a small thing that thou hast brought us up out of a land that floweth with milk and honey, to kill us in the wilderness, except thou make thyself altogether a prince over us?|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000|Moreover thou hast not brought us into a land that floweth with milk and honey, or given us inheritance of fields and vineyards: wilt thou put out the eyes of these men? we will not come up.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|And Moses was very wroth, and said unto the LORD, Respect not thou their offering: I have not taken one ass from them, neither have I hurt one of them.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Moses rose up and went unto Dathan and Abiram; and the elders of Israel followed him.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|[And Moses spoke,] saying, Depart, I pray you, from the tents of these wicked men, and touch nothing of their's, lest ye be consumed in all their sins.|color=#000000}}
+
+<small>{{font|8|color=#0000FF}}</small>{{font|color=#000000|And Dathan and Abiram came out, and stood in the door of their tents, and their wives, and their sons, and their little children.}}
+
+<small>{{font|9|color=#0000FF}}</small>{{font|And Moses said, Hereby ye shall know that the LORD hath sent me to do all these works; for I have not done them of mine own mind.|color=#000000}}
+
+<small>{{font|10|color=#0000FF}}</small>{{font|If these men die the common death of all men, or if they be visited after the visitation of all men; then the LORD hath not sent me.|color=#000000}}
+
+<small>{{font|11|color=#0000FF}}</small>{{font|But if the LORD make a new thing, and the earth open her mouth, and swallow them up, with all that appertain unto them, and they go down quick into the pit; then ye shall understand that these men have provoked the LORD.|color=#000000}}
+
+<small>{{font|12|color=#0000FF}}</small>{{font|And it came to pass, as he had made an end of speaking all these words, that the ground clave asunder that was under them:|color=#000000}}
+
+<small>{{font|13|color=#0000FF}}</small>{{font|And the earth opened her mouth, and swallowed them up, and their houses, and all their goods.|color=#000000}}  
+
+<small>{{font|14|color=#0000FF}}</small>{{font|They, and all that appertained to them, went down alive into the pit, and the earth closed upon them: and they perished from among the congregation.|color=#000000}}
+
+<small>{{font|15|color=#0000FF}}</small>{{font|And all Israel that were round about them fled at the cry of them: for they said, Lest the earth swallow us up also.|color=#000000}}
+
+==The Short Route into Canaan==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And the people abode in Kadesh; and Miriam died there, and was buried there.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|And the people chode with Moses, and spake, Wherefore have ye made us to come up out of Egypt, to bring us in unto this evil place? it is no place of seed, or of figs, or of vines, or of pomegranates; neither is there any water to drink.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000|And Moses sent messengers from Kadesh unto the king of Edom, Thus saith thy brother Israel, Thou knowest all the travail that hath befallen us:}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| How our fathers went down into Egypt, and we have dwelt in Egypt a long time; and the Egyptians vexed us, and our fathers:}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And when we cried unto the LORD, he heard our voice, and sent an angel, and hath brought us forth out of Egypt: and, behold, we are in Kadesh, a city in the uttermost of thy border:}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| Let us pass, I pray thee, through thy country: we will not pass through the fields, or through the vineyards, neither will we drink of the water of the wells: we will go by the king's high way, we will not turn to the right hand nor to the left, until we have passed thy borders.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And Edom said unto him, Thou shalt not pass by me, lest I come out against thee with the sword.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|And the children of Israel said unto him, We will go by the high way: and if I and my cattle drink of thy water, then I will pay for it: I will only, without doing anything else, go through on my feet.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|And he said, Thou shalt not go through. And Edom came out against him with much people, and with a strong hand.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|10}}{{font|color=#000000|Thus Edom refused to give Israel passage through his border: wherefore Israel turned away from him.}}
+
+==The Bronze Serpent==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000|And they journeyed from Kadesh, to compass the land of Edom: and the soul of the people was much discouraged because of the way.}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And the people spake against God, and against Moses, Wherefore have ye brought us up out of Egypt to die in the wilderness? For there is no bread, neither is there any water.}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|color=#000000| And the LORD sent fiery serpents among the people, and they bit the people; and much people of Israel died.}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|color=#000000| Therefore the people came to Moses, and said, We have sinned, for we have spoken against the LORD, and against thee; pray unto the LORD, that he take away the serpents from us. And Moses prayed for the people.}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|color=#000000| And the LORD said unto Moses, Make thee a fiery serpent, and set it upon a pole: and it shall come to pass, that every one that is bitten, when he looketh upon it, shall live.}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| And Moses made a serpent of brass, and put it upon a pole, and it came to pass, that if a serpent had bitten any man, when he beheld the serpent of brass, he lived.}}
+
+==The conquest of the Amorites==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|From thence they removed, and pitched in the valley of Zared.|color=#000000}}
+
+<small>{{font|2|color=#0000FF}}</small>{{font|From thence they removed, and pitched on the other side of Arnon, which is in the wilderness that cometh out of the coasts of the Amorites: for Arnon is the border of Moab, between Moab and the Amorites.|color=#000000}}
+
+<small>{{font|3|color=#0000FF}}</small>{{font|Wherefore it is said in the book of the wars of the LORD, What he did in the Red sea, and in the brooks of Arnon,|color=#000000}}
+
+<small>{{font|4|color=#0000FF}}</small>{{font|And at the stream of the brooks that goeth down to the dwelling of Ar, and lieth upon the border of Moab.|color=#000000}}
+
+<small>{{font|5|color=#0000FF}}</small>{{font|color=#000000| And Israel sent messengers unto Sihon king of the Amorites, saying,}}
+
+{{font|size=smaller|color=#0000FF|6}}{{font|color=#000000| Let me pass through thy land: we will not turn into the fields, or into the vineyards; we will not drink of the waters of the well: but we will go along by the king's high way, until we be past thy borders.}}
+
+{{font|size=smaller|color=#0000FF|7}}{{font|color=#000000| And Sihon would not suffer Israel to pass through his border: but Sihon gathered all his people together, and went out against Israel into the wilderness: and he came to Jahaz, and fought against Israel.}}
+
+{{font|size=smaller|color=#0000FF|8}}{{font|color=#000000|And Israel smote him with the edge of the sword, and possessed his land from Arnon unto Jabbok, even unto the children of Ammon: for the border of the children of Ammon was strong.}}
+
+{{font|size=smaller|color=#0000FF|9}}{{font|And Israel took all these cities: and Israel dwelt in all the cities of the Amorites, in Heshbon, and in all the villages thereof.|color=#000000}}
+
+<small>{{font|10|color=#0000FF}}</small>{{font|For Heshbon was the city of Sihon the king of the Amorites, who had fought against the former king of Moab, and taken all his land out of his hand, even unto Arnon.|color=#000000}}
+
+<small>{{font|11|color=#0000FF}}</small>{{font|Wherefore they that speak in proverbs say, Come into Heshbon, let the city of Sihon be built and prepared:|color=#000000}}
+
+<small>{{font|12|color=#0000FF}}</small>{{font|For there is a fire gone out of Heshbon, a flame from the city of Sihon: it hath consumed Ar of Moab, and the lords of the high places of Arnon.|color=#000000}}
+
+<small>{{font|13|color=#0000FF}}</small>{{font|Woe to thee, Moab! thou art undone, O people of Chemosh: he hath given his sons that escaped, and his daughters, into captivity unto Sihon king of the Amorites.|color=#000000}}
+
+<small>{{font|14|color=#0000FF}}</small>{{font|We have shot at them; Heshbon is perished even unto Dibon, and we have laid them waste even unto Nophah, which reacheth unto Medeba.|color=#000000}}
+
+<small>{{font|15|color=#0000FF}}</small>{{font|Thus Israel dwelt in the land of the Amorites.|color=#000000}}
+
+<small>{{font|16|color=#0000FF}}</small>{{font|And Moses sent to spy out Jaazer, and they took the villages thereof, and drove out the Amorites that were there.|color=#000000}}
+
+==The heresy of Peor ==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|color=#000000| And Israel abode in Shittim, and Israel joined himself unto Baalpeor:}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|color=#000000| And Moses said unto the judges of Israel, Slay ye every one his men that were joined unto Baalpeor.}}
+
+<small>{{font|color=#0000FF|..........................................................................POTENTIAL DISCONTINUITY........................................................................}}</small>
+
+==The Allocation of Gilead ==
+
+<small>{{font|color=#0000FF|1}}</small>{{font|color=#000000|Now the children of Reuben and the children of Gad had a very great multitude of cattle: and when they saw the land of Jazer, and the land of Gilead, that, behold, the place was a place for cattle;}}
+
+<small>{{font|color=#0000FF|2}}</small>{{font|color=#000000|[And they said unto Moses], Even the country which the LORD smote before the congregation of Israel, is a land for cattle, and thy servants have cattle:}}
+
+<small>{{font|color=#0000FF|3}}</small>{{font|Wherefore, said they, if we have found grace in thy sight, bring us not over Jordan.|color=#000000}}
+
+<small>{{font|color=#0000FF|4}}</small>{{font|color=#000000| But we ourselves will go ready armed before the children of Israel, until we have brought them unto their place:}}
+
+<small>{{font|color=#0000FF|5}}</small>{{font|color=#000000| We will not return unto our houses, until the children of Israel have inherited every man his inheritance.}}
+
+<small>{{font|color=#0000FF|6}}</small>{{font|color=#000000| For we will not inherit with them on yonder side Jordan, or forward; because our inheritance is fallen to us on this side Jordan eastward.}}
+
+<small>{{font|color=#0000FF|7}}</small>{{font|color=#000000| And Moses said unto them, if ye will do this thing, and be guiltless before the LORD, and before Israel;}} 
+
+<small>{{font|color=#0000FF|8}}</small>{{font|But if ye will not do so, behold, ye have sinned against the LORD: and be sure your sin will find you out.|color=#000000}}
+
+<small>{{font|color=#0000FF|9}}</small>{{font|And Moses gave unto them the land, with the cities thereof in the coasts, even the cities of the country round about.|color=#000000}}
+
+<small>{{font|color=#0000FF|10}}</small>{{font|And the children of Machir the son of Manasseh went to Gilead, and took it, and dispossessed the Amorite which was in it.|color=#000000}}
+
+<small>{{font|color=#0000FF|11}}</small>{{font|And Moses gave Gilead unto Machir the son of Manasseh; and he dwelt therein.|color=#000000}}
+
+<small>{{font|color=#0000FF|12}}</small>{{font|And Jair the son of Manasseh went and took the small towns thereof, and called them Havothjair.|color=#000000}}
+
+<small>{{font|color=#0000FF|13}}</small>{{font|And Nobah went and took Kenath, and the villages thereof, and called it Nobah, after his own name.|color=#000000}}
+
+==The death of Moses==
+
+{{font|size=smaller|color=#0000FF|1}}{{font|And the LORD said unto Moses, Behold, thy days approach that thou must die: call Joshua, and present yourselves in the tabernacle of the congregation, that I may give him a charge. And Moses and Joshua went, and presented themselves in the tabernacle of the congregation.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|2}}{{font|And the LORD appeared in the tabernacle in a pillar of a cloud: and the pillar of the cloud stood over the door of the tabernacle.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|3}}{{font|And he gave Joshua the son of Nun a charge, and said, Be strong and of a good courage: for thou shalt bring the children of Israel into the land which I sware unto them: and I will be with thee.|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|4}}{{font|So Moses the servant of the LORD died in the land of Moab,|color=#000000}}
+
+{{font|size=smaller|color=#0000FF|5}}{{font|And there arose not a prophet since in Israel like unto Moses, whom the LORD knew face to face,|color=#000000}}
+
+[[Category:Documentary hypothesis]]

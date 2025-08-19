@@ -1,0 +1,178 @@
+# KJV Sources Project - Cursor Rules
+# =====================================
+
+## Project Overview
+This is a sophisticated biblical text analysis project focused on the Documentary Hypothesis in the King James Version of the Bible. The project parses color-coded wikitext files to extract and analyze different source traditions (J, E, P, D, R) and provides multiple data formats for LLM training and scholarly research.
+
+## Core Technologies & Dependencies
+- **Python 3.8+** - Primary language
+- **FastAPI** - Web API framework
+- **Qdrant** - Vector database for RAG
+- **LightRAG** - Advanced retrieval system
+- **Rich** - Terminal UI library
+- **Click** - CLI framework
+- **Pandas** - Data manipulation
+- **Sentence Transformers** - Embedding models
+
+## Project Structure
+```
+kjv-sources/
+├── src/kjv_sources/          # Main package
+├── wiki_markdown/            # Source wikitext files
+├── output/                   # Generated data files
+├── lightrag_data/           # LightRAG vector database
+├── parse_wikitext.py        # Core parsing logic
+├── rag_api_server.py        # FastAPI server
+├── lightrag_ingestion.py    # Vector DB ingestion
+└── requirements.txt         # Dependencies
+```
+
+## Documentary Hypothesis Sources
+The project analyzes five main sources with specific color mappings:
+- **J (Jahwist)** - `#000088` (Navy Blue) - Early narrative source
+- **E (Elohist)** - `#008888` (Teal) - Northern narrative source  
+- **P (Priestly)** - `#888800` (Olive Yellow) - Priestly/liturgical source
+- **D (Deuteronomist)** - `#000000` (Black) - Deuteronomy-focused source
+- **R (Redactor)** - `#880000` (Maroon Red) - Editorial additions
+
+## Coding Standards
+
+### Python Style
+- Use **type hints** for all function parameters and return values
+- Follow **PEP 8** style guidelines
+- Use **f-strings** for string formatting
+- Prefer **pathlib.Path** over os.path for file operations
+- Use **dataclasses** for structured data containers
+
+### Error Handling
+- Use **context managers** for file operations
+- Implement **proper exception handling** with specific exception types
+- Log errors with **structured logging** using the logging module
+- Provide **meaningful error messages** for debugging
+
+### Data Processing
+- Always **validate input data** before processing
+- Use **pandas DataFrames** for tabular data operations
+- Implement **data validation** with Pydantic models for APIs
+- Handle **Unicode text** properly (biblical text contains special characters)
+
+### API Development
+- Use **FastAPI** with Pydantic models for request/response validation
+- Implement **proper HTTP status codes** and error responses
+- Use **async/await** for I/O operations
+- Include **comprehensive API documentation** with docstrings
+
+## Biblical Text Considerations
+
+### Text Processing
+- **Preserve original formatting** and verse numbering
+- Handle **Hebrew transliterations** and special characters
+- Maintain **canonical references** (Book Chapter:Verse format)
+- Respect **source boundaries** and redaction indicators
+
+### Data Integrity
+- **Never modify** the original biblical text content
+- Preserve **source attribution** and color coding
+- Maintain **verse-level granularity** for analysis
+- Handle **multi-source verses** with proper segmentation
+
+### Scholarly Accuracy
+- Use **academic terminology** for source analysis
+- Maintain **scholarly citations** and references
+- Respect **documentary hypothesis** methodology
+- Provide **contextual metadata** for analysis
+
+## File Naming Conventions
+- Use **snake_case** for Python files and functions
+- Use **PascalCase** for biblical book names in file paths
+- Use **ISO date format** (YYYYMMDD) for timestamped files
+- Use **descriptive suffixes** for file types (e.g., `_training.jsonl`)
+
+## Database & Vector Store
+- Use **Qdrant** for semantic search and retrieval
+- Implement **hybrid search** (dense + sparse) for optimal results
+- Use **meaningful collection names** with versioning
+- Implement **proper indexing** for performance
+
+## CLI Development
+- Use **Click** for command-line interfaces
+- Provide **rich terminal output** with color coding
+- Include **progress indicators** for long operations
+- Offer **filtering and sorting** options
+
+## Testing Guidelines
+- Write **unit tests** for core parsing functions
+- Test **edge cases** in biblical text processing
+- Validate **data integrity** across transformations
+- Test **API endpoints** with realistic data
+
+## Documentation Standards
+- Use **Google-style docstrings** for all functions
+- Include **usage examples** in docstrings
+- Maintain **README.md** with clear setup instructions
+- Document **API endpoints** with OpenAPI/Swagger
+
+## Performance Considerations
+- Use **streaming** for large file processing
+- Implement **caching** for repeated operations
+- Use **batch processing** for vector database operations
+- Optimize **memory usage** for large datasets
+
+## Security & Privacy
+- **Never commit** API keys or sensitive data
+- Use **environment variables** for configuration
+- Implement **input validation** to prevent injection attacks
+- Handle **user data** with appropriate privacy measures
+
+## PowerShell Environment
+- All **terminal commands** should be provided in PowerShell format
+- Use **PowerShell syntax** for environment setup
+- Prefer **PowerShell scripts** (.ps1) over batch files
+- Use **PowerShell-compatible** Python virtual environment commands
+
+## Common Patterns
+
+### Parsing Biblical Text
+```python
+def parse_verse_with_sources(verse_text: str, color_mapping: Dict[str, str]) -> VerseData:
+    """Parse a verse with color-coded source indicators."""
+    # Extract color segments
+    # Map colors to sources
+    # Preserve original text
+    # Return structured data
+```
+
+### API Response Format
+```python
+class AnalysisResponse(BaseModel):
+    response: str
+    sources: List[Dict[str, Any]]
+    confidence: float
+    metadata: Dict[str, Any]
+```
+
+### Data Validation
+```python
+@field_validator('source')
+@classmethod
+def validate_source(cls, v: str) -> str:
+    if v not in ['J', 'E', 'P', 'D', 'R']:
+        raise ValueError('Invalid source identifier')
+    return v
+```
+
+## When Making Changes
+1. **Test thoroughly** with sample biblical text
+2. **Validate data integrity** across the pipeline
+3. **Update documentation** for any API changes
+4. **Check performance** impact on large datasets
+5. **Ensure backward compatibility** when possible
+
+## Focus Areas for AI Assistance
+- **Source parsing logic** - Color-to-source mapping
+- **Data transformation** - CSV/JSONL generation
+- **Vector database operations** - Embedding and retrieval
+- **API development** - FastAPI endpoints
+- **CLI improvements** - User interface enhancements
+- **Documentation** - Code and user documentation
+- **Testing** - Unit and integration tests

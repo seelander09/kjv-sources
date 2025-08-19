@@ -1,0 +1,144 @@
+{
+  "download_date": "2025-08-18T18:15:35.322808",
+  "total_pages": 12,
+  "categories": {
+    "individual_source": 4,
+    "sub_source": 3,
+    "specialized": 3,
+    "comparative": 2
+  },
+  "pages": [
+    {
+      "name": "Jahwist_source_isolated",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Jahwist_source",
+      "category": "individual_source",
+      "description": "Jahwist source in isolation",
+      "priority": 1,
+      "files": [
+        "Jahwist_source_isolated.wikitext",
+        "Jahwist_source_isolated.md"
+      ]
+    },
+    {
+      "name": "Elohist_source_isolated",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Elohist_source",
+      "category": "individual_source",
+      "description": "Elohist source in isolation",
+      "priority": 1,
+      "files": [
+        "Elohist_source_isolated.wikitext",
+        "Elohist_source_isolated.md"
+      ]
+    },
+    {
+      "name": "Priestly_source_isolated",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Priestly_source",
+      "category": "individual_source",
+      "description": "Priestly source in isolation",
+      "priority": 1,
+      "files": [
+        "Priestly_source_isolated.wikitext",
+        "Priestly_source_isolated.md"
+      ]
+    },
+    {
+      "name": "Deuteronomist_source_isolated",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Deuteronomist_source",
+      "category": "individual_source",
+      "description": "Deuteronomist source in isolation",
+      "priority": 1,
+      "files": [
+        "Deuteronomist_source_isolated.wikitext",
+        "Deuteronomist_source_isolated.md"
+      ]
+    },
+    {
+      "name": "First_Deuteronomist_Version",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Deuteronomist_source/First_Deuteronomist_Version",
+      "category": "sub_source",
+      "description": "First Deuteronomist version (Dtr1)",
+      "priority": 2,
+      "files": [
+        "First_Deuteronomist_Version.wikitext",
+        "First_Deuteronomist_Version.md"
+      ]
+    },
+    {
+      "name": "Deuteronomic_Laws",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Deuteronomist_source/First_Deuteronomist_Version/Deuteronomic_Laws",
+      "category": "sub_source",
+      "description": "Deuteronomic law code",
+      "priority": 2,
+      "files": [
+        "Deuteronomic_Laws.wikitext",
+        "Deuteronomic_Laws.md"
+      ]
+    },
+    {
+      "name": "Song_of_Moses",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Deuteronomist_source/Secondary_Deuteronomist_Additions/Song_of_Moses",
+      "category": "sub_source",
+      "description": "Song of Moses from Deuteronomist source",
+      "priority": 2,
+      "files": [
+        "Song_of_Moses.wikitext",
+        "Song_of_Moses.md"
+      ]
+    },
+    {
+      "name": "Holiness_code",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Priestly_source/Holiness_code",
+      "category": "specialized",
+      "description": "Holiness code from Priestly source",
+      "priority": 3,
+      "files": [
+        "Holiness_code.wikitext",
+        "Holiness_code.md"
+      ]
+    },
+    {
+      "name": "Levitical_Laws",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Priestly_source/Levitical_Laws",
+      "category": "specialized",
+      "description": "Levitical laws from Priestly source",
+      "priority": 3,
+      "files": [
+        "Levitical_Laws.wikitext",
+        "Levitical_Laws.md"
+      ]
+    },
+    {
+      "name": "Levitical_ritual",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Priestly_source/Levitical_ritual",
+      "category": "specialized",
+      "description": "Levitical ritual texts",
+      "priority": 3,
+      "files": [
+        "Levitical_ritual.wikitext",
+        "Levitical_ritual.md"
+      ]
+    },
+    {
+      "name": "Covenant_Code",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Elohist_source/Covenant_Code",
+      "category": "comparative",
+      "description": "Covenant code for comparison",
+      "priority": 4,
+      "files": [
+        "Covenant_Code.wikitext",
+        "Covenant_Code.md"
+      ]
+    },
+    {
+      "name": "Narrative",
+      "url": "/wiki/Bible/King_James/Documentary_Hypothesis/Deuteronomist_source/First_Deuteronomist_Version/Narrative",
+      "category": "comparative",
+      "description": "Narrative elements for comparison",
+      "priority": 4,
+      "files": [
+        "Narrative.wikitext",
+        "Narrative.md"
+      ]
+    }
+  ]
+}

@@ -24,6 +24,7 @@ SOURCE_COLORS = {
     "J": "#000088",      # Jahwist source - navy blue (matches wikitext)
     "E": "#008888",      # Elohist source - teal blueish grey (matches wikitext)
     "P": "#888800",      # Priestly source - olive yellow (matches wikitext)
+    "D": "#000000",      # Deuteronomist source - black (matches wikitext)
     "R": "#880000",      # Redactor - maroon red (matches wikitext)
     "UNKNOWN": "#666666"  # Unknown source - grey
 }
@@ -33,6 +34,7 @@ RICH_COLORS = {
     "J": "rgb(0,0,136)",      # navy blue
     "E": "rgb(0,136,136)",    # teal
     "P": "rgb(136,136,0)",    # olive yellow
+    "D": "rgb(0,0,0)",        # black
     "R": "rgb(136,0,0)",      # maroon red
     "UNKNOWN": "rgb(102,102,102)"  # grey
 }
@@ -91,7 +93,7 @@ def preview(book, data_dir, limit, chapter, format):
 @click.option("--limit", default=10, help="Number of verses to preview")
 @click.option("--chapter", type=int, help="Filter by chapter number")
 @click.option("--show-multi", is_flag=True, help="Show multi-source verses only")
-@click.option("--source", help="Filter by specific source (J, E, P, R)")
+@click.option("--source", help="Filter by specific source (J, E, P, D, R)")
 @click.option("--show-source-texts", is_flag=True, help="Show individual source text columns")
 def rich_preview(book, limit, chapter, show_multi, source, show_source_texts):
     """Show a rich preview of verses with color-coded sources in a table format."""

@@ -15,6 +15,11 @@
       "description": "Priestly source",
       "color": "yellow"
     },
+    "D": {
+      "name": "Deuteronomist",
+      "description": "Deuteronomist source",
+      "color": "black"
+    },
     "R": {
       "name": "Redactor",
       "description": "Redactor source",
