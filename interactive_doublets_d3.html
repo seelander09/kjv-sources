@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Biblical Doublets - D3.js Bird's Eye View</title>
+    
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .controls {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .control-group label {
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .control-group select,
+        .control-group input {
+            padding: 8px 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 0.9em;
+            background: white;
+        }
+
+        .control-group select:focus,
+        .control-group input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .visualization-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            overflow: auto;
+            background: #fafafa;
+        }
+
+        .timeline-svg {
+            display: block;
+        }
+
+        .book-label {
+            fill: #2c3e50;
+            font-size: 12px;
+            font-weight: bold;
+            text-anchor: middle;
+        }
+
+        .doublet-rect {
+            stroke: #2c3e50;
+            stroke-width: 1;
+            opacity: 0.8;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .doublet-rect:hover {
+            opacity: 1.0;
+            stroke-width: 2;
+        }
+
+        .axis {
+            stroke: #34495e;
+            stroke-width: 1;
+        }
+
+        .axis-label {
+            fill: #2c3e50;
+            font-size: 11px;
+            text-anchor: middle;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        .legend {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            border: 1px solid #2c3e50;
+        }
+
+        .stats-panel {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f4f8;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .zoom-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .zoom-btn {
+            width: 30px;
+            height: 30px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-btn:hover {
+            background: #2980b9;
+        }
+
+        .detail-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 2000;
+            display: none;
+        }
+
+        .detail-panel h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .detail-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #95a5a6;
+        }
+
+        .detail-close:hover {
+            color: #e74c3c;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1500;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📖 Interactive Biblical Doublets - Bird's Eye View</h1>
+            <p>Explore the distribution of repeated passages across the Torah with interactive D3.js visualization</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Filter by Category:</label>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Filter by Source:</label>
+                <select id="sourceFilter">
+                    <option value="all">All Sources</option>
+                    <option value="J">J (Jahwist)</option>
+                    <option value="E">E (Elohist)</option>
+                    <option value="P">P (Priestly)</option>
+                    <option value="D">D (Deuteronomist)</option>
+                    <option value="R">R (Redactor)</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>Book Focus:</label>
+                <select id="bookFilter">
+                    <option value="all">All Books</option>
+                    <option value="Genesis">Genesis</option>
+                    <option value="Exodus">Exodus</option>
+                    <option value="Leviticus">Leviticus</option>
+                    <option value="Numbers">Numbers</option>
+                    <option value="Deuteronomy">Deuteronomy</option>
+                </select>
+            </div>
+            
+            <button class="btn" onclick="resetView()">Reset View</button>
+            <button class="btn" onclick="exportData()">Export Data</button>
+        </div>
+
+        <div class="visualization-container">
+            <div class="zoom-controls">
+                <button class="zoom-btn" onclick="zoomIn()">+</button>
+                <button class="zoom-btn" onclick="zoomOut()">−</button>
+                <button class="zoom-btn" onclick="resetZoom()">⌂</button>
+            </div>
+            
+            <div class="timeline-container">
+                <svg class="timeline-svg" id="timelineSvg"></svg>
+            </div>
+
+            <div class="legend" id="legend"></div>
+
+            <div class="stats-panel">
+                <h3>📊 Live Statistics</h3>
+                <div class="stats-grid" id="statsGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip"></div>
+
+    <!-- Detail Panel -->
+    <div class="overlay" id="overlay" onclick="closeDetailPanel()"></div>
+    <div class="detail-panel" id="detailPanel">
+        <button class="detail-close" onclick="closeDetailPanel()">&times;</button>
+        <div id="detailContent"></div>
+    </div>
+
+    <script>
+        // Global variables
+        let doubletsData = null;
+        let currentZoom = 1;
+        let currentTransform = { x: 0, y: 0 };
+        let filteredData = null;
+        
+        // Color schemes
+        const categoryColors = {
+            "cosmogony": "#e74c3c",
+            "genealogy": "#f39c12", 
+            "catastrophe": "#8e44ad",
+            "deception": "#e67e22",
+            "covenant": "#2980b9",
+            "family_conflict": "#27ae60",
+            "prophetic_calling": "#34495e",
+            "law": "#16a085",
+            "wilderness_miracle": "#d35400",
+            "wilderness_provision": "#c0392b"
+        };
+
+        const sourceColors = {
+            "J": "#000088", "E": "#008888", "P": "#888800", 
+            "D": "#000000", "R": "#880000"
+        };
+
+        const torahBooks = ["Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy"];
+        
+        // Book position mappings (approximate chapter counts for positioning)
+        const bookPositions = {
+            "Genesis": { start: 0, chapters: 50 },
+            "Exodus": { start: 50, chapters: 40 },
+            "Leviticus": { start: 90, chapters: 27 },
+            "Numbers": { start: 117, chapters: 36 },
+            "Deuteronomy": { start: 153, chapters: 34 }
+        };
+
+        // Load doublets data
+        async function loadDoubletsData() {
+            try {
+                const response = await fetch('doublets_data.json');
+                doubletsData = await response.json();
+                
+                // Process the data for visualization
+                processDoubletsData();
+                initializeVisualization();
+                populateFilters();
+                updateVisualization();
+                
+            } catch (error) {
+                console.error('Error loading doublets data:', error);
+                document.querySelector('.visualization-container').innerHTML = 
+                    '<p style="text-align: center; color: #e74c3c; padding: 50px;">Error loading doublets data. Please ensure doublets_data.json is available.</p>';
+            }
+        }
+
+        function processDoubletsData() {
+            if (!doubletsData || !doubletsData.doublets) return;
+            
+            // Process each doublet passage for visualization
+            doubletsData.processedPassages = [];
+            
+            doubletsData.doublets.forEach(doublet => {
+                doublet.passages.forEach((passage, index) => {
+                    const position = calculatePosition(passage.reference);
+                    
+                    doubletsData.processedPassages.push({
+                        ...passage,
+                        doubletId: doublet.id,
+                        doubletName: doublet.name,
+                        category: doublet.category,
+                        position: position,
+                        passageIndex: index,
+                        theologicalDifferences: doublet.theological_differences || []
+                    });
+                });
+            });
+            
+            filteredData = [...doubletsData.processedPassages];
+        }
+
+        function calculatePosition(reference) {
+            // Parse biblical reference
+            const match = reference.match(/([A-Za-z0-9\s]+)\s+(\d+):(\d+)/);
+            if (!match) return { book: "Unknown", chapter: 1, position: 0 };
+            
+            const book = match[1].trim();
+            const chapter = parseInt(match[2]);
+            const verse = parseInt(match[3]);
+            
+            const bookInfo = bookPositions[book];
+            if (!bookInfo) return { book, chapter, position: 0 };
+            
+            const position = bookInfo.start + chapter;
+            
+            return { book, chapter, verse, position };
+        }
+
+        function populateFilters() {
+            // Populate category filter
+            const categoryFilter = document.getElementById('categoryFilter');
+            const categories = [...new Set(doubletsData.doublets.map(d => d.category))];
+            
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = doubletsData.categories[category] || category;
+                categoryFilter.appendChild(option);
+            });
+
+            // Add event listeners
+            categoryFilter.addEventListener('change', updateVisualization);
+            document.getElementById('sourceFilter').addEventListener('change', updateVisualization);
+            document.getElementById('bookFilter').addEventListener('change', updateVisualization);
+        }
+
+        function updateVisualization() {
+            applyFilters();
+            renderTimeline();
+            updateLegend();
+            updateStatistics();
+        }
+
+        function applyFilters() {
+            if (!doubletsData) return;
+            
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const sourceFilter = document.getElementById('sourceFilter').value;
+            const bookFilter = document.getElementById('bookFilter').value;
+            
+            filteredData = doubletsData.processedPassages.filter(passage => {
+                let include = true;
+                
+                if (categoryFilter !== 'all' && passage.category !== categoryFilter) {
+                    include = false;
+                }
+                
+                if (sourceFilter !== 'all' && !passage.source.includes(sourceFilter)) {
+                    include = false;
+                }
+                
+                if (bookFilter !== 'all' && passage.position.book !== bookFilter) {
+                    include = false;
+                }
+                
+                return include;
+            });
+        }
+
+        function renderTimeline() {
+            const svg = d3.select("#timelineSvg");
+            svg.selectAll("*").remove();
+            
+            if (!filteredData.length) {
+                svg.append("text")
+                    .attr("x", 400)
+                    .attr("y", 200)
+                    .attr("text-anchor", "middle")
+                    .attr("fill", "#95a5a6")
+                    .style("font-size", "16px")
+                    .text("No doublets match the current filters");
+                return;
+            }
+            
+            // Set dimensions
+            const width = Math.max(1200, filteredData.length * 20);
+            const height = 350;
+            const margin = { top: 40, right: 40, bottom: 60, left: 100 };
+            
+            svg.attr("width", width).attr("height", height);
+            
+            // Create scales
+            const maxPosition = Math.max(...filteredData.map(d => d.position.position));
+            const xScale = d3.scaleLinear()
+                .domain([0, maxPosition])
+                .range([margin.left, width - margin.right]);
+            
+            const yScale = d3.scaleBand()
+                .domain(torahBooks)
+                .range([margin.top, height - margin.bottom])
+                .padding(0.1);
+            
+            // Draw book labels
+            svg.selectAll(".book-label")
+                .data(torahBooks)
+                .enter()
+                .append("text")
+                .attr("class", "book-label")
+                .attr("x", margin.left - 10)
+                .attr("y", d => yScale(d) + yScale.bandwidth() / 2)
+                .attr("dy", "0.35em")
+                .attr("text-anchor", "end")
+                .text(d => d);
+            
+            // Draw doublet rectangles
+            const rects = svg.selectAll(".doublet-rect")
+                .data(filteredData)
+                .enter()
+                .append("rect")
+                .attr("class", "doublet-rect")
+                .attr("x", d => xScale(d.position.position))
+                .attr("y", d => yScale(d.position.book))
+                .attr("width", 8)
+                .attr("height", yScale.bandwidth())
+                .attr("fill", d => categoryColors[d.category] || "#95a5a6")
+                .on("mouseover", showTooltip)
+                .on("mouseout", hideTooltip)
+                .on("click", showDetailPanel);
+            
+            // Draw x-axis
+            const xAxis = d3.axisBottom(xScale)
+                .tickFormat(d => `Ch. ${d}`);
+            
+            svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", `translate(0, ${height - margin.bottom})`)
+                .call(xAxis);
+            
+            // Add axis label
+            svg.append("text")
+                .attr("class", "axis-label")
+                .attr("x", width / 2)
+                .attr("y", height - 10)
+                .text("Approximate Position in Torah");
+        }
+
+        function showTooltip(event, d) {
+            const tooltip = document.getElementById('tooltip');
+            const categoryName = doubletsData.categories[d.category] || d.category;
+            
+            tooltip.innerHTML = `
+                <strong>${d.doubletName}</strong><br>
+                Reference: ${d.reference}<br>
+                Category: ${categoryName}<br>
+                Source: ${d.source}<br>
+                Book: ${d.position.book}<br>
+                Chapter: ${d.position.chapter}
+            `;
+            
+            tooltip.style.left = (event.pageX + 10) + 'px';
+            tooltip.style.top = (event.pageY - 10) + 'px';
+            tooltip.style.opacity = 1;
+        }
+
+        function hideTooltip() {
+            document.getElementById('tooltip').style.opacity = 0;
+        }
+
+        function showDetailPanel(event, d) {
+            const panel = document.getElementById('detailPanel');
+            const overlay = document.getElementById('overlay');
+            const content = document.getElementById('detailContent');
+            
+            const categoryName = doubletsData.categories[d.category] || d.category;
+            const doublet = doubletsData.doublets.find(db => db.id === d.doubletId);
+            
+            content.innerHTML = `
+                <h3>${d.doubletName}</h3>
+                <p><strong>Category:</strong> ${categoryName}</p>
+                <p><strong>Description:</strong> ${doublet.description}</p>
+                <p><strong>This Passage:</strong></p>
+                <ul>
+                    <li><strong>Reference:</strong> ${d.reference}</li>
+                    <li><strong>Source:</strong> ${d.source}</li>
+                    <li><strong>Book:</strong> ${d.position.book}</li>
+                    <li><strong>Themes:</strong> ${d.themes ? d.themes.join(', ') : 'N/A'}</li>
+                    <li><strong>Characteristics:</strong> ${d.characteristics ? d.characteristics.join(', ') : 'N/A'}</li>
+                </ul>
+                
+                <h4>All Passages in this Doublet:</h4>
+                <ul>
+                    ${doublet.passages.map(p => `
+                        <li><strong>${p.reference}</strong> (Source: ${p.source})</li>
+                    `).join('')}
+                </ul>
+                
+                ${doublet.theological_differences ? `
+                    <h4>Theological Differences:</h4>
+                    <ul>
+                        ${doublet.theological_differences.map(diff => `<li>${diff}</li>`).join('')}
+                    </ul>
+                ` : ''}
+            `;
+            
+            overlay.style.display = 'block';
+            panel.style.display = 'block';
+        }
+
+        function closeDetailPanel() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('detailPanel').style.display = 'none';
+        }
+
+        function updateLegend() {
+            const legend = document.getElementById('legend');
+            legend.innerHTML = '<h3 style="grid-column: 1 / -1;">🎨 Category Legend</h3>';
+            
+            const visibleCategories = [...new Set(filteredData.map(d => d.category))];
+            
+            visibleCategories.forEach(category => {
+                const categoryName = doubletsData.categories[category] || category;
+                const div = document.createElement('div');
+                div.className = 'legend-item';
+                div.innerHTML = `
+                    <div class="legend-color" style="background-color: ${categoryColors[category] || '#95a5a6'}"></div>
+                    <span>${categoryName}</span>
+                `;
+                legend.appendChild(div);
+            });
+        }
+
+        function updateStatistics() {
+            const stats = document.getElementById('statsGrid');
+            
+            const totalDoublets = new Set(filteredData.map(d => d.doubletId)).size;
+            const totalPassages = filteredData.length;
+            const uniqueBooks = new Set(filteredData.map(d => d.position.book)).size;
+            const uniqueSources = new Set(filteredData.map(d => d.source)).size;
+            
+            stats.innerHTML = `
+                <div class="stat-item">
+                    <div class="stat-number">${totalDoublets}</div>
+                    <div class="stat-label">Doublets</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${totalPassages}</div>
+                    <div class="stat-label">Passages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${uniqueBooks}</div>
+                    <div class="stat-label">Books</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">${uniqueSources}</div>
+                    <div class="stat-label">Sources</div>
+                </div>
+            `;
+        }
+
+        // Control functions
+        function resetView() {
+            document.getElementById('categoryFilter').value = 'all';
+            document.getElementById('sourceFilter').value = 'all';
+            document.getElementById('bookFilter').value = 'all';
+            updateVisualization();
+        }
+
+        function zoomIn() {
+            currentZoom *= 1.2;
+            applyZoom();
+        }
+
+        function zoomOut() {
+            currentZoom /= 1.2;
+            applyZoom();
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            currentTransform = { x: 0, y: 0 };
+            applyZoom();
+        }
+
+        function applyZoom() {
+            const svg = d3.select("#timelineSvg");
+            svg.attr("transform", `translate(${currentTransform.x}, ${currentTransform.y}) scale(${currentZoom})`);
+        }
+
+        function exportData() {
+            const exportData = {
+                metadata: {
+                    exportDate: new Date().toISOString(),
+                    totalDoublets: new Set(filteredData.map(d => d.doubletId)).size,
+                    totalPassages: filteredData.length,
+                    filters: {
+                        category: document.getElementById('categoryFilter').value,
+                        source: document.getElementById('sourceFilter').value,
+                        book: document.getElementById('bookFilter').value
+                    }
+                },
+                data: filteredData
+            };
+            
+            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'biblical_doublets_export.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function initializeVisualization() {
+            // Set up SVG for zooming and panning
+            const svg = d3.select("#timelineSvg");
+            
+            const zoom = d3.zoom()
+                .scaleExtent([0.5, 5])
+                .on("zoom", (event) => {
+                    currentZoom = event.transform.k;
+                    currentTransform = { x: event.transform.x, y: event.transform.y };
+                    svg.select("g").attr("transform", event.transform);
+                });
+            
+            svg.call(zoom);
+            svg.append("g"); // Container for zoomable content
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', loadDoubletsData);
+    </script>
+</body>
+</html>
