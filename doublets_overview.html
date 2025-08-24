@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblical Doublets - Bird's Eye View</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Georgia, serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f4f1e8 0%, #e8dcc6 100%);
+            min-height: 100vh;
+            color: #3e2723;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fefcf7;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(62, 39, 35, 0.15);
+            border: 1px solid #d7ccc8;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .overview {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .book-section {
+            border: 2px solid #34495e;
+            border-radius: 10px;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .book-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        .doublet-bar {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 6px solid #95a5a6;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .doublet-info {
+            flex: 1;
+        }
+        
+        .doublet-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .doublet-details {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        .statistics {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e8f4f8;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2980b9;
+        }
+        
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .visual-timeline {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+        
+        .timeline {
+            display: flex;
+            min-width: 800px;
+            height: 200px;
+            position: relative;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .book-column {
+            flex: 1;
+            border-right: 1px solid #ddd;
+            padding: 0 10px;
+            position: relative;
+        }
+        
+        .book-label {
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            transform: rotate(-45deg);
+            font-size: 0.8em;
+        }
+        
+        .doublet-marker {
+            width: 100%;
+            height: 15px;
+            margin: 2px 0;
+            border-radius: 3px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Biblical Doublets - Bird's Eye View</h1>
+        <p style="text-align: center; color: #666; font-size: 1.1em; margin-bottom: 30px;">
+            Distribution of repeated passages across the Torah showing patterns in the Documentary Hypothesis
+        </p>
+        
+        <div class="visual-timeline">
+            <h3>Visual Timeline Overview</h3>
+            <div class="timeline">
+
+                <div class="book-column">
+                    <div class="book-label">Genesis</div>
+
+                    <div class="doublet-marker" style="background-color: #e74c3c;" 
+                         title="Creation Stories (cosmogony)"></div>
+
+                    <div class="doublet-marker" style="background-color: #e74c3c;" 
+                         title="Creation Stories (cosmogony)"></div>
+
+                    <div class="doublet-marker" style="background-color: #f39c12;" 
+                         title="Genealogy from Adam (genealogy)"></div>
+
+                    <div class="doublet-marker" style="background-color: #f39c12;" 
+                         title="Genealogy from Adam (genealogy)"></div>
+
+                    <div class="doublet-marker" style="background-color: #8e44ad;" 
+                         title="Flood Narrative (catastrophe)"></div>
+
+                    <div class="doublet-marker" style="background-color: #8e44ad;" 
+                         title="Flood Narrative (catastrophe)"></div>
+
+                    <div class="doublet-marker" style="background-color: #e67e22;" 
+                         title="Wife-Sister Motif (deception)"></div>
+
+                    <div class="doublet-marker" style="background-color: #e67e22;" 
+                         title="Wife-Sister Motif (deception)"></div>
+
+                    <div class="doublet-marker" style="background-color: #e67e22;" 
+                         title="Wife-Sister Motif (deception)"></div>
+
+                    <div class="doublet-marker" style="background-color: #27ae60;" 
+                         title="Hagar and Ishmael (family_conflict)"></div>
+
+                    <div class="doublet-marker" style="background-color: #27ae60;" 
+                         title="Hagar and Ishmael (family_conflict)"></div>
+
+                    <div class="doublet-marker" style="background-color: #27ae60;" 
+                         title="Hagar and Ishmael (family_conflict)"></div>
+</div>
+                <div class="book-column">
+                    <div class="book-label">Exodus</div>
+
+                    <div class="doublet-marker" style="background-color: #34495e;" 
+                         title="Moses' Divine Commission (prophetic_calling)"></div>
+
+                    <div class="doublet-marker" style="background-color: #34495e;" 
+                         title="Moses' Divine Commission (prophetic_calling)"></div>
+
+                    <div class="doublet-marker" style="background-color: #34495e;" 
+                         title="Moses' Divine Commission (prophetic_calling)"></div>
+
+                    <div class="doublet-marker" style="background-color: #16a085;" 
+                         title="Ten Commandments (law)"></div>
+
+                    <div class="doublet-marker" style="background-color: #16a085;" 
+                         title="Ten Commandments (law)"></div>
+
+                    <div class="doublet-marker" style="background-color: #d35400;" 
+                         title="Water from Rock (wilderness_miracle)"></div>
+
+                    <div class="doublet-marker" style="background-color: #c0392b;" 
+                         title="Manna and Quail Provision (wilderness_provision)"></div>
+</div>
+                <div class="book-column">
+                    <div class="book-label">Leviticus</div>
+</div>
+                <div class="book-column">
+                    <div class="book-label">Numbers</div>
+
+                    <div class="doublet-marker" style="background-color: #d35400;" 
+                         title="Water from Rock (wilderness_miracle)"></div>
+
+                    <div class="doublet-marker" style="background-color: #c0392b;" 
+                         title="Manna and Quail Provision (wilderness_provision)"></div>
+</div>
+                <div class="book-column">
+                    <div class="book-label">Deuteronomy</div>
+
+                    <div class="doublet-marker" style="background-color: #16a085;" 
+                         title="Ten Commandments (law)"></div>
+</div>
+            </div>
+        </div>
+        
+        <div class="overview">
+
+            <div class="book-section">
+                <div class="book-title">📖 Genesis</div>
+
+                <div class="doublet-bar" style="border-left-color: #e74c3c;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Creation Stories</div>
+                        <div class="doublet-details">
+                            Category: Creation and origin stories | Source: P
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #e74c3c;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Creation Stories</div>
+                        <div class="doublet-details">
+                            Category: Creation and origin stories | Source: J
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #f39c12;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Genealogy from Adam</div>
+                        <div class="doublet-details">
+                            Category: Family lineages and ancestral records | Source: J
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #f39c12;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Genealogy from Adam</div>
+                        <div class="doublet-details">
+                            Category: Family lineages and ancestral records | Source: P
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #8e44ad;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Flood Narrative</div>
+                        <div class="doublet-details">
+                            Category: Divine judgment and natural disasters | Source: J
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #8e44ad;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Flood Narrative</div>
+                        <div class="doublet-details">
+                            Category: Divine judgment and natural disasters | Source: P
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #e67e22;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Wife-Sister Motif</div>
+                        <div class="doublet-details">
+                            Category: Stories involving deception or misdirection | Source: J
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #e67e22;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Wife-Sister Motif</div>
+                        <div class="doublet-details">
+                            Category: Stories involving deception or misdirection | Source: E
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #e67e22;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Wife-Sister Motif</div>
+                        <div class="doublet-details">
+                            Category: Stories involving deception or misdirection | Source: J
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #27ae60;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Hagar and Ishmael</div>
+                        <div class="doublet-details">
+                            Category: Domestic and family tensions | Source: J
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #27ae60;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Hagar and Ishmael</div>
+                        <div class="doublet-details">
+                            Category: Domestic and family tensions | Source: P
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #27ae60;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Hagar and Ishmael</div>
+                        <div class="doublet-details">
+                            Category: Domestic and family tensions | Source: E
+                        </div>
+                    </div>
+                </div>
+</div>
+            <div class="book-section">
+                <div class="book-title">📖 Exodus</div>
+
+                <div class="doublet-bar" style="border-left-color: #34495e;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Moses' Divine Commission</div>
+                        <div class="doublet-details">
+                            Category: Divine calling of leaders and prophets | Source: J
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #34495e;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Moses' Divine Commission</div>
+                        <div class="doublet-details">
+                            Category: Divine calling of leaders and prophets | Source: E
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #34495e;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Moses' Divine Commission</div>
+                        <div class="doublet-details">
+                            Category: Divine calling of leaders and prophets | Source: P
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #16a085;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Ten Commandments</div>
+                        <div class="doublet-details">
+                            Category: Legal and commandment traditions | Source: R
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #16a085;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Ten Commandments</div>
+                        <div class="doublet-details">
+                            Category: Legal and commandment traditions | Source: J
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #d35400;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Water from Rock</div>
+                        <div class="doublet-details">
+                            Category: Miraculous provisions in the wilderness | Source: E
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #c0392b;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Manna and Quail Provision</div>
+                        <div class="doublet-details">
+                            Category: God's provision during wilderness wandering | Source: P
+                        </div>
+                    </div>
+                </div>
+</div>
+            <div class="book-section">
+                <div class="book-title">📖 Numbers</div>
+
+                <div class="doublet-bar" style="border-left-color: #d35400;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Water from Rock</div>
+                        <div class="doublet-details">
+                            Category: Miraculous provisions in the wilderness | Source: P
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doublet-bar" style="border-left-color: #c0392b;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Manna and Quail Provision</div>
+                        <div class="doublet-details">
+                            Category: God's provision during wilderness wandering | Source: E
+                        </div>
+                    </div>
+                </div>
+</div>
+            <div class="book-section">
+                <div class="book-title">📖 Deuteronomy</div>
+
+                <div class="doublet-bar" style="border-left-color: #16a085;">
+                    <div class="doublet-info">
+                        <div class="doublet-name">Ten Commandments</div>
+                        <div class="doublet-details">
+                            Category: Legal and commandment traditions | Source: D
+                        </div>
+                    </div>
+                </div>
+</div>
+        </div>
+        
+        <div class="statistics">
+            <h3>📊 Statistics Overview</h3>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Total Doublets</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Total Passages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2.4</div>
+                    <div class="stat-label">Avg Passages/Doublet</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Books Analyzed</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <h3 style="grid-column: 1 / -1;">🎨 Category Legend</h3>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #e74c3c;"></div>
+                <span>Creation and origin stories</span>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #f39c12;"></div>
+                <span>Family lineages and ancestral records</span>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #8e44ad;"></div>
+                <span>Divine judgment and natural disasters</span>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #e67e22;"></div>
+                <span>Stories involving deception or misdirection</span>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #2980b9;"></div>
+                <span>Divine covenant making and renewal</span>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #27ae60;"></div>
+                <span>Domestic and family tensions</span>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #34495e;"></div>
+                <span>Divine calling of leaders and prophets</span>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #16a085;"></div>
+                <span>Legal and commandment traditions</span>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #d35400;"></div>
+                <span>Miraculous provisions in the wilderness</span>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #c0392b;"></div>
+                <span>God's provision during wilderness wandering</span>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblical Doublets - Verse-by-Verse Alignment</title>
+    
+    <style>
+        body {
+            font-family: 'Times New Roman', Georgia, serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f4f1e8 0%, #e8dcc6 100%);
+            min-height: 100vh;
+            color: #3e2723;
+            line-height: 1.4;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: #fefcf7;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(62, 39, 35, 0.15);
+            border: 1px solid #d7ccc8;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #5d4037;
+            margin-bottom: 15px;
+            font-weight: normal;
+            font-size: 2em;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #8d6e63;
+            padding-bottom: 15px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #6d4c41;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-size: 1em;
+        }
+        
+        .view-controls {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f3e5ab;
+            border-radius: 6px;
+            border: 1px solid #d4af37;
+        }
+        
+        .view-btn {
+            background: #8d6e63;
+            color: #fefcf7;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+        
+        .view-btn:hover {
+            background: #6d4c41;
+        }
+        
+        .view-btn.active {
+            background: #5d4037;
+            font-weight: bold;
+        }
+        
+        /* Bird's Eye View Styles */
+        .birds-eye-view {
+            display: none;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .mini-doublet {
+            border: 1px solid #8d6e63;
+            border-radius: 4px;
+            background: #f8f5f0;
+            overflow: hidden;
+        }
+        
+        .mini-header {
+            background: #8d6e63;
+            color: #fefcf7;
+            padding: 8px 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .mini-passages {
+            padding: 10px;
+            font-size: 0.7em;
+            line-height: 1.3;
+        }
+        
+        .mini-verse-pair {
+            display: flex;
+            margin-bottom: 6px;
+            border-bottom: 1px dashed #bcaaa4;
+            padding-bottom: 4px;
+        }
+        
+        .mini-verse-pair:last-child {
+            border-bottom: none;
+        }
+        
+        .mini-verse {
+            flex: 1;
+            padding: 2px 4px;
+            border-radius: 2px;
+            margin: 0 2px;
+        }
+        
+        .mini-verse.source-J { background: rgba(139, 69, 19, 0.1); }
+        .mini-verse.source-E { background: rgba(160, 82, 45, 0.1); }
+        .mini-verse.source-P { background: rgba(210, 105, 30, 0.1); }
+        .mini-verse.source-D { background: rgba(101, 67, 33, 0.1); }
+        .mini-verse.source-R { background: rgba(139, 125, 107, 0.1); }
+        
+        /* Detailed View Styles */
+        .detailed-view {
+            display: block;
+        }
+        
+        .doublet-section {
+            margin-bottom: 40px;
+            border: 2px solid #8d6e63;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .doublet-header {
+            background: #8d6e63;
+            color: #fefcf7;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .doublet-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .alignment-container {
+            background: #fefcf7;
+        }
+        
+        .source-headers {
+            display: flex;
+            background: #f8f5f0;
+            border-bottom: 2px solid #d7ccc8;
+        }
+        
+        .source-header {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #5d4037;
+            border-right: 1px solid #d7ccc8;
+        }
+        
+        .source-header:last-child {
+            border-right: none;
+        }
+        
+        .source-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 3px;
+            color: white;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        
+        .source-J { background-color: #8b4513; }
+        .source-E { background-color: #a0522d; }
+        .source-P { background-color: #d2691e; }
+        .source-D { background-color: #654321; }
+        .source-R { background-color: #8b7d6b; }
+        
+        .verse-alignment {
+            display: flex;
+            border-bottom: 1px solid #e8dcc6;
+            min-height: 60px;
+        }
+        
+        .verse-alignment:last-child {
+            border-bottom: none;
+        }
+        
+        .verse-column {
+            flex: 1;
+            padding: 12px 15px;
+            border-right: 1px solid #e8dcc6;
+            display: flex;
+            align-items: center;
+        }
+        
+        .verse-column:last-child {
+            border-right: none;
+        }
+        
+        .verse-content {
+            width: 100%;
+        }
+        
+        .verse-number {
+            font-weight: bold;
+            color: #8d6e63;
+            font-size: 0.8em;
+            margin-right: 6px;
+            min-width: 20px;
+            display: inline-block;
+        }
+        
+        .verse-text {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #3e2723;
+        }
+        
+        .verse-column.source-J { background: rgba(139, 69, 19, 0.05); }
+        .verse-column.source-E { background: rgba(160, 82, 45, 0.05); }
+        .verse-column.source-P { background: rgba(210, 105, 30, 0.05); }
+        .verse-column.source-D { background: rgba(101, 67, 33, 0.05); }
+        .verse-column.source-R { background: rgba(139, 125, 107, 0.05); }
+        
+        .empty-verse {
+            color: #a1887f;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        .parallel-indicator {
+            background: #f3e5ab;
+            padding: 8px 15px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6d4c41;
+            font-style: italic;
+            border-bottom: 1px solid #d4af37;
+        }
+        
+        .navigation {
+            position: sticky;
+            top: 20px;
+            background: #f8f5f0;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #d7ccc8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .nav-link {
+            background: #8d6e63;
+            color: #fefcf7;
+            padding: 4px 8px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 0.8em;
+            margin: 2px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        
+        .nav-link:hover {
+            background: #6d4c41;
+        }
+        
+        @media (max-width: 768px) {
+            .verse-alignment {
+                flex-direction: column;
+            }
+            
+            .verse-column {
+                border-right: none;
+                border-bottom: 1px solid #e8dcc6;
+            }
+            
+            .verse-column:last-child {
+                border-bottom: none;
+            }
+            
+            .source-headers {
+                flex-direction: column;
+            }
+            
+            .source-header {
+                border-right: none;
+                border-bottom: 1px solid #d7ccc8;
+            }
+            
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biblical Doublets - Verse-by-Verse Alignment</h1>
+        <p class="subtitle">Precise alignment of parallel passages showing Documentary Hypothesis variations</p>
+        
+        <div class="view-controls">
+            <button class="view-btn" onclick="showBirdsEye()">🔍 Bird's Eye View</button>
+            <button class="view-btn active" onclick="showDetailed()">📖 Detailed Alignment</button>
+        </div>
+        
+        <div class="navigation">
+            <a href="#creation" class="nav-link">Creation</a>
+            <a href="#flood" class="nav-link">Flood</a>
+            <a href="#wife-sister" class="nav-link">Wife-Sister</a>
+            <a href="#covenant" class="nav-link">Covenant</a>
+            <a href="#commandments" class="nav-link">Commandments</a>
+        </div>
+        
+        <!-- Bird's Eye View -->
+        <div class="birds-eye-view" id="birds-eye-view">
+            <h2 style="text-align: center; color: #5d4037; margin-bottom: 20px;">All Doublets Overview</h2>
+            <div class="overview-grid" id="overview-grid">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Detailed View -->
+        <div class="detailed-view" id="detailed-view">
+            
+            <!-- Creation Narratives -->
+            <div class="doublet-section" id="creation">
+                <div class="doublet-header">
+                    <div class="doublet-title">Creation Stories - Verse Alignment</div>
+                </div>
+                <div class="alignment-container">
+                    <div class="source-headers">
+                        <div class="source-header">
+                            Genesis 1:1-2:3 <span class="source-badge source-P">P</span>
+                        </div>
+                        <div class="source-header">
+                            Genesis 2:4b-25 <span class="source-badge source-J">J</span>
+                        </div>
+                    </div>
+                    
+                    <div class="parallel-indicator">
+                        Two distinct creation accounts with different theological emphases
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-P">
+                            <div class="verse-content">
+                                <span class="verse-number">1:1</span>
+                                <span class="verse-text">In the beginning God created the heaven and the earth.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">2:4b</span>
+                                <span class="verse-text">In the day that the LORD God made the earth and the heavens,</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-P">
+                            <div class="verse-content">
+                                <span class="verse-number">1:2</span>
+                                <span class="verse-text">And the earth was without form, and void; and darkness was upon the face of the deep.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">2:5</span>
+                                <span class="verse-text">And every plant of the field before it was in the earth, and every herb of the field before it grew.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-P">
+                            <div class="verse-content">
+                                <span class="verse-number">1:3</span>
+                                <span class="verse-text">And God said, Let there be light: and there was light.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">2:7</span>
+                                <span class="verse-text">And the LORD God formed man of the dust of the ground, and breathed into his nostrils the breath of life.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-P">
+                            <div class="verse-content">
+                                <span class="verse-number">1:27</span>
+                                <span class="verse-text">So God created man in his own image, in the image of God created he him; male and female created he them.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">2:22</span>
+                                <span class="verse-text">And the rib, which the LORD God had taken from man, made he a woman, and brought her unto the man.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-P">
+                            <div class="verse-content">
+                                <span class="verse-number">2:3</span>
+                                <span class="verse-text">And God blessed the seventh day, and sanctified it: because that in it he had rested from all his work.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column empty-verse">
+                            <div class="verse-content">
+                                <span class="verse-text">[No sabbath emphasis in J account]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flood Narrative -->
+            <div class="doublet-section" id="flood">
+                <div class="doublet-header">
+                    <div class="doublet-title">Flood Narrative - Verse Alignment</div>
+                </div>
+                <div class="alignment-container">
+                    <div class="source-headers">
+                        <div class="source-header">
+                            J Source <span class="source-badge source-J">J</span>
+                        </div>
+                        <div class="source-header">
+                            P Source <span class="source-badge source-P">P</span>
+                        </div>
+                    </div>
+                    
+                    <div class="parallel-indicator">
+                        Two interwoven flood accounts with different emphases and details
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">6:5</span>
+                                <span class="verse-text">And GOD saw that the wickedness of man was great in the earth, and that every imagination of the thoughts of his heart was only evil continually.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-P">
+                            <div class="verse-content">
+                                <span class="verse-number">6:9</span>
+                                <span class="verse-text">These are the generations of Noah: Noah was a just man and perfect in his generations, and Noah walked with God.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">7:2</span>
+                                <span class="verse-text">Of every clean beast thou shalt take to thee by sevens, the male and his female: and of beasts that are not clean by two.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-P">
+                            <div class="verse-content">
+                                <span class="verse-number">7:9</span>
+                                <span class="verse-text">There went in two and two unto Noah into the ark, the male and the female, as God had commanded Noah.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">7:12</span>
+                                <span class="verse-text">And the rain was upon the earth forty days and forty nights.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-P">
+                            <div class="verse-content">
+                                <span class="verse-number">7:11</span>
+                                <span class="verse-text">In the six hundredth year of Noah's life, in the second month, the seventeenth day of the month, the same day were all the fountains of the great deep broken up.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">8:20</span>
+                                <span class="verse-text">And Noah builded an altar unto the LORD; and took of every clean beast, and of every clean fowl, and offered burnt offerings on the altar.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-P">
+                            <div class="verse-content">
+                                <span class="verse-number">9:1</span>
+                                <span class="verse-text">And God blessed Noah and his sons, and said unto them, Be fruitful, and multiply, and replenish the earth.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wife-Sister Motif -->
+            <div class="doublet-section" id="wife-sister">
+                <div class="doublet-header">
+                    <div class="doublet-title">Wife-Sister Motif - Triple Alignment</div>
+                </div>
+                <div class="alignment-container">
+                    <div class="source-headers">
+                        <div class="source-header">
+                            Gen 12:10-20 <span class="source-badge source-J">J</span>
+                        </div>
+                        <div class="source-header">
+                            Gen 20:1-18 <span class="source-badge source-E">E</span>
+                        </div>
+                        <div class="source-header">
+                            Gen 26:6-14 <span class="source-badge source-J">J</span>
+                        </div>
+                    </div>
+                    
+                    <div class="parallel-indicator">
+                        Three variations of the patriarch-wife-sister deception narrative
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">12:11</span>
+                                <span class="verse-text">And it came to pass, when he was come near to enter into Egypt, that he said unto Sarai his wife, Behold now, I know that thou art a fair woman to look upon.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-E">
+                            <div class="verse-content">
+                                <span class="verse-number">20:2</span>
+                                <span class="verse-text">And Abraham said of Sarah his wife, She is my sister: and Abimelech king of Gerar sent, and took Sarah.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">26:7</span>
+                                <span class="verse-text">And the men of the place asked him of his wife; and he said, She is my sister: for he feared to say, She is my wife.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">12:17</span>
+                                <span class="verse-text">And the LORD plagued Pharaoh and his house with great plagues because of Sarai Abram's wife.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-E">
+                            <div class="verse-content">
+                                <span class="verse-number">20:3</span>
+                                <span class="verse-text">But God came to Abimelech in a dream by night, and said to him, Behold, thou art but a dead man, for the woman which thou hast taken.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-J">
+                            <div class="verse-content">
+                                <span class="verse-number">26:8</span>
+                                <span class="verse-text">And it came to pass, when he had been there a long time, that Abimelech king of the Philistines looked out at a window, and saw Isaac was sporting with Rebekah.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ten Commandments -->
+            <div class="doublet-section" id="commandments">
+                <div class="doublet-header">
+                    <div class="doublet-title">Ten Commandments - Version Alignment</div>
+                </div>
+                <div class="alignment-container">
+                    <div class="source-headers">
+                        <div class="source-header">
+                            Exodus 20:1-17 <span class="source-badge source-R">R</span>
+                        </div>
+                        <div class="source-header">
+                            Deuteronomy 5:6-18 <span class="source-badge source-D">D</span>
+                        </div>
+                    </div>
+                    
+                    <div class="parallel-indicator">
+                        Two versions of the Decalogue with different emphases and explanations
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-R">
+                            <div class="verse-content">
+                                <span class="verse-number">20:8</span>
+                                <span class="verse-text">Remember the sabbath day, to keep it holy.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-D">
+                            <div class="verse-content">
+                                <span class="verse-number">5:12</span>
+                                <span class="verse-text">Keep the sabbath day to sanctify it, as the LORD thy God hath commanded thee.</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="verse-alignment">
+                        <div class="verse-column source-R">
+                            <div class="verse-content">
+                                <span class="verse-number">20:11</span>
+                                <span class="verse-text">For in six days the LORD made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the LORD blessed the sabbath day, and hallowed it.</span>
+                            </div>
+                        </div>
+                        <div class="verse-column source-D">
+                            <div class="verse-content">
+                                <span class="verse-number">5:15</span>
+                                <span class="verse-text">And remember that thou wast a servant in the land of Egypt, and that the LORD thy God brought thee out thence through a mighty hand and by a stretched out arm: therefore the LORD thy God commanded thee to keep the sabbath day.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        function showBirdsEye() {
+            document.getElementById('birds-eye-view').style.display = 'block';
+            document.getElementById('detailed-view').style.display = 'none';
+            document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            generateBirdsEyeView();
+        }
+        
+        function showDetailed() {
+            document.getElementById('birds-eye-view').style.display = 'none';
+            document.getElementById('detailed-view').style.display = 'block';
+            document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        function generateBirdsEyeView() {
+            const grid = document.getElementById('overview-grid');
+            grid.innerHTML = '';
+            
+            const doublets = [
+                {
+                    title: "Creation Stories",
+                    pairs: [
+                        { j: "1:1 In the beginning God created...", p: "2:4b In the day LORD God made..." },
+                        { j: "1:2 Earth without form...", p: "2:5 Every plant before it grew..." },
+                        { j: "1:3 God said, Let there be light...", p: "2:7 LORD God formed man..." },
+                        { j: "1:27 Created in God's image...", p: "2:22 Made woman from rib..." }
+                    ]
+                },
+                {
+                    title: "Flood Narrative", 
+                    pairs: [
+                        { j: "6:5 Wickedness was great...", p: "6:9 Noah was just and perfect..." },
+                        { j: "7:2 Clean beasts by sevens...", p: "7:9 Two and two into ark..." },
+                        { j: "7:12 Rain forty days...", p: "7:11 Six hundredth year precise date..." },
+                        { j: "8:20 Noah built altar...", p: "9:1 God blessed Noah..." }
+                    ]
+                },
+                {
+                    title: "Wife-Sister Motif",
+                    pairs: [
+                        { j: "12:11 Sarai fair woman...", p: "20:2 Abraham said sister...", r: "26:7 Isaac said sister..." },
+                        { j: "12:17 LORD plagued Pharaoh...", p: "20:3 God came in dream...", r: "26:8 Abimelech saw window..." }
+                    ]
+                },
+                {
+                    title: "Ten Commandments",
+                    pairs: [
+                        { j: "20:8 Remember sabbath...", p: "5:12 Keep sabbath..." },
+                        { j: "20:11 Six days LORD made...", p: "5:15 Remember you were servant..." }
+                    ]
+                }
+            ];
+            
+            doublets.forEach(doublet => {
+                const miniDiv = document.createElement('div');
+                miniDiv.className = 'mini-doublet';
+                
+                let pairsHtml = '';
+                doublet.pairs.forEach(pair => {
+                    if (pair.r) {
+                        // Three-way comparison
+                        pairsHtml += `
+                            <div class="mini-verse-pair">
+                                <div class="mini-verse source-J">${pair.j}</div>
+                                <div class="mini-verse source-E">${pair.p}</div>
+                                <div class="mini-verse source-J">${pair.r}</div>
+                            </div>
+                        `;
+                    } else {
+                        // Two-way comparison
+                        pairsHtml += `
+                            <div class="mini-verse-pair">
+                                <div class="mini-verse source-J">${pair.j}</div>
+                                <div class="mini-verse source-P">${pair.p}</div>
+                            </div>
+                        `;
+                    }
+                });
+                
+                miniDiv.innerHTML = `
+                    <div class="mini-header">${doublet.title}</div>
+                    <div class="mini-passages">${pairsHtml}</div>
+                `;
+                
+                grid.appendChild(miniDiv);
+            });
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            generateBirdsEyeView();
+        });
+    </script>
+</body>
+</html>
+

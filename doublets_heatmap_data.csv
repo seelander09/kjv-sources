@@ -1,0 +1,25 @@
+doublet_id,doublet_name,category,source,book,reference,chapter,verse,passage_index
+creation_narratives,Creation Stories,cosmogony,P,Genesis,Genesis 1:1-2:3,1,1,0
+creation_narratives,Creation Stories,cosmogony,J,Genesis,Genesis 2:4b-25,2,4,1
+genealogy_adam,Genealogy from Adam,genealogy,J,Genesis,Genesis 4:17-26,4,17,0
+genealogy_adam,Genealogy from Adam,genealogy,P,Genesis,"Genesis 5:1-28,30-32",5,1,1
+flood_narrative,Flood Narrative,catastrophe,J,Genesis,"Genesis 6:5-8; 7:1-5,7,10,12,16b-20,22-23; 8:2b-3a,6,8-12,13b,20-22",6,5,0
+flood_narrative,Flood Narrative,catastrophe,P,Genesis,"Genesis 6:9-22; 7:8-9,11,13-16a,21,24; 8:1-2a,3b-5,7,13a,14-19; 9:1-17",6,9,1
+wife_sister_motif,Wife-Sister Motif,deception,J,Genesis,Genesis 12:10-20,12,10,0
+wife_sister_motif,Wife-Sister Motif,deception,E,Genesis,Genesis 20:1-18,20,1,1
+wife_sister_motif,Wife-Sister Motif,deception,J,Genesis,Genesis 26:6-14,26,6,2
+abrahamic_covenant,Abrahamic Covenant,covenant,J/E/R,Unknown,Genesis 15,1,1,0
+abrahamic_covenant,Abrahamic Covenant,covenant,P,Unknown,Genesis 17,1,1,1
+hagar_ishmael,Hagar and Ishmael,family_conflict,J,Genesis,"Genesis 16:1-2,4-14",16,1,0
+hagar_ishmael,Hagar and Ishmael,family_conflict,P,Genesis,"Genesis 16:3,15-16",16,3,1
+hagar_ishmael,Hagar and Ishmael,family_conflict,E,Genesis,Genesis 21:8-19,21,8,2
+moses_commissioning,Moses' Divine Commission,prophetic_calling,J,Exodus,"Exodus 3:2-4a,5,7-8,19-22; 4:19-20a",3,2,0
+moses_commissioning,Moses' Divine Commission,prophetic_calling,E,Exodus,"Exodus 3:1,4b,6,9-18; 4:1-18,20b-21a,22-23",3,1,1
+moses_commissioning,Moses' Divine Commission,prophetic_calling,P,Exodus,Exodus 6:2-12,6,2,2
+ten_commandments,Ten Commandments,law,R,Exodus,Exodus 20:1-17,20,1,0
+ten_commandments,Ten Commandments,law,J,Exodus,Exodus 34:10-28,34,10,1
+ten_commandments,Ten Commandments,law,D,Deuteronomy,Deuteronomy 5:6-18,5,6,2
+water_from_rock,Water from Rock,wilderness_miracle,E,Exodus,Exodus 17:2-7,17,2,0
+water_from_rock,Water from Rock,wilderness_miracle,P,Numbers,Numbers 20:2-13,20,2,1
+manna_quail,Manna and Quail Provision,wilderness_provision,P,Exodus,"Exodus 16:2-3,6-35a",16,2,0
+manna_quail,Manna and Quail Provision,wilderness_provision,E,Numbers,Numbers 11:4-34,11,4,1

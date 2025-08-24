@@ -1,0 +1,5 @@
+[33m68c19fa[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m fix: Improve doublet container visibility and positioning in Book Overview
+[33md52ee0d[m fix(cli): add Deuteronomist (D) to legends in CLI and HTML; improve Windows console handling
+[33m64d978c[m docs: Update .gitignore to exclude large data files
+[33m43de64a[m feat: Add Deuteronomist source and additional Wikiversity pages
+[33m56e4e5e[m chore: Add word_data.json to .gitignore

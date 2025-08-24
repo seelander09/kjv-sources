@@ -1,0 +1,3134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblical Doublets - Interactive Network Visualization</title>
+    
+    <!-- Cytoscape.js and Extensions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-dagre/2.5.0/cytoscape-dagre.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-cose-bilkent/4.1.0/cytoscape-cose-bilkent.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-panzoom/2.5.3/cytoscape-panzoom.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        .sidebar {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .main-content {
+            flex: 1;
+            position: relative;
+        }
+        
+        #cy {
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(circle at center, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin: 0 0 5px 0;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            margin: 0;
+            font-size: 0.9em;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+        }
+        
+        .control-group {
+            margin-bottom: 15px;
+        }
+        
+        .control-group label {
+            display: block;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .control-group select, .control-group button {
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+        }
+        
+        .control-group button {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .control-group button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .legend {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .legend h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            font-size: 0.85em;
+        }
+        
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            margin-right: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .stats {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .stats h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 3px 0;
+            font-size: 0.85em;
+        }
+        
+        .node-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            max-width: 300px;
+            display: none;
+        }
+        
+        .floating-controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .floating-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2c3e50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+        
+        .floating-btn:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <h1>📖 Biblical Doublets</h1>
+                <p>Interactive Network Analysis</p>
+            </div>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <label>Layout Algorithm</label>
+                    <select id="layout-select">
+                        <option value="cose-bilkent">Cose-Bilkent (Default)</option>
+                        <option value="dagre">Dagre (Hierarchical)</option>
+                        <option value="grid">Grid</option>
+                        <option value="circle">Circle</option>
+                        <option value="concentric">Concentric</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Filter by Category</label>
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="cosmogony">Creation Stories</option>
+                        <option value="genealogy">Family Lineages</option>
+                        <option value="catastrophe">Divine Judgment</option>
+                        <option value="deception">Deception Stories</option>
+                        <option value="covenant">Covenant Accounts</option>
+                        <option value="family_conflict">Family Tensions</option>
+                        <option value="prophetic_calling">Divine Calling</option>
+                        <option value="law">Legal Traditions</option>
+                        <option value="wilderness_miracle">Wilderness Miracles</option>
+                        <option value="wilderness_provision">Wilderness Provision</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label>Filter by Source</label>
+                    <select id="source-filter">
+                        <option value="all">All Sources</option>
+                        <option value="J">Jahwist (J)</option>
+                        <option value="E">Elohist (E)</option>
+                        <option value="P">Priestly (P)</option>
+                        <option value="D">Deuteronomist (D)</option>
+                        <option value="R">Redactor (R)</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <button id="reset-view">🔄 Reset View</button>
+                </div>
+                
+                <div class="control-group">
+                    <button id="center-doublets">🎯 Center on Doublets</button>
+                </div>
+            </div>
+            
+            <div class="legend">
+                <h3>🎨 Node Types</h3>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e74c3c; clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+                    <span>Doublets</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #3498db; border-radius: 50%;"></div>
+                    <span>Passages</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #27ae60;"></div>
+                    <span>Sources</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #1abc9c; clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);"></div>
+                    <span>Books</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f39c12; clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);"></div>
+                    <span>Categories</span>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <h3>📊 Network Statistics</h3>
+                <div class="stat-item">
+                    <span>Total Nodes:</span>
+                    <span id="total-nodes">75</span>
+                </div>
+                <div class="stat-item">
+                    <span>Total Edges:</span>
+                    <span id="total-edges">124</span>
+                </div>
+                <div class="stat-item">
+                    <span>Doublets:</span>
+                    <span id="doublets-count">10</span>
+                </div>
+                <div class="stat-item">
+                    <span>Categories:</span>
+                    <span id="categories-count">10</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="floating-controls">
+                <button class="floating-btn" id="export-png">📸 Export PNG</button>
+                <button class="floating-btn" id="export-json">💾 Export JSON</button>
+                <button class="floating-btn" id="fullscreen">🔍 Fullscreen</button>
+            </div>
+            
+            <div id="cy"></div>
+            
+            <div class="node-info" id="node-info">
+                <h4 id="node-title">Node Information</h4>
+                <div id="node-details"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Network data
+        const networkData = {
+        "nodes": [
+                {
+                        "data": {
+                                "id": "doublet_creation_narratives",
+                                "label": "Creation Stories",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#e74c3c",
+                                "description": "Two different creation accounts in Genesis",
+                                "category": "cosmogony",
+                                "passage_count": 2,
+                                "theological_differences": [
+                                        "Divine name (Elohim vs Yahweh)",
+                                        "Creation order (cosmos first vs humans first)",
+                                        "Divine method (word vs hands)",
+                                        "Human creation (image vs dust)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_cosmogony",
+                                "label": "Creation and origin stories",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#e74c3c",
+                                "description": "Creation and origin stories"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_creation_narratives_0",
+                                "label": "Genesis 1:1-2:3 (P)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#888800",
+                                "source": "P",
+                                "book": "Genesis",
+                                "chapter": 1,
+                                "verse": 1,
+                                "reference": "Genesis 1:1-2:3",
+                                "themes": [
+                                        "creation",
+                                        "ordered_creation",
+                                        "sabbath",
+                                        "divine_command"
+                                ],
+                                "characteristics": [
+                                        "systematic",
+                                        "liturgical",
+                                        "seven_days",
+                                        "elohim"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "source_P",
+                                "label": "Source P",
+                                "type": "source",
+                                "size": 45,
+                                "shape": "square",
+                                "border_width": 3,
+                                "color": "#888800",
+                                "description": "Priestly - Ritual and genealogical source"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "book_Genesis",
+                                "label": "Genesis",
+                                "type": "book",
+                                "size": 70,
+                                "shape": "hexagon",
+                                "border_width": 4,
+                                "color": "#1abc9c",
+                                "testament": "Torah"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_1",
+                                "label": "Genesis 1",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_creation_narratives_1",
+                                "label": "Genesis 2:4b-25 (J)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#000088",
+                                "source": "J",
+                                "book": "Genesis",
+                                "chapter": 2,
+                                "verse": 4,
+                                "reference": "Genesis 2:4b-25",
+                                "themes": [
+                                        "creation",
+                                        "anthropomorphic_creation",
+                                        "garden_of_eden",
+                                        "human_formation"
+                                ],
+                                "characteristics": [
+                                        "anthropomorphic",
+                                        "narrative",
+                                        "garden_focus",
+                                        "yahweh"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "source_J",
+                                "label": "Source J",
+                                "type": "source",
+                                "size": 45,
+                                "shape": "square",
+                                "border_width": 3,
+                                "color": "#000088",
+                                "description": "Jahwist - Early narrative source with anthropomorphic God"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_2",
+                                "label": "Genesis 2",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 2
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_genealogy_adam",
+                                "label": "Genealogy from Adam",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#f39c12",
+                                "description": "Two genealogical accounts from Adam",
+                                "category": "genealogy",
+                                "passage_count": 2,
+                                "theological_differences": [
+                                        "Lineage focus (Cain vs Seth)",
+                                        "Purpose (cultural vs chronological)",
+                                        "Emphasis (achievement vs longevity)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_genealogy",
+                                "label": "Family lineages and ancestral records",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#f39c12",
+                                "description": "Family lineages and ancestral records"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_genealogy_adam_0",
+                                "label": "Genesis 4:17-26 (J)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#000088",
+                                "source": "J",
+                                "book": "Genesis",
+                                "chapter": 4,
+                                "verse": 17,
+                                "reference": "Genesis 4:17-26",
+                                "themes": [
+                                        "genealogy",
+                                        "cain_lineage",
+                                        "civilization_development"
+                                ],
+                                "characteristics": [
+                                        "cultural_development",
+                                        "city_building",
+                                        "invention"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_4",
+                                "label": "Genesis 4",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 4
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_genealogy_adam_1",
+                                "label": "Genesis 5:1-28,30-32 (P)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#888800",
+                                "source": "P",
+                                "book": "Genesis",
+                                "chapter": 5,
+                                "verse": 1,
+                                "reference": "Genesis 5:1-28,30-32",
+                                "themes": [
+                                        "genealogy",
+                                        "seth_lineage",
+                                        "longevity",
+                                        "ages"
+                                ],
+                                "characteristics": [
+                                        "priestly_record",
+                                        "systematic_ages",
+                                        "longevity_emphasis"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_5",
+                                "label": "Genesis 5",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 5
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_flood_narrative",
+                                "label": "Flood Narrative",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#8e44ad",
+                                "description": "Two interwoven flood accounts",
+                                "category": "catastrophe",
+                                "passage_count": 2,
+                                "theological_differences": [
+                                        "Animal numbers (7 pairs vs 1 pair)",
+                                        "Duration emphasis (40 days vs 1 year)",
+                                        "Divine character (anthropomorphic vs transcendent)",
+                                        "Conclusion (sacrifice vs covenant)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_catastrophe",
+                                "label": "Divine judgment and natural disasters",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#8e44ad",
+                                "description": "Divine judgment and natural disasters"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_flood_narrative_0",
+                                "label": "Genesis 6:5-8; 7:1-5,7,10,12,16b-20,22-23; 8:2b-3a,6,8-12,13b,20-22 (J)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#000088",
+                                "source": "J",
+                                "book": "Genesis",
+                                "chapter": 6,
+                                "verse": 5,
+                                "reference": "Genesis 6:5-8; 7:1-5,7,10,12,16b-20,22-23; 8:2b-3a,6,8-12,13b,20-22",
+                                "themes": [
+                                        "divine_judgment",
+                                        "noah_righteousness",
+                                        "animal_sacrifice"
+                                ],
+                                "characteristics": [
+                                        "anthropomorphic_god",
+                                        "forty_days",
+                                        "clean_unclean_distinction"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_6",
+                                "label": "Genesis 6",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 6
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_flood_narrative_1",
+                                "label": "Genesis 6:9-22; 7:8-9,11,13-16a,21,24; 8:1-2a,3b-5,7,13a,14-19; 9:1-17 (P)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#888800",
+                                "source": "P",
+                                "book": "Genesis",
+                                "chapter": 6,
+                                "verse": 9,
+                                "reference": "Genesis 6:9-22; 7:8-9,11,13-16a,21,24; 8:1-2a,3b-5,7,13a,14-19; 9:1-17",
+                                "themes": [
+                                        "covenant",
+                                        "noah_righteousness",
+                                        "divine_order"
+                                ],
+                                "characteristics": [
+                                        "systematic_chronology",
+                                        "ark_specifications",
+                                        "covenant_establishment"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_wife_sister_motif",
+                                "label": "Wife-Sister Motif",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#e67e22",
+                                "description": "Three accounts of patriarch presenting wife as sister",
+                                "category": "deception",
+                                "passage_count": 3,
+                                "theological_differences": [
+                                        "Patriarch (Abraham vs Isaac)",
+                                        "Location (Egypt vs Gerar)",
+                                        "Divine intervention method (plagues vs dreams vs observation)",
+                                        "Resolution outcome (expulsion vs gifts vs prosperity)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_deception",
+                                "label": "Stories involving deception or misdirection",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#e67e22",
+                                "description": "Stories involving deception or misdirection"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_0",
+                                "label": "Genesis 12:10-20 (J)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#000088",
+                                "source": "J",
+                                "book": "Genesis",
+                                "chapter": 12,
+                                "verse": 10,
+                                "reference": "Genesis 12:10-20",
+                                "themes": [
+                                        "deception",
+                                        "famine",
+                                        "egypt",
+                                        "pharaoh"
+                                ],
+                                "characteristics": [
+                                        "abraham_sarah",
+                                        "egypt_setting",
+                                        "plagues_result"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_12",
+                                "label": "Genesis 12",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 12
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_1",
+                                "label": "Genesis 20:1-18 (E)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#008888",
+                                "source": "E",
+                                "book": "Genesis",
+                                "chapter": 20,
+                                "verse": 1,
+                                "reference": "Genesis 20:1-18",
+                                "themes": [
+                                        "deception",
+                                        "abimelech",
+                                        "gerar",
+                                        "dreams"
+                                ],
+                                "characteristics": [
+                                        "abraham_sarah",
+                                        "philistine_setting",
+                                        "divine_dreams"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "source_E",
+                                "label": "Source E",
+                                "type": "source",
+                                "size": 45,
+                                "shape": "square",
+                                "border_width": 3,
+                                "color": "#008888",
+                                "description": "Elohist - Northern source emphasizing divine communication"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_20",
+                                "label": "Genesis 20",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 20
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_2",
+                                "label": "Genesis 26:6-14 (J)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#000088",
+                                "source": "J",
+                                "book": "Genesis",
+                                "chapter": 26,
+                                "verse": 6,
+                                "reference": "Genesis 26:6-14",
+                                "themes": [
+                                        "deception",
+                                        "isaac_rebekah",
+                                        "abimelech",
+                                        "wells"
+                                ],
+                                "characteristics": [
+                                        "isaac_rebekah",
+                                        "philistine_setting",
+                                        "agricultural_prosperity"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_26",
+                                "label": "Genesis 26",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 26
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_abrahamic_covenant",
+                                "label": "Abrahamic Covenant",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#2980b9",
+                                "description": "Two major covenant accounts",
+                                "category": "covenant",
+                                "passage_count": 2,
+                                "theological_differences": [
+                                        "Covenant sign (ritual cutting vs circumcision)",
+                                        "Emphasis (faith vs law)",
+                                        "Divine name (Yahweh vs El Shaddai)",
+                                        "Scope (conditional vs eternal)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_covenant",
+                                "label": "Divine covenant making and renewal",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#2980b9",
+                                "description": "Divine covenant making and renewal"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_abrahamic_covenant_0",
+                                "label": "Genesis 15 (J/E/R)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#440044",
+                                "source": "J/E/R",
+                                "book": "Unknown",
+                                "chapter": 1,
+                                "verse": 1,
+                                "reference": "Genesis 15",
+                                "themes": [
+                                        "covenant",
+                                        "faith_righteousness",
+                                        "land_promise",
+                                        "ritual"
+                                ],
+                                "characteristics": [
+                                        "ritual_ceremony",
+                                        "faith_emphasis",
+                                        "future_prediction"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "source_J/E/R",
+                                "label": "Source J/E/R",
+                                "type": "source",
+                                "size": 45,
+                                "shape": "square",
+                                "border_width": 3,
+                                "color": "#440044",
+                                "description": "Multiple sources - Complex redactional composition"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "book_Unknown",
+                                "label": "Unknown",
+                                "type": "book",
+                                "size": 70,
+                                "shape": "hexagon",
+                                "border_width": 4,
+                                "color": "#1abc9c",
+                                "testament": "Other"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Unknown_1",
+                                "label": "Unknown 1",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Unknown",
+                                "chapter_number": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_abrahamic_covenant_1",
+                                "label": "Genesis 17 (P)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#888800",
+                                "source": "P",
+                                "book": "Unknown",
+                                "chapter": 1,
+                                "verse": 1,
+                                "reference": "Genesis 17",
+                                "themes": [
+                                        "covenant",
+                                        "circumcision",
+                                        "name_change",
+                                        "eternal_covenant"
+                                ],
+                                "characteristics": [
+                                        "circumcision_sign",
+                                        "priestly_emphasis",
+                                        "eternal_covenant"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_hagar_ishmael",
+                                "label": "Hagar and Ishmael",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#27ae60",
+                                "description": "Multiple accounts of Hagar's experience",
+                                "category": "family_conflict",
+                                "passage_count": 3,
+                                "theological_differences": [
+                                        "Timing (pre-birth vs post-birth)",
+                                        "Divine interaction (angel vs God)",
+                                        "Focus (promise vs survival)",
+                                        "Outcome (return vs permanent departure)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_family_conflict",
+                                "label": "Domestic and family tensions",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#27ae60",
+                                "description": "Domestic and family tensions"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_0",
+                                "label": "Genesis 16:1-2,4-14 (J)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#000088",
+                                "source": "J",
+                                "book": "Genesis",
+                                "chapter": 16,
+                                "verse": 1,
+                                "reference": "Genesis 16:1-2,4-14",
+                                "themes": [
+                                        "barrenness",
+                                        "surrogacy",
+                                        "conflict",
+                                        "divine_encounter"
+                                ],
+                                "characteristics": [
+                                        "pre_birth_account",
+                                        "well_naming",
+                                        "angel_encounter"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_16",
+                                "label": "Genesis 16",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 16
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_1",
+                                "label": "Genesis 16:3,15-16 (P)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#888800",
+                                "source": "P",
+                                "book": "Genesis",
+                                "chapter": 16,
+                                "verse": 3,
+                                "reference": "Genesis 16:3,15-16",
+                                "themes": [
+                                        "chronology",
+                                        "birth_record"
+                                ],
+                                "characteristics": [
+                                        "priestly_chronology",
+                                        "birth_notation"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_2",
+                                "label": "Genesis 21:8-19 (E)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#008888",
+                                "source": "E",
+                                "book": "Genesis",
+                                "chapter": 21,
+                                "verse": 8,
+                                "reference": "Genesis 21:8-19",
+                                "themes": [
+                                        "expulsion",
+                                        "divine_provision",
+                                        "survival"
+                                ],
+                                "characteristics": [
+                                        "post_birth_account",
+                                        "wilderness_survival",
+                                        "divine_rescue"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Genesis_21",
+                                "label": "Genesis 21",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Genesis",
+                                "chapter_number": 21
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_moses_commissioning",
+                                "label": "Moses' Divine Commission",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#34495e",
+                                "description": "Multiple accounts of Moses' calling",
+                                "category": "prophetic_calling",
+                                "passage_count": 3,
+                                "theological_differences": [
+                                        "Divine name usage (Yahweh vs Elohim vs El Shaddai)",
+                                        "Signs emphasis (immediate vs detailed vs genealogical)",
+                                        "Helper provision (none vs Aaron vs Levitical priesthood)",
+                                        "Historical connection (immediate vs patriarchal)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_prophetic_calling",
+                                "label": "Divine calling of leaders and prophets",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#34495e",
+                                "description": "Divine calling of leaders and prophets"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_0",
+                                "label": "Exodus 3:2-4a,5,7-8,19-22; 4:19-20a (J)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#000088",
+                                "source": "J",
+                                "book": "Exodus",
+                                "chapter": 3,
+                                "verse": 2,
+                                "reference": "Exodus 3:2-4a,5,7-8,19-22; 4:19-20a",
+                                "themes": [
+                                        "burning_bush",
+                                        "divine_name",
+                                        "mission"
+                                ],
+                                "characteristics": [
+                                        "yahweh_revelation",
+                                        "immediate_mission"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "book_Exodus",
+                                "label": "Exodus",
+                                "type": "book",
+                                "size": 70,
+                                "shape": "hexagon",
+                                "border_width": 4,
+                                "color": "#1abc9c",
+                                "testament": "Torah"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Exodus_3",
+                                "label": "Exodus 3",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Exodus",
+                                "chapter_number": 3
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_1",
+                                "label": "Exodus 3:1,4b,6,9-18; 4:1-18,20b-21a,22-23 (E)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#008888",
+                                "source": "E",
+                                "book": "Exodus",
+                                "chapter": 3,
+                                "verse": 1,
+                                "reference": "Exodus 3:1,4b,6,9-18; 4:1-18,20b-21a,22-23",
+                                "themes": [
+                                        "burning_bush",
+                                        "signs",
+                                        "aaron_helper"
+                                ],
+                                "characteristics": [
+                                        "elohim_usage",
+                                        "miraculous_signs",
+                                        "aaron_appointment"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_2",
+                                "label": "Exodus 6:2-12 (P)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#888800",
+                                "source": "P",
+                                "book": "Exodus",
+                                "chapter": 6,
+                                "verse": 2,
+                                "reference": "Exodus 6:2-12",
+                                "themes": [
+                                        "divine_name_revelation",
+                                        "covenant_fulfillment"
+                                ],
+                                "characteristics": [
+                                        "patriarchal_connection",
+                                        "covenant_emphasis",
+                                        "priestly_genealogy"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Exodus_6",
+                                "label": "Exodus 6",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Exodus",
+                                "chapter_number": 6
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_ten_commandments",
+                                "label": "Ten Commandments",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#16a085",
+                                "description": "Multiple versions of the Decalogue",
+                                "category": "law",
+                                "passage_count": 3,
+                                "theological_differences": [
+                                        "Focus (ethical vs ritual vs renewal)",
+                                        "Context (first giving vs renewal vs deuteronomic)",
+                                        "Style (concise vs detailed vs explanatory)",
+                                        "Emphasis (universal vs cultic vs covenantal)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_law",
+                                "label": "Legal and commandment traditions",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#16a085",
+                                "description": "Legal and commandment traditions"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_0",
+                                "label": "Exodus 20:1-17 (R)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#880000",
+                                "source": "R",
+                                "book": "Exodus",
+                                "chapter": 20,
+                                "verse": 1,
+                                "reference": "Exodus 20:1-17",
+                                "themes": [
+                                        "divine_law",
+                                        "moral_commandments",
+                                        "covenant_stipulations"
+                                ],
+                                "characteristics": [
+                                        "ethical_decalogue",
+                                        "covenant_context"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "source_R",
+                                "label": "Source R",
+                                "type": "source",
+                                "size": 45,
+                                "shape": "square",
+                                "border_width": 3,
+                                "color": "#880000",
+                                "description": "Redactor - Editorial additions and connections"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Exodus_20",
+                                "label": "Exodus 20",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Exodus",
+                                "chapter_number": 20
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_1",
+                                "label": "Exodus 34:10-28 (J)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#000088",
+                                "source": "J",
+                                "book": "Exodus",
+                                "chapter": 34,
+                                "verse": 10,
+                                "reference": "Exodus 34:10-28",
+                                "themes": [
+                                        "ritual_law",
+                                        "cultic_commandments",
+                                        "covenant_renewal"
+                                ],
+                                "characteristics": [
+                                        "ritual_decalogue",
+                                        "cultic_focus"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Exodus_34",
+                                "label": "Exodus 34",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Exodus",
+                                "chapter_number": 34
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_2",
+                                "label": "Deuteronomy 5:6-18 (D)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#000000",
+                                "source": "D",
+                                "book": "Deuteronomy",
+                                "chapter": 5,
+                                "verse": 6,
+                                "reference": "Deuteronomy 5:6-18",
+                                "themes": [
+                                        "covenant_renewal",
+                                        "moral_law",
+                                        "deuteronomic_theology"
+                                ],
+                                "characteristics": [
+                                        "deuteronomic_style",
+                                        "expanded_explanations"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "source_D",
+                                "label": "Source D",
+                                "type": "source",
+                                "size": 45,
+                                "shape": "square",
+                                "border_width": 3,
+                                "color": "#000000",
+                                "description": "Deuteronomist - Deuteronomy-focused source"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "book_Deuteronomy",
+                                "label": "Deuteronomy",
+                                "type": "book",
+                                "size": 70,
+                                "shape": "hexagon",
+                                "border_width": 4,
+                                "color": "#1abc9c",
+                                "testament": "Torah"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Deuteronomy_5",
+                                "label": "Deuteronomy 5",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Deuteronomy",
+                                "chapter_number": 5
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_water_from_rock",
+                                "label": "Water from Rock",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#d35400",
+                                "description": "Two accounts of Moses bringing water from rock",
+                                "category": "wilderness_miracle",
+                                "passage_count": 2,
+                                "theological_differences": [
+                                        "Timing (early vs late wilderness)",
+                                        "Moses' role (obedient vs disobedient)",
+                                        "Consequence (none vs exclusion from promised land)",
+                                        "Location (Horeb/Sinai vs Kadesh)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_wilderness_miracle",
+                                "label": "Miraculous provisions in the wilderness",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#d35400",
+                                "description": "Miraculous provisions in the wilderness"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_water_from_rock_0",
+                                "label": "Exodus 17:2-7 (E)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#008888",
+                                "source": "E",
+                                "book": "Exodus",
+                                "chapter": 17,
+                                "verse": 2,
+                                "reference": "Exodus 17:2-7",
+                                "themes": [
+                                        "wilderness_testing",
+                                        "divine_provision",
+                                        "massah_meribah"
+                                ],
+                                "characteristics": [
+                                        "early_wilderness",
+                                        "testing_theme",
+                                        "place_naming"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Exodus_17",
+                                "label": "Exodus 17",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Exodus",
+                                "chapter_number": 17
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_water_from_rock_1",
+                                "label": "Numbers 20:2-13 (P)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#888800",
+                                "source": "P",
+                                "book": "Numbers",
+                                "chapter": 20,
+                                "verse": 2,
+                                "reference": "Numbers 20:2-13",
+                                "themes": [
+                                        "wilderness_rebellion",
+                                        "moses_failure",
+                                        "kadesh"
+                                ],
+                                "characteristics": [
+                                        "late_wilderness",
+                                        "moses_sin",
+                                        "leadership_failure"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "book_Numbers",
+                                "label": "Numbers",
+                                "type": "book",
+                                "size": 70,
+                                "shape": "hexagon",
+                                "border_width": 4,
+                                "color": "#1abc9c",
+                                "testament": "Torah"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Numbers_20",
+                                "label": "Numbers 20",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Numbers",
+                                "chapter_number": 20
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_manna_quail",
+                                "label": "Manna and Quail Provision",
+                                "type": "doublet",
+                                "size": 60,
+                                "shape": "diamond",
+                                "border_width": 3,
+                                "color": "#c0392b",
+                                "description": "Two accounts of wilderness food provision",
+                                "category": "wilderness_provision",
+                                "passage_count": 2,
+                                "theological_differences": [
+                                        "Food type emphasis (manna vs quail)",
+                                        "Divine response (provision vs anger)",
+                                        "People's attitude (testing vs craving)",
+                                        "Outcome (blessing vs judgment)"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "category_wilderness_provision",
+                                "label": "God's provision during wilderness wandering",
+                                "type": "category",
+                                "size": 50,
+                                "shape": "octagon",
+                                "border_width": 2,
+                                "color": "#c0392b",
+                                "description": "God's provision during wilderness wandering"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_manna_quail_0",
+                                "label": "Exodus 16:2-3,6-35a (P)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#888800",
+                                "source": "P",
+                                "book": "Exodus",
+                                "chapter": 16,
+                                "verse": 2,
+                                "reference": "Exodus 16:2-3,6-35a",
+                                "themes": [
+                                        "manna",
+                                        "sabbath_law",
+                                        "divine_provision",
+                                        "testing"
+                                ],
+                                "characteristics": [
+                                        "systematic_provision",
+                                        "sabbath_emphasis",
+                                        "detailed_instructions"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Exodus_16",
+                                "label": "Exodus 16",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Exodus",
+                                "chapter_number": 16
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_manna_quail_1",
+                                "label": "Numbers 11:4-34 (E)",
+                                "type": "passage",
+                                "size": 40,
+                                "shape": "ellipse",
+                                "border_width": 2,
+                                "color": "#008888",
+                                "source": "E",
+                                "book": "Numbers",
+                                "chapter": 11,
+                                "verse": 4,
+                                "reference": "Numbers 11:4-34",
+                                "themes": [
+                                        "quail",
+                                        "complaint",
+                                        "divine_anger",
+                                        "craving"
+                                ],
+                                "characteristics": [
+                                        "complaint_focus",
+                                        "divine_anger",
+                                        "mass_provision"
+                                ]
+                        }
+                },
+                {
+                        "data": {
+                                "id": "chapter_Numbers_11",
+                                "label": "Numbers 11",
+                                "type": "chapter",
+                                "size": 30,
+                                "shape": "triangle",
+                                "border_width": 1,
+                                "color": "#3498db",
+                                "book": "Numbers",
+                                "chapter_number": 11
+                        }
+                }
+        ],
+        "edges": [
+                {
+                        "data": {
+                                "id": "doublet_creation_narratives_belongs_to_category_category_cosmogony",
+                                "source": "doublet_creation_narratives",
+                                "target": "category_cosmogony",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_creation_narratives_contains_passage_passage_creation_narratives_0",
+                                "source": "doublet_creation_narratives",
+                                "target": "passage_creation_narratives_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_creation_narratives_0_attributed_to_source_source_P",
+                                "source": "passage_creation_narratives_0",
+                                "target": "source_P",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_creation_narratives_0_located_in_book_book_Genesis",
+                                "source": "passage_creation_narratives_0",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_creation_narratives_0_located_in_chapter_chapter_Genesis_1",
+                                "source": "passage_creation_narratives_0",
+                                "target": "chapter_Genesis_1",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_creation_narratives_contains_passage_passage_creation_narratives_1",
+                                "source": "doublet_creation_narratives",
+                                "target": "passage_creation_narratives_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_creation_narratives_1_attributed_to_source_source_J",
+                                "source": "passage_creation_narratives_1",
+                                "target": "source_J",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_creation_narratives_1_located_in_book_book_Genesis",
+                                "source": "passage_creation_narratives_1",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_creation_narratives_1_located_in_chapter_chapter_Genesis_2",
+                                "source": "passage_creation_narratives_1",
+                                "target": "chapter_Genesis_2",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_creation_narratives_0_doublet_parallel_passage_creation_narratives_1",
+                                "source": "passage_creation_narratives_0",
+                                "target": "passage_creation_narratives_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_genealogy_adam_belongs_to_category_category_genealogy",
+                                "source": "doublet_genealogy_adam",
+                                "target": "category_genealogy",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_genealogy_adam_contains_passage_passage_genealogy_adam_0",
+                                "source": "doublet_genealogy_adam",
+                                "target": "passage_genealogy_adam_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_genealogy_adam_0_attributed_to_source_source_J",
+                                "source": "passage_genealogy_adam_0",
+                                "target": "source_J",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_genealogy_adam_0_located_in_book_book_Genesis",
+                                "source": "passage_genealogy_adam_0",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_genealogy_adam_0_located_in_chapter_chapter_Genesis_4",
+                                "source": "passage_genealogy_adam_0",
+                                "target": "chapter_Genesis_4",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_genealogy_adam_contains_passage_passage_genealogy_adam_1",
+                                "source": "doublet_genealogy_adam",
+                                "target": "passage_genealogy_adam_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_genealogy_adam_1_attributed_to_source_source_P",
+                                "source": "passage_genealogy_adam_1",
+                                "target": "source_P",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_genealogy_adam_1_located_in_book_book_Genesis",
+                                "source": "passage_genealogy_adam_1",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_genealogy_adam_1_located_in_chapter_chapter_Genesis_5",
+                                "source": "passage_genealogy_adam_1",
+                                "target": "chapter_Genesis_5",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_genealogy_adam_0_doublet_parallel_passage_genealogy_adam_1",
+                                "source": "passage_genealogy_adam_0",
+                                "target": "passage_genealogy_adam_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_flood_narrative_belongs_to_category_category_catastrophe",
+                                "source": "doublet_flood_narrative",
+                                "target": "category_catastrophe",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_flood_narrative_contains_passage_passage_flood_narrative_0",
+                                "source": "doublet_flood_narrative",
+                                "target": "passage_flood_narrative_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_flood_narrative_0_attributed_to_source_source_J",
+                                "source": "passage_flood_narrative_0",
+                                "target": "source_J",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_flood_narrative_0_located_in_book_book_Genesis",
+                                "source": "passage_flood_narrative_0",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_flood_narrative_0_located_in_chapter_chapter_Genesis_6",
+                                "source": "passage_flood_narrative_0",
+                                "target": "chapter_Genesis_6",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_flood_narrative_contains_passage_passage_flood_narrative_1",
+                                "source": "doublet_flood_narrative",
+                                "target": "passage_flood_narrative_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_flood_narrative_1_attributed_to_source_source_P",
+                                "source": "passage_flood_narrative_1",
+                                "target": "source_P",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_flood_narrative_1_located_in_book_book_Genesis",
+                                "source": "passage_flood_narrative_1",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_flood_narrative_1_located_in_chapter_chapter_Genesis_6",
+                                "source": "passage_flood_narrative_1",
+                                "target": "chapter_Genesis_6",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_flood_narrative_0_doublet_parallel_passage_flood_narrative_1",
+                                "source": "passage_flood_narrative_0",
+                                "target": "passage_flood_narrative_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_wife_sister_motif_belongs_to_category_category_deception",
+                                "source": "doublet_wife_sister_motif",
+                                "target": "category_deception",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_wife_sister_motif_contains_passage_passage_wife_sister_motif_0",
+                                "source": "doublet_wife_sister_motif",
+                                "target": "passage_wife_sister_motif_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_0_attributed_to_source_source_J",
+                                "source": "passage_wife_sister_motif_0",
+                                "target": "source_J",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_0_located_in_book_book_Genesis",
+                                "source": "passage_wife_sister_motif_0",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_0_located_in_chapter_chapter_Genesis_12",
+                                "source": "passage_wife_sister_motif_0",
+                                "target": "chapter_Genesis_12",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_wife_sister_motif_contains_passage_passage_wife_sister_motif_1",
+                                "source": "doublet_wife_sister_motif",
+                                "target": "passage_wife_sister_motif_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_1_attributed_to_source_source_E",
+                                "source": "passage_wife_sister_motif_1",
+                                "target": "source_E",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_1_located_in_book_book_Genesis",
+                                "source": "passage_wife_sister_motif_1",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_1_located_in_chapter_chapter_Genesis_20",
+                                "source": "passage_wife_sister_motif_1",
+                                "target": "chapter_Genesis_20",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_wife_sister_motif_contains_passage_passage_wife_sister_motif_2",
+                                "source": "doublet_wife_sister_motif",
+                                "target": "passage_wife_sister_motif_2",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_2_attributed_to_source_source_J",
+                                "source": "passage_wife_sister_motif_2",
+                                "target": "source_J",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_2_located_in_book_book_Genesis",
+                                "source": "passage_wife_sister_motif_2",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_2_located_in_chapter_chapter_Genesis_26",
+                                "source": "passage_wife_sister_motif_2",
+                                "target": "chapter_Genesis_26",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_0_doublet_parallel_passage_wife_sister_motif_1",
+                                "source": "passage_wife_sister_motif_0",
+                                "target": "passage_wife_sister_motif_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_0_doublet_parallel_passage_wife_sister_motif_2",
+                                "source": "passage_wife_sister_motif_0",
+                                "target": "passage_wife_sister_motif_2",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_wife_sister_motif_1_doublet_parallel_passage_wife_sister_motif_2",
+                                "source": "passage_wife_sister_motif_1",
+                                "target": "passage_wife_sister_motif_2",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_abrahamic_covenant_belongs_to_category_category_covenant",
+                                "source": "doublet_abrahamic_covenant",
+                                "target": "category_covenant",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_abrahamic_covenant_contains_passage_passage_abrahamic_covenant_0",
+                                "source": "doublet_abrahamic_covenant",
+                                "target": "passage_abrahamic_covenant_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_abrahamic_covenant_0_attributed_to_source_source_J/E/R",
+                                "source": "passage_abrahamic_covenant_0",
+                                "target": "source_J/E/R",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_abrahamic_covenant_0_located_in_book_book_Unknown",
+                                "source": "passage_abrahamic_covenant_0",
+                                "target": "book_Unknown",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_abrahamic_covenant_0_located_in_chapter_chapter_Unknown_1",
+                                "source": "passage_abrahamic_covenant_0",
+                                "target": "chapter_Unknown_1",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_abrahamic_covenant_contains_passage_passage_abrahamic_covenant_1",
+                                "source": "doublet_abrahamic_covenant",
+                                "target": "passage_abrahamic_covenant_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_abrahamic_covenant_1_attributed_to_source_source_P",
+                                "source": "passage_abrahamic_covenant_1",
+                                "target": "source_P",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_abrahamic_covenant_1_located_in_book_book_Unknown",
+                                "source": "passage_abrahamic_covenant_1",
+                                "target": "book_Unknown",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_abrahamic_covenant_1_located_in_chapter_chapter_Unknown_1",
+                                "source": "passage_abrahamic_covenant_1",
+                                "target": "chapter_Unknown_1",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_abrahamic_covenant_0_doublet_parallel_passage_abrahamic_covenant_1",
+                                "source": "passage_abrahamic_covenant_0",
+                                "target": "passage_abrahamic_covenant_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_hagar_ishmael_belongs_to_category_category_family_conflict",
+                                "source": "doublet_hagar_ishmael",
+                                "target": "category_family_conflict",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_hagar_ishmael_contains_passage_passage_hagar_ishmael_0",
+                                "source": "doublet_hagar_ishmael",
+                                "target": "passage_hagar_ishmael_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_0_attributed_to_source_source_J",
+                                "source": "passage_hagar_ishmael_0",
+                                "target": "source_J",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_0_located_in_book_book_Genesis",
+                                "source": "passage_hagar_ishmael_0",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_0_located_in_chapter_chapter_Genesis_16",
+                                "source": "passage_hagar_ishmael_0",
+                                "target": "chapter_Genesis_16",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_hagar_ishmael_contains_passage_passage_hagar_ishmael_1",
+                                "source": "doublet_hagar_ishmael",
+                                "target": "passage_hagar_ishmael_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_1_attributed_to_source_source_P",
+                                "source": "passage_hagar_ishmael_1",
+                                "target": "source_P",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_1_located_in_book_book_Genesis",
+                                "source": "passage_hagar_ishmael_1",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_1_located_in_chapter_chapter_Genesis_16",
+                                "source": "passage_hagar_ishmael_1",
+                                "target": "chapter_Genesis_16",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_hagar_ishmael_contains_passage_passage_hagar_ishmael_2",
+                                "source": "doublet_hagar_ishmael",
+                                "target": "passage_hagar_ishmael_2",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_2_attributed_to_source_source_E",
+                                "source": "passage_hagar_ishmael_2",
+                                "target": "source_E",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_2_located_in_book_book_Genesis",
+                                "source": "passage_hagar_ishmael_2",
+                                "target": "book_Genesis",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_2_located_in_chapter_chapter_Genesis_21",
+                                "source": "passage_hagar_ishmael_2",
+                                "target": "chapter_Genesis_21",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_0_doublet_parallel_passage_hagar_ishmael_1",
+                                "source": "passage_hagar_ishmael_0",
+                                "target": "passage_hagar_ishmael_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_0_doublet_parallel_passage_hagar_ishmael_2",
+                                "source": "passage_hagar_ishmael_0",
+                                "target": "passage_hagar_ishmael_2",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_hagar_ishmael_1_doublet_parallel_passage_hagar_ishmael_2",
+                                "source": "passage_hagar_ishmael_1",
+                                "target": "passage_hagar_ishmael_2",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_moses_commissioning_belongs_to_category_category_prophetic_calling",
+                                "source": "doublet_moses_commissioning",
+                                "target": "category_prophetic_calling",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_moses_commissioning_contains_passage_passage_moses_commissioning_0",
+                                "source": "doublet_moses_commissioning",
+                                "target": "passage_moses_commissioning_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_0_attributed_to_source_source_J",
+                                "source": "passage_moses_commissioning_0",
+                                "target": "source_J",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_0_located_in_book_book_Exodus",
+                                "source": "passage_moses_commissioning_0",
+                                "target": "book_Exodus",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_0_located_in_chapter_chapter_Exodus_3",
+                                "source": "passage_moses_commissioning_0",
+                                "target": "chapter_Exodus_3",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_moses_commissioning_contains_passage_passage_moses_commissioning_1",
+                                "source": "doublet_moses_commissioning",
+                                "target": "passage_moses_commissioning_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_1_attributed_to_source_source_E",
+                                "source": "passage_moses_commissioning_1",
+                                "target": "source_E",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_1_located_in_book_book_Exodus",
+                                "source": "passage_moses_commissioning_1",
+                                "target": "book_Exodus",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_1_located_in_chapter_chapter_Exodus_3",
+                                "source": "passage_moses_commissioning_1",
+                                "target": "chapter_Exodus_3",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_moses_commissioning_contains_passage_passage_moses_commissioning_2",
+                                "source": "doublet_moses_commissioning",
+                                "target": "passage_moses_commissioning_2",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_2_attributed_to_source_source_P",
+                                "source": "passage_moses_commissioning_2",
+                                "target": "source_P",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_2_located_in_book_book_Exodus",
+                                "source": "passage_moses_commissioning_2",
+                                "target": "book_Exodus",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_2_located_in_chapter_chapter_Exodus_6",
+                                "source": "passage_moses_commissioning_2",
+                                "target": "chapter_Exodus_6",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_0_doublet_parallel_passage_moses_commissioning_1",
+                                "source": "passage_moses_commissioning_0",
+                                "target": "passage_moses_commissioning_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_0_doublet_parallel_passage_moses_commissioning_2",
+                                "source": "passage_moses_commissioning_0",
+                                "target": "passage_moses_commissioning_2",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_moses_commissioning_1_doublet_parallel_passage_moses_commissioning_2",
+                                "source": "passage_moses_commissioning_1",
+                                "target": "passage_moses_commissioning_2",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_ten_commandments_belongs_to_category_category_law",
+                                "source": "doublet_ten_commandments",
+                                "target": "category_law",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_ten_commandments_contains_passage_passage_ten_commandments_0",
+                                "source": "doublet_ten_commandments",
+                                "target": "passage_ten_commandments_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_0_attributed_to_source_source_R",
+                                "source": "passage_ten_commandments_0",
+                                "target": "source_R",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_0_located_in_book_book_Exodus",
+                                "source": "passage_ten_commandments_0",
+                                "target": "book_Exodus",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_0_located_in_chapter_chapter_Exodus_20",
+                                "source": "passage_ten_commandments_0",
+                                "target": "chapter_Exodus_20",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_ten_commandments_contains_passage_passage_ten_commandments_1",
+                                "source": "doublet_ten_commandments",
+                                "target": "passage_ten_commandments_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_1_attributed_to_source_source_J",
+                                "source": "passage_ten_commandments_1",
+                                "target": "source_J",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_1_located_in_book_book_Exodus",
+                                "source": "passage_ten_commandments_1",
+                                "target": "book_Exodus",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_1_located_in_chapter_chapter_Exodus_34",
+                                "source": "passage_ten_commandments_1",
+                                "target": "chapter_Exodus_34",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_ten_commandments_contains_passage_passage_ten_commandments_2",
+                                "source": "doublet_ten_commandments",
+                                "target": "passage_ten_commandments_2",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_2_attributed_to_source_source_D",
+                                "source": "passage_ten_commandments_2",
+                                "target": "source_D",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_2_located_in_book_book_Deuteronomy",
+                                "source": "passage_ten_commandments_2",
+                                "target": "book_Deuteronomy",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_2_located_in_chapter_chapter_Deuteronomy_5",
+                                "source": "passage_ten_commandments_2",
+                                "target": "chapter_Deuteronomy_5",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_0_doublet_parallel_passage_ten_commandments_1",
+                                "source": "passage_ten_commandments_0",
+                                "target": "passage_ten_commandments_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_0_doublet_parallel_passage_ten_commandments_2",
+                                "source": "passage_ten_commandments_0",
+                                "target": "passage_ten_commandments_2",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_ten_commandments_1_doublet_parallel_passage_ten_commandments_2",
+                                "source": "passage_ten_commandments_1",
+                                "target": "passage_ten_commandments_2",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_water_from_rock_belongs_to_category_category_wilderness_miracle",
+                                "source": "doublet_water_from_rock",
+                                "target": "category_wilderness_miracle",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_water_from_rock_contains_passage_passage_water_from_rock_0",
+                                "source": "doublet_water_from_rock",
+                                "target": "passage_water_from_rock_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_water_from_rock_0_attributed_to_source_source_E",
+                                "source": "passage_water_from_rock_0",
+                                "target": "source_E",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_water_from_rock_0_located_in_book_book_Exodus",
+                                "source": "passage_water_from_rock_0",
+                                "target": "book_Exodus",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_water_from_rock_0_located_in_chapter_chapter_Exodus_17",
+                                "source": "passage_water_from_rock_0",
+                                "target": "chapter_Exodus_17",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_water_from_rock_contains_passage_passage_water_from_rock_1",
+                                "source": "doublet_water_from_rock",
+                                "target": "passage_water_from_rock_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_water_from_rock_1_attributed_to_source_source_P",
+                                "source": "passage_water_from_rock_1",
+                                "target": "source_P",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_water_from_rock_1_located_in_book_book_Numbers",
+                                "source": "passage_water_from_rock_1",
+                                "target": "book_Numbers",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_water_from_rock_1_located_in_chapter_chapter_Numbers_20",
+                                "source": "passage_water_from_rock_1",
+                                "target": "chapter_Numbers_20",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_water_from_rock_0_doublet_parallel_passage_water_from_rock_1",
+                                "source": "passage_water_from_rock_0",
+                                "target": "passage_water_from_rock_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_manna_quail_belongs_to_category_category_wilderness_provision",
+                                "source": "doublet_manna_quail",
+                                "target": "category_wilderness_provision",
+                                "relationship": "belongs_to_category",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_manna_quail_contains_passage_passage_manna_quail_0",
+                                "source": "doublet_manna_quail",
+                                "target": "passage_manna_quail_0",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_manna_quail_0_attributed_to_source_source_P",
+                                "source": "passage_manna_quail_0",
+                                "target": "source_P",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_manna_quail_0_located_in_book_book_Exodus",
+                                "source": "passage_manna_quail_0",
+                                "target": "book_Exodus",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_manna_quail_0_located_in_chapter_chapter_Exodus_16",
+                                "source": "passage_manna_quail_0",
+                                "target": "chapter_Exodus_16",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "doublet_manna_quail_contains_passage_passage_manna_quail_1",
+                                "source": "doublet_manna_quail",
+                                "target": "passage_manna_quail_1",
+                                "relationship": "contains_passage",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_manna_quail_1_attributed_to_source_source_E",
+                                "source": "passage_manna_quail_1",
+                                "target": "source_E",
+                                "relationship": "attributed_to_source",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_manna_quail_1_located_in_book_book_Numbers",
+                                "source": "passage_manna_quail_1",
+                                "target": "book_Numbers",
+                                "relationship": "located_in_book",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_manna_quail_1_located_in_chapter_chapter_Numbers_11",
+                                "source": "passage_manna_quail_1",
+                                "target": "chapter_Numbers_11",
+                                "relationship": "located_in_chapter",
+                                "weight": 1
+                        }
+                },
+                {
+                        "data": {
+                                "id": "passage_manna_quail_0_doublet_parallel_passage_manna_quail_1",
+                                "source": "passage_manna_quail_0",
+                                "target": "passage_manna_quail_1",
+                                "relationship": "doublet_parallel",
+                                "weight": 2,
+                                "style": "dashed"
+                        }
+                }
+        ],
+        "metadata": {
+                "type": "doublets_network",
+                "total_nodes": 75,
+                "total_edges": 124,
+                "node_types": {
+                        "doublet": 10,
+                        "category": 10,
+                        "passage": 24,
+                        "source": 6,
+                        "book": 5,
+                        "chapter": 20
+                },
+                "relationship_types": {
+                        "belongs_to_category": 10,
+                        "contains_passage": 24,
+                        "attributed_to_source": 24,
+                        "located_in_book": 24,
+                        "located_in_chapter": 24,
+                        "doublet_parallel": 18
+                },
+                "doublets_count": 10,
+                "categories": [
+                        "cosmogony",
+                        "genealogy",
+                        "catastrophe",
+                        "deception",
+                        "covenant",
+                        "family_conflict",
+                        "prophetic_calling",
+                        "law",
+                        "wilderness_miracle",
+                        "wilderness_provision"
+                ]
+        }
+};
+        
+        // Initialize Cytoscape
+        document.addEventListener('DOMContentLoaded', function() {
+            // Register extensions
+            if (typeof cytoscapeDagre !== 'undefined') cytoscape.use(cytoscapeDagre);
+            if (typeof cytoscapeCoseBilkent !== 'undefined') cytoscape.use(cytoscapeCoseBilkent);
+            if (typeof cytoscapePanzoom !== 'undefined') cytoscape.use(cytoscapePanzoom);
+            
+            const cy = cytoscape({
+                container: document.getElementById('cy'),
+                elements: [
+                    ...networkData.nodes,
+                    ...networkData.edges
+                ],
+                style: [
+                    {
+                        selector: 'node',
+                        style: {
+                            'width': 'data(size)',
+                            'height': 'data(size)',
+                            'background-color': 'data(color)',
+                            'label': 'data(label)',
+                            'text-valign': 'center',
+                            'text-halign': 'center',
+                            'font-size': '10px',
+                            'font-weight': 'bold',
+                            'text-outline-width': 2,
+                            'text-outline-color': '#ffffff',
+                            'border-width': 'data(border_width)',
+                            'border-color': '#2c3e50',
+                            'border-opacity': 0.8
+                        }
+                    },
+                    {
+                        selector: 'node[type="doublet"]',
+                        style: {
+                            'shape': 'diamond',
+                            'font-size': '12px'
+                        }
+                    },
+                    {
+                        selector: 'node[type="passage"]',
+                        style: {
+                            'shape': 'ellipse',
+                            'font-size': '8px'
+                        }
+                    },
+                    {
+                        selector: 'node[type="source"]',
+                        style: {
+                            'shape': 'square'
+                        }
+                    },
+                    {
+                        selector: 'node[type="book"]',
+                        style: {
+                            'shape': 'hexagon',
+                            'font-size': '14px'
+                        }
+                    },
+                    {
+                        selector: 'node[type="category"]',
+                        style: {
+                            'shape': 'octagon'
+                        }
+                    },
+                    {
+                        selector: 'node[type="chapter"]',
+                        style: {
+                            'shape': 'triangle'
+                        }
+                    },
+                    {
+                        selector: 'edge',
+                        style: {
+                            'width': 2,
+                            'line-color': '#7f8c8d',
+                            'target-arrow-color': '#7f8c8d',
+                            'target-arrow-shape': 'triangle',
+                            'curve-style': 'bezier',
+                            'opacity': 0.7
+                        }
+                    },
+                    {
+                        selector: 'edge[relationship="doublet_parallel"]',
+                        style: {
+                            'line-style': 'dashed',
+                            'line-color': '#e74c3c',
+                            'width': 3,
+                            'opacity': 0.8
+                        }
+                    },
+                    {
+                        selector: 'node:selected',
+                        style: {
+                            'border-width': 4,
+                            'border-color': '#f39c12',
+                            'background-blacken': 0.1
+                        }
+                    },
+                    {
+                        selector: 'node.highlighted',
+                        style: {
+                            'border-width': 6,
+                            'border-color': '#e74c3c',
+                            'z-index': 999
+                        }
+                    },
+                    {
+                        selector: 'node.dimmed',
+                        style: {
+                            'opacity': 0.3
+                        }
+                    },
+                    {
+                        selector: 'edge.dimmed',
+                        style: {
+                            'opacity': 0.1
+                        }
+                    }
+                ],
+                layout: {
+                    name: 'cose-bilkent',
+                    nodeRepulsion: 8000,
+                    idealEdgeLength: 100,
+                    edgeElasticity: 0.1,
+                    nestingFactor: 0.1,
+                    gravity: 0.1,
+                    numIter: 2500,
+                    tile: true,
+                    animate: true,
+                    randomize: false
+                }
+            });
+            
+            // Add panzoom if available
+            if (cy.panzoom) {
+                cy.panzoom({
+                    zoomFactor: 0.05,
+                    zoomDelay: 45,
+                    minZoom: 0.1,
+                    maxZoom: 10,
+                    fitPadding: 50,
+                    panSpeed: 10,
+                    panDistance: 10,
+                    panDragAreaSize: 75,
+                    panMinPercentSpeed: 0.25,
+                    panMaxPercentSpeed: 2.0,
+                    panInactiveArea: 8,
+                    panIndicatorMinOpacity: 0.5,
+                    zoomOnly: false,
+                    fitSelector: undefined,
+                    animateOnFit: function() { return false; },
+                    fitAnimationDuration: 1000
+                });
+            }
+            
+            // Event handlers
+            cy.on('tap', 'node', function(evt) {
+                const node = evt.target;
+                const nodeInfo = document.getElementById('node-info');
+                const nodeTitle = document.getElementById('node-title');
+                const nodeDetails = document.getElementById('node-details');
+                
+                nodeTitle.textContent = node.data('label');
+                
+                let details = `<p><strong>Type:</strong> ${node.data('type')}</p>`;
+                
+                if (node.data('description')) {
+                    details += `<p><strong>Description:</strong> ${node.data('description')}</p>`;
+                }
+                
+                if (node.data('source')) {
+                    details += `<p><strong>Source:</strong> ${node.data('source')}</p>`;
+                }
+                
+                if (node.data('category')) {
+                    details += `<p><strong>Category:</strong> ${node.data('category')}</p>`;
+                }
+                
+                if (node.data('themes')) {
+                    details += `<p><strong>Themes:</strong> ${node.data('themes').join(', ')}</p>`;
+                }
+                
+                if (node.data('characteristics')) {
+                    details += `<p><strong>Characteristics:</strong> ${node.data('characteristics').join(', ')}</p>`;
+                }
+                
+                if (node.data('theological_differences')) {
+                    details += `<p><strong>Theological Differences:</strong></p><ul>`;
+                    node.data('theological_differences').forEach(diff => {
+                        details += `<li>${diff}</li>`;
+                    });
+                    details += `</ul>`;
+                }
+                
+                nodeDetails.innerHTML = details;
+                nodeInfo.style.display = 'block';
+                
+                // Highlight connected nodes
+                const connectedNodes = node.neighborhood().add(node);
+                cy.elements().addClass('dimmed');
+                connectedNodes.removeClass('dimmed').addClass('highlighted');
+            });
+            
+            cy.on('tap', function(evt) {
+                if (evt.target === cy) {
+                    document.getElementById('node-info').style.display = 'none';
+                    cy.elements().removeClass('dimmed highlighted');
+                }
+            });
+            
+            // Control handlers
+            document.getElementById('layout-select').addEventListener('change', function(e) {
+                const layoutName = e.target.value;
+                let layout;
+                
+                switch(layoutName) {
+                    case 'dagre':
+                        layout = { name: 'dagre', rankDir: 'TB', spacingFactor: 1.5 };
+                        break;
+                    case 'grid':
+                        layout = { name: 'grid', rows: 5 };
+                        break;
+                    case 'circle':
+                        layout = { name: 'circle' };
+                        break;
+                    case 'concentric':
+                        layout = { name: 'concentric', concentric: function(node) { return node.degree(); } };
+                        break;
+                    default:
+                        layout = { 
+                            name: 'cose-bilkent',
+                            nodeRepulsion: 8000,
+                            idealEdgeLength: 100,
+                            animate: true
+                        };
+                }
+                
+                cy.layout(layout).run();
+            });
+            
+            document.getElementById('category-filter').addEventListener('change', function(e) {
+                const category = e.target.value;
+                
+                if (category === 'all') {
+                    cy.elements().show();
+                } else {
+                    cy.elements().hide();
+                    cy.nodes(`[category="${category}"]`).show();
+                    cy.nodes(`[category="${category}"]`).neighborhood().show();
+                }
+            });
+            
+            document.getElementById('source-filter').addEventListener('change', function(e) {
+                const source = e.target.value;
+                
+                if (source === 'all') {
+                    cy.elements().show();
+                } else {
+                    cy.elements().hide();
+                    cy.nodes(`[source="${source}"]`).show();
+                    cy.nodes(`[source="${source}"]`).neighborhood().show();
+                }
+            });
+            
+            document.getElementById('reset-view').addEventListener('click', function() {
+                cy.elements().show().removeClass('dimmed highlighted');
+                cy.fit();
+                document.getElementById('node-info').style.display = 'none';
+            });
+            
+            document.getElementById('center-doublets').addEventListener('click', function() {
+                const doubletNodes = cy.nodes('[type="doublet"]');
+                cy.fit(doubletNodes, 50);
+            });
+            
+            document.getElementById('export-png').addEventListener('click', function() {
+                const png64 = cy.png({ scale: 2, full: true });
+                const link = document.createElement('a');
+                link.download = 'biblical_doublets_network.png';
+                link.href = png64;
+                link.click();
+            });
+            
+            document.getElementById('export-json').addEventListener('click', function() {
+                const data = JSON.stringify(networkData, null, 2);
+                const blob = new Blob([data], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.download = 'biblical_doublets_network.json';
+                link.href = url;
+                link.click();
+                URL.revokeObjectURL(url);
+            });
+            
+            document.getElementById('fullscreen').addEventListener('click', function() {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    document.documentElement.requestFullscreen();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

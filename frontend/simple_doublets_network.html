@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblical Doublets - Simple Network View</title>
+    
+    <style>
+        body {
+            font-family: 'Times New Roman', Georgia, serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f4f1e8 0%, #e8dcc6 100%);
+            min-height: 100vh;
+            color: #3e2723;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fefcf7;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(62, 39, 35, 0.15);
+            border: 1px solid #d7ccc8;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #5d4037;
+            margin-bottom: 30px;
+            font-weight: normal;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #8d6e63;
+            padding-bottom: 15px;
+        }
+        
+        .network-view {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .doublet-card {
+            border: 2px solid #8d6e63;
+            border-radius: 6px;
+            padding: 25px;
+            background: #f8f5f0;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(62, 39, 35, 0.1);
+        }
+        
+        .doublet-card::before {
+            content: "DOUBLET";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #8d6e63;
+            color: #fefcf7;
+            padding: 4px 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            border-radius: 3px;
+        }
+        
+        .doublet-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #5d4037;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            font-family: 'Times New Roman', Georgia, serif;
+        }
+        
+        .doublet-category {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .passages {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .passage {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-radius: 4px;
+            background: #fefcf7;
+            border-left: 4px solid #a1887f;
+            border: 1px solid #d7ccc8;
+        }
+        
+        .passage-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .passage-info {
+            flex: 1;
+        }
+        
+        .passage-ref {
+            font-weight: bold;
+            color: #5d4037;
+            font-family: 'Times New Roman', Georgia, serif;
+        }
+        
+        .passage-source {
+            font-size: 0.85em;
+            color: #6d4c41;
+            font-style: italic;
+        }
+        
+        .connections {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px dashed #bcaaa4;
+        }
+        
+        .connection-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #6d4c41;
+            font-style: italic;
+        }
+        
+        .stats {
+            background: #f3e5ab;
+            padding: 25px;
+            border-radius: 6px;
+            margin-top: 30px;
+            border: 1px solid #d4af37;
+        }
+        
+        .stats h3 {
+            margin: 0 0 15px 0;
+            color: #5d4037;
+            font-family: 'Times New Roman', Georgia, serif;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #fefcf7;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(62, 39, 35, 0.1);
+            border: 1px solid #d7ccc8;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #8d6e63;
+            font-family: 'Times New Roman', Georgia, serif;
+        }
+        
+        .legend {
+            background: #f8f5f0;
+            padding: 25px;
+            border-radius: 6px;
+            margin-top: 20px;
+            border: 1px solid #d7ccc8;
+        }
+        
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        /* Category colors - Biblical scholarly palette */
+        .cosmogony { background-color: #8d6e63; }
+        .genealogy { background-color: #a1887f; }
+        .catastrophe { background-color: #6d4c41; }
+        .deception { background-color: #795548; }
+        .covenant { background-color: #5d4037; }
+        .family_conflict { background-color: #4e342e; }
+        .prophetic_calling { background-color: #3e2723; }
+        .law { background-color: #d4af37; }
+        .wilderness_miracle { background-color: #cd853f; }
+        .wilderness_provision { background-color: #daa520; }
+        
+        /* Source colors - Documentary sources with scholarly browns */
+        .source-J { background-color: #8b4513; }
+        .source-E { background-color: #a0522d; }
+        .source-P { background-color: #d2691e; }
+        .source-D { background-color: #654321; }
+        .source-R { background-color: #8b7d6b; }
+        .source-JER { background-color: #696969; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biblical Doublets - Documentary Source Analysis</h1>
+        <p style="text-align: center; color: #6d4c41; margin-bottom: 30px; font-style: italic; font-size: 1.1em;">
+            Scholarly analysis of repeated passages in the Torah according to the Documentary Hypothesis
+        </p>
+        
+        <div class="network-view" id="network-container">
+            <!-- Network will be populated by JavaScript -->
+        </div>
+        
+        <div class="stats">
+            <h3>📊 Network Statistics</h3>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="total-doublets">10</div>
+                    <div>Total Doublets</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="total-passages">24</div>
+                    <div>Total Passages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="avg-passages">2.4</div>
+                    <div>Avg per Doublet</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div>Torah Books</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <h3>🎨 Color Legend</h3>
+            <h4>Categories:</h4>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-color cosmogony"></div>
+                    <span>Creation Stories</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color genealogy"></div>
+                    <span>Family Lineages</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color catastrophe"></div>
+                    <span>Divine Judgment</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color deception"></div>
+                    <span>Deception Stories</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color covenant"></div>
+                    <span>Covenant Accounts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color family_conflict"></div>
+                    <span>Family Tensions</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color prophetic_calling"></div>
+                    <span>Divine Calling</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color law"></div>
+                    <span>Legal Traditions</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color wilderness_miracle"></div>
+                    <span>Wilderness Miracles</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color wilderness_provision"></div>
+                    <span>Wilderness Provision</span>
+                </div>
+            </div>
+            
+            <h4 style="margin-top: 20px;">Documentary Sources:</h4>
+            <div class="legend-grid">
+                <div class="legend-item">
+                    <div class="legend-color source-J"></div>
+                    <span>Jahwist (J)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color source-E"></div>
+                    <span>Elohist (E)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color source-P"></div>
+                    <span>Priestly (P)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color source-D"></div>
+                    <span>Deuteronomist (D)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color source-R"></div>
+                    <span>Redactor (R)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Doublets data (embedded for offline use)
+        const doubletsData = {
+            "doublets": [
+                {
+                    "id": "creation_narratives",
+                    "name": "Creation Stories",
+                    "description": "Two different creation accounts in Genesis",
+                    "category": "cosmogony",
+                    "sources": ["P", "J"],
+                    "passages": [
+                        {
+                            "reference": "Genesis 1:1-2:3",
+                            "source": "P",
+                            "book": "Genesis"
+                        },
+                        {
+                            "reference": "Genesis 2:4b-25",
+                            "source": "J",
+                            "book": "Genesis"
+                        }
+                    ]
+                },
+                {
+                    "id": "genealogy_adam",
+                    "name": "Genealogy from Adam",
+                    "description": "Two genealogical accounts from Adam",
+                    "category": "genealogy",
+                    "sources": ["J", "P"],
+                    "passages": [
+                        {
+                            "reference": "Genesis 4:17-26",
+                            "source": "J",
+                            "book": "Genesis"
+                        },
+                        {
+                            "reference": "Genesis 5:1-28,30-32",
+                            "source": "P",
+                            "book": "Genesis"
+                        }
+                    ]
+                },
+                {
+                    "id": "flood_narrative",
+                    "name": "Flood Narrative",
+                    "description": "Two interwoven flood accounts",
+                    "category": "catastrophe",
+                    "sources": ["J", "P"],
+                    "passages": [
+                        {
+                            "reference": "Genesis 6:5-8; 7:1-5,7,10,12,16b-20,22-23; 8:2b-3a,6,8-12,13b,20-22",
+                            "source": "J",
+                            "book": "Genesis"
+                        },
+                        {
+                            "reference": "Genesis 6:9-22; 7:8-9,11,13-16a,21,24; 8:1-2a,3b-5,7,13a,14-19; 9:1-17",
+                            "source": "P",
+                            "book": "Genesis"
+                        }
+                    ]
+                },
+                {
+                    "id": "wife_sister_motif",
+                    "name": "Wife-Sister Motif",
+                    "description": "Three accounts of patriarch presenting wife as sister",
+                    "category": "deception",
+                    "sources": ["J", "E"],
+                    "passages": [
+                        {
+                            "reference": "Genesis 12:10-20",
+                            "source": "J",
+                            "book": "Genesis"
+                        },
+                        {
+                            "reference": "Genesis 20:1-18",
+                            "source": "E",
+                            "book": "Genesis"
+                        },
+                        {
+                            "reference": "Genesis 26:6-14",
+                            "source": "J",
+                            "book": "Genesis"
+                        }
+                    ]
+                },
+                {
+                    "id": "abrahamic_covenant",
+                    "name": "Abrahamic Covenant",
+                    "description": "Two major covenant accounts",
+                    "category": "covenant",
+                    "sources": ["J", "E", "R", "P"],
+                    "passages": [
+                        {
+                            "reference": "Genesis 15",
+                            "source": "J/E/R",
+                            "book": "Genesis"
+                        },
+                        {
+                            "reference": "Genesis 17",
+                            "source": "P",
+                            "book": "Genesis"
+                        }
+                    ]
+                },
+                {
+                    "id": "hagar_ishmael",
+                    "name": "Hagar and Ishmael",
+                    "description": "Multiple accounts of Hagar's experience",
+                    "category": "family_conflict",
+                    "sources": ["J", "P", "E"],
+                    "passages": [
+                        {
+                            "reference": "Genesis 16:1-2,4-14",
+                            "source": "J",
+                            "book": "Genesis"
+                        },
+                        {
+                            "reference": "Genesis 16:3,15-16",
+                            "source": "P",
+                            "book": "Genesis"
+                        },
+                        {
+                            "reference": "Genesis 21:8-19",
+                            "source": "E",
+                            "book": "Genesis"
+                        }
+                    ]
+                },
+                {
+                    "id": "moses_commissioning",
+                    "name": "Moses' Divine Commission",
+                    "description": "Multiple accounts of Moses' calling",
+                    "category": "prophetic_calling",
+                    "sources": ["J", "E", "P"],
+                    "passages": [
+                        {
+                            "reference": "Exodus 3:2-4a,5,7-8,19-22; 4:19-20a",
+                            "source": "J",
+                            "book": "Exodus"
+                        },
+                        {
+                            "reference": "Exodus 3:1,4b,6,9-18; 4:1-18,20b-21a,22-23",
+                            "source": "E",
+                            "book": "Exodus"
+                        },
+                        {
+                            "reference": "Exodus 6:2-12",
+                            "source": "P",
+                            "book": "Exodus"
+                        }
+                    ]
+                },
+                {
+                    "id": "ten_commandments",
+                    "name": "Ten Commandments",
+                    "description": "Multiple versions of the Decalogue",
+                    "category": "law",
+                    "sources": ["R", "J", "D"],
+                    "passages": [
+                        {
+                            "reference": "Exodus 20:1-17",
+                            "source": "R",
+                            "book": "Exodus"
+                        },
+                        {
+                            "reference": "Exodus 34:10-28",
+                            "source": "J",
+                            "book": "Exodus"
+                        },
+                        {
+                            "reference": "Deuteronomy 5:6-18",
+                            "source": "D",
+                            "book": "Deuteronomy"
+                        }
+                    ]
+                },
+                {
+                    "id": "water_from_rock",
+                    "name": "Water from Rock",
+                    "description": "Two accounts of Moses bringing water from rock",
+                    "category": "wilderness_miracle",
+                    "sources": ["E", "P"],
+                    "passages": [
+                        {
+                            "reference": "Exodus 17:2-7",
+                            "source": "E",
+                            "book": "Exodus"
+                        },
+                        {
+                            "reference": "Numbers 20:2-13",
+                            "source": "P",
+                            "book": "Numbers"
+                        }
+                    ]
+                },
+                {
+                    "id": "manna_quail",
+                    "name": "Manna and Quail Provision",
+                    "description": "Two accounts of wilderness food provision",
+                    "category": "wilderness_provision",
+                    "sources": ["P", "E"],
+                    "passages": [
+                        {
+                            "reference": "Exodus 16:2-3,6-35a",
+                            "source": "P",
+                            "book": "Exodus"
+                        },
+                        {
+                            "reference": "Numbers 11:4-34",
+                            "source": "E",
+                            "book": "Numbers"
+                        }
+                    ]
+                }
+            ]
+        };
+        
+        // Category descriptions
+        const categoryDescriptions = {
+            "cosmogony": "Creation and origin stories",
+            "genealogy": "Family lineages and ancestral records",
+            "catastrophe": "Divine judgment and natural disasters",
+            "deception": "Stories involving deception or misdirection",
+            "covenant": "Divine covenant making and renewal",
+            "family_conflict": "Domestic and family tensions",
+            "prophetic_calling": "Divine calling of leaders and prophets",
+            "law": "Legal and commandment traditions",
+            "wilderness_miracle": "Miraculous provisions in the wilderness",
+            "wilderness_provision": "God's provision during wilderness wandering"
+        };
+        
+        // Source color mapping
+        const sourceColors = {
+            "J": "source-J",
+            "E": "source-E",
+            "P": "source-P",
+            "D": "source-D",
+            "R": "source-R",
+            "J/E/R": "source-JER"
+        };
+        
+        // Generate the network view
+        function generateNetworkView() {
+            const container = document.getElementById('network-container');
+            
+            doubletsData.doublets.forEach(doublet => {
+                const card = document.createElement('div');
+                card.className = 'doublet-card';
+                
+                card.innerHTML = `
+                    <div class="doublet-title">${doublet.name}</div>
+                    <div class="doublet-category ${doublet.category}">
+                        ${categoryDescriptions[doublet.category]}
+                    </div>
+                    <div class="passages">
+                        ${doublet.passages.map((passage, index) => `
+                            <div class="passage">
+                                <div class="passage-circle ${sourceColors[passage.source] || 'source-J'}">
+                                    ${passage.source}
+                                </div>
+                                <div class="passage-info">
+                                    <div class="passage-ref">${passage.reference}</div>
+                                    <div class="passage-source">${passage.book} • Source ${passage.source}</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="connections">
+                        <div class="connection-line">
+                            ↔ ${doublet.passages.length} parallel passages
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            generateNetworkView();
+        });
+    </script>
+</body>
+</html>

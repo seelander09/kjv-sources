@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblical Doublets - Side-by-Side Comparison</title>
+    
+    <style>
+        body {
+            font-family: 'Times New Roman', Georgia, serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f4f1e8 0%, #e8dcc6 100%);
+            min-height: 100vh;
+            color: #3e2723;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #fefcf7;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(62, 39, 35, 0.15);
+            border: 1px solid #d7ccc8;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #5d4037;
+            margin-bottom: 15px;
+            font-weight: normal;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #8d6e63;
+            padding-bottom: 15px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #6d4c41;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+        
+        .doublet-section {
+            margin-bottom: 50px;
+            border: 2px solid #8d6e63;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .doublet-header {
+            background: #8d6e63;
+            color: #fefcf7;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .doublet-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+        }
+        
+        .doublet-description {
+            font-size: 1em;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .passages-container {
+            display: flex;
+            min-height: 400px;
+        }
+        
+        .passage-column {
+            flex: 1;
+            padding: 25px;
+            border-right: 2px solid #d7ccc8;
+            background: #fefcf7;
+        }
+        
+        .passage-column:last-child {
+            border-right: none;
+        }
+        
+        .passage-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #bcaaa4;
+        }
+        
+        .source-badge {
+            padding: 6px 12px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-right: 15px;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .source-J { background-color: #8b4513; }
+        .source-E { background-color: #a0522d; }
+        .source-P { background-color: #d2691e; }
+        .source-D { background-color: #654321; }
+        .source-R { background-color: #8b7d6b; }
+        .source-JER { background-color: #696969; }
+        
+        .passage-reference {
+            font-weight: bold;
+            color: #5d4037;
+            font-size: 1.1em;
+        }
+        
+        .passage-text {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #3e2723;
+            text-align: justify;
+            font-family: 'Times New Roman', Georgia, serif;
+            background: #f8f5f0;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #a1887f;
+            margin-bottom: 15px;
+        }
+        
+        .verse-number {
+            font-weight: bold;
+            color: #8d6e63;
+            font-size: 0.9em;
+            vertical-align: super;
+            margin-right: 4px;
+        }
+        
+        .theological-differences {
+            background: #f3e5ab;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #d4af37;
+            margin-top: 20px;
+        }
+        
+        .theological-differences h4 {
+            margin: 0 0 15px 0;
+            color: #5d4037;
+            font-size: 1.1em;
+        }
+        
+        .theological-differences ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .theological-differences li {
+            margin-bottom: 8px;
+            color: #6d4c41;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .overview-card {
+            border: 1px solid #d7ccc8;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: #8d6e63;
+            color: #fefcf7;
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .card-content {
+            padding: 20px;
+            background: #fefcf7;
+        }
+        
+        .quick-ref {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px dashed #bcaaa4;
+            font-size: 0.95em;
+        }
+        
+        .quick-ref:last-child {
+            border-bottom: none;
+        }
+        
+        .ref-title {
+            font-weight: bold;
+            color: #5d4037;
+        }
+        
+        .ref-sources {
+            color: #6d4c41;
+            font-style: italic;
+        }
+        
+        .navigation {
+            position: sticky;
+            top: 20px;
+            background: #f8f5f0;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #d7ccc8;
+            margin-bottom: 30px;
+        }
+        
+        .nav-title {
+            font-weight: bold;
+            color: #5d4037;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            background: #8d6e63;
+            color: #fefcf7;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+        
+        .nav-link:hover {
+            background: #6d4c41;
+        }
+        
+        @media (max-width: 768px) {
+            .passages-container {
+                flex-direction: column;
+            }
+            
+            .passage-column {
+                border-right: none;
+                border-bottom: 2px solid #d7ccc8;
+            }
+            
+            .passage-column:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biblical Doublets - Side-by-Side Text Comparison</h1>
+        <p class="subtitle">Parallel passages showing Documentary Hypothesis variations with actual biblical text</p>
+        
+        <div class="navigation">
+            <div class="nav-title">Quick Navigation</div>
+            <div class="nav-links">
+                <a href="#creation_narratives" class="nav-link">Creation Stories</a>
+                <a href="#flood_narrative" class="nav-link">Flood Account</a>
+                <a href="#wife_sister_motif" class="nav-link">Wife-Sister</a>
+                <a href="#abrahamic_covenant" class="nav-link">Covenant</a>
+                <a href="#moses_commissioning" class="nav-link">Moses' Call</a>
+                <a href="#ten_commandments" class="nav-link">Ten Commandments</a>
+            </div>
+        </div>
+        
+        <div class="overview-grid">
+            <div class="overview-card">
+                <div class="card-header">📚 All Doublets Overview</div>
+                <div class="card-content" id="overview-list">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="overview-card">
+                <div class="card-header">📊 Source Distribution</div>
+                <div class="card-content">
+                    <div class="quick-ref">
+                        <span class="ref-title">Jahwist (J):</span>
+                        <span class="ref-sources">8 passages</span>
+                    </div>
+                    <div class="quick-ref">
+                        <span class="ref-title">Priestly (P):</span>
+                        <span class="ref-sources">8 passages</span>
+                    </div>
+                    <div class="quick-ref">
+                        <span class="ref-title">Elohist (E):</span>
+                        <span class="ref-sources">5 passages</span>
+                    </div>
+                    <div class="quick-ref">
+                        <span class="ref-title">Redactor (R):</span>
+                        <span class="ref-sources">1 passage</span>
+                    </div>
+                    <div class="quick-ref">
+                        <span class="ref-title">Deuteronomist (D):</span>
+                        <span class="ref-sources">1 passage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Creation Narratives -->
+        <div class="doublet-section" id="creation_narratives">
+            <div class="doublet-header">
+                <div class="doublet-title">Creation Stories</div>
+                <div class="doublet-description">Two different creation accounts in Genesis</div>
+            </div>
+            <div class="passages-container">
+                <div class="passage-column">
+                    <div class="passage-header">
+                        <div class="source-badge source-P">P</div>
+                        <div class="passage-reference">Genesis 1:1-2:3 (Priestly)</div>
+                    </div>
+                    <div class="passage-text">
+                        <span class="verse-number">1</span>In the beginning God created the heaven and the earth. <span class="verse-number">2</span>And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters. <span class="verse-number">3</span>And God said, Let there be light: and there was light. <span class="verse-number">4</span>And God saw the light, that it was good: and God divided the light from the darkness. <span class="verse-number">5</span>And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day...
+                        <br><br>
+                        <em>[Systematic creation over seven days, emphasizing divine command and order. God creates through speaking. Culminates in Sabbath rest.]</em>
+                    </div>
+                </div>
+                <div class="passage-column">
+                    <div class="passage-header">
+                        <div class="source-badge source-J">J</div>
+                        <div class="passage-reference">Genesis 2:4b-25 (Jahwist)</div>
+                    </div>
+                    <div class="passage-text">
+                        <span class="verse-number">4b</span>In the day that the LORD God made the earth and the heavens, <span class="verse-number">5</span>And every plant of the field before it was in the earth, and every herb of the field before it grew: for the LORD God had not caused it to rain upon the earth, and there was not a man to till the ground. <span class="verse-number">7</span>And the LORD God formed man of the dust of the ground, and breathed into his nostrils the breath of life; and man became a living soul...
+                        <br><br>
+                        <em>[Anthropomorphic account focusing on human creation. God forms with hands, plants a garden, creates woman from man's rib. More narrative and personal.]</em>
+                    </div>
+                </div>
+            </div>
+            <div class="theological-differences">
+                <h4>Key Theological Differences:</h4>
+                <ul>
+                    <li><strong>Divine Name:</strong> Elohim (God) vs. Yahweh Elohim (LORD God)</li>
+                    <li><strong>Creation Order:</strong> Cosmos first vs. humans first</li>
+                    <li><strong>Divine Method:</strong> Word/command vs. hands-on formation</li>
+                    <li><strong>Human Creation:</strong> Image of God vs. dust of the ground</li>
+                    <li><strong>Structure:</strong> Seven-day framework vs. single day narrative</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Flood Narrative -->
+        <div class="doublet-section" id="flood_narrative">
+            <div class="doublet-header">
+                <div class="doublet-title">Flood Narrative</div>
+                <div class="doublet-description">Two interwoven flood accounts</div>
+            </div>
+            <div class="passages-container">
+                <div class="passage-column">
+                    <div class="passage-header">
+                        <div class="source-badge source-J">J</div>
+                        <div class="passage-reference">Genesis 6:5-8; 7:1-5,7,10,12,16b-20,22-23 (Jahwist)</div>
+                    </div>
+                    <div class="passage-text">
+                        <span class="verse-number">6:5</span>And GOD saw that the wickedness of man was great in the earth, and that every imagination of the thoughts of his heart was only evil continually. <span class="verse-number">7</span>And the LORD said, I will destroy man whom I have created from the face of the earth; both man, and beast, and the creeping thing, and the fowls of the air; for it repenteth me that I have made them...
+                        <br><br>
+                        <span class="verse-number">7:1</span>And the LORD said unto Noah, Come thou and all thy house into the ark; for thee have I seen righteous before me in this generation. <span class="verse-number">2</span>Of every clean beast thou shalt take to thee by sevens, the male and his female: and of beasts that are not clean by two, the male and his female...
+                        <br><br>
+                        <em>[40 days of rain, clean/unclean animals, anthropomorphic God who "repents"]</em>
+                    </div>
+                </div>
+                <div class="passage-column">
+                    <div class="passage-header">
+                        <div class="source-badge source-P">P</div>
+                        <div class="passage-reference">Genesis 6:9-22; 7:8-9,11,13-16a,21,24 (Priestly)</div>
+                    </div>
+                    <div class="passage-text">
+                        <span class="verse-number">6:9</span>These are the generations of Noah: Noah was a just man and perfect in his generations, and Noah walked with God. <span class="verse-number">11</span>The earth also was corrupt before God, and the earth was filled with violence. <span class="verse-number">13</span>And God said unto Noah, The end of all flesh is come before me; for the earth is filled with violence through them; and, behold, I will destroy them with the earth...
+                        <br><br>
+                        <span class="verse-number">7:11</span>In the six hundredth year of Noah's life, in the second month, the seventeenth day of the month, the same day were all the fountains of the great deep broken up, and the windows of heaven were opened...
+                        <br><br>
+                        <em>[Precise chronology, ark specifications, covenant emphasis, systematic dates]</em>
+                    </div>
+                </div>
+            </div>
+            <div class="theological-differences">
+                <h4>Key Theological Differences:</h4>
+                <ul>
+                    <li><strong>Animal Numbers:</strong> 7 pairs clean, 2 unclean (J) vs. 2 of each kind (P)</li>
+                    <li><strong>Duration:</strong> 40 days of rain (J) vs. precise 1-year chronology (P)</li>
+                    <li><strong>Divine Character:</strong> Emotional, regretful God (J) vs. transcendent, systematic God (P)</li>
+                    <li><strong>Focus:</strong> Moral corruption (J) vs. systematic destruction and renewal (P)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Wife-Sister Motif -->
+        <div class="doublet-section" id="wife_sister_motif">
+            <div class="doublet-header">
+                <div class="doublet-title">Wife-Sister Motif</div>
+                <div class="doublet-description">Three accounts of patriarch presenting wife as sister</div>
+            </div>
+            <div class="passages-container">
+                <div class="passage-column">
+                    <div class="passage-header">
+                        <div class="source-badge source-J">J</div>
+                        <div class="passage-reference">Genesis 12:10-20 (Abraham/Sarah in Egypt)</div>
+                    </div>
+                    <div class="passage-text">
+                        <span class="verse-number">10</span>And there was a famine in the land: and Abram went down into Egypt to sojourn there; for the famine was grievous in the land. <span class="verse-number">11</span>And it came to pass, when he was come near to enter into Egypt, that he said unto Sarai his wife, Behold now, I know that thou art a fair woman to look upon: <span class="verse-number">12</span>Therefore it shall come to pass, when the Egyptians shall see thee, that they shall say, This is his wife: and they will kill me, but they will save thee alive. <span class="verse-number">13</span>Say, I pray thee, thou art my sister: that it may be well with me for thy sake; and my soul shall live because of thee...
+                        <br><br>
+                        <em>[Pharaoh takes Sarah, plagues follow, Abraham expelled with gifts]</em>
+                    </div>
+                </div>
+                <div class="passage-column">
+                    <div class="passage-header">
+                        <div class="source-badge source-E">E</div>
+                        <div class="passage-reference">Genesis 20:1-18 (Abraham/Sarah with Abimelech)</div>
+                    </div>
+                    <div class="passage-text">
+                        <span class="verse-number">1</span>And Abraham journeyed from thence toward the south country, and dwelled between Kadesh and Shur, and sojourned in Gerar. <span class="verse-number">2</span>And Abraham said of Sarah his wife, She is my sister: and Abimelech king of Gerar sent, and took Sarah. <span class="verse-number">3</span>But God came to Abimelech in a dream by night, and said to him, Behold, thou art but a dead man, for the woman which thou hast taken; for she is a man's wife...
+                        <br><br>
+                        <em>[Divine warning through dreams, Abimelech's innocence emphasized, resolution through communication]</em>
+                    </div>
+                </div>
+            </div>
+            <div class="passages-container">
+                <div class="passage-column">
+                    <div class="passage-header">
+                        <div class="source-badge source-J">J</div>
+                        <div class="passage-reference">Genesis 26:6-14 (Isaac/Rebekah)</div>
+                    </div>
+                    <div class="passage-text">
+                        <span class="verse-number">6</span>And Isaac dwelt in Gerar: <span class="verse-number">7</span>And the men of the place asked him of his wife; and he said, She is my sister: for he feared to say, She is my wife; lest, said he, the men of the place should kill me for Rebekah; because she was fair to look upon. <span class="verse-number">8</span>And it came to pass, when he had been there a long time, that Abimelech king of the Philistines looked out at a window, and saw, and, behold, Isaac was sporting with Rebekah his wife. <span class="verse-number">9</span>And Abimelech called Isaac, and said, Behold, of a surety she is thy wife: and how saidst thou, She is my sister?...
+                        <br><br>
+                        <em>[Discovery through observation, peaceful resolution, agricultural prosperity follows]</em>
+                    </div>
+                </div>
+                <div class="passage-column" style="background: #f8f5f0; display: flex; align-items: center; justify-content: center; font-style: italic; color: #8d6e63;">
+                    <div>
+                        Three variations of the same narrative pattern:<br>
+                        • Different patriarchs (Abraham vs Isaac)<br>
+                        • Different locations (Egypt vs Gerar)<br>
+                        • Different discovery methods<br>
+                        • Different outcomes<br><br>
+                        Shows oral tradition variants preserved in different source documents.
+                    </div>
+                </div>
+            </div>
+            <div class="theological-differences">
+                <h4>Variations Across the Accounts:</h4>
+                <ul>
+                    <li><strong>Patriarch:</strong> Abraham (twice) vs. Isaac</li>
+                    <li><strong>Location:</strong> Egypt vs. Gerar (Philistines)</li>
+                    <li><strong>Discovery Method:</strong> Divine plagues vs. divine dreams vs. direct observation</li>
+                    <li><strong>Resolution:</strong> Expulsion vs. negotiation vs. peaceful coexistence</li>
+                    <li><strong>Divine Intervention:</strong> Punishment vs. warning vs. minimal</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="doublet-section" id="ten_commandments">
+            <div class="doublet-header">
+                <div class="doublet-title">Ten Commandments</div>
+                <div class="doublet-description">Multiple versions of the Decalogue</div>
+            </div>
+            <div class="passages-container">
+                <div class="passage-column">
+                    <div class="passage-header">
+                        <div class="source-badge source-R">R</div>
+                        <div class="passage-reference">Exodus 20:1-17 (Ethical Decalogue)</div>
+                    </div>
+                    <div class="passage-text">
+                        <span class="verse-number">1</span>And God spake all these words, saying, <span class="verse-number">2</span>I am the LORD thy God, which have brought thee out of the land of Egypt, out of the house of bondage. <span class="verse-number">3</span>Thou shalt have no other gods before me. <span class="verse-number">4</span>Thou shalt not make unto thee any graven image... <span class="verse-number">8</span>Remember the sabbath day, to keep it holy... <span class="verse-number">13</span>Thou shalt not kill. <span class="verse-number">14</span>Thou shalt not commit adultery. <span class="verse-number">15</span>Thou shalt not steal. <span class="verse-number">16</span>Thou shalt not bear false witness...
+                        <br><br>
+                        <em>[Universal moral principles, emphasis on ethical behavior]</em>
+                    </div>
+                </div>
+                <div class="passage-column">
+                    <div class="passage-header">
+                        <div class="source-badge source-D">D</div>
+                        <div class="passage-reference">Deuteronomy 5:6-18 (Deuteronomic Version)</div>
+                    </div>
+                    <div class="passage-text">
+                        <span class="verse-number">6</span>I am the LORD thy God, which brought thee out of the land of Egypt, from the house of bondage. <span class="verse-number">7</span>Thou shalt have none other gods before me. <span class="verse-number">8</span>Thou shalt not make thee any graven image... <span class="verse-number">12</span>Keep the sabbath day to sanctify it, as the LORD thy God hath commanded thee... <span class="verse-number">17</span>Thou shalt not kill. <span class="verse-number">18</span>Neither shalt thou commit adultery...
+                        <br><br>
+                        <em>[Similar content but with Deuteronomic expansions and explanations, sabbath reasoning differs (creation vs. Egyptian bondage)]</em>
+                    </div>
+                </div>
+            </div>
+            <div class="theological-differences">
+                <h4>Key Differences:</h4>
+                <ul>
+                    <li><strong>Sabbath Rationale:</strong> Creation rest (Exodus) vs. remembering slavery (Deuteronomy)</li>
+                    <li><strong>Style:</strong> Concise commands vs. expanded explanations</li>
+                    <li><strong>Context:</strong> Sinai revelation vs. Plains of Moab review</li>
+                    <li><strong>Emphasis:</strong> Universal principles vs. covenant renewal</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        // Populate overview list
+        document.addEventListener('DOMContentLoaded', function() {
+            const overviewList = document.getElementById('overview-list');
+            const doublets = [
+                { name: "Creation Stories", sources: "P, J", ref: "#creation_narratives" },
+                { name: "Genealogy from Adam", sources: "J, P", ref: "#genealogy_adam" },
+                { name: "Flood Narrative", sources: "J, P", ref: "#flood_narrative" },
+                { name: "Wife-Sister Motif", sources: "J, E", ref: "#wife_sister_motif" },
+                { name: "Abrahamic Covenant", sources: "J/E/R, P", ref: "#abrahamic_covenant" },
+                { name: "Hagar and Ishmael", sources: "J, P, E", ref: "#hagar_ishmael" },
+                { name: "Moses' Divine Commission", sources: "J, E, P", ref: "#moses_commissioning" },
+                { name: "Ten Commandments", sources: "R, J, D", ref: "#ten_commandments" },
+                { name: "Water from Rock", sources: "E, P", ref: "#water_from_rock" },
+                { name: "Manna and Quail", sources: "P, E", ref: "#manna_quail" }
+            ];
+            
+            doublets.forEach(doublet => {
+                const quickRef = document.createElement('div');
+                quickRef.className = 'quick-ref';
+                quickRef.innerHTML = `
+                    <span class="ref-title">${doublet.name}:</span>
+                    <span class="ref-sources">${doublet.sources}</span>
+                `;
+                if (doublet.ref !== '#genealogy_adam' && doublet.ref !== '#abrahamic_covenant' && 
+                    doublet.ref !== '#hagar_ishmael' && doublet.ref !== '#water_from_rock' && 
+                    doublet.ref !== '#manna_quail') {
+                    quickRef.style.cursor = 'pointer';
+                    quickRef.onclick = () => document.querySelector(doublet.ref)?.scrollIntoView({ behavior: 'smooth' });
+                }
+                overviewList.appendChild(quickRef);
+            });
+        });
+    </script>
+</body>
+</html>
